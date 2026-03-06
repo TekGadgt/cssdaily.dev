@@ -21,22 +21,15 @@ STRICT CONSTRAINTS:
 - Body background is always #f5f5f5 (set by environment)
 - Focus on: flexbox, grid, spacing, borders, border-radius, typography (font-size, font-weight, line-height)
 
-OUTPUT FORMAT (JSON):
-{
-  "title": "Challenge Name",
-  "difficulty": "easy|medium|hard",
-  "target": {
-    "html": "<div>...</div>",
-    "css": ":root { --primary: #xxx; } .class { ... }"
-  },
-  "starter": {
-    "html": "<div>...</div>",
-    "css": ":root { --primary: #xxx; }\\n.class { }\\n..."
-  }
-}
+OUTPUT FORMAT — use these exact XML tags (no JSON, no code fences):
 
-The starter HTML must be IDENTICAL to target HTML.
-The starter CSS must include the same :root block with ALL variables, plus empty selector stubs for each class used.
+<title>Challenge Name</title>
+<difficulty>easy|medium|hard</difficulty>
+<html>The HTML markup (shared by target and starter)</html>
+<targetcss>The complete target CSS with all properties</targetcss>
+<startercss>The starter CSS: same :root block with all variables, plus empty selector stubs</startercss>
+
+The starter CSS must include the same :root block with ALL variables, plus empty selector stubs for each class/element used in the target CSS.
 Generate creative, visually interesting components like cards, badges, buttons, navbars, pricing tables, etc.`;
 
 async function generateChallenge(date: string) {
@@ -44,7 +37,7 @@ async function generateChallenge(date: string) {
 
   const message = await client.messages.create({
     model: 'claude-sonnet-4-6',
-    max_tokens: 2000,
+    max_tokens: 4000,
     messages: [
       {
         role: 'user',
@@ -54,17 +47,29 @@ async function generateChallenge(date: string) {
     system: SYSTEM_PROMPT,
   });
 
-  let text = (message.content[0] as { type: 'text'; text: string }).text;
+  const text = (message.content[0] as { type: 'text'; text: string }).text;
 
-  // Strip markdown code fences if present
-  const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/);
-  if (jsonMatch) {
-    text = jsonMatch[1].trim();
-  }
+  // Extract fields from XML tags
+  const extract = (tag: string): string => {
+    const match = text.match(new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`));
+    if (!match) throw new Error(`Missing <${tag}> in response:\n${text.substring(0, 500)}`);
+    return match[1].trim();
+  };
 
-  const challenge = JSON.parse(text);
-  challenge.date = date;
-  challenge.timeLimit = challenge.difficulty === 'easy' ? 300 : challenge.difficulty === 'hard' ? 900 : 600;
+  const title = extract('title');
+  const difficulty = extract('difficulty') as 'easy' | 'medium' | 'hard';
+  const html = extract('html');
+  const targetCss = extract('targetcss');
+  const starterCss = extract('startercss');
+
+  const challenge = {
+    title,
+    difficulty,
+    target: { html, css: targetCss },
+    starter: { html, css: starterCss },
+    date,
+    timeLimit: difficulty === 'easy' ? 300 : difficulty === 'hard' ? 900 : 600,
+  };
 
   // Save JSON
   fs.mkdirSync(CHALLENGES_DIR, { recursive: true });
