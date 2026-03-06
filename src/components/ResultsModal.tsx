@@ -48,7 +48,7 @@ export default function ResultsModal({ isOpen, date, score, timeSpent, heatmapCa
   else if (score >= 50) scoreColor = 'text-yellow-400';
 
   const handleShare = async () => {
-    const text = generateShareText(date, score, timeSpent, heatmapCanvas);
+    const text = generateShareText(date, score, timeSpent);
     const success = await copyToClipboard(text);
     if (success) {
       setCopied(true);
