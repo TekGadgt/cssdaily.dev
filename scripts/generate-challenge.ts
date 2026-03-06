@@ -108,4 +108,7 @@ const date = process.argv[2] || (() => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 })();
 
-generateChallenge(date).catch(console.error);
+generateChallenge(date).then(() => {
+  // Write date to stdout for CI to capture
+  console.log(`CHALLENGE_DATE=${date}`);
+}).catch(console.error);

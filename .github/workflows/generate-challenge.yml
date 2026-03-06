@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pages: write
+      id-token: write
     steps:
       - uses: actions/checkout@v4
 
@@ -22,13 +24,39 @@ jobs:
         run: npx playwright install chromium --with-deps
 
       - name: Generate challenge
+        id: generate
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: npx tsx scripts/generate-challenge.ts
+        run: |
+          OUTPUT=$(npx tsx scripts/generate-challenge.ts)
+          echo "$OUTPUT"
+          CHALLENGE_DATE=$(echo "$OUTPUT" | grep '^CHALLENGE_DATE=' | cut -d= -f2)
+          echo "date=$CHALLENGE_DATE" >> "$GITHUB_OUTPUT"
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/data/challenges/ public/targets/
-          git diff --cached --quiet || (git commit -m "Add daily challenge for $(date +%Y-%m-%d)" && git push)
+          git diff --cached --quiet || (git commit -m "Add daily challenge for ${{ steps.generate.outputs.date }}" && git push)
+
+      - name: Build Astro site
+        run: |
+          git pull
+          npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: generate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
