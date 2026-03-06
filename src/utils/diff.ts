@@ -166,9 +166,16 @@ export async function compareToTarget(
     }
   }
 
-  const score = effectivePixels > 0
-    ? Math.max(0, Math.min(100, Math.round((1 - totalDiff / effectivePixels) * 100)))
+  // Raw linear score
+  const rawScore = effectivePixels > 0
+    ? Math.max(0, Math.min(1, 1 - totalDiff / effectivePixels))
     : 0;
+
+  // Apply power curve (exponent 3) to combat whitespace inflation.
+  // Getting the basic shape right (~90% raw) yields ~73% displayed.
+  // Actual content styling is needed to push past 80%.
+  const SCORE_EXPONENT = 3;
+  const score = Math.round(Math.pow(rawScore, SCORE_EXPONENT) * 100);
 
   // Generate heatmap canvas for visualization
   const heatmapCanvas = document.createElement('canvas');
