@@ -15,9 +15,10 @@ type TargetTab = 'target' | 'overlay' | 'diff';
 
 interface ChallengePlayerProps {
   challenge: Challenge;
+  allDates: string[];
 }
 
-export default function ChallengePlayer({ challenge }: ChallengePlayerProps) {
+export default function ChallengePlayer({ challenge, allDates }: ChallengePlayerProps) {
   const [userCss, setUserCss] = useState(challenge.starter.css);
   const userCssRef = useRef(challenge.starter.css);
   const [phase, setPhase] = useState<Phase>('idle');
@@ -128,8 +129,10 @@ export default function ChallengePlayer({ challenge }: ChallengePlayerProps) {
     }
   }, [targetTab, diffResult]);
 
-  const prevDate = adjacentDate(challenge.date, -1);
-  const nextDate = adjacentDate(challenge.date, 1);
+  const sortedDates = [...allDates].sort();
+  const currentIdx = sortedDates.indexOf(challenge.date);
+  const prevDate = currentIdx > 0 ? sortedDates[currentIdx - 1] : null;
+  const nextDate = currentIdx < sortedDates.length - 1 ? sortedDates[currentIdx + 1] : null;
   const displayScore = phase === 'finished' ? submittedScore : score;
 
   return (
@@ -140,9 +143,17 @@ export default function ChallengePlayer({ challenge }: ChallengePlayerProps) {
           <div className="flex items-center gap-4">
             <a href="/" className="text-xl font-bold text-blue-400">CSS Daily</a>
             <div className="flex items-center gap-2 text-sm text-gray-400">
-              <a href={`/challenge/${prevDate}`} className="hover:text-white">&larr;</a>
+              {prevDate ? (
+                <a href={`/challenge/${prevDate}`} className="hover:text-white">&larr;</a>
+              ) : (
+                <span className="text-gray-600">&larr;</span>
+              )}
               <span>{formatDate(challenge.date, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-              <a href={`/challenge/${nextDate}`} className="hover:text-white">&rarr;</a>
+              {nextDate ? (
+                <a href={`/challenge/${nextDate}`} className="hover:text-white">&rarr;</a>
+              ) : (
+                <span className="text-gray-600">&rarr;</span>
+              )}
             </div>
           </div>
 
@@ -194,7 +205,7 @@ export default function ChallengePlayer({ challenge }: ChallengePlayerProps) {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto p-4 flex flex-col" style={{ height: 'calc(100vh - 57px)' }}>
         {/* Preview panels */}
-        <div className="grid grid-cols-2 gap-4 mb-4 flex-shrink-0">
+        <div className="flex justify-between mb-4 flex-shrink-0">
           {/* User Preview */}
           <div>
             <div className="flex items-center h-8 mb-2">

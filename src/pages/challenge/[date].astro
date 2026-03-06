@@ -4,14 +4,17 @@ import ChallengePlayer from '../../components/ChallengePlayer.tsx';
 
 export async function getStaticPaths() {
   const challengeFiles = import.meta.glob('../../data/challenges/*.json', { eager: true });
-  return Object.values(challengeFiles).map((mod: any) => ({
-    params: { date: mod.default?.date || mod.date },
-    props: { challenge: mod.default || mod },
+  const challenges = Object.values(challengeFiles).map((mod: any) => mod.default || mod);
+  const allDates = challenges.map((c: any) => c.date).sort();
+
+  return challenges.map((challenge: any) => ({
+    params: { date: challenge.date },
+    props: { challenge, allDates },
   }));
 }
 
-const { challenge } = Astro.props;
+const { challenge, allDates } = Astro.props;
 ---
 <Layout title={`${challenge.title} - CSS Daily`}>
-  <ChallengePlayer client:load challenge={challenge} />
+  <ChallengePlayer client:load challenge={challenge} allDates={allDates} />
 </Layout>

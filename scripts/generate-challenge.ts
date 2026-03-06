@@ -89,9 +89,10 @@ async function generateTargetPng(challenge: any) {
   await browser.close();
 }
 
-// CLI
+// CLI — defaults to tomorrow's date so the cron generates ahead of time
 const date = process.argv[2] || (() => {
   const d = new Date();
+  d.setDate(d.getDate() + 1);
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 })();
 
