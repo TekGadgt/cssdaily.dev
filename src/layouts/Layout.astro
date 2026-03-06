@@ -1,0 +1,19 @@
+---
+interface Props {
+  title?: string;
+}
+const { title = 'CSS Daily - A Daily CSS Challenge' } = Astro.props;
+---
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A daily CSS challenge - like Wordle, but for CSS!" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-gray-900">
+    <slot />
+  </body>
+</html>

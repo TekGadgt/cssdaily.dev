@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ChallengePlayer from '../../components/ChallengePlayer.tsx';
+
+export async function getStaticPaths() {
+  const challengeFiles = import.meta.glob('../../data/challenges/*.json', { eager: true });
+  return Object.values(challengeFiles).map((mod: any) => ({
+    params: { date: mod.default?.date || mod.date },
+    props: { challenge: mod.default || mod },
+  }));
+}
+
+const { challenge } = Astro.props;
+---
+<Layout title={`${challenge.title} - CSS Daily`}>
+  <ChallengePlayer client:load challenge={challenge} />
+</Layout>

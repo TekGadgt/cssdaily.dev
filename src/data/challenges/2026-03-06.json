@@ -1,0 +1,14 @@
+{
+  "date": "2026-03-06",
+  "title": "Pricing Card",
+  "difficulty": "medium",
+  "timeLimit": 600,
+  "target": {
+    "html": "<div class=\"card\">\n  <div class=\"card-header\">\n    <span class=\"plan\">Pro Plan</span>\n    <div class=\"price\">$29<span class=\"period\">/mo</span></div>\n  </div>\n  <ul class=\"features\">\n    <li>Unlimited projects</li>\n    <li>Priority support</li>\n    <li>Custom domain</li>\n    <li>Analytics dashboard</li>\n  </ul>\n  <button class=\"cta\">Get Started</button>\n</div>",
+    "css": ":root {\n  --bg-card: #ffffff;\n  --text-primary: #1a1a2e;\n  --text-secondary: #6b7280;\n  --accent: #6366f1;\n  --accent-hover: #4f46e5;\n  --border: #e5e7eb;\n  --feature-dot: #6366f1;\n}\n\n.card {\n  width: 280px;\n  background: var(--bg-card);\n  border-radius: 16px;\n  border: 2px solid var(--border);\n  padding: 24px;\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n\n.card-header {\n  text-align: center;\n}\n\n.plan {\n  font-size: 14px;\n  font-weight: 600;\n  color: var(--accent);\n  text-transform: uppercase;\n  letter-spacing: 1px;\n}\n\n.price {\n  font-size: 48px;\n  font-weight: 700;\n  color: var(--text-primary);\n  line-height: 1.2;\n  margin-top: 4px;\n}\n\n.period {\n  font-size: 16px;\n  font-weight: 400;\n  color: var(--text-secondary);\n}\n\n.features {\n  list-style: none;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n\n.features li {\n  font-size: 14px;\n  color: var(--text-secondary);\n  padding-left: 20px;\n  position: relative;\n}\n\n.features li::before {\n  content: '';\n  position: absolute;\n  left: 0;\n  top: 50%;\n  transform: translateY(-50%);\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background: var(--feature-dot);\n}\n\n.cta {\n  width: 100%;\n  padding: 12px;\n  background: var(--accent);\n  color: white;\n  border: none;\n  border-radius: 8px;\n  font-size: 16px;\n  font-weight: 600;\n  cursor: pointer;\n}"
+  },
+  "starter": {
+    "html": "<div class=\"card\">\n  <div class=\"card-header\">\n    <span class=\"plan\">Pro Plan</span>\n    <div class=\"price\">$29<span class=\"period\">/mo</span></div>\n  </div>\n  <ul class=\"features\">\n    <li>Unlimited projects</li>\n    <li>Priority support</li>\n    <li>Custom domain</li>\n    <li>Analytics dashboard</li>\n  </ul>\n  <button class=\"cta\">Get Started</button>\n</div>",
+    "css": ":root {\n  --bg-card: #ffffff;\n  --text-primary: #1a1a2e;\n  --text-secondary: #6b7280;\n  --accent: #6366f1;\n  --accent-hover: #4f46e5;\n  --border: #e5e7eb;\n  --feature-dot: #6366f1;\n}\n\n.card {\n}\n\n.card-header {\n}\n\n.plan {\n}\n\n.price {\n}\n\n.period {\n}\n\n.features {\n}\n\n.features li {\n}\n\n.features li::before {\n}\n\n.cta {\n}"
+  }
+}

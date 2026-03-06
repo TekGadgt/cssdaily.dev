@@ -1,0 +1,14 @@
+{
+  "date": "2026-03-05",
+  "title": "Notification Badge",
+  "difficulty": "easy",
+  "timeLimit": 300,
+  "target": {
+    "html": "<div class=\"notification\">\n  <div class=\"icon\">&#128276;</div>\n  <div class=\"content\">\n    <div class=\"title\">New Message</div>\n    <div class=\"subtitle\">You have 3 unread messages</div>\n  </div>\n  <div class=\"badge\">3</div>\n</div>",
+    "css": ":root {\n  --bg-notification: #ffffff;\n  --text-title: #1a1a2e;\n  --text-subtitle: #6b7280;\n  --badge-bg: #ef4444;\n  --badge-text: #ffffff;\n  --border: #e5e7eb;\n  --icon-bg: #f3f4f6;\n}\n\n.notification {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  background: var(--bg-notification);\n  border: 2px solid var(--border);\n  border-radius: 12px;\n  padding: 16px;\n  width: 300px;\n}\n\n.icon {\n  width: 40px;\n  height: 40px;\n  background: var(--icon-bg);\n  border-radius: 10px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 20px;\n  flex-shrink: 0;\n}\n\n.content {\n  flex: 1;\n  min-width: 0;\n}\n\n.title {\n  font-size: 14px;\n  font-weight: 600;\n  color: var(--text-title);\n}\n\n.subtitle {\n  font-size: 12px;\n  color: var(--text-subtitle);\n  margin-top: 2px;\n}\n\n.badge {\n  width: 24px;\n  height: 24px;\n  background: var(--badge-bg);\n  color: var(--badge-text);\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n  font-weight: 700;\n  flex-shrink: 0;\n}"
+  },
+  "starter": {
+    "html": "<div class=\"notification\">\n  <div class=\"icon\">&#128276;</div>\n  <div class=\"content\">\n    <div class=\"title\">New Message</div>\n    <div class=\"subtitle\">You have 3 unread messages</div>\n  </div>\n  <div class=\"badge\">3</div>\n</div>",
+    "css": ":root {\n  --bg-notification: #ffffff;\n  --text-title: #1a1a2e;\n  --text-subtitle: #6b7280;\n  --badge-bg: #ef4444;\n  --badge-text: #ffffff;\n  --border: #e5e7eb;\n  --icon-bg: #f3f4f6;\n}\n\n.notification {\n}\n\n.icon {\n}\n\n.content {\n}\n\n.title {\n}\n\n.subtitle {\n}\n\n.badge {\n}"
+  }
+}
