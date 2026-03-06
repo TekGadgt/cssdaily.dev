@@ -33,6 +33,23 @@ The starter CSS must include the same :root block with ALL variables, plus empty
 Generate creative, visually interesting components like cards, badges, buttons, navbars, pricing tables, etc.`;
 
 async function generateChallenge(date: string) {
+  // Collect recent challenge titles to avoid repeats
+  const recentTitles: string[] = [];
+  if (fs.existsSync(CHALLENGES_DIR)) {
+    const files = fs.readdirSync(CHALLENGES_DIR).filter((f) => f.endsWith('.json')).sort().reverse().slice(0, 30);
+    for (const file of files) {
+      try {
+        const data = JSON.parse(fs.readFileSync(path.join(CHALLENGES_DIR, file), 'utf-8'));
+        if (data.title) recentTitles.push(data.title);
+      } catch {}
+    }
+  }
+
+  let userPrompt = `Generate a CSS challenge for date ${date}.`;
+  if (recentTitles.length > 0) {
+    userPrompt += `\n\nRecent challenges (do NOT repeat these themes or similar variations):\n${recentTitles.map((t) => `- ${t}`).join('\n')}`;
+  }
+
   const client = new Anthropic();
 
   const message = await client.messages.create({
@@ -41,7 +58,7 @@ async function generateChallenge(date: string) {
     messages: [
       {
         role: 'user',
-        content: `Generate a CSS challenge for date ${date}. Return ONLY valid JSON, no markdown.`,
+        content: userPrompt,
       },
     ],
     system: SYSTEM_PROMPT,
