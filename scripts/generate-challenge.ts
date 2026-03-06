@@ -54,7 +54,14 @@ async function generateChallenge(date: string) {
     system: SYSTEM_PROMPT,
   });
 
-  const text = (message.content[0] as { type: 'text'; text: string }).text;
+  let text = (message.content[0] as { type: 'text'; text: string }).text;
+
+  // Strip markdown code fences if present
+  const jsonMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/);
+  if (jsonMatch) {
+    text = jsonMatch[1].trim();
+  }
+
   const challenge = JSON.parse(text);
   challenge.date = date;
   challenge.timeLimit = challenge.difficulty === 'easy' ? 300 : challenge.difficulty === 'hard' ? 900 : 600;
