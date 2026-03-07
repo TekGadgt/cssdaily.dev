@@ -7,11 +7,12 @@ interface ResultsModalProps {
   date: string;
   score: number;
   timeSpent: number;
+  timeLimit: number;
   heatmapCanvas: HTMLCanvasElement | null;
   onClose: () => void;
 }
 
-export default function ResultsModal({ isOpen, date, score, timeSpent, heatmapCanvas, onClose }: ResultsModalProps) {
+export default function ResultsModal({ isOpen, date, score, timeSpent, timeLimit, heatmapCanvas, onClose }: ResultsModalProps) {
   const canvasContainerRef = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = useState(false);
 
@@ -48,7 +49,7 @@ export default function ResultsModal({ isOpen, date, score, timeSpent, heatmapCa
   else if (score >= 50) scoreColor = 'text-yellow-400';
 
   const handleShare = async () => {
-    const text = generateShareText(date, score, timeSpent);
+    const text = generateShareText(date, score, timeSpent, timeLimit);
     const success = await copyToClipboard(text);
     if (success) {
       setCopied(true);

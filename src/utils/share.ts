@@ -1,9 +1,15 @@
-export function generateShareText(date: string, score: number, timeSpent: number): string {
+export function generateShareText(date: string, score: number, timeSpent: number, timeLimit: number): string {
   const minutes = Math.floor(timeSpent / 60);
   const seconds = timeSpent % 60;
   const timeStr = `${minutes}:${String(seconds).padStart(2, '0')}`;
 
-  return `CSS Daily ${date}\nScore: ${score}% | Time: ${timeStr}\n\nhttps://cssdaily.dev`;
+  const pctUsed = timeSpent / timeLimit;
+  let speedEmoji = '';
+  if (pctUsed < 0.25) speedEmoji = ' \u26A1';       // lightning
+  else if (pctUsed < 0.50) speedEmoji = ' \uD83C\uDFC3'; // runner
+  else if (pctUsed < 0.75) speedEmoji = ' \uD83D\uDCA8'; // dashing away
+
+  return `CSS Daily ${date}${speedEmoji}\nScore: ${score}% | Time: ${timeStr}\n\nhttps://cssdaily.dev`;
 }
 
 export async function copyToClipboard(text: string): Promise<boolean> {
