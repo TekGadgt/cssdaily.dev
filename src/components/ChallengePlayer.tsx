@@ -136,7 +136,7 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
   const displayScore = phase === 'finished' ? submittedScore : score;
 
   return (
-    <div className="flex-1 flex flex-col bg-gray-900 text-white">
+    <div className="flex-1 flex flex-col min-h-0 bg-gray-900 text-white">
       {/* Header */}
       <header className="border-b border-gray-700 px-4 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
