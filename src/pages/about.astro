@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+---
+<Layout title="About - CSS Daily" description="The story behind CSS Daily — a daily CSS challenge built with AI, inspired by March MadCSS and SynHax.">
+  <Header currentPath="/about" />
+  <main class="max-w-3xl mx-auto px-4 py-12 text-gray-300">
+
+    <!-- Hero -->
+    <section class="mb-12">
+      <h1 class="text-4xl font-bold text-white mb-4">CSS Daily</h1>
+      <p class="text-xl text-gray-400">A daily CSS challenge — like Wordle, but for CSS.</p>
+      <p class="mt-4">
+        Each morning a new challenge appears. You get an HTML structure and a target screenshot,
+        then write CSS to match it as closely as possible before time runs out. Your score is
+        calculated by pixel-level comparison in real time as you type.
+      </p>
+    </section>
+
+    <!-- The Story -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">The Story</h2>
+      <p>
+        CSS Daily was inspired by the
+        <a href="https://www.marchmadcss.com/" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">March MadCSS</a>
+        tournament and built in a single day. A new challenge generates automatically every morning,
+        so there's always something fresh to try. The visual diff scoring engine is adapted from
+        <a href="https://github.com/syntaxfm/synhax" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">SynHax</a>,
+        the open-source project by Wes Bos and Scott Tolinski.
+      </p>
+    </section>
+
+    <!-- Built With AI -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Built With AI</h2>
+      <p>
+        The entire site was built using
+        <a href="https://claude.ai/code" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">Claude Code</a>.
+        Each morning, the
+        <a href="https://docs.anthropic.com/en/api" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">Claude API</a>
+        generates a new challenge — the HTML structure, target CSS, and starter CSS stubs.
+        Playwright automatically renders the target to a screenshot, and GitHub Actions handles
+        the full pipeline: generate, screenshot, commit, and deploy. No manual intervention needed.
+      </p>
+      <p class="mt-3">
+        This project demonstrates what's possible when you combine AI-augmented development with
+        good architecture. The result is a fully automated platform that ships a new challenge
+        every day with zero maintenance.
+      </p>
+    </section>
+
+    <!-- How It Works -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">How It Works</h2>
+      <p>
+        CSS Daily is built with Astro, React, CodeMirror 6, and Tailwind CSS. The scoring engine
+        uses real-time pixel-level visual diffing with Euclidean RGB distance scoring, adapted from
+        SynHax with modifications. No backend, no database — just a static site, a cron job, an AI,
+        and a dream.
+      </p>
+    </section>
+
+    <!-- Featured -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">Featured</h2>
+      <div class="aspect-video w-full rounded-lg overflow-hidden mb-4">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/3Uct3cQ77Xo"
+          title="Cassidy Williams plays CSS Daily"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+          class="w-full h-full"
+        ></iframe>
+      </div>
+      <ul class="flex flex-col gap-2 text-sm">
+        <li>
+          <a href="https://bsky.app/profile/tekgadgt.dev/post/3mggtrzfpec23" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">
+            Original announcement on Bluesky
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/posts/ryan-mcgovern-tekgadgt_css-daily-a-daily-css-challenge-activity-7435883007632359424-7_ga" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">
+            Project writeup on LinkedIn
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-700 pt-8 mt-12">
+      <p class="text-white mb-4">I'm currently open to new opportunities.</p>
+      <div class="flex items-center gap-4 text-sm">
+        <a href="https://github.com/TekGadgt" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">GitHub</a>
+        <a href="https://www.linkedin.com/in/ryan-mcgovern-tekgadgt" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">LinkedIn</a>
+        <a href="https://bsky.app/profile/tekgadgt.dev" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">Bluesky</a>
+        <a href="https://tekgadgt.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">tekgadgt.com</a>
+      </div>
+    </footer>
+
+  </main>
+</Layout>
