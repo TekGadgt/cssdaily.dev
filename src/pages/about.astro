@@ -67,11 +67,10 @@ import Header from '../components/Header.astro';
         <iframe
           src="https://www.youtube-nocookie.com/embed/3Uct3cQ77Xo"
           title="Cassidy Williams plays CSS Daily"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
           loading="lazy"
-          class="w-full h-full"
+          class="w-full h-full border-0"
         ></iframe>
       </div>
       <ul class="flex flex-col gap-2 text-sm">
@@ -88,16 +87,15 @@ import Header from '../components/Header.astro';
       </ul>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-gray-700 pt-8 mt-12">
-      <p class="text-white mb-4">I'm currently open to new opportunities.</p>
-      <div class="flex items-center gap-4 text-sm">
-        <a href="https://github.com/TekGadgt" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">GitHub</a>
-        <a href="https://www.linkedin.com/in/ryan-mcgovern-tekgadgt" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">LinkedIn</a>
-        <a href="https://bsky.app/profile/tekgadgt.dev" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">Bluesky</a>
-        <a href="https://tekgadgt.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">tekgadgt.com</a>
-      </div>
-    </footer>
-
   </main>
+
+  <footer class="max-w-3xl mx-auto px-4 border-t border-gray-700 pt-8 mt-12 mb-12 text-gray-300">
+    <p class="text-white mb-4">I'm currently open to new opportunities.</p>
+    <div class="flex items-center gap-4 text-sm">
+      <a href="https://github.com/TekGadgt" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">GitHub</a>
+      <a href="https://www.linkedin.com/in/ryan-mcgovern-tekgadgt" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">LinkedIn</a>
+      <a href="https://bsky.app/profile/tekgadgt.dev" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">Bluesky</a>
+      <a href="https://tekgadgt.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">tekgadgt.com</a>
+    </div>
+  </footer>
 </Layout>
