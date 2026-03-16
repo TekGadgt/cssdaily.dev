@@ -141,17 +141,17 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
       <header className="border-b border-gray-700 px-4 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2 text-sm text-gray-400">
-              {prevDate ? (
-                <a href={`/challenge/${prevDate}`} className="hover:text-white">&larr;</a>
-              ) : (
-                <span className="text-gray-600">&larr;</span>
-              )}
-              <span>{formatDate(challenge.date, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-              {nextDate ? (
-                <a href={`/challenge/${nextDate}`} className="hover:text-white">&rarr;</a>
-              ) : (
-                <span className="text-gray-600">&rarr;</span>
-              )}
+            {prevDate ? (
+              <a href={`/challenge/${prevDate}`} className="hover:text-white">&larr;</a>
+            ) : (
+              <span className="text-gray-600">&larr;</span>
+            )}
+            <span>{formatDate(challenge.date, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+            {nextDate ? (
+              <a href={`/challenge/${nextDate}`} className="hover:text-white">&rarr;</a>
+            ) : (
+              <span className="text-gray-600">&rarr;</span>
+            )}
           </div>
 
           <div className="flex items-center gap-4">
