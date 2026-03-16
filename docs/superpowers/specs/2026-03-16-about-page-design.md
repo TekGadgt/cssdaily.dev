@@ -66,7 +66,7 @@ Static Astro page using `Layout.astro`, styled with Tailwind to match the dark t
 
 ### SEO
 
-Extend `Layout.astro` to accept an optional `description` prop (alongside the existing `title` prop) for the meta description tag. The About page sets its own description and title. Add `og:title`, `og:description` meta tags for social sharing (important since this page will be linked from LinkedIn/Bluesky).
+Extend `Layout.astro` to accept an optional `description` prop (alongside the existing `title` prop) for the meta description tag. The existing hardcoded description ("A daily CSS challenge - like Wordle, but for CSS!") becomes the default when no prop is passed. The About page sets its own description and title. Add `og:title`, `og:description` meta tags for social sharing (important since this page will be linked from LinkedIn/Bluesky). These OG tags apply to all pages via Layout, which is fine.
 
 ### Page Sections
 
