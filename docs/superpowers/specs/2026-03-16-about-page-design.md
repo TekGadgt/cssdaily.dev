@@ -90,8 +90,7 @@ Dedicated section (slightly longer, 3-5 sentences):
 #### 5. How It Works
 Brief technical overview (2-4 sentences):
 - Stack: Astro, React, CodeMirror 6, Tailwind CSS
-- Real-time pixel-level visual diffing using snapdom for DOM-to-canvas capture
-- Euclidean RGB distance scoring with background detection (adapted from SynHax)
+- Real-time pixel-level visual diffing with Euclidean RGB distance scoring, adapted from SynHax (with modifications)
 - No backend, no database — static site with a cron job
 
 #### 6. Featured
