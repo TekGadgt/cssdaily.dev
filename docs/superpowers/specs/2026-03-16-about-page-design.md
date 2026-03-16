@@ -21,9 +21,24 @@ Extract the top-level navigation from `ChallengePlayer.tsx` into a reusable Astr
 - GitHub icon link (to repo)
 - TekGadgt icon link (to tekgadgt.com)
 
+Active page indication: the current page's nav link uses `text-white` while inactive links use `text-gray-400`.
+
+### Header integration strategy
+
+`Header.astro` is included per-page, NOT added to `Layout.astro`. Reason: `index.astro` and `404.astro` are redirect/utility pages that should not render a header. Each content page (`about.astro`, `[date].astro`) includes `Header.astro` explicitly.
+
 ### Update `src/pages/challenge/[date].astro`
 
-Add the shared `Header.astro` above `ChallengePlayer`.
+Add the shared `Header.astro` above `ChallengePlayer`. The page structure becomes a flex column filling the viewport:
+
+```html
+<Layout>
+  <div class="flex flex-col h-screen">
+    <Header />
+    <ChallengePlayer client:load ... />
+  </div>
+</Layout>
+```
 
 ### Update `src/components/ChallengePlayer.tsx`
 
@@ -38,9 +53,20 @@ Keep challenge-specific elements:
 
 The ChallengePlayer header becomes a secondary toolbar below the shared site header.
 
+**Layout fix**: Replace the hardcoded `min-h-screen` on the root div and `calc(100vh - 57px)` on the main content area with flex-based layout. The root div becomes `flex-1 flex flex-col` (filling remaining space below the site header), and the main content area uses `flex-1` instead of the calc. This avoids fragile pixel math when two header bars are present.
+
+### Pages requiring no changes
+
+- `src/pages/index.astro` — redirect-only page, no header needed
+- `src/pages/404.astro` — utility page, no header needed
+
 ## About Page: `src/pages/about.astro`
 
 Static Astro page using `Layout.astro`, styled with Tailwind to match the dark theme (bg-gray-900, text-white).
+
+### SEO
+
+Extend `Layout.astro` to accept an optional `description` prop (alongside the existing `title` prop) for the meta description tag. The About page sets its own description and title. Add `og:title`, `og:description` meta tags for social sharing (important since this page will be linked from LinkedIn/Bluesky).
 
 ### Page Sections
 
@@ -69,11 +95,12 @@ Brief technical overview (2-4 sentences):
 - No backend, no database — static site with a cron job
 
 #### 6. Featured
-- Embedded YouTube video (Cassidy Williams' video via iframe, `https://www.youtube.com/embed/3Uct3cQ77Xo`)
-- Text links to Bluesky post and LinkedIn post
+- Embedded YouTube video (Cassidy Williams' video via iframe, using `youtube-nocookie.com` domain for privacy, with `loading="lazy"`)
+- Text links to Bluesky post (`https://bsky.app/profile/tekgadgt.dev/post/3mggtrzfpec23`) and LinkedIn post (`https://www.linkedin.com/posts/ryan-mcgovern-tekgadgt_css-daily-a-daily-css-challenge-activity-7435883007632359424-7_ga`)
 - No third-party embed scripts for social posts (keeps page fast)
 
 #### 7. Footer
+This footer is specific to the About page, not a shared site component.
 - Social/profile links: GitHub, LinkedIn, Bluesky
 - Soft CTA line: "I'm currently open to new opportunities" (or similar natural phrasing)
 - Link to tekgadgt.com
@@ -84,7 +111,8 @@ Brief technical overview (2-4 sentences):
 - Max-width container (max-w-3xl or similar) for readable content width
 - Sections separated with spacing, not heavy dividers
 - Concise: each section 2-4 sentences, AI section up to 5
-- YouTube embed responsive (16:9 aspect ratio)
+- YouTube embed responsive (`aspect-video` Tailwind utility for 16:9 container)
+- Mobile-responsive: content sections use standard Tailwind responsive utilities, readable on narrow viewports. The YouTube embed must use a responsive wrapper to prevent overflow.
 
 ## Files to Create
 
@@ -93,11 +121,11 @@ Brief technical overview (2-4 sentences):
 
 ## Files to Modify
 
-1. `src/pages/challenge/[date].astro` — add shared Header above ChallengePlayer
-2. `src/components/ChallengePlayer.tsx` — remove site-level nav from its header, keep challenge-specific toolbar
+1. `src/layouts/Layout.astro` — add optional `description` prop for meta description and OG tags
+2. `src/pages/challenge/[date].astro` — add shared Header, wrap in flex column layout
+3. `src/components/ChallengePlayer.tsx` — remove site-level nav from its header, replace hardcoded height calc with flex layout
 
 ## Out of Scope
 
 - Content copywriting (user will refine with Claude web after page is built)
 - Analytics/tracking for the about page (already covered by Cloudflare snippet in Layout)
-- Mobile-specific design (Tailwind responsive utilities will handle basics)
