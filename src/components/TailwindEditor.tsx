@@ -47,11 +47,15 @@ function buildDecorations(state: EditorState): DecorationSet {
   const builder = new RangeSetBuilder<Decoration>();
 
   const dimMark = Decoration.mark({ class: 'cm-tw-locked' });
+  const editableMark = Decoration.mark({ class: 'cm-tw-editable' });
   let pos = 0;
 
   for (const region of regions) {
     if (pos < region.from) {
       builder.add(pos, region.from, dimMark);
+    }
+    if (region.from < region.to) {
+      builder.add(region.from, region.to, editableMark);
     }
     pos = region.to;
   }
@@ -141,7 +145,8 @@ export default function TailwindEditor({ initialHtml, onChange }: TailwindEditor
         EditorView.theme({
           '&': { height: '100%' },
           '.cm-scroller': { overflow: 'auto' },
-          '.cm-tw-locked': { opacity: '0.4' },
+          '.cm-tw-locked': { opacity: '0.5' },
+          '.cm-tw-editable': { opacity: '1', backgroundColor: 'rgba(59, 130, 246, 0.08)' },
         }),
         keymap.of([indentWithTab, ...defaultKeymap]),
         Prec.highest(keymap.of([{ key: 'Tab', run: acceptCompletion }])),

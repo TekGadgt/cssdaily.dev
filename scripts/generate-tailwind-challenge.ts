@@ -21,7 +21,7 @@ STRICT CONSTRAINTS:
 - NO box-shadow, text-shadow, or background-image utilities
 - NO font-family declarations (Inter font is loaded by the environment)
 - The starter HTML and target HTML must have the SAME structure — only class values differ
-- Starter HTML has class="" (empty) on every element
+- Starter HTML has class="  " (two spaces) on every element — this ensures editable regions are visible in the editor
 - Target HTML has the correct Tailwind utility classes
 
 SIZING STRATEGY (viewport is 600x400, body has 20px padding on all sides):
