@@ -1,23 +1,32 @@
 import { useState, useEffect } from 'react';
-import { getHistory, getStats } from '../utils/storage';
+import { getHistory as getDefaultHistory, getStats as getDefaultStats } from '../utils/storage';
 import { formatDate } from '../utils/date';
-import type { ChallengeHistory, UserStats } from '../utils/types';
+import type { GenericHistory, UserStats } from '../utils/types';
 
 interface HistoryViewProps {
   isOpen: boolean;
   onClose: () => void;
+  basePath?: string;
+  getHistoryFn?: () => GenericHistory;
+  getStatsFn?: () => UserStats;
 }
 
-export default function HistoryView({ isOpen, onClose }: HistoryViewProps) {
-  const [history, setHistory] = useState<ChallengeHistory>({});
+export default function HistoryView({
+  isOpen,
+  onClose,
+  basePath = '/challenge',
+  getHistoryFn = getDefaultHistory,
+  getStatsFn = getDefaultStats,
+}: HistoryViewProps) {
+  const [history, setHistory] = useState<GenericHistory>({});
   const [stats, setStats] = useState<UserStats>({ gamesPlayed: 0, currentStreak: 0, maxStreak: 0, averageScore: 0 });
 
   useEffect(() => {
     if (isOpen) {
-      setHistory(getHistory());
-      setStats(getStats());
+      setHistory(getHistoryFn());
+      setStats(getStatsFn());
     }
-  }, [isOpen]);
+  }, [isOpen, getHistoryFn, getStatsFn]);
 
   if (!isOpen) return null;
 
@@ -56,7 +65,7 @@ export default function HistoryView({ isOpen, onClose }: HistoryViewProps) {
               return (
                 <a
                   key={date}
-                  href={`/challenge/${date}`}
+                  href={`${basePath}/${date}`}
                   className="flex justify-between items-center py-2 px-3 rounded hover:bg-gray-700 transition"
                 >
                   <span className="text-sm text-gray-300">
