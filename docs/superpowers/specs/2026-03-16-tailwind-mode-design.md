@@ -69,9 +69,19 @@ The `generateTargetPng` function in the Tailwind script loads the Tailwind CDN p
 
 ### Workflow update
 
-Update `generate-challenge.yml` to add a second step after CSS generation:
+Update `generate-challenge.yml` to add a second step after CSS generation. Both generation steps use `continue-on-error: true` so that if one fails, the other still runs and its output is committed:
+
 ```yaml
+- name: Generate CSS challenge
+  continue-on-error: true
+  env:
+    ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+  run: |
+    OUTPUT=$(npx tsx scripts/generate-challenge.ts)
+    echo "$OUTPUT"
+
 - name: Generate Tailwind challenge
+  continue-on-error: true
   env:
     ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
   run: |
@@ -79,9 +89,7 @@ Update `generate-challenge.yml` to add a second step after CSS generation:
     echo "$OUTPUT"
 ```
 
-The commit step already uses `git add src/data/challenges/ public/targets/` — extend to include `src/data/tailwind-challenges/` and `public/targets/tailwind/`.
-
-**Error handling**: both generation steps run independently. If one fails, the other's output is still committed. The commit step uses `git diff --cached --quiet` which handles partial output gracefully. The commit message should reflect what was generated (e.g., "Add daily challenges for {date}").
+The commit step already uses `git add src/data/challenges/ public/targets/` — extend to include `src/data/tailwind-challenges/` and `public/targets/tailwind/`. The `git diff --cached --quiet` check handles partial output gracefully. The commit message should reflect what was generated (e.g., "Add daily challenges for {date}").
 
 ## CSS Generation Prompt Update
 
@@ -227,7 +235,7 @@ Both `HistoryView.tsx` and `ResultsModal.tsx` have hardcoded links to `/challeng
 ### HistoryView changes
 - Add `basePath?: string` prop (default: `'/challenge'`)
 - Change `href={`/challenge/${date}`}` to `href={`${basePath}/${date}`}`
-- Accept `getHistory` and `getStats` functions as props (or a mode flag) to read from the correct storage
+- Accept `getHistory` and `getStats` functions as props so the caller controls which storage is read. TailwindPlayer passes `getTailwindHistory` and `getTailwindStats`; ChallengePlayer passes the existing `getHistory` and `getStats` (or omits them to use defaults)
 
 ### ResultsModal changes
 - Add `basePath?: string` prop (default: `'/challenge'`)
