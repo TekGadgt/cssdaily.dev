@@ -279,7 +279,7 @@ export function getTailwindStats(): UserStats { ... }
 
 Similar to `renderAndCapture` but:
 - Uses `buildTailwindSrcdoc(html)` instead of `buildSrcdoc(html, css)`
-- Sets iframe `sandbox="allow-scripts allow-same-origin"` instead of just `allow-same-origin`
+- Sets iframe `sandbox="allow-scripts allow-same-origin"` instead of just `allow-same-origin`. If testing confirms the Tailwind CDN works without `allow-same-origin`, drop it here too (see security notes in the Iframe Sandbox section above).
 - Uses the iframe's `srcdoc` attribute and waits for the `load` event (instead of `doc.write()`) to ensure the Tailwind CDN script executes
 - Waits longer after load (~500ms) for the Tailwind CDN to process all classes before capturing with snapdom
 
