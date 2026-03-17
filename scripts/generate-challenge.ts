@@ -20,6 +20,13 @@ STRICT CONSTRAINTS:
 - Body background is always #f5f5f5 (set by environment)
 - Focus on: flexbox, grid, spacing, borders, border-radius, typography (font-size, font-weight, line-height)
 
+SIZING STRATEGY (viewport is 600x400, body has 20px padding on all sides):
+- Available canvas: 560x360px. Component must fit comfortably within this.
+- Height is the tight dimension — keep components SHORT. Max ~6-8 visible elements stacked vertically.
+- Width is generous — use it. Prefer side-by-side layouts (flexbox row, grid columns) over tall single-column stacks.
+- Use compact spacing: small/medium padding (8-16px), tight margins/gaps (4-12px). Avoid large spacing values.
+- Keep text sizes modest: body text 14px, headings 18-24px max. No hero-sized text.
+
 OUTPUT FORMAT — use these exact XML tags (no JSON, no code fences):
 
 <title>Challenge Name</title>

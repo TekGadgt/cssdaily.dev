@@ -24,6 +24,13 @@ STRICT CONSTRAINTS:
 - Starter HTML has class="" (empty) on every element
 - Target HTML has the correct Tailwind utility classes
 
+SIZING STRATEGY (viewport is 600x400, body has 20px padding on all sides):
+- Available canvas: 560x360px. Component must fit comfortably within this.
+- Height is the tight dimension — keep components SHORT. Max ~6-8 visible elements stacked vertically.
+- Width is generous — use it. Prefer side-by-side layouts (flexbox row, grid columns) over tall single-column stacks.
+- Use compact spacing: prefer p-3/p-4 over p-6/p-8, gap-2/gap-3 over gap-6/gap-8, mb-2/mb-3 over mb-6/mb-8.
+- Keep text sizes modest: prefer text-sm/text-base for body, text-lg/text-xl for headings. Avoid text-3xl and above.
+
 OUTPUT FORMAT — use these exact XML tags (no JSON, no code fences):
 
 <title>Challenge Name</title>
