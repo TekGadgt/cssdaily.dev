@@ -23,8 +23,9 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
 
-      - name: Generate challenge
+      - name: Generate CSS challenge
         id: generate
+        continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
@@ -33,12 +34,20 @@ jobs:
           CHALLENGE_DATE=$(echo "$OUTPUT" | grep '^CHALLENGE_DATE=' | cut -d= -f2)
           echo "date=$CHALLENGE_DATE" >> "$GITHUB_OUTPUT"
 
+      - name: Generate Tailwind challenge
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          OUTPUT=$(npx tsx scripts/generate-tailwind-challenge.ts)
+          echo "$OUTPUT"
+
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/challenges/ public/targets/
-          git diff --cached --quiet || (git commit -m "Add daily challenge for ${{ steps.generate.outputs.date }}" && git push)
+          git add src/data/challenges/ public/targets/ src/data/tailwind-challenges/ public/targets/tailwind/
+          git diff --cached --quiet || (git commit -m "Add daily challenges for ${{ steps.generate.outputs.date }}" && git push)
 
       - name: Build Astro site
         run: |
