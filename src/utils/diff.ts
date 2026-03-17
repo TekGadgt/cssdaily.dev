@@ -1,5 +1,5 @@
 import type { DiffResult } from './types';
-import { buildSrcdoc } from './code';
+import { buildSrcdoc, buildTailwindSrcdoc } from './code';
 
 // Matches Synhax defaults
 const COLOR_TOLERANCE = 30;
@@ -210,6 +210,190 @@ export async function compareToTarget(
   heatmapCtx.putImageData(heatmapData, 0, 0);
 
   // Diff canvas = user's render (for visual reference)
+  const diffCanvas = document.createElement('canvas');
+  diffCanvas.width = width;
+  diffCanvas.height = height;
+  const diffCtx = diffCanvas.getContext('2d')!;
+  diffCtx.drawImage(userCanvas, 0, 0);
+
+  return { score, diffCanvas, heatmapCanvas };
+}
+
+/**
+ * Render Tailwind HTML in a hidden iframe using srcdoc + Tailwind CDN.
+ * Uses srcdoc attribute (not doc.write) so the CDN script executes.
+ */
+export async function renderAndCaptureTailwind(
+  html: string,
+  width: number,
+  height: number
+): Promise<HTMLCanvasElement> {
+  const { snapdom } = await import('@zumer/snapdom');
+
+  const iframe = document.createElement('iframe');
+  iframe.style.position = 'fixed';
+  iframe.style.left = '-9999px';
+  iframe.style.top = '0';
+  iframe.style.width = `${width}px`;
+  iframe.style.height = `${height}px`;
+  iframe.style.border = 'none';
+  iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
+
+  const srcdoc = buildTailwindSrcdoc(html);
+  iframe.srcdoc = srcdoc;
+  document.body.appendChild(iframe);
+
+  try {
+    // Wait for iframe to load (including Tailwind CDN)
+    await new Promise<void>((resolve) => {
+      iframe.onload = () => resolve();
+    });
+
+    // Wait for Tailwind CDN to process classes + fonts
+    await new Promise<void>((resolve) => {
+      const doc = iframe.contentDocument!;
+      if (doc.fonts && doc.fonts.ready) {
+        doc.fonts.ready.then(() => setTimeout(resolve, 500));
+      } else {
+        setTimeout(resolve, 700);
+      }
+    });
+
+    const body = iframe.contentDocument!.body;
+    body.getBoundingClientRect(); // Force layout
+    const snap = await snapdom(body);
+    const svgImg = await snap.toSvg();
+
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext('2d')!;
+    ctx.drawImage(svgImg, 0, 0, width, height);
+
+    return canvas;
+  } finally {
+    document.body.removeChild(iframe);
+  }
+}
+
+/**
+ * Compare user Tailwind HTML against target Tailwind HTML.
+ * Same scoring algorithm as compareToTarget but renders via Tailwind CDN.
+ */
+export async function compareToTargetTailwind(
+  userHtml: string,
+  targetHtml: string,
+  options: { compareWidth: number; compareHeight: number }
+): Promise<DiffResult> {
+  const { compareWidth: width, compareHeight: height } = options;
+
+  const [userCanvas, targetCanvas] = await Promise.all([
+    renderAndCaptureTailwind(userHtml, width, height),
+    renderAndCaptureTailwind(targetHtml, width, height),
+  ]);
+
+  const userCtx = userCanvas.getContext('2d')!;
+  const targetCtx = targetCanvas.getContext('2d')!;
+
+  const userData = userCtx.getImageData(0, 0, width, height);
+  const targetData = targetCtx.getImageData(0, 0, width, height);
+
+  const userPixels = userData.data;
+  const targetPixels = targetData.data;
+
+  const totalPixels = width * height;
+
+  const bgR = targetPixels[0];
+  const bgG = targetPixels[1];
+  const bgB = targetPixels[2];
+
+  const isBackgroundColor = (r: number, g: number, b: number): boolean => {
+    return rgbDistance(r, g, b, bgR, bgG, bgB) <= BG_TOLERANCE;
+  };
+
+  const SKIPPED = -1;
+  const pixelDiffs = new Float32Array(totalPixels);
+  let skippedCount = 0;
+
+  for (let px = 0; px < totalPixels; px++) {
+    const i = px * 4;
+
+    const ur = userPixels[i], ug = userPixels[i + 1], ub = userPixels[i + 2], ua = userPixels[i + 3];
+    const tr = targetPixels[i], tg = targetPixels[i + 1], tb = targetPixels[i + 2], ta = targetPixels[i + 3];
+
+    const userIsBg = isBackgroundColor(ur, ug, ub);
+    const targetIsBg = isBackgroundColor(tr, tg, tb);
+    const effectiveUserA = userIsBg ? 0 : ua;
+    const effectiveTargetA = targetIsBg ? 0 : ta;
+
+    if (effectiveUserA === 0 && effectiveTargetA === 0) {
+      pixelDiffs[px] = SKIPPED;
+      skippedCount++;
+      continue;
+    }
+
+    if ((effectiveUserA === 0 && effectiveTargetA > 0) ||
+        (effectiveUserA > 0 && effectiveTargetA === 0)) {
+      pixelDiffs[px] = 1;
+      continue;
+    }
+
+    const dist = rgbDistance(ur, ug, ub, tr, tg, tb);
+    pixelDiffs[px] = dist / MAX_RGB_DISTANCE;
+  }
+
+  const effectivePixels = totalPixels - skippedCount;
+  const normalizedTolerance = COLOR_TOLERANCE / MAX_RGB_DISTANCE;
+
+  let totalDiff = 0;
+  for (let px = 0; px < totalPixels; px++) {
+    const diff = pixelDiffs[px];
+    if (diff === SKIPPED) continue;
+
+    if (diff <= normalizedTolerance) {
+      // Within tolerance = full match
+    } else {
+      const excess = diff - normalizedTolerance;
+      const maxExcess = 1 - normalizedTolerance;
+      totalDiff += excess / maxExcess;
+    }
+  }
+
+  const rawScore = effectivePixels > 0
+    ? Math.max(0, Math.min(1, 1 - totalDiff / effectivePixels))
+    : 0;
+
+  const SCORE_EXPONENT = 3;
+  const score = Math.round(Math.pow(rawScore, SCORE_EXPONENT) * 100);
+
+  const heatmapCanvas = document.createElement('canvas');
+  heatmapCanvas.width = width;
+  heatmapCanvas.height = height;
+  const heatmapCtx = heatmapCanvas.getContext('2d')!;
+  const heatmapData = heatmapCtx.createImageData(width, height);
+
+  for (let px = 0; px < totalPixels; px++) {
+    const diff = pixelDiffs[px];
+    const i = px * 4;
+
+    if (diff === SKIPPED || diff <= normalizedTolerance) {
+      heatmapData.data[i] = 0;
+      heatmapData.data[i + 1] = 0;
+      heatmapData.data[i + 2] = 0;
+      heatmapData.data[i + 3] = 0;
+      continue;
+    }
+
+    const hue = (1 - diff) * 0.67;
+    const [r, g, b] = hslToRgb(hue, 1, 0.5);
+    heatmapData.data[i] = r;
+    heatmapData.data[i + 1] = g;
+    heatmapData.data[i + 2] = b;
+    heatmapData.data[i + 3] = 255;
+  }
+
+  heatmapCtx.putImageData(heatmapData, 0, 0);
+
   const diffCanvas = document.createElement('canvas');
   diffCanvas.width = width;
   diffCanvas.height = height;
