@@ -60,6 +60,8 @@ New script with a Tailwind-specific system prompt. Constraints in the prompt:
 - Focus on: flexbox, grid, spacing, borders, border-radius, typography, colors
 - No box-shadow, text-shadow, or background-image utilities
 
+The generation script reads recent challenge titles (up to 30) from `src/data/tailwind-challenges/` and includes them in the prompt to avoid duplicating themes, matching the existing CSS generator's deduplication behavior.
+
 Output format uses XML tags:
 - `<title>`, `<difficulty>`, `<targethtml>`, `<starterhtml>`
 
