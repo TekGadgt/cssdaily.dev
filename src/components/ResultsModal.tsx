@@ -10,9 +10,10 @@ interface ResultsModalProps {
   timeLimit: number;
   heatmapCanvas: HTMLCanvasElement | null;
   onClose: () => void;
+  basePath?: string;
 }
 
-export default function ResultsModal({ isOpen, date, score, timeSpent, timeLimit, heatmapCanvas, onClose }: ResultsModalProps) {
+export default function ResultsModal({ isOpen, date, score, timeSpent, timeLimit, heatmapCanvas, onClose, basePath = '/challenge' }: ResultsModalProps) {
   const canvasContainerRef = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = useState(false);
 
@@ -88,10 +89,10 @@ export default function ResultsModal({ isOpen, date, score, timeSpent, timeLimit
         </div>
 
         <div className="flex justify-between mt-4 text-sm">
-          <a href={`/challenge/${prevDate}`} className="text-blue-400 hover:text-blue-300">
+          <a href={`${basePath}/${prevDate}`} className="text-blue-400 hover:text-blue-300">
             &larr; Previous
           </a>
-          <a href={`/challenge/${nextDate}`} className="text-blue-400 hover:text-blue-300">
+          <a href={`${basePath}/${nextDate}`} className="text-blue-400 hover:text-blue-300">
             Next &rarr;
           </a>
         </div>
