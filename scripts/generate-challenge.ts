@@ -16,8 +16,7 @@ STRICT CONSTRAINTS:
 - NO box-shadow or text-shadow (inconsistent rendering)
 - NO background-image, url(), or external assets
 - ALL colors must be defined as :root CSS custom properties with var() references
-- Component must fit within 560x360px (20px margin from 600x400 viewport)
-- Max width ~320px, max height ~340px
+- Component must not exceed 520x320px (hard max within 600x400 viewport)
 - Body background is always #f5f5f5 (set by environment)
 - Focus on: flexbox, grid, spacing, borders, border-radius, typography (font-size, font-weight, line-height)
 
