@@ -1,0 +1,24 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import TailwindPlayer from '../../components/TailwindPlayer.tsx';
+
+export async function getStaticPaths() {
+  const challengeFiles = import.meta.glob('../../data/tailwind-challenges/*.json', { eager: true });
+  const challenges = Object.values(challengeFiles).map((mod: any) => mod.default || mod);
+  const allDates = challenges.map((c: any) => c.date).sort();
+
+  return challenges.map((challenge: any) => ({
+    params: { date: challenge.date },
+    props: { challenge, allDates },
+  }));
+}
+
+const { challenge, allDates } = Astro.props;
+---
+<Layout title={`${challenge.title} - Tailwind Daily`}>
+  <div class="flex flex-col h-screen">
+    <Header currentPath="/tailwind" />
+    <TailwindPlayer client:load challenge={challenge} allDates={allDates} />
+  </div>
+</Layout>

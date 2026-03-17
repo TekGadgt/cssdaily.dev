@@ -10,6 +10,16 @@ const { currentPath = '' } = Astro.props;
       <a href="/" class="text-xl font-bold text-blue-400">CSS Daily</a>
       <nav class="flex items-center gap-4 text-sm">
         <a
+          href="/tailwind"
+          aria-current={currentPath === '/tailwind' ? 'page' : undefined}
+          class:list={[
+            'transition hover:text-white',
+            currentPath === '/tailwind' ? 'text-white' : 'text-gray-400'
+          ]}
+        >
+          Tailwind
+        </a>
+        <a
           href="/about"
           aria-current={currentPath === '/about' ? 'page' : undefined}
           class:list={[
