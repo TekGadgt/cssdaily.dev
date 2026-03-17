@@ -100,7 +100,7 @@ Update the existing CSS generation prompt in `scripts/generate-challenge.ts`:
 - Change "Max width ~320px, max height ~340px" to remove entirely (redundant with the above)
 - Use firm language: "must not exceed", no `~` approximations
 
-This is an intentional tightening from the previous soft constraints. Past challenges occasionally overflowed the viewport (e.g., the 2026-03-17 quiz card). The new hard max of 520x320 within the 600x400 viewport provides 40px horizontal and 80px vertical margin.
+This is an intentional tightening from the previous soft constraints. Past challenges occasionally overflowed the viewport (e.g., the 2026-03-17 quiz card). The new hard max of 520x320 within the 600x400 viewport provides 80px total margin in each dimension (40px per side).
 
 ## TypeScript Types
 
