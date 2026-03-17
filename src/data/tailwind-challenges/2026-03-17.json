@@ -1,0 +1,12 @@
+{
+  "title": "Simple Card",
+  "difficulty": "easy",
+  "date": "2026-03-17",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<div class=\"\">\n  <h2 class=\"\">Hello World</h2>\n  <p class=\"\">This is a test card for the Tailwind challenge mode.</p>\n  <button class=\"\">Click Me</button>\n</div>"
+  },
+  "target": {
+    "html": "<div class=\"bg-white rounded-lg p-6 max-w-sm\">\n  <h2 class=\"text-xl font-bold text-gray-900 mb-2\">Hello World</h2>\n  <p class=\"text-gray-600 mb-4\">This is a test card for the Tailwind challenge mode.</p>\n  <button class=\"bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600\">Click Me</button>\n</div>"
+  }
+}
