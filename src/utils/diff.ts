@@ -71,26 +71,19 @@ export async function renderAndCapture(
 }
 
 /**
- * Compare user CSS against target CSS using Synhax's algorithm:
+ * Score two canvases using Synhax's algorithm:
  * - Euclidean RGB distance
  * - Background color detection from target top-left pixel (tight tolerance=10)
  * - Skip pixels where both are background
  * - Max mismatch (1.0) when one is background and other has content
  * - Gradient scoring: within tolerance=full match, beyond=scaled penalty
  */
-export async function compareToTarget(
-  html: string,
-  userCss: string,
-  targetCss: string,
-  options: { compareWidth: number; compareHeight: number }
-): Promise<DiffResult> {
-  const { compareWidth: width, compareHeight: height } = options;
-
-  const [userCanvas, targetCanvas] = await Promise.all([
-    renderAndCapture(html, userCss, width, height),
-    renderAndCapture(html, targetCss, width, height),
-  ]);
-
+function computeDiffScore(
+  userCanvas: HTMLCanvasElement,
+  targetCanvas: HTMLCanvasElement,
+  width: number,
+  height: number
+): DiffResult {
   const userCtx = userCanvas.getContext('2d')!;
   const targetCtx = targetCanvas.getContext('2d')!;
 
@@ -219,6 +212,22 @@ export async function compareToTarget(
   return { score, diffCanvas, heatmapCanvas };
 }
 
+export async function compareToTarget(
+  html: string,
+  userCss: string,
+  targetCss: string,
+  options: { compareWidth: number; compareHeight: number }
+): Promise<DiffResult> {
+  const { compareWidth: width, compareHeight: height } = options;
+
+  const [userCanvas, targetCanvas] = await Promise.all([
+    renderAndCapture(html, userCss, width, height),
+    renderAndCapture(html, targetCss, width, height),
+  ]);
+
+  return computeDiffScore(userCanvas, targetCanvas, width, height);
+}
+
 /**
  * Render Tailwind HTML in a hidden iframe using srcdoc + Tailwind CDN.
  * Uses srcdoc attribute (not doc.write) so the CDN script executes.
@@ -276,10 +285,6 @@ export async function renderAndCaptureTailwind(
   }
 }
 
-/**
- * Compare user Tailwind HTML against target Tailwind HTML.
- * Same scoring algorithm as compareToTarget but renders via Tailwind CDN.
- */
 export async function compareToTargetTailwind(
   userHtml: string,
   targetHtml: string,
@@ -292,115 +297,7 @@ export async function compareToTargetTailwind(
     renderAndCaptureTailwind(targetHtml, width, height),
   ]);
 
-  const userCtx = userCanvas.getContext('2d')!;
-  const targetCtx = targetCanvas.getContext('2d')!;
-
-  const userData = userCtx.getImageData(0, 0, width, height);
-  const targetData = targetCtx.getImageData(0, 0, width, height);
-
-  const userPixels = userData.data;
-  const targetPixels = targetData.data;
-
-  const totalPixels = width * height;
-
-  const bgR = targetPixels[0];
-  const bgG = targetPixels[1];
-  const bgB = targetPixels[2];
-
-  const isBackgroundColor = (r: number, g: number, b: number): boolean => {
-    return rgbDistance(r, g, b, bgR, bgG, bgB) <= BG_TOLERANCE;
-  };
-
-  const SKIPPED = -1;
-  const pixelDiffs = new Float32Array(totalPixels);
-  let skippedCount = 0;
-
-  for (let px = 0; px < totalPixels; px++) {
-    const i = px * 4;
-
-    const ur = userPixels[i], ug = userPixels[i + 1], ub = userPixels[i + 2], ua = userPixels[i + 3];
-    const tr = targetPixels[i], tg = targetPixels[i + 1], tb = targetPixels[i + 2], ta = targetPixels[i + 3];
-
-    const userIsBg = isBackgroundColor(ur, ug, ub);
-    const targetIsBg = isBackgroundColor(tr, tg, tb);
-    const effectiveUserA = userIsBg ? 0 : ua;
-    const effectiveTargetA = targetIsBg ? 0 : ta;
-
-    if (effectiveUserA === 0 && effectiveTargetA === 0) {
-      pixelDiffs[px] = SKIPPED;
-      skippedCount++;
-      continue;
-    }
-
-    if ((effectiveUserA === 0 && effectiveTargetA > 0) ||
-        (effectiveUserA > 0 && effectiveTargetA === 0)) {
-      pixelDiffs[px] = 1;
-      continue;
-    }
-
-    const dist = rgbDistance(ur, ug, ub, tr, tg, tb);
-    pixelDiffs[px] = dist / MAX_RGB_DISTANCE;
-  }
-
-  const effectivePixels = totalPixels - skippedCount;
-  const normalizedTolerance = COLOR_TOLERANCE / MAX_RGB_DISTANCE;
-
-  let totalDiff = 0;
-  for (let px = 0; px < totalPixels; px++) {
-    const diff = pixelDiffs[px];
-    if (diff === SKIPPED) continue;
-
-    if (diff <= normalizedTolerance) {
-      // Within tolerance = full match
-    } else {
-      const excess = diff - normalizedTolerance;
-      const maxExcess = 1 - normalizedTolerance;
-      totalDiff += excess / maxExcess;
-    }
-  }
-
-  const rawScore = effectivePixels > 0
-    ? Math.max(0, Math.min(1, 1 - totalDiff / effectivePixels))
-    : 0;
-
-  const SCORE_EXPONENT = 3;
-  const score = Math.round(Math.pow(rawScore, SCORE_EXPONENT) * 100);
-
-  const heatmapCanvas = document.createElement('canvas');
-  heatmapCanvas.width = width;
-  heatmapCanvas.height = height;
-  const heatmapCtx = heatmapCanvas.getContext('2d')!;
-  const heatmapData = heatmapCtx.createImageData(width, height);
-
-  for (let px = 0; px < totalPixels; px++) {
-    const diff = pixelDiffs[px];
-    const i = px * 4;
-
-    if (diff === SKIPPED || diff <= normalizedTolerance) {
-      heatmapData.data[i] = 0;
-      heatmapData.data[i + 1] = 0;
-      heatmapData.data[i + 2] = 0;
-      heatmapData.data[i + 3] = 0;
-      continue;
-    }
-
-    const hue = (1 - diff) * 0.67;
-    const [r, g, b] = hslToRgb(hue, 1, 0.5);
-    heatmapData.data[i] = r;
-    heatmapData.data[i + 1] = g;
-    heatmapData.data[i + 2] = b;
-    heatmapData.data[i + 3] = 255;
-  }
-
-  heatmapCtx.putImageData(heatmapData, 0, 0);
-
-  const diffCanvas = document.createElement('canvas');
-  diffCanvas.width = width;
-  diffCanvas.height = height;
-  const diffCtx = diffCanvas.getContext('2d')!;
-  diffCtx.drawImage(userCanvas, 0, 0);
-
-  return { score, diffCanvas, heatmapCanvas };
+  return computeDiffScore(userCanvas, targetCanvas, width, height);
 }
 
 function hslToRgb(h: number, s: number, l: number): [number, number, number] {

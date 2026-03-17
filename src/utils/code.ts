@@ -48,7 +48,7 @@ export function buildTailwindSrcdoc(html: string): string {
 <html>
 <head>
   <meta charset="UTF-8">
-  <script src="https://cdn.tailwindcss.com"><\/script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="${FONT_LINK}">
 </head>
 <body class="bg-[#f5f5f5] min-h-screen flex items-center justify-center p-5 font-['Inter']">
