@@ -149,7 +149,15 @@ The existing CSS challenge uses iframes with `sandbox="allow-same-origin"` for b
 For Tailwind mode, the iframe sandbox must include `allow-scripts`:
 - `sandbox="allow-scripts allow-same-origin"`
 
-This allows the Tailwind CDN script to execute. The security trade-off is acceptable because the iframe content is generated from our own challenge data, not user-provided arbitrary HTML/JS.
+This allows the Tailwind CDN script to execute.
+
+**Security consideration**: with `allow-scripts allow-same-origin`, the iframe can execute JS with access to the parent page's origin (localStorage, DOM). Since users edit class attribute values that end up in the rendered HTML, a malicious input like `" onclick="alert(1)` could break out of the attribute and inject arbitrary JS. Two layers of defense:
+
+1. **Transaction filter character restriction**: the TailwindEditor's transaction filter should reject characters that could break out of HTML attributes — specifically `"`, `<`, `>`. Valid Tailwind class values only contain alphanumeric characters, hyphens, underscores, colons, slashes, brackets (`[]`), dots, percent signs, and spaces. Reject any character outside this set.
+
+2. **Sanitize before rendering**: `buildTailwindSrcdoc` must HTML-encode class attribute values (or strip invalid characters) before inserting them into the srcdoc. This is defense-in-depth — even if the transaction filter has a bug, the rendered HTML stays safe.
+
+During implementation, also test whether `allow-scripts` alone (without `allow-same-origin`) is sufficient for the Tailwind CDN to work. If so, dropping `allow-same-origin` eliminates the origin-access risk entirely.
 
 Additionally, `buildTailwindSrcdoc` must use the `srcdoc` attribute approach (which the existing Preview already uses) rather than `doc.write()`. The `renderAndCapture` function in diff.ts currently uses `doc.write()` — for Tailwind mode, it should use the iframe's `srcdoc` attribute instead and wait for the iframe to load (including the Tailwind CDN script). This requires a separate `renderAndCaptureTailwind` function.
 
