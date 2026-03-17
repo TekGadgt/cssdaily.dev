@@ -23,34 +23,30 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
 
+      - name: Compute challenge date
+        id: date
+        run: echo "value=$(date -u -d '+1 day' '+%Y-%m-%d')" >> "$GITHUB_OUTPUT"
+
       - name: Generate CSS challenge
-        id: generate
         continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          OUTPUT=$(npx tsx scripts/generate-challenge.ts)
-          echo "$OUTPUT"
-          CHALLENGE_DATE=$(echo "$OUTPUT" | grep '^CHALLENGE_DATE=' | cut -d= -f2)
-          echo "date=$CHALLENGE_DATE" >> "$GITHUB_OUTPUT"
+        run: npx tsx scripts/generate-challenge.ts ${{ steps.date.outputs.value }}
 
       - name: Generate Tailwind challenge
-        id: generate-tailwind
         continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          OUTPUT=$(npx tsx scripts/generate-tailwind-challenge.ts)
-          echo "$OUTPUT"
-          CHALLENGE_DATE=$(echo "$OUTPUT" | grep '^CHALLENGE_DATE=' | cut -d= -f2)
-          echo "date=$CHALLENGE_DATE" >> "$GITHUB_OUTPUT"
+        run: npx tsx scripts/generate-tailwind-challenge.ts ${{ steps.date.outputs.value }}
 
       - name: Commit and push
+        env:
+          CHALLENGE_DATE: ${{ steps.date.outputs.value }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/data/challenges/ public/targets/ src/data/tailwind-challenges/ public/targets/tailwind/
-          git diff --cached --quiet || (git commit -m "Add daily challenges for ${{ steps.generate.outputs.date }} ${{ steps.generate-tailwind.outputs.date }}" && git push)
+          git diff --cached --quiet || (git commit -m "Add daily challenges for $CHALLENGE_DATE" && git push)
 
       - name: Build Astro site
         run: |
