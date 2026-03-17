@@ -1,4 +1,4 @@
-import type { ChallengeResult, ChallengeHistory, UserStats, StorageData } from './types';
+import type { ChallengeResult, ChallengeHistory, UserStats, StorageData, TailwindChallengeResult, TailwindChallengeHistory, TailwindStorageData } from './types';
 
 const STORAGE_KEY = 'css-daily-challenge';
 
@@ -59,6 +59,78 @@ export function getStats(): UserStats {
   }
 
   // Current streak: check if the last entry is today or yesterday
+  const today = new Date();
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+  const lastDate = dates[dates.length - 1];
+
+  if (lastDate === todayStr) {
+    currentStreak = streak;
+  } else {
+    const last = new Date(lastDate);
+    const diffDays = (today.getTime() - last.getTime()) / (1000 * 60 * 60 * 24);
+    currentStreak = diffDays <= 1.5 ? streak : 0;
+  }
+
+  return { gamesPlayed, currentStreak, maxStreak, averageScore };
+}
+
+const TAILWIND_STORAGE_KEY = 'tailwind-daily-challenge';
+
+function getTailwindData(): TailwindStorageData {
+  try {
+    const raw = localStorage.getItem(TAILWIND_STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch {}
+  return { history: {} };
+}
+
+function setTailwindData(data: TailwindStorageData): void {
+  localStorage.setItem(TAILWIND_STORAGE_KEY, JSON.stringify(data));
+}
+
+export function getTailwindResult(date: string): TailwindChallengeResult | null {
+  const data = getTailwindData();
+  return data.history[date] || null;
+}
+
+export function saveTailwindResult(date: string, result: TailwindChallengeResult): void {
+  const data = getTailwindData();
+  data.history[date] = result;
+  setTailwindData(data);
+}
+
+export function getTailwindHistory(): TailwindChallengeHistory {
+  return getTailwindData().history;
+}
+
+export function getTailwindStats(): UserStats {
+  const history = getTailwindHistory();
+  const dates = Object.keys(history).sort();
+  const gamesPlayed = dates.length;
+
+  if (gamesPlayed === 0) {
+    return { gamesPlayed: 0, currentStreak: 0, maxStreak: 0, averageScore: 0 };
+  }
+
+  const totalScore = dates.reduce((sum, d) => sum + history[d].score, 0);
+  const averageScore = Math.round(totalScore / gamesPlayed);
+
+  let currentStreak = 0;
+  let maxStreak = 0;
+  let streak = 0;
+
+  for (let i = 0; i < dates.length; i++) {
+    if (i === 0) {
+      streak = 1;
+    } else {
+      const prev = new Date(dates[i - 1]);
+      const curr = new Date(dates[i]);
+      const diffDays = (curr.getTime() - prev.getTime()) / (1000 * 60 * 60 * 24);
+      streak = diffDays === 1 ? streak + 1 : 1;
+    }
+    maxStreak = Math.max(maxStreak, streak);
+  }
+
   const today = new Date();
   const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
   const lastDate = dates[dates.length - 1];
