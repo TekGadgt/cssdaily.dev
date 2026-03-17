@@ -2,24 +2,37 @@
 
 **A daily CSS challenge game — like Wordle, but for CSS.**
 
-Each day, a new CSS component challenge is generated. You're given the HTML structure and a target screenshot — your job is to write the CSS to match it as closely as possible before time runs out.
+Each day, new challenges are generated across two modes:
+
+- **CSS Mode** — Write CSS to match a target screenshot. You're given the HTML structure and starter stubs.
+- **Tailwind Mode** — Add Tailwind utility classes to HTML elements to match the target. Editing is restricted to `class` attribute values only.
 
 Live at **[cssdaily.dev](https://cssdaily.dev)**
 
 ## How It Works
 
-1. A new challenge is generated daily via Claude (Anthropic API)
-2. You see a target component and an empty CSS editor with starter stubs
-3. Write CSS to match the target — your score updates in real-time as you type
+1. A new challenge is generated daily for each mode via Claude (Anthropic API)
+2. You see a target component and an editor — CSS editor with stubs, or HTML with empty class attributes
+3. Your score updates in real-time as you type, powered by pixel-level visual diffing
 4. Submit before the timer runs out to lock in your score
 5. Share your results with friends
+
+## Game Modes
+
+### CSS Challenge (`/challenge/[date]`)
+
+Write CSS from scratch to match the target. Includes a split view toggle to see CSS and HTML side-by-side or in tabs.
+
+### Tailwind Challenge (`/tailwind/[date]`)
+
+Add Tailwind utility classes to pre-structured HTML. The editor locks everything except `class=""` values — non-editable regions are dimmed, editable regions are highlighted. Includes Tailwind utility autocomplete with Tab-to-accept.
 
 ## Tech Stack
 
 - **[Astro](https://astro.build/)** — Static site generation
 - **[React](https://react.dev/)** — Interactive challenge player
-- **[CodeMirror 6](https://codemirror.net/)** — CSS/HTML editor
-- **[Tailwind CSS](https://tailwindcss.com/)** — UI styling
+- **[CodeMirror 6](https://codemirror.net/)** — CSS/HTML editor with transaction filters, decorations, and custom autocomplete
+- **[Tailwind CSS](https://tailwindcss.com/)** — UI styling + Tailwind CDN for challenge rendering
 - **[@zumer/snapdom](https://github.com/nicecoder02/snapdom)** — DOM-to-image capture for visual diffing
 - **[Playwright](https://playwright.dev/)** — Target screenshot generation
 - **[Claude API](https://docs.anthropic.com/)** — Daily challenge generation
@@ -28,19 +41,21 @@ Live at **[cssdaily.dev](https://cssdaily.dev)**
 
 ## Visual Diff Engine
 
-The scoring system compares your rendered CSS output against the target using pixel-level analysis:
+The scoring system compares your rendered output against the target using pixel-level analysis:
 
-- Both your CSS and the target CSS are rendered in hidden iframes and captured with snapdom
+- Both your output and the target are rendered in hidden iframes and captured with snapdom
 - Pixel comparison uses Euclidean RGB distance with configurable tolerance
 - Background pixels are auto-detected and excluded from scoring
 - A power curve is applied to the raw score to reward precision over broad-stroke matches
 
+For Tailwind challenges, the diff engine uses iframes with `allow-scripts` sandbox to load the Tailwind CDN, with class value sanitization for XSS defense-in-depth.
+
 ## Daily Generation Pipeline
 
 1. A GitHub Actions cron job runs daily at 6am UTC
-2. Claude generates a new challenge with HTML, target CSS, and starter CSS stubs
-3. Playwright renders the target CSS to a screenshot PNG
-4. The challenge JSON and target image are committed to the repo
+2. Claude generates a new CSS challenge and a new Tailwind challenge (independently, with `continue-on-error`)
+3. Playwright renders the target to a screenshot PNG for each challenge
+4. The challenge JSONs and target images are committed to the repo
 5. The site automatically rebuilds and deploys to GitHub Pages
 
 ## Local Development
@@ -50,11 +65,16 @@ npm install
 npm run dev
 ```
 
-To generate a challenge locally (requires `ANTHROPIC_API_KEY` env var):
+To generate challenges locally (requires `ANTHROPIC_API_KEY` env var):
 
 ```bash
+# CSS challenges
 npx tsx scripts/generate-challenge.ts           # generates for tomorrow
 npx tsx scripts/generate-challenge.ts 2026-03-15 # generates for a specific date
+
+# Tailwind challenges
+npx tsx scripts/generate-tailwind-challenge.ts           # generates for tomorrow
+npx tsx scripts/generate-tailwind-challenge.ts 2026-03-15 # generates for a specific date
 ```
 
 To regenerate target PNGs from existing challenge JSONs:
