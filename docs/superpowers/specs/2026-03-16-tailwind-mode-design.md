@@ -65,7 +65,7 @@ Output format uses XML tags:
 
 ### Screenshot generation
 
-The `generateTargetPng` function in the Tailwind script loads the Tailwind CDN play script (`https://cdn.tailwindcss.com`) in the Playwright page before setting content, then waits for network idle before screenshotting.
+The `generateTargetPng` function in the Tailwind script loads the Tailwind CDN play script (`https://cdn.tailwindcss.com`) in the Playwright page before setting content, then waits for network idle before screenshotting. Playwright runs a full browser with no sandbox restrictions, so the CDN script executes normally.
 
 ### Workflow update
 
@@ -81,12 +81,75 @@ Update `generate-challenge.yml` to add a second step after CSS generation:
 
 The commit step already uses `git add src/data/challenges/ public/targets/` — extend to include `src/data/tailwind-challenges/` and `public/targets/tailwind/`.
 
+**Error handling**: both generation steps run independently. If one fails, the other's output is still committed. The commit step uses `git diff --cached --quiet` which handles partial output gracefully. The commit message should reflect what was generated (e.g., "Add daily challenges for {date}").
+
 ## CSS Generation Prompt Update
 
 Update the existing CSS generation prompt in `scripts/generate-challenge.ts`:
 - Change "Component must fit within 560x360px (20px margin from 600x400 viewport)" to "Component must not exceed 520x320px"
 - Change "Max width ~320px, max height ~340px" to remove entirely (redundant with the above)
 - Use firm language: "must not exceed", no `~` approximations
+
+This is an intentional tightening from the previous soft constraints. Past challenges occasionally overflowed the viewport (e.g., the 2026-03-17 quiz card). The new hard max of 520x320 within the 600x400 viewport provides 40px horizontal and 80px vertical margin.
+
+## TypeScript Types
+
+### New types in `src/utils/types.ts`
+
+```typescript
+export interface TailwindChallenge {
+  date: string;
+  title: string;
+  difficulty: 'easy' | 'medium' | 'hard';
+  timeLimit: number;
+  starter: {
+    html: string;
+  };
+  target: {
+    html: string;
+  };
+}
+
+export interface TailwindChallengeResult {
+  date: string;
+  score: number;
+  timeSpent: number;
+  submittedHtml: string;
+}
+
+export interface TailwindChallengeHistory {
+  [date: string]: TailwindChallengeResult;
+}
+
+export interface TailwindStorageData {
+  history: TailwindChallengeHistory;
+}
+```
+
+These are separate types from the CSS challenge types — no `css` fields, `submittedHtml` instead of `submittedCss`.
+
+## Iframe Sandbox & Tailwind Rendering
+
+### The problem
+
+The existing CSS challenge uses iframes with `sandbox="allow-same-origin"` for both the Preview component and the `renderAndCapture` function in the diff pipeline. This sandbox policy blocks script execution, which is fine for CSS (rendered via `<style>` blocks) but breaks Tailwind — the CDN play script (`cdn.tailwindcss.com`) must execute JavaScript to generate styles from utility classes.
+
+### The solution
+
+For Tailwind mode, the iframe sandbox must include `allow-scripts`:
+- `sandbox="allow-scripts allow-same-origin"`
+
+This allows the Tailwind CDN script to execute. The security trade-off is acceptable because the iframe content is generated from our own challenge data, not user-provided arbitrary HTML/JS.
+
+Additionally, `buildTailwindSrcdoc` must use the `srcdoc` attribute approach (which the existing Preview already uses) rather than `doc.write()`. The `renderAndCapture` function in diff.ts currently uses `doc.write()` — for Tailwind mode, it should use the iframe's `srcdoc` attribute instead and wait for the iframe to load (including the Tailwind CDN script). This requires a separate `renderAndCaptureTailwind` function.
+
+### Preview component
+
+Create `src/components/TailwindPreview.tsx` — mirrors `Preview.tsx` but:
+- Takes only `html` (no `css` prop)
+- Uses `buildTailwindSrcdoc(html)` for the srcdoc
+- Sets `sandbox="allow-scripts allow-same-origin"`
+- The `onLoad` callback should wait slightly longer (~300ms) to allow the Tailwind CDN to process classes after iframe load
 
 ## Class-Only Editor
 
@@ -99,8 +162,7 @@ A CodeMirror 6 editor that displays full HTML but restricts editing to only the 
 - Uses `@codemirror/lang-html` for syntax highlighting
 - On load, parses the document to identify all `class="..."` value regions (the text between quotes after `class=`)
 - **Transaction filter** (`EditorState.transactionFilter`): rejects any transaction that would modify text outside class value regions
-- **Decorations** (`EditorView.decorations`): non-editable regions get a dimmed visual style (e.g., reduced opacity) to signal they're locked
-- As the user types within class value regions, the region positions are recalculated to account for text growing/shrinking
+- **Decorations** (`EditorView.decorations`): non-editable regions get a dimmed visual style (e.g., reduced opacity) to signal they're locked. Track editable regions using CodeMirror's `RangeSet` / decoration system which auto-maps positions through transactions, rather than re-parsing the entire document on every change.
 - Edge cases to handle: paste (only allow within class regions), undo/redo (should work normally within class regions), cursor movement (free to move anywhere for reading)
 
 #### Tailwind autocomplete
@@ -110,6 +172,8 @@ A CodeMirror 6 editor that displays full HTML but restricts editing to only the 
 - Activates only when cursor is inside a `class="..."` region
 - Tab-to-accept behavior matches the existing CSS editor
 - Completions are context-aware: matches against the current word being typed within the class value
+
+Note: the JSON file is a curated "best effort" list. If the challenge generator uses a valid Tailwind class not in the JSON, the player can still type it — they just won't get autocomplete for it. Autocomplete is a convenience, not a constraint.
 
 ### Tailwind classes data: `src/data/tailwind-classes.json`
 
@@ -147,32 +211,77 @@ Mirrors `ChallengePlayer.tsx` structure with Tailwind-specific differences.
 
 #### Different from ChallengePlayer:
 - Uses `TailwindEditor` instead of `CodeEditor`
+- Uses `TailwindPreview` instead of `Preview` (needs `allow-scripts` sandbox)
 - User edits HTML class attributes, not CSS
-- Preview renders HTML with Tailwind CDN loaded in the iframe
 - No HTML tab in the editor (the editor IS the HTML)
-- History stored separately in localStorage: `tailwind-result-{date}` key prefix (vs `result-{date}` for CSS)
+- History stored separately in localStorage: key `tailwind-daily-challenge` (separate from CSS's `css-daily-challenge`)
 
 ### Page: `src/pages/tailwind/[date].astro`
 
-Uses Layout, shared Header (with `currentPath="/tailwind"`), and TailwindPlayer. Loads challenges from `src/data/tailwind-challenges/`.
+Uses Layout, shared Header (with `currentPath="/tailwind"`), and TailwindPlayer. Loads challenges from `src/data/tailwind-challenges/`. The `allDates` array is populated from Tailwind challenge files, not CSS challenge files — the two date lists are independent and may diverge.
+
+## Shared Components: HistoryView & ResultsModal
+
+Both `HistoryView.tsx` and `ResultsModal.tsx` have hardcoded links to `/challenge/{date}`. To reuse them in TailwindPlayer, add a `basePath` prop to each:
+
+### HistoryView changes
+- Add `basePath?: string` prop (default: `'/challenge'`)
+- Change `href={`/challenge/${date}`}` to `href={`${basePath}/${date}`}`
+- Accept `getHistory` and `getStats` functions as props (or a mode flag) to read from the correct storage
+
+### ResultsModal changes
+- Add `basePath?: string` prop (default: `'/challenge'`)
+- Change prev/next links from `/challenge/${prevDate}` to `${basePath}/${prevDate}`
+
+This keeps backwards compatibility for ChallengePlayer (uses defaults) while allowing TailwindPlayer to pass `basePath="/tailwind"`.
+
+## Storage
+
+### Separate localStorage key: `tailwind-daily-challenge`
+
+Add Tailwind-specific functions to `src/utils/storage.ts`:
+
+```typescript
+// Mirror existing functions with Tailwind types and key
+const TAILWIND_STORAGE_KEY = 'tailwind-daily-challenge';
+
+export function getTailwindResult(date: string): TailwindChallengeResult | null { ... }
+export function saveTailwindResult(date: string, result: TailwindChallengeResult): void { ... }
+export function getTailwindHistory(): TailwindChallengeHistory { ... }
+export function getTailwindStats(): UserStats { ... }
+```
+
+`getTailwindStats()` returns the same `UserStats` type — the stats shape is mode-agnostic (games played, streaks, average score).
 
 ## Scoring & Diffing
 
-- Reuses `compareToTarget` from `src/utils/diff.ts` — no changes needed
-- The `renderAndCapture` function uses `buildSrcdoc` to create iframe content — the Tailwind variant uses a new utility
+### New functions in `src/utils/diff.ts`
 
-### New utility: `buildTailwindSrcdoc(html: string)` in `src/utils/code.ts`
+**`renderAndCaptureTailwind(html: string, width: number, height: number): Promise<HTMLCanvasElement>`**
+
+Similar to `renderAndCapture` but:
+- Uses `buildTailwindSrcdoc(html)` instead of `buildSrcdoc(html, css)`
+- Sets iframe `sandbox="allow-scripts allow-same-origin"` instead of just `allow-same-origin`
+- Uses the iframe's `srcdoc` attribute and waits for the `load` event (instead of `doc.write()`) to ensure the Tailwind CDN script executes
+- Waits longer after load (~500ms) for the Tailwind CDN to process all classes before capturing with snapdom
+
+**`compareToTargetTailwind(userHtml: string, targetHtml: string, options: { compareWidth: number; compareHeight: number }): Promise<DiffResult>`**
+
+Same scoring logic as `compareToTarget` but calls `renderAndCaptureTailwind` for both user and target HTML.
+
+### New utility in `src/utils/code.ts`
+
+**`buildTailwindSrcdoc(html: string): string`**
 
 Wraps HTML with:
-- The Tailwind CDN play script (`<script src="https://cdn.tailwindcss.com"></script>`)
-- Standard viewport setup (body background #f5f5f5, margin, font)
-- No `<style>` block (all styling via Tailwind classes)
+- `<script src="https://cdn.tailwindcss.com"></script>` in `<head>`
+- Inter font link (same as CSS challenges)
+- Body background set via Tailwind class on the `<body>` element: `<body class="bg-[#f5f5f5] min-h-screen flex items-center justify-center p-5 font-['Inter']">`
+- No `<style>` block with `BASE_STYLES` — Tailwind's preflight provides its own reset. The body styling is handled via Tailwind utility classes to avoid conflicts with preflight.
 
-The `compareToTarget` function signature changes slightly for Tailwind mode — instead of taking separate `html` and `css` params, it takes a single `html` param and uses `buildTailwindSrcdoc`. This could be handled by:
-- A new `compareToTargetTailwind` function, or
-- An options flag on the existing function
+**`buildTailwindScreenshotHtml(html: string): string`**
 
-The simpler approach is a new function to avoid complicating the existing one.
+Same as `buildTailwindSrcdoc` but used by the Playwright generation script. May be identical, but keeping it separate mirrors the existing `buildScreenshotHtml` / `buildSrcdoc` pattern.
 
 ## Files to Create
 
@@ -181,18 +290,22 @@ The simpler approach is a new function to avoid complicating the existing one.
 3. `public/targets/tailwind/` — directory for target screenshots
 4. `scripts/generate-tailwind-challenge.ts` — Tailwind challenge generation script
 5. `src/components/TailwindEditor.tsx` — class-only CodeMirror editor
-6. `src/components/TailwindPlayer.tsx` — Tailwind challenge player
-7. `src/pages/tailwind/index.astro` — redirect to today's Tailwind challenge
-8. `src/pages/tailwind/[date].astro` — Tailwind challenge page
+6. `src/components/TailwindPreview.tsx` — Tailwind-aware preview component (allow-scripts sandbox)
+7. `src/components/TailwindPlayer.tsx` — Tailwind challenge player
+8. `src/pages/tailwind/index.astro` — redirect to today's Tailwind challenge
+9. `src/pages/tailwind/[date].astro` — Tailwind challenge page
 
 ## Files to Modify
 
 1. `scripts/generate-challenge.ts` — tighten size constraints in the prompt (520x320 hard max)
-2. `src/utils/code.ts` — add `buildTailwindSrcdoc` function
-3. `src/utils/diff.ts` — add `compareToTargetTailwind` function (or similar)
-4. `src/utils/storage.ts` — add Tailwind-specific save/get functions with separate key prefix
-5. `src/components/Header.astro` — add "Tailwind" nav link
-6. `.github/workflows/generate-challenge.yml` — add Tailwind generation step, extend git add paths
+2. `src/utils/types.ts` — add `TailwindChallenge`, `TailwindChallengeResult`, `TailwindChallengeHistory`, `TailwindStorageData` types
+3. `src/utils/code.ts` — add `buildTailwindSrcdoc` and `buildTailwindScreenshotHtml` functions
+4. `src/utils/diff.ts` — add `renderAndCaptureTailwind` and `compareToTargetTailwind` functions
+5. `src/utils/storage.ts` — add Tailwind-specific storage functions with `tailwind-daily-challenge` key
+6. `src/components/Header.astro` — add "Tailwind" nav link
+7. `src/components/HistoryView.tsx` — add `basePath` prop, accept storage functions as props
+8. `src/components/ResultsModal.tsx` — add `basePath` prop for prev/next links
+9. `.github/workflows/generate-challenge.yml` — add Tailwind generation step, extend git add paths
 
 ## Out of Scope
 
@@ -200,3 +313,4 @@ The simpler approach is a new function to avoid complicating the existing one.
 - Shared leaderboard or cross-mode stats
 - Tailwind config customization (using default Tailwind config only)
 - Content copywriting for any new UI text
+- Fallback for Tailwind CDN unavailability (acceptable dependency for an internet-required site)
