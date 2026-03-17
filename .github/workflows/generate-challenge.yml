@@ -28,16 +28,46 @@ jobs:
         run: echo "value=$(date -u -d '+1 day' '+%Y-%m-%d')" >> "$GITHUB_OUTPUT"
 
       - name: Generate CSS challenge
+        id: css
         continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: npx tsx scripts/generate-challenge.ts ${{ steps.date.outputs.value }}
 
       - name: Generate Tailwind challenge
+        id: tailwind
         continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: npx tsx scripts/generate-tailwind-challenge.ts ${{ steps.date.outputs.value }}
+
+      - name: Report generation results
+        env:
+          CSS_OUTCOME: ${{ steps.css.outcome }}
+          TAILWIND_OUTCOME: ${{ steps.tailwind.outcome }}
+          CHALLENGE_DATE: ${{ steps.date.outputs.value }}
+        run: |
+          echo "## Challenge Generation Report" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Date:** $CHALLENGE_DATE" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Mode | Result |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|------|--------|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| CSS | $CSS_OUTCOME |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Tailwind | $TAILWIND_OUTCOME |" >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$CSS_OUTCOME" = "failure" ] && [ "$TAILWIND_OUTCOME" = "failure" ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "**Both generation steps failed.** Check the logs above for details (common causes: API credits exhausted, rate limit, network error)." >> "$GITHUB_STEP_SUMMARY"
+            echo "::error::Both CSS and Tailwind challenge generation failed for $CHALLENGE_DATE"
+            exit 1
+          fi
+
+          if [ "$CSS_OUTCOME" = "failure" ]; then
+            echo "::warning::CSS challenge generation failed for $CHALLENGE_DATE"
+          fi
+          if [ "$TAILWIND_OUTCOME" = "failure" ]; then
+            echo "::warning::Tailwind challenge generation failed for $CHALLENGE_DATE"
+          fi
 
       - name: Commit and push
         env:
