@@ -1,0 +1,12 @@
+{
+  "title": "Music Player Card",
+  "difficulty": "medium",
+  "date": "2026-03-22",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<div class=\"  \">\n  <div class=\"  \">\n    <div class=\"  \">\n      <span class=\"  \">Now Playing</span>\n      <span class=\"  \">Live</span>\n    </div>\n    <div class=\"  \">\n      <span class=\"  \">🎵</span>\n    </div>\n    <div class=\"  \">\n      <p class=\"  \">Neon Dreams</p>\n      <p class=\"  \">Synthwave Collective</p>\n    </div>\n    <div class=\"  \">\n      <div class=\"  \">\n        <span>1:24</span>\n        <span>3:47</span>\n      </div>\n      <div class=\"  \">\n        <div class=\"  \"></div>\n      </div>\n    </div>\n    <div class=\"  \">\n      <button class=\"  \">⏮</button>\n      <button class=\"  \">▶</button>\n      <button class=\"  \">⏭</button>\n      <button class=\"  \">🔀</button>\n      <button class=\"  \">🔁</button>\n    </div>\n  </div>\n</div>"
+  },
+  "target": {
+    "html": "<div class=\"flex items-center justify-center w-full h-full\">\n  <div class=\"bg-gray-900 rounded-2xl p-5 w-80\">\n    <div class=\"flex items-center justify-between mb-4\">\n      <span class=\"text-gray-400 text-xs uppercase tracking-widest\">Now Playing</span>\n      <span class=\"bg-purple-600 text-white text-xs px-2 py-1 rounded-full\">Live</span>\n    </div>\n    <div class=\"bg-gradient-to-br from-purple-700 to-indigo-900 rounded-xl flex items-center justify-center h-32 mb-4\">\n      <span class=\"text-white text-4xl\">🎵</span>\n    </div>\n    <div class=\"mb-3\">\n      <p class=\"text-white font-bold text-lg leading-tight\">Neon Dreams</p>\n      <p class=\"text-gray-400 text-sm\">Synthwave Collective</p>\n    </div>\n    <div class=\"mb-4\">\n      <div class=\"flex justify-between text-gray-500 text-xs mb-1\">\n        <span>1:24</span>\n        <span>3:47</span>\n      </div>\n      <div class=\"bg-gray-700 rounded-full h-1\">\n        <div class=\"bg-purple-500 h-1 rounded-full w-2/5\"></div>\n      </div>\n    </div>\n    <div class=\"flex items-center justify-between\">\n      <button class=\"text-gray-400 text-xl\">⏮</button>\n      <button class=\"bg-purple-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl\">▶</button>\n      <button class=\"text-gray-400 text-xl\">⏭</button>\n      <button class=\"text-gray-400 text-sm\">🔀</button>\n      <button class=\"text-gray-400 text-sm\">🔁</button>\n    </div>\n  </div>\n</div>"
+  }
+}
