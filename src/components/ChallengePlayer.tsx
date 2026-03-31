@@ -81,7 +81,7 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
   const handleCssChange = useCallback((css: string) => {
     setUserCss(css);
     userCssRef.current = css;
-    if (phaseRef.current !== 'playing') {
+    if (phaseRef.current === 'idle') {
       setPhase('playing');
       phaseRef.current = 'playing';
     }
