@@ -1,0 +1,12 @@
+{
+  "title": "April Fool's Prank Alert Card",
+  "difficulty": "medium",
+  "date": "2026-04-01",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<div class=\"  \">\n  <div class=\"  \">\n    <div class=\"  \">\n      <span class=\"  \">🃏</span>\n      <h1 class=\"  \">Prank Alert HQ</h1>\n    </div>\n    <span class=\"  \">April 1st</span>\n  </div>\n  <div class=\"  \">\n    <p class=\"  \">⚠️ Warning Level: Maximum Chaos</p>\n    <div class=\"  \">\n      <div class=\"  \"></div>\n    </div>\n  </div>\n  <div class=\"  \">\n    <div class=\"  \">\n      <p class=\"  \">Pranks Planned</p>\n      <p class=\"  \">42</p>\n    </div>\n    <div class=\"  \">\n      <p class=\"  \">Victims Fooled</p>\n      <p class=\"  \">17</p>\n    </div>\n  </div>\n  <div class=\"  \">\n    <button class=\"  \">Launch Prank</button>\n    <button class=\"  \">Abort Mission</button>\n  </div>\n</div>"
+  },
+  "target": {
+    "html": "<div class=\"bg-white rounded-2xl border-4 border-yellow-400 p-5 max-w-lg mx-auto\">\n  <div class=\"flex items-center justify-between mb-4\">\n    <div class=\"flex items-center gap-2\">\n      <span class=\"text-2xl\">🃏</span>\n      <h1 class=\"text-xl font-bold text-gray-800\">Prank Alert HQ</h1>\n    </div>\n    <span class=\"bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full uppercase\">April 1st</span>\n  </div>\n  <div class=\"bg-yellow-50 border border-yellow-300 rounded-xl p-4 mb-4\">\n    <p class=\"text-sm font-semibold text-yellow-800 mb-1\">⚠️ Warning Level: Maximum Chaos</p>\n    <div class=\"w-full bg-yellow-200 rounded-full h-3\">\n      <div class=\"bg-yellow-500 h-3 rounded-full w-4/5\"></div>\n    </div>\n  </div>\n  <div class=\"grid grid-cols-2 gap-3 mb-4\">\n    <div class=\"bg-red-50 border border-red-200 rounded-lg p-3\">\n      <p class=\"text-xs text-red-500 font-semibold uppercase mb-1\">Pranks Planned</p>\n      <p class=\"text-2xl font-bold text-red-600\">42</p>\n    </div>\n    <div class=\"bg-green-50 border border-green-200 rounded-lg p-3\">\n      <p class=\"text-xs text-green-500 font-semibold uppercase mb-1\">Victims Fooled</p>\n      <p class=\"text-2xl font-bold text-green-600\">17</p>\n    </div>\n  </div>\n  <div class=\"flex gap-2\">\n    <button class=\"flex-1 bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-bold text-sm py-2 rounded-lg\">Launch Prank</button>\n    <button class=\"flex-1 bg-gray-100 text-gray-600 font-bold text-sm py-2 rounded-lg border border-gray-200\">Abort Mission</button>\n  </div>\n</div>"
+  }
+}
