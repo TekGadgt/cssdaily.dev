@@ -38,9 +38,9 @@ export default function Timer({ timeLimit, isRunning, onTimeUp, onTick }: TimerP
   const seconds = remaining % 60;
   const display = `${minutes}:${String(seconds).padStart(2, '0')}`;
 
-  let color = 'text-white';
-  if (remaining <= 10) color = 'text-red-400';
-  else if (remaining <= 60) color = 'text-yellow-400';
+  let color = 'text-text-primary';
+  if (remaining <= 10) color = 'text-error';
+  else if (remaining <= 60) color = 'text-warning';
 
   return (
     <span className={`font-mono text-lg font-bold ${color}`}>
