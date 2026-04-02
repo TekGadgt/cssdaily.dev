@@ -8,11 +8,11 @@ import Header from "../components/Header.astro";
   description="The story behind CSS Daily — a daily CSS challenge built with AI, inspired by March MadCSS and SynHax."
 >
   <Header currentPath="/about" />
-  <main class="max-w-3xl mx-auto px-4 py-12 text-gray-300">
+  <main class="max-w-3xl mx-auto px-4 py-12 text-text-secondary">
     <!-- Hero -->
     <section class="mb-12">
-      <h1 class="text-4xl font-bold text-white mb-4">CSS Daily</h1>
-      <p class="text-xl text-gray-400">
+      <h1 class="text-4xl font-bold text-text-primary mb-4">CSS Daily</h1>
+      <p class="text-xl text-text-muted">
         A daily CSS challenge — like Wordle, but for CSS.
       </p>
       <p class="mt-4">
@@ -25,14 +25,14 @@ import Header from "../components/Header.astro";
 
     <!-- The Story -->
     <section class="mb-12">
-      <h2 class="text-2xl font-bold text-white mb-4">The Story</h2>
+      <h2 class="text-2xl font-bold text-text-primary mb-4">The Story</h2>
       <p>
         CSS Daily was inspired by the
         <a
           href="https://youtu.be/nuxSFTjXrhI"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-blue-400 hover:text-blue-300">March MadCSS</a
+          class="text-accent-primary hover:text-accent-primary/80">March MadCSS</a
         >
         tournament and built in a single day. A new challenge generates automatically
         every morning, so there's always something fresh to try. The visual diff scoring
@@ -41,27 +41,27 @@ import Header from "../components/Header.astro";
           href="https://github.com/syntaxfm/synhax"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-blue-400 hover:text-blue-300">SynHax</a
+          class="text-accent-primary hover:text-accent-primary/80">SynHax</a
         >, the open-source project by Wes Bos and Scott Tolinski.
       </p>
     </section>
 
     <!-- Built With AI -->
     <section class="mb-12">
-      <h2 class="text-2xl font-bold text-white mb-4">Built With AI</h2>
+      <h2 class="text-2xl font-bold text-text-primary mb-4">Built With AI</h2>
       <p>
         The entire site was built using
         <a
           href="https://claude.ai/code"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-blue-400 hover:text-blue-300">Claude Code</a
+          class="text-accent-primary hover:text-accent-primary/80">Claude Code</a
         >. Each morning, the
         <a
           href="https://docs.anthropic.com/en/api"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-blue-400 hover:text-blue-300">Claude API</a
+          class="text-accent-primary hover:text-accent-primary/80">Claude API</a
         >
         generates a new challenge — the HTML structure, target CSS, and starter CSS
         stubs. Playwright automatically renders the target to a screenshot, and GitHub
@@ -77,7 +77,7 @@ import Header from "../components/Header.astro";
 
     <!-- How It Works -->
     <section class="mb-12">
-      <h2 class="text-2xl font-bold text-white mb-4">How It Works</h2>
+      <h2 class="text-2xl font-bold text-text-primary mb-4">How It Works</h2>
       <p>
         CSS Daily is built with Astro, React, CodeMirror 6, and Tailwind CSS.
         The scoring engine uses real-time pixel-level visual diffing with
@@ -89,7 +89,7 @@ import Header from "../components/Header.astro";
 
     <!-- Featured -->
     <section class="mb-12">
-      <h2 class="text-2xl font-bold text-white mb-4">Featured</h2>
+      <h2 class="text-2xl font-bold text-text-primary mb-4">Featured</h2>
       <div class="aspect-video w-full rounded-lg overflow-hidden mb-4">
         <iframe
           src="https://www.youtube-nocookie.com/embed/3Uct3cQ77Xo"
@@ -105,7 +105,7 @@ import Header from "../components/Header.astro";
             href="https://bsky.app/profile/tekgadgt.dev/post/3mggtrzfpec23"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-blue-400 hover:text-blue-300"
+            class="text-accent-primary hover:text-accent-primary/80"
           >
             Original announcement on Bluesky
           </a>
@@ -115,7 +115,7 @@ import Header from "../components/Header.astro";
             href="https://www.linkedin.com/posts/ryan-mcgovern-tekgadgt_css-daily-a-daily-css-challenge-activity-7435883007632359424-7_ga"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-blue-400 hover:text-blue-300"
+            class="text-accent-primary hover:text-accent-primary/80"
           >
             Project writeup on LinkedIn
           </a>
@@ -125,33 +125,33 @@ import Header from "../components/Header.astro";
   </main>
 
   <footer
-    class="max-w-3xl mx-auto px-4 border-t border-gray-700 pt-8 mt-12 mb-12 text-gray-300"
+    class="max-w-3xl mx-auto px-4 border-t-2 border-border-default pt-8 mt-12 mb-12 text-text-secondary"
   >
-    <p class="text-white mb-4">I'm currently open to new opportunities.</p>
+    <p class="text-text-primary mb-4">I'm currently open to new opportunities.</p>
     <div class="flex items-center gap-4 text-sm">
       <a
         href="https://github.com/TekGadgt"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-400 hover:text-blue-300">GitHub</a
+        class="text-accent-primary hover:text-accent-primary/80">GitHub</a
       >
       <a
         href="https://www.linkedin.com/in/ryan-mcgovern-tekgadgt"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-400 hover:text-blue-300">LinkedIn</a
+        class="text-accent-primary hover:text-accent-primary/80">LinkedIn</a
       >
       <a
         href="https://bsky.app/profile/tekgadgt.dev"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-400 hover:text-blue-300">Bluesky</a
+        class="text-accent-primary hover:text-accent-primary/80">Bluesky</a
       >
       <a
         href="https://tekgadgt.com"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-400 hover:text-blue-300">tekgadgt.com</a
+        class="text-accent-primary hover:text-accent-primary/80">tekgadgt.com</a
       >
     </div>
   </footer>
