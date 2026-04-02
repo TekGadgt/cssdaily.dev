@@ -45,9 +45,9 @@ export default function ResultsModal({ isOpen, date, score, timeSpent, timeLimit
   const seconds = timeSpent % 60;
   const timeStr = `${minutes}:${String(seconds).padStart(2, '0')}`;
 
-  let scoreColor = 'text-red-400';
-  if (score >= 80) scoreColor = 'text-green-400';
-  else if (score >= 50) scoreColor = 'text-yellow-400';
+  let scoreColor = 'text-error';
+  if (score >= 80) scoreColor = 'text-success';
+  else if (score >= 50) scoreColor = 'text-warning';
 
   const handleShare = async () => {
     const text = generateShareText(date, score, timeSpent, timeLimit);
@@ -63,12 +63,12 @@ export default function ResultsModal({ isOpen, date, score, timeSpent, timeLimit
 
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50" onClick={onClose}>
-      <div className="bg-gray-800 rounded-xl p-6 max-w-md w-full mx-4 shadow-xl" onClick={(e) => e.stopPropagation()}>
-        <h2 className="text-xl font-bold text-white text-center mb-4">Challenge Complete!</h2>
+      <div className="bg-surface rounded-md p-6 max-w-md w-full mx-4 shadow-brutal-md border-2 border-border-default" onClick={(e) => e.stopPropagation()}>
+        <h2 className="text-xl font-bold text-text-primary text-center mb-4">Challenge Complete!</h2>
 
         <div className="text-center mb-4">
           <div className={`text-5xl font-bold ${scoreColor} mb-1`}>{score}%</div>
-          <div className="text-gray-400">Time: {timeStr}</div>
+          <div className="text-text-muted">Time: {timeStr}</div>
         </div>
 
         <div ref={canvasContainerRef} className="flex justify-center mb-4" />
@@ -76,23 +76,23 @@ export default function ResultsModal({ isOpen, date, score, timeSpent, timeLimit
         <div className="flex flex-col gap-2">
           <button
             onClick={handleShare}
-            className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition"
+            className="w-full py-2 px-4 bg-accent-secondary hover:bg-accent-secondary/80 text-text-primary rounded-md font-medium transition border-2 border-accent-secondary shadow-brutal-sm"
           >
             {copied ? 'Copied!' : 'Share Result'}
           </button>
           <button
             onClick={onClose}
-            className="w-full py-2 px-4 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-medium transition"
+            className="w-full py-2 px-4 bg-elevated hover:bg-elevated/80 text-text-primary rounded-md font-medium transition border border-border-default"
           >
             Keep Tweaking
           </button>
         </div>
 
         <div className="flex justify-between mt-4 text-sm">
-          <a href={`${basePath}/${prevDate}`} className="text-blue-400 hover:text-blue-300">
+          <a href={`${basePath}/${prevDate}`} className="text-accent-primary hover:text-accent-primary/80">
             &larr; Previous
           </a>
-          <a href={`${basePath}/${nextDate}`} className="text-blue-400 hover:text-blue-300">
+          <a href={`${basePath}/${nextDate}`} className="text-accent-primary hover:text-accent-primary/80">
             Next &rarr;
           </a>
         </div>
