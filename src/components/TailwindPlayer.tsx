@@ -136,29 +136,29 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
   const displayScore = phase === 'finished' ? submittedScore : score;
 
   return (
-    <div className="flex-1 flex flex-col min-h-0 bg-gray-900 text-white">
+    <div className="flex-1 flex flex-col min-h-0 bg-base text-text-primary">
       {/* Header */}
-      <header className="border-b border-gray-700 px-4 py-3">
+      <header className="border-b-2 border-border-default px-4 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2 text-sm text-gray-400">
+          <div className="flex items-center gap-2 text-sm text-text-muted">
             {prevDate ? (
-              <a href={`/tailwind/${prevDate}`} className="hover:text-white">&larr;</a>
+              <a href={`/tailwind/${prevDate}`} className="hover:text-text-primary">&larr;</a>
             ) : (
-              <span className="text-gray-600">&larr;</span>
+              <span className="text-text-muted/40">&larr;</span>
             )}
             <span>{formatDate(challenge.date, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
             {nextDate ? (
-              <a href={`/tailwind/${nextDate}`} className="hover:text-white">&rarr;</a>
+              <a href={`/tailwind/${nextDate}`} className="hover:text-text-primary">&rarr;</a>
             ) : (
-              <span className="text-gray-600">&rarr;</span>
+              <span className="text-text-muted/40">&rarr;</span>
             )}
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-400">{challenge.title}</span>
-            <span className={`text-xs px-2 py-0.5 rounded ${challenge.difficulty === 'easy' ? 'bg-green-900 text-green-300' :
-              challenge.difficulty === 'medium' ? 'bg-yellow-900 text-yellow-300' :
-                'bg-red-900 text-red-300'
+            <span className="text-sm text-text-muted">{challenge.title}</span>
+            <span className={`text-xs px-2 py-0.5 rounded-md border ${challenge.difficulty === 'easy' ? 'border-success/30 text-success' :
+              challenge.difficulty === 'medium' ? 'border-warning/30 text-warning' :
+                'border-error/30 text-error'
               }`}>
               {challenge.difficulty}
             </span>
@@ -175,7 +175,7 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
             {phase === 'playing' && (
               <button
                 onClick={doSubmit}
-                className="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg font-medium transition"
+                className="px-4 py-1.5 bg-accent-secondary hover:bg-accent-secondary/80 text-text-primary text-sm rounded-md font-medium transition border-2 border-accent-secondary shadow-brutal-sm"
               >
                 Submit
               </button>
@@ -183,14 +183,14 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
             {phase === 'finished' && (
               <button
                 onClick={() => setShowResults(true)}
-                className="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-lg font-medium transition"
+                className="px-4 py-1.5 bg-accent-secondary hover:bg-accent-secondary/80 text-text-primary text-sm rounded-md font-medium transition border-2 border-accent-secondary shadow-brutal-sm"
               >
                 Results
               </button>
             )}
             <button
               onClick={() => setShowHistory(true)}
-              className="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-lg transition"
+              className="px-3 py-1.5 bg-elevated hover:bg-elevated/80 text-text-primary text-sm rounded-md transition border border-border-default"
             >
               Stats
             </button>
@@ -205,9 +205,9 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
           {/* User Preview */}
           <div>
             <div className="flex items-center h-8 mb-2">
-              <h3 className="text-sm font-medium text-gray-400">Your Preview</h3>
+              <h3 className="text-sm font-medium text-text-muted">Your Preview</h3>
             </div>
-            <div className="rounded-lg overflow-hidden border border-gray-700" style={{ width: TAILWIND_PREVIEW_WIDTH, height: TAILWIND_PREVIEW_HEIGHT }}>
+            <div className="rounded-md overflow-hidden border-2 border-border-default" style={{ width: TAILWIND_PREVIEW_WIDTH, height: TAILWIND_PREVIEW_HEIGHT }}>
               <TailwindPreview
                 html={userHtml}
                 onLoad={handlePreviewLoad}
@@ -218,15 +218,15 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
           {/* Target Panel */}
           <div>
             <div className="flex items-center gap-2 h-8 mb-2">
-              <h3 className="text-sm font-medium text-gray-400">Target</h3>
+              <h3 className="text-sm font-medium text-text-muted">Target</h3>
               <div className="flex text-xs">
                 {(['target', 'overlay', 'diff'] as TargetTab[]).map((tab) => (
                   <button
                     key={tab}
                     onClick={() => setTargetTab(tab)}
                     className={`px-2 py-1 capitalize ${targetTab === tab
-                      ? 'bg-gray-700 text-white rounded'
-                      : 'text-gray-500 hover:text-white'
+                      ? 'bg-elevated text-text-primary rounded-md'
+                      : 'text-text-muted hover:text-text-primary'
                       }`}
                   >
                     {tab}
@@ -234,7 +234,7 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
                 ))}
               </div>
             </div>
-            <div className="rounded-lg overflow-hidden border border-gray-700 relative" style={{ width: TAILWIND_PREVIEW_WIDTH, height: TAILWIND_PREVIEW_HEIGHT, background: '#f5f5f5' }}>
+            <div className="rounded-md overflow-hidden border-2 border-border-default relative" style={{ width: TAILWIND_PREVIEW_WIDTH, height: TAILWIND_PREVIEW_HEIGHT, background: '#f5f5f5' }}>
               {targetTab === 'target' && (
                 <img
                   src={`/targets/tailwind/${challenge.date}.png`}
@@ -265,7 +265,7 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
               )}
               {targetTab === 'diff' && (
                 <div ref={heatmapRef} className="w-full h-full flex items-center justify-center">
-                  {!diffResult && <span className="text-gray-500 text-sm">Start editing to see diff</span>}
+                  {!diffResult && <span className="text-text-muted text-sm">Start editing to see diff</span>}
                 </div>
               )}
             </div>
@@ -273,7 +273,7 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
         </div>
 
         {/* Tailwind Editor */}
-        <div className="rounded-lg overflow-hidden border border-gray-700 flex-1 min-h-0">
+        <div className="rounded-md overflow-hidden border-2 border-border-default flex-1 min-h-0">
           <TailwindEditor
             initialHtml={challenge.starter.html}
             onChange={handleHtmlChange}
