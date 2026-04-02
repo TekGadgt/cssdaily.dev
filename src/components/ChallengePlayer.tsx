@@ -2,7 +2,7 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 import type { Challenge, DiffResult } from '../utils/types';
 import { compareToTarget } from '../utils/diff';
 import { saveResult, getResult } from '../utils/storage';
-import { formatDate, adjacentDate } from '../utils/date';
+import { formatDate } from '../utils/date';
 import Preview, { PREVIEW_WIDTH, PREVIEW_HEIGHT } from './Preview';
 import CodeEditor from './CodeEditor';
 import Timer from './Timer';
