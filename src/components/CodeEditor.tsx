@@ -85,17 +85,17 @@ export default function CodeEditor({ initialCss, htmlContent, onChange }: CodeEd
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex items-center border-b border-gray-700">
+      <div className="flex items-center border-b-2 border-border-default">
         {!isSplit && (
           <>
             <button
-              className={`px-4 py-2 text-sm font-medium ${activeTab === 'css' ? 'bg-gray-800 text-white border-b-2 border-blue-500' : 'text-gray-400 hover:text-white'}`}
+              className={`px-4 py-2 text-sm font-medium ${activeTab === 'css' ? 'bg-surface text-text-primary border-b-2 border-accent-primary' : 'text-text-muted hover:text-text-primary'}`}
               onClick={() => setActiveTab('css')}
             >
               CSS
             </button>
             <button
-              className={`px-4 py-2 text-sm font-medium ${activeTab === 'html' ? 'bg-gray-800 text-white border-b-2 border-blue-500' : 'text-gray-400 hover:text-white'}`}
+              className={`px-4 py-2 text-sm font-medium ${activeTab === 'html' ? 'bg-surface text-text-primary border-b-2 border-accent-primary' : 'text-text-muted hover:text-text-primary'}`}
               onClick={() => setActiveTab('html')}
             >
               HTML (read-only)
@@ -104,14 +104,14 @@ export default function CodeEditor({ initialCss, htmlContent, onChange }: CodeEd
         )}
         {isSplit && (
           <>
-            <span className="px-4 py-2 text-sm font-medium bg-gray-800 text-white border-b-2 border-blue-500">CSS</span>
-            <span className="px-4 py-2 text-sm font-medium text-gray-400">HTML (read-only)</span>
+            <span className="px-4 py-2 text-sm font-medium bg-surface text-text-primary border-b-2 border-accent-primary">CSS</span>
+            <span className="px-4 py-2 text-sm font-medium text-text-muted">HTML (read-only)</span>
           </>
         )}
         <div className="ml-auto pr-2">
           <button
             onClick={() => setLayout(isSplit ? 'tabs' : 'split')}
-            className="p-1.5 text-gray-400 hover:text-white transition rounded hover:bg-gray-700"
+            className="p-1.5 text-text-muted hover:text-text-primary transition rounded-md hover:bg-elevated"
             title={isSplit ? 'Tab view' : 'Split view'}
             aria-label={isSplit ? 'Switch to tab view' : 'Switch to split view'}
           >
@@ -132,7 +132,7 @@ export default function CodeEditor({ initialCss, htmlContent, onChange }: CodeEd
       <div className={`flex-1 overflow-hidden ${isSplit ? 'flex' : ''}`}>
         <div
           ref={cssEditorRef}
-          className={`h-full ${isSplit ? 'w-1/2 border-r border-gray-700' : (activeTab === 'css' ? '' : 'hidden')}`}
+          className={`h-full ${isSplit ? 'w-1/2 border-r border-border-default' : (activeTab === 'css' ? '' : 'hidden')}`}
         />
         <div
           ref={htmlEditorRef}

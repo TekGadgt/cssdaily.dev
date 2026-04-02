@@ -170,8 +170,8 @@ export default function TailwindEditor({ initialHtml, onChange }: TailwindEditor
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex border-b border-gray-700">
-        <div className="px-4 py-2 text-sm font-medium bg-gray-800 text-white border-b-2 border-blue-500">
+      <div className="flex border-b-2 border-border-default">
+        <div className="px-4 py-2 text-sm font-medium bg-surface text-text-primary border-b-2 border-accent-primary">
           HTML (class editing only)
         </div>
       </div>
