@@ -34,8 +34,8 @@ export default function HistoryView({
 
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50" onClick={onClose}>
-      <div className="bg-gray-800 rounded-xl p-6 max-w-md w-full mx-4 shadow-xl max-h-[80vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-        <h2 className="text-xl font-bold text-white text-center mb-4">Your Stats</h2>
+      <div className="bg-surface rounded-md p-6 max-w-md w-full mx-4 shadow-brutal-md border-2 border-border-default max-h-[80vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+        <h2 className="text-xl font-bold text-text-primary text-center mb-4">Your Stats</h2>
 
         <div className="grid grid-cols-4 gap-2 mb-6">
           {[
@@ -45,30 +45,30 @@ export default function HistoryView({
             { label: 'Best', value: stats.maxStreak },
           ].map(({ label, value }) => (
             <div key={label} className="text-center">
-              <div className="text-2xl font-bold text-white">{value}</div>
-              <div className="text-xs text-gray-400">{label}</div>
+              <div className="text-2xl font-bold text-text-primary">{value}</div>
+              <div className="text-xs text-text-muted">{label}</div>
             </div>
           ))}
         </div>
 
-        <h3 className="text-sm font-medium text-gray-400 mb-2">Past Challenges</h3>
+        <h3 className="text-sm font-medium text-text-muted mb-2">Past Challenges</h3>
         {sortedDates.length === 0 ? (
-          <p className="text-gray-500 text-sm text-center py-4">No challenges completed yet.</p>
+          <p className="text-text-muted text-sm text-center py-4">No challenges completed yet.</p>
         ) : (
           <div className="space-y-1">
             {sortedDates.map((date) => {
               const result = history[date];
-              let scoreColor = 'text-red-400';
-              if (result.score >= 80) scoreColor = 'text-green-400';
-              else if (result.score >= 50) scoreColor = 'text-yellow-400';
+              let scoreColor = 'text-error';
+              if (result.score >= 80) scoreColor = 'text-success';
+              else if (result.score >= 50) scoreColor = 'text-warning';
 
               return (
                 <a
                   key={date}
                   href={`${basePath}/${date}`}
-                  className="flex justify-between items-center py-2 px-3 rounded hover:bg-gray-700 transition"
+                  className="flex justify-between items-center py-2 px-3 rounded-md hover:bg-elevated transition"
                 >
-                  <span className="text-sm text-gray-300">
+                  <span className="text-sm text-text-secondary">
                     {formatDate(date, { month: 'short', day: 'numeric', year: 'numeric' })}
                   </span>
                   <span className={`font-mono font-bold ${scoreColor}`}>{result.score}%</span>
@@ -80,7 +80,7 @@ export default function HistoryView({
 
         <button
           onClick={onClose}
-          className="w-full mt-4 py-2 px-4 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-medium transition"
+          className="w-full mt-4 py-2 px-4 bg-elevated hover:bg-elevated/80 text-text-primary rounded-md font-medium transition border border-border-default"
         >
           Close
         </button>
