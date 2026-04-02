@@ -34,7 +34,7 @@ export default function HistoryView({
 
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50" onClick={onClose}>
-      <div className="bg-surface rounded-md p-6 max-w-md w-full mx-4 shadow-brutal-md border-2 border-border-default max-h-[80vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+      <div className="bg-elevated rounded-md p-6 max-w-md w-full mx-4 shadow-brutal-md border-3 border-border-strong max-h-[80vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
         <h2 className="text-xl font-bold text-text-primary text-center mb-4">Your Stats</h2>
 
         <div className="grid grid-cols-4 gap-2 mb-6">

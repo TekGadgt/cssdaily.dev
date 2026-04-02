@@ -63,7 +63,7 @@ export default function ResultsModal({ isOpen, date, score, timeSpent, timeLimit
 
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50" onClick={onClose}>
-      <div className="bg-surface rounded-md p-6 max-w-md w-full mx-4 shadow-brutal-md border-2 border-border-default" onClick={(e) => e.stopPropagation()}>
+      <div className="bg-elevated rounded-md p-6 max-w-md w-full mx-4 shadow-brutal-md border-3 border-border-strong" onClick={(e) => e.stopPropagation()}>
         <h2 className="text-xl font-bold text-text-primary text-center mb-4">Challenge Complete!</h2>
 
         <div className="text-center mb-4">
