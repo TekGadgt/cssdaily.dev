@@ -82,7 +82,7 @@ export default function ResultsModal({ isOpen, date, score, timeSpent, timeLimit
           </button>
           <button
             onClick={onClose}
-            className="w-full py-2 px-4 bg-elevated hover:bg-elevated/80 text-text-primary rounded-md font-medium transition border border-border-default"
+            className="w-full py-2 px-4 bg-surface hover:bg-base text-text-primary rounded-md font-medium transition border-2 border-border-strong shadow-brutal-sm"
           >
             Keep Tweaking
           </button>
