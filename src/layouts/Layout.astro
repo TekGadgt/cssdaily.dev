@@ -13,13 +13,34 @@ const { title = 'CSS Daily - A Daily CSS Challenge', description = 'A daily CSS 
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <title>{title}</title>
+    <style>
+      :root {
+        --bg-base: #0B0F14;
+        --bg-surface: #111827;
+        --bg-elevated: #182235;
+        --text-primary: #E6F0FF;
+        --text-secondary: #A9BCD6;
+        --text-muted: #6F819A;
+        --accent-primary: #00D4FF;
+        --accent-secondary: #2F7BFF;
+        --accent-tertiary: #39F58F;
+        --border-default: #2A3447;
+        --border-strong: #3A4A63;
+        --success: #2EEA8A;
+        --error: #FF5C7A;
+        --warning: #FFC857;
+      }
+    </style>
   </head>
-  <body class="min-h-screen bg-gray-900">
+  <body class="min-h-screen bg-base font-sans text-text-secondary">
     <slot />
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "44069e8e1cd1479c85c3a876abab3d38"}'></script>
