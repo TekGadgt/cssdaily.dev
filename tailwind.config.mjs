@@ -28,8 +28,8 @@ export default {
         mono: ['"JetBrains Mono"', '"IBM Plex Mono"', '"SFMono-Regular"', 'monospace'],
       },
       boxShadow: {
-        'brutal-sm': '2px 2px 0 0 #06090F',
-        'brutal-md': '6px 6px 0 0 #06090F',
+        'brutal-sm': '2px 2px 0 0 #070B12',
+        'brutal-md': '6px 6px 0 0 #070B12',
       },
       borderWidth: {
         '3': '3px',
