@@ -190,7 +190,7 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
             )}
             <button
               onClick={() => setShowHistory(true)}
-              className="px-3 py-1.5 bg-elevated hover:bg-elevated/80 text-text-primary text-sm rounded-md transition border border-border-default"
+              className="px-3 py-1.5 bg-surface hover:bg-base text-text-primary text-sm rounded-md font-medium transition border-2 border-border-strong shadow-brutal-sm"
             >
               Stats
             </button>
