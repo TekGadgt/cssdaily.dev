@@ -1,17 +1,7 @@
-import { useState, useRef, useCallback, useEffect } from 'react';
-import type { Challenge, DiffResult } from '../utils/types';
-import { compareToTarget } from '../utils/diff';
-import { saveResult, getResult } from '../utils/storage';
-import { formatDate, adjacentDate } from '../utils/date';
-import Preview, { PREVIEW_WIDTH, PREVIEW_HEIGHT } from './Preview';
+import type { Challenge } from '../utils/types';
+import { formatDate } from '../utils/date';
+import { PREVIEW_WIDTH, PREVIEW_HEIGHT } from './Preview';
 import CodeEditor from './CodeEditor';
-import Timer from './Timer';
-import ScoreDisplay from './ScoreDisplay';
-import ResultsModal from './ResultsModal';
-import HistoryView from './HistoryView';
-
-type Phase = 'idle' | 'playing' | 'finished';
-type TargetTab = 'target' | 'overlay' | 'diff';
 
 interface ChallengePlayerProps {
   challenge: Challenge;
@@ -19,121 +9,10 @@ interface ChallengePlayerProps {
 }
 
 export default function ChallengePlayer({ challenge, allDates }: ChallengePlayerProps) {
-  const [userCss, setUserCss] = useState(challenge.starter.css);
-  const userCssRef = useRef(challenge.starter.css);
-  const [phase, setPhase] = useState<Phase>('idle');
-  const phaseRef = useRef<Phase>('idle');
-  const [score, setScore] = useState(0);
-  const scoreRef = useRef(0);
-  const [diffResult, setDiffResult] = useState<DiffResult | null>(null);
-  const [targetTab, setTargetTab] = useState<TargetTab>('target');
-  const [overlayOpacity, setOverlayOpacity] = useState(0.5);
-  const [showResults, setShowResults] = useState(false);
-  const [showHistory, setShowHistory] = useState(false);
-  const [submittedScore, setSubmittedScore] = useState(0);
-  const [submittedTime, setSubmittedTime] = useState(0);
-  const timeSpentRef = useRef(0);
-  const diffPendingRef = useRef(false);
-  const diffTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const heatmapRef = useRef<HTMLDivElement>(null);
-
-  // Check for existing result
-  useEffect(() => {
-    const existing = getResult(challenge.date);
-    if (existing) {
-      setSubmittedScore(existing.score);
-      setSubmittedTime(existing.timeSpent);
-      setPhase('finished');
-      phaseRef.current = 'finished';
-      setScore(existing.score);
-      scoreRef.current = existing.score;
-    }
-  }, [challenge.date]);
-
-  const runDiff = useCallback(async () => {
-    if (diffPendingRef.current) return;
-    diffPendingRef.current = true;
-
-    try {
-      const result = await compareToTarget(
-        challenge.starter.html,
-        userCssRef.current,
-        challenge.target.css,
-        { compareWidth: PREVIEW_WIDTH, compareHeight: PREVIEW_HEIGHT }
-      );
-      setDiffResult(result);
-      if (phaseRef.current !== 'finished') {
-        setScore(result.score);
-        scoreRef.current = result.score;
-      }
-    } catch (err) {
-      console.error('Diff failed:', err);
-    } finally {
-      diffPendingRef.current = false;
-    }
-  }, [challenge]);
-
-  const scheduleDiff = useCallback(() => {
-    if (diffTimeoutRef.current) clearTimeout(diffTimeoutRef.current);
-    diffTimeoutRef.current = setTimeout(runDiff, 1500);
-  }, [runDiff]);
-
-  const handleCssChange = useCallback((css: string) => {
-    setUserCss(css);
-    userCssRef.current = css;
-    if (phaseRef.current !== 'playing') {
-      setPhase('playing');
-      phaseRef.current = 'playing';
-    }
-    scheduleDiff();
-  }, [scheduleDiff]);
-
-  const handlePreviewLoad = useCallback(() => {
-    setTimeout(runDiff, 100);
-  }, [runDiff]);
-
-  const doSubmit = useCallback(() => {
-    const finalScore = scoreRef.current;
-    setPhase('finished');
-    phaseRef.current = 'finished';
-    setSubmittedScore(finalScore);
-    setSubmittedTime(timeSpentRef.current);
-    saveResult(challenge.date, {
-      date: challenge.date,
-      score: finalScore,
-      timeSpent: timeSpentRef.current,
-      submittedCss: userCssRef.current,
-    });
-    setShowResults(true);
-  }, [challenge.date]);
-
-  const handleTimeUp = useCallback(() => {
-    doSubmit();
-  }, [doSubmit]);
-
-  const handleTick = useCallback((elapsed: number) => {
-    timeSpentRef.current = elapsed;
-  }, []);
-
-  // Display heatmap in diff tab
-  useEffect(() => {
-    if (targetTab === 'diff' && diffResult?.heatmapCanvas && heatmapRef.current) {
-      heatmapRef.current.innerHTML = '';
-      const canvas = diffResult.heatmapCanvas.cloneNode(true) as HTMLCanvasElement;
-      canvas.style.width = `${PREVIEW_WIDTH}px`;
-      canvas.style.height = `${PREVIEW_HEIGHT}px`;
-      canvas.style.background = '#f5f5f5';
-      const ctx = canvas.getContext('2d');
-      if (ctx) ctx.drawImage(diffResult.heatmapCanvas, 0, 0, PREVIEW_WIDTH, PREVIEW_HEIGHT);
-      heatmapRef.current.appendChild(canvas);
-    }
-  }, [targetTab, diffResult]);
-
   const sortedDates = [...allDates].sort();
   const currentIdx = sortedDates.indexOf(challenge.date);
   const prevDate = currentIdx > 0 ? sortedDates[currentIdx - 1] : null;
   const nextDate = currentIdx < sortedDates.length - 1 ? sortedDates[currentIdx + 1] : null;
-  const displayScore = phase === 'finished' ? submittedScore : score;
 
   return (
     <div className="flex-1 flex flex-col min-h-0 bg-gray-900 text-white">
@@ -185,7 +64,7 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
                 <CodeEditor
                   initialCss={challenge.target.css}
                   htmlContent={challenge.target.html}
-                  onChange={handleCssChange}
+                  onChange={() => {}}
                 />
               </div>
             </div>

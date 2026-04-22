@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import type { TailwindChallenge } from '../utils/types';
 import { formatDate } from '../utils/date';
 import { TAILWIND_PREVIEW_WIDTH, TAILWIND_PREVIEW_HEIGHT } from './TailwindPreview';
