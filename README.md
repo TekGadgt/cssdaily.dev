@@ -87,6 +87,17 @@ npx tsx scripts/generate-targets.ts
 
 The visual diff engine in this project is adapted from [Synhax](https://github.com/syntaxfm/synhax) by the [Syntax](https://syntax.fm/) team. Huge thanks to [Wes Bos](https://github.com/wesbos), [Scott Tolinski](https://github.com/stolinski), and all contributors to Synhax for building and open-sourcing the pixel comparison approach that powers the scoring system here. Their work on Euclidean color distance, background detection, and gradient scoring was invaluable.
 
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
 ## License
 
 MIT
