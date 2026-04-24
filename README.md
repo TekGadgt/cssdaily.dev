@@ -33,7 +33,7 @@ Add Tailwind utility classes to pre-structured HTML. The editor locks everything
 - **[React](https://react.dev/)** — Interactive challenge player
 - **[CodeMirror 6](https://codemirror.net/)** — CSS/HTML editor with transaction filters, decorations, and custom autocomplete
 - **[Tailwind CSS](https://tailwindcss.com/)** — UI styling + Tailwind CDN for challenge rendering
-- **[@zumer/snapdom](https://github.com/nicecoder02/snapdom)** — DOM-to-image capture for visual diffing
+- **[@zumer/snapdom](https://github.com/zumerlab/snapdom)** — DOM-to-image capture for visual diffing
 - **[Playwright](https://playwright.dev/)** — Target screenshot generation
 - **[Claude API](https://docs.anthropic.com/)** — Daily challenge generation
 - **GitHub Pages** — Hosting
