@@ -79,7 +79,7 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
   const handleHtmlChange = useCallback((html: string) => {
     setUserHtml(html);
     userHtmlRef.current = html;
-    if (phaseRef.current !== 'playing') {
+    if (phaseRef.current === 'idle') {
       setPhase('playing');
       phaseRef.current = 'playing';
     }
