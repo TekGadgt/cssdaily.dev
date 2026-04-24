@@ -1,4 +1,22 @@
 {
   "projectName": "cssdaily.dev",
-  "projectOwner": "TekGadgt"
+  "projectOwner": "TekGadgt",
+  "files": [
+    "README.md"
+  ],
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributorsPerLine": 7,
+  "contributors": [
+    {
+      "login": "runoncedev",
+      "name": "Camilo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1458916?v=4",
+      "profile": "https://runonce.dev",
+      "contributions": [
+        "code",
+        "maintenance"
+      ]
+    }
+  ]
 }
