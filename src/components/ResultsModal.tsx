@@ -80,12 +80,20 @@ export default function ResultsModal({ isOpen, date, score, timeSpent, timeLimit
           >
             {copied ? 'Copied!' : 'Share Result'}
           </button>
+          <div className="flex gap-2">
           <button
             onClick={onClose}
             className="w-full py-2 px-4 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-medium transition"
           >
             Keep Tweaking
           </button>
+          <button
+            onClick={() => window.open(`${basePath}/${date}/solution`, '_blank')}
+            className="w-full py-2 px-4 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-medium transition"
+          >
+            View Solution
+          </button>
+          </div>
         </div>
 
         <div className="flex justify-between mt-4 text-sm">
