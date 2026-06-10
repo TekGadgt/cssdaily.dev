@@ -106,12 +106,32 @@ async function generateChallenge(date: string) {
         system: SYSTEM_PROMPT,
       });
 
-      const text = (message.content[0] as { type: 'text'; text: string }).text;
-      fields = extractChallenge(text);
+      const block = message.content[0];
+      if (!block || block.type !== 'text') {
+        throw new Error(`Unexpected response content on attempt ${attempt}: ${JSON.stringify(message.content).substring(0, 200)}`);
+      }
+      const text = block.text;
+
+      let parsed: ChallengeFields;
+      try {
+        parsed = extractChallenge(text);
+      } catch (err) {
+        console.warn(`Attempt ${attempt}: failed to parse response — ${(err as Error).message}`);
+        if (attempt === MAX_ATTEMPTS) throw err;
+        messages.push({ role: 'assistant', content: text });
+        messages.push({
+          role: 'user',
+          content: 'Your previous response was missing required XML tags. Output the complete challenge again with ALL of these tags: <title>, <difficulty>, <html>, <targetcss>, <startercss>.',
+        });
+        continue;
+      }
 
       // Render the target and measure the component (this render is also
       // reused for the screenshot once the size is accepted)
-      await page.setContent(buildScreenshotHtml(fields.html, fields.targetCss), { waitUntil: 'networkidle' });
+      await page.setContent(buildScreenshotHtml(parsed.html, parsed.targetCss), { waitUntil: 'networkidle' });
+      // Only assign fields after a successful render so fields, the rendered
+      // page, and the eventual screenshot always correspond to the same attempt.
+      fields = parsed;
       const size = await measureComponent(page);
 
       if (!isOversize(size)) {
@@ -151,7 +171,7 @@ async function generateChallenge(date: string) {
     fs.writeFileSync(jsonPath, JSON.stringify(challenge, null, 2));
     console.log(`Saved challenge JSON: ${jsonPath}`);
 
-    // Screenshot the already-rendered accepted attempt
+    // Screenshot the last rendered attempt (accepted, or shipped-anyway oversize)
     fs.mkdirSync(TARGETS_DIR, { recursive: true });
     const pngPath = path.join(TARGETS_DIR, `${date}.png`);
     await page.screenshot({ path: pngPath, type: 'png' });
@@ -171,4 +191,7 @@ const date = process.argv[2] || (() => {
 generateChallenge(date).then(() => {
   // Write date to stdout for CI to capture
   console.log(`CHALLENGE_DATE=${date}`);
-}).catch(console.error);
+}).catch((err) => {
+  console.error(err);
+  process.exitCode = 1;
+});
