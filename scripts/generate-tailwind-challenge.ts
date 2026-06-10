@@ -38,7 +38,7 @@ OUTPUT FORMAT — use these exact XML tags (no JSON, no code fences):
 <title>Challenge Name</title>
 <difficulty>easy|medium|hard</difficulty>
 <targethtml>The target HTML with correct Tailwind classes on every element</targethtml>
-<starterhtml>The starter HTML with class="" (empty) on every element</starterhtml>
+<starterhtml>The starter HTML with class="  " (two spaces) on every element</starterhtml>
 
 Generate creative, visually interesting components like cards, badges, buttons, navbars, pricing tables, profile cards, etc.`;
 
@@ -62,7 +62,9 @@ function extractChallenge(text: string): TailwindChallengeFields {
     title: extract('title'),
     difficulty: extract('difficulty') as 'easy' | 'medium' | 'hard',
     targetHtml: extract('targethtml'),
-    starterHtml: extract('starterhtml'),
+    // The editor needs class="  " (two spaces) so editable regions are
+    // visible; normalize any all-whitespace class value the model emits
+    starterHtml: extract('starterhtml').replace(/class="\s*"/g, 'class="  "'),
   };
 }
 

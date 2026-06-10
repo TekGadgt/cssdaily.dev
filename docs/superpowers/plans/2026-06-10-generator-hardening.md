@@ -122,11 +122,11 @@ export function isOversize(size: { width: number; height: number }): boolean {
 
 - [ ] **Step 2: Smoke-test the helper against known-size fixtures**
 
-Write `/tmp/measure-smoke.ts`:
+Write `measure-smoke.ts` at the repo root (delete it after this step — do not commit it):
 
 ```ts
 import { chromium } from 'playwright';
-import { measureComponent, isOversize } from '/Users/tekgadgt/projects/cssdaily.dev/scripts/measure';
+import { measureComponent, isOversize } from './scripts/measure';
 
 const browser = await chromium.launch();
 const page = await browser.newPage();
@@ -151,7 +151,7 @@ await browser.close();
 Run:
 
 ```bash
-npx tsx /tmp/measure-smoke.ts
+npx tsx measure-smoke.ts && rm measure-smoke.ts
 ```
 
 Expected output ends with `PASS`. (Fixture 2: default block layout stacks the divs, so the union is 300 wide × 130 tall.)
