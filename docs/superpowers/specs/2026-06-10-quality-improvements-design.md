@@ -34,7 +34,7 @@ In `scripts/generate-challenge.ts` and `scripts/generate-tailwind-challenge.ts`,
 
 1. Measure the rendered component's bounding box (union of `document.body` children rects).
 2. If it exceeds 520×320, append a follow-up user message to the same conversation: the measured W×H, the limit, and an instruction to regenerate smaller. Re-extract, re-render, re-measure.
-3. Up to 3 retries; if still oversize, the script exits nonzero (the workflow's `continue-on-error` already tolerates a failed day).
+3. Up to 3 retries; if still oversize after the final retry, ship the last attempt anyway (log a warning in the CI summary). An occasionally clipped challenge beats a missing day — if oversize persists after this lands, that's a signal to dig into the root cause.
 
 ### 1c. Semantic HTML prompt guidance
 
