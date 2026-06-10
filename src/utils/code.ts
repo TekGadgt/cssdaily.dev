@@ -1,4 +1,4 @@
-export const FONT_LINK = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap';
+export const FONT_LINK = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Color+Emoji&display=swap';
 
 export const BASE_STYLES = `
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -7,7 +7,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'Noto Color Emoji', sans-serif;
   background: #f5f5f5;
   padding: 20px;
 }
@@ -51,7 +51,7 @@ export function buildTailwindSrcdoc(html: string): string {
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="${FONT_LINK}">
 </head>
-<body class="bg-[#f5f5f5] min-h-screen flex items-center justify-center p-5 font-['Inter']">
+<body class="bg-[#f5f5f5] min-h-screen flex items-center justify-center p-5 font-['Inter','Noto_Color_Emoji']">
 ${sanitizedHtml}
 </body>
 </html>`;
