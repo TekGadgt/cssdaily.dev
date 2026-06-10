@@ -7,6 +7,8 @@ export const MAX_COMPONENT_HEIGHT = 320;
  * Measure the bounding box of the rendered component: the union of
  * document.body's direct children rects (the body is a flex container
  * that centers the component; padding/background are environment chrome).
+ * Absolutely-positioned or transformed descendants that extend beyond a
+ * direct child's layout rect are not captured.
  */
 export async function measureComponent(page: Page): Promise<{ width: number; height: number }> {
   return page.evaluate(() => {
