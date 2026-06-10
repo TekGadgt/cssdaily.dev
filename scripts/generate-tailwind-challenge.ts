@@ -19,7 +19,7 @@ STRICT CONSTRAINTS:
 - Use Tailwind's built-in color palette (no custom colors)
 - Focus on: flexbox, grid, spacing, borders, border-radius, typography, colors
 - NO box-shadow, text-shadow, or background-image utilities
-- NO font-family declarations (Inter font is loaded by the environment)
+- NO font-family declarations (Inter and Noto Color Emoji fonts are loaded and set by the environment)
 - The starter HTML and target HTML must have the SAME structure — only class values differ
 - Starter HTML has class="  " (two spaces) on every element — this ensures editable regions are visible in the editor
 - Target HTML has the correct Tailwind utility classes

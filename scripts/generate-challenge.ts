@@ -12,7 +12,7 @@ const TARGETS_DIR = path.join(__dirname, '..', 'public', 'targets');
 const SYSTEM_PROMPT = `You are a CSS challenge generator for a "Wordle for CSS" game. Generate a self-contained CSS challenge that users will try to replicate.
 
 STRICT CONSTRAINTS:
-- NO font-family declarations (Inter font is loaded by the environment)
+- NO font-family declarations (Inter and Noto Color Emoji fonts are loaded and set by the environment)
 - NO box-shadow or text-shadow (inconsistent rendering)
 - NO background-image, url(), or external assets
 - ALL colors must be defined as :root CSS custom properties with var() references

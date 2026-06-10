@@ -50,8 +50,9 @@ export function buildTailwindSrcdoc(html: string): string {
   <meta charset="UTF-8">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="${FONT_LINK}">
+  <style>body { font-family: 'Inter', 'Noto Color Emoji', sans-serif; }</style>
 </head>
-<body class="bg-[#f5f5f5] min-h-screen flex items-center justify-center p-5 font-['Inter','Noto_Color_Emoji']">
+<body class="bg-[#f5f5f5] min-h-screen flex items-center justify-center p-5">
 ${sanitizedHtml}
 </body>
 </html>`;
