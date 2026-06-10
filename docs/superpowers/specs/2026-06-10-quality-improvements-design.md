@@ -26,7 +26,7 @@ Pin emoji rendering to one font everywhere a challenge renders:
 
 Because the Playwright screenshot env, the player preview iframes, and the snapdom diff captures all build HTML through these same helpers, the generator and every player OS render identical emoji.
 
-**Backfill:** regenerate all existing target PNGs in one batch (re-render each challenge JSON through the updated screenshot pipeline). Challenge JSONs are unchanged; only `public/targets/*.png` are rewritten.
+**No backfill:** existing target PNGs stay as-is — the emoji mismatch on past challenges is a known issue and they remain archival. The fix applies to challenges generated from this point forward (the player-side font change does apply everywhere, since previews render live).
 
 ### 1b. Oversize validation with retry loop
 
