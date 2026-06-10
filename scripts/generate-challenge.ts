@@ -4,6 +4,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { buildScreenshotHtml } from '../src/utils/code';
+import { measureComponent, isOversize, MAX_COMPONENT_WIDTH, MAX_COMPONENT_HEIGHT } from './measure';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CHALLENGES_DIR = path.join(__dirname, '..', 'src', 'data', 'challenges');
@@ -19,6 +20,7 @@ STRICT CONSTRAINTS:
 - Component must not exceed 520x320px (hard max within 600x400 viewport)
 - Body background is always #f5f5f5 (set by environment)
 - Focus on: flexbox, grid, spacing, borders, border-radius, typography (font-size, font-weight, line-height)
+- Prefer semantic HTML elements (nav, article, section, header, footer, button, figure, ul/li) over generic divs where they fit naturally
 
 SIZING STRATEGY (viewport is 600x400, body has 20px padding on all sides):
 - Available canvas: 560x360px. Component must fit comfortably within this.
@@ -37,6 +39,32 @@ OUTPUT FORMAT — use these exact XML tags (no JSON, no code fences):
 
 The starter CSS must include the same :root block with ALL variables, plus empty selector stubs for each class/element used in the target CSS.
 Generate creative, visually interesting components like cards, badges, buttons, navbars, pricing tables, etc.`;
+
+const MAX_ATTEMPTS = 4; // 1 initial generation + 3 size-fix retries
+
+interface ChallengeFields {
+  title: string;
+  difficulty: 'easy' | 'medium' | 'hard';
+  html: string;
+  targetCss: string;
+  starterCss: string;
+}
+
+function extractChallenge(text: string): ChallengeFields {
+  const extract = (tag: string): string => {
+    const match = text.match(new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`));
+    if (!match) throw new Error(`Missing <${tag}> in response:\n${text.substring(0, 500)}`);
+    return match[1].trim();
+  };
+
+  return {
+    title: extract('title'),
+    difficulty: extract('difficulty') as 'easy' | 'medium' | 'hard',
+    html: extract('html'),
+    targetCss: extract('targetcss'),
+    starterCss: extract('startercss'),
+  };
+}
 
 async function generateChallenge(date: string) {
   // Collect recent challenge titles to avoid repeats
@@ -57,71 +85,80 @@ async function generateChallenge(date: string) {
   }
 
   const client = new Anthropic();
+  const messages: Anthropic.MessageParam[] = [{ role: 'user', content: userPrompt }];
 
-  const message = await client.messages.create({
-    model: 'claude-sonnet-4-6',
-    max_tokens: 4000,
-    messages: [
-      {
-        role: 'user',
-        content: userPrompt,
-      },
-    ],
-    system: SYSTEM_PROMPT,
-  });
-
-  const text = (message.content[0] as { type: 'text'; text: string }).text;
-
-  // Extract fields from XML tags
-  const extract = (tag: string): string => {
-    const match = text.match(new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`));
-    if (!match) throw new Error(`Missing <${tag}> in response:\n${text.substring(0, 500)}`);
-    return match[1].trim();
-  };
-
-  const title = extract('title');
-  const difficulty = extract('difficulty') as 'easy' | 'medium' | 'hard';
-  const html = extract('html');
-  const targetCss = extract('targetcss');
-  const starterCss = extract('startercss');
-
-  const challenge = {
-    title,
-    difficulty,
-    target: { html, css: targetCss },
-    starter: { html, css: starterCss },
-    date,
-    timeLimit: difficulty === 'easy' ? 300 : difficulty === 'hard' ? 900 : 600,
-  };
-
-  // Save JSON
-  fs.mkdirSync(CHALLENGES_DIR, { recursive: true });
-  const jsonPath = path.join(CHALLENGES_DIR, `${date}.json`);
-  fs.writeFileSync(jsonPath, JSON.stringify(challenge, null, 2));
-  console.log(`Saved challenge JSON: ${jsonPath}`);
-
-  // Generate target screenshot
-  await generateTargetPng(challenge);
-}
-
-async function generateTargetPng(challenge: any) {
   const chromiumPath = process.env.CHROMIUM_PATH;
   const browser = await chromium.launch({
     ...(chromiumPath ? { executablePath: chromiumPath } : {}),
   });
 
-  const page = await browser.newPage();
-  await page.setViewportSize({ width: 600, height: 400 });
+  try {
+    const page = await browser.newPage();
+    await page.setViewportSize({ width: 600, height: 400 });
 
-  const html = buildScreenshotHtml(challenge.target.html, challenge.target.css);
-  await page.setContent(html, { waitUntil: 'networkidle' });
+    let fields: ChallengeFields | null = null;
 
-  fs.mkdirSync(TARGETS_DIR, { recursive: true });
-  const pngPath = path.join(TARGETS_DIR, `${challenge.date}.png`);
-  await page.screenshot({ path: pngPath, type: 'png' });
-  console.log(`Saved target PNG: ${pngPath}`);
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+      const message = await client.messages.create({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 4000,
+        messages,
+        system: SYSTEM_PROMPT,
+      });
 
-  await browser.close();
+      const text = (message.content[0] as { type: 'text'; text: string }).text;
+      fields = extractChallenge(text);
+
+      // Render the target and measure the component (this render is also
+      // reused for the screenshot once the size is accepted)
+      await page.setContent(buildScreenshotHtml(fields.html, fields.targetCss), { waitUntil: 'networkidle' });
+      const size = await measureComponent(page);
+
+      if (!isOversize(size)) {
+        console.log(`Attempt ${attempt}: component is ${size.width}x${size.height}px — OK`);
+        break;
+      }
+
+      console.warn(`Attempt ${attempt}: component is ${size.width}x${size.height}px (max ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT})`);
+
+      if (attempt === MAX_ATTEMPTS) {
+        // Ship it anyway — a slightly clipped challenge beats a missing day
+        console.log(`::warning::CSS challenge for ${date} shipped oversize at ${size.width}x${size.height}px after ${MAX_ATTEMPTS} attempts`);
+        break;
+      }
+
+      messages.push({ role: 'assistant', content: text });
+      messages.push({
+        role: 'user',
+        content: `Your component rendered at ${size.width}x${size.height}px, which exceeds the ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px maximum. Regenerate the challenge with a more compact layout that fits within ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px — reduce padding, font sizes, or element count as needed. Output all the XML tags again in full.`,
+      });
+    }
+
+    if (!fields) throw new Error('Generation produced no challenge');
+
+    const challenge = {
+      title: fields.title,
+      difficulty: fields.difficulty,
+      target: { html: fields.html, css: fields.targetCss },
+      starter: { html: fields.html, css: fields.starterCss },
+      date,
+      timeLimit: fields.difficulty === 'easy' ? 300 : fields.difficulty === 'hard' ? 900 : 600,
+    };
+
+    // Save JSON
+    fs.mkdirSync(CHALLENGES_DIR, { recursive: true });
+    const jsonPath = path.join(CHALLENGES_DIR, `${date}.json`);
+    fs.writeFileSync(jsonPath, JSON.stringify(challenge, null, 2));
+    console.log(`Saved challenge JSON: ${jsonPath}`);
+
+    // Screenshot the already-rendered accepted attempt
+    fs.mkdirSync(TARGETS_DIR, { recursive: true });
+    const pngPath = path.join(TARGETS_DIR, `${date}.png`);
+    await page.screenshot({ path: pngPath, type: 'png' });
+    console.log(`Saved target PNG: ${pngPath}`);
+  } finally {
+    await browser.close();
+  }
 }
 
 // CLI — defaults to tomorrow's date so the cron generates ahead of time
