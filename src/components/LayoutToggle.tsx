@@ -12,7 +12,7 @@ export default function LayoutToggle({ layout, onChange }: LayoutToggleProps) {
       onClick={() => onChange(next)}
       title={`Switch to ${next} layout`}
       aria-label={`Switch to ${next} layout`}
-      className="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition"
+      className="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-white text-sm inline-flex items-center rounded-lg transition"
     >
       {next === 'columns' ? (
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
