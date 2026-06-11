@@ -15,7 +15,10 @@ export function migrateHistoryShape<T extends { score: number }>(
   const out: Record<string, Partial<Record<Difficulty, T>>> = {};
   let changed = false;
   for (const [date, value] of Object.entries(history)) {
-    if (value && typeof value === 'object' && 'score' in (value as object)) {
+    if (!value || typeof value !== 'object') {
+      // Corrupted entry — drop it rather than crash stats/history rendering
+      changed = true;
+    } else if ('score' in value) {
       out[date] = { medium: value as T };
       changed = true;
     } else {
@@ -79,7 +82,9 @@ function getData(): StorageData {
       const parsed = JSON.parse(raw);
       const { history, changed } = migrateHistoryShape<ChallengeResult>(parsed.history || {});
       const data: StorageData = { history };
-      if (changed) setData(data);
+      // Persist the migrated shape, but never let a write failure (quota,
+      // private mode) discard history that was read successfully
+      if (changed) try { setData(data); } catch {}
       return data;
     }
   } catch {}
@@ -118,7 +123,9 @@ function getTailwindData(): TailwindStorageData {
       const parsed = JSON.parse(raw);
       const { history, changed } = migrateHistoryShape<TailwindChallengeResult>(parsed.history || {});
       const data: TailwindStorageData = { history };
-      if (changed) setTailwindData(data);
+      // Persist the migrated shape, but never let a write failure (quota,
+      // private mode) discard history that was read successfully
+      if (changed) try { setTailwindData(data); } catch {}
       return data;
     }
   } catch {}
