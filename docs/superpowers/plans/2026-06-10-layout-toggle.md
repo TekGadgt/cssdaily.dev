@@ -1,5 +1,7 @@
 # Layout Toggle (Rows ⇄ Columns) Implementation Plan
 
+> **Status: COMPLETED 2026-06-10, with an architecture change during review.** The React-state approach below caused a rows→columns flash on every page navigation (each date is a separate static page; state hydrated post-mount). The shipped design instead stamps `data-layout` on `<html>` via a blocking inline script in `Layout.astro` before first paint, with all layout-dependent classes as static Tailwind data-attribute variants (`[[data-layout=columns]_&]:...`). `LayoutToggle` is stateless (flips the attribute + saves), players hold no layout state, `getLayoutPreference` was dropped, and the preview column uses `justify-around` plus the container `w-full` (auto cross-axis margins disable flex stretch, so `mx-auto` alone shrink-wrapped the container). The smoke test was adapted to assert the attribute pre-paint and passed. Task details below reflect the original plan, kept for history.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** A manual layout toggle in both challenge players that switches between the current rows layout (previews on top, editor below) and a columns layout (previews stacked on the left, editor on the right), persisted to localStorage.
