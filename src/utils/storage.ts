@@ -2,12 +2,22 @@ import type { ChallengeResult, ChallengeHistory, UserStats, StorageData, Tailwin
 
 const STORAGE_KEY = 'css-daily-challenge';
 
+function isValidResult(value: unknown): boolean {
+  return !!value && typeof value === 'object' && typeof (value as { score?: unknown }).score === 'number';
+}
+
+const DIFFICULTY_KEYS: Difficulty[] = ['easy', 'medium', 'hard'];
+
 /**
  * One-time migration: v1 stored one flat result per date
  * (`history[date] = {score,...}`); v2 nests results per difficulty
  * (`history[date][difficulty] = {score,...}`). Legacy entries predate
  * multi-difficulty days and map to 'medium' (98 of 99 were medium).
- * Pure function, exported for verification.
+ *
+ * Also the single validation choke point: anything that isn't a real result
+ * (non-numeric score, unknown keys, null entries) is dropped here, so stats
+ * and history rendering downstream never see corrupted data. Pure function,
+ * exported for verification.
  */
 export function migrateHistoryShape<T extends { score: number }>(
   history: Record<string, unknown>
@@ -15,15 +25,34 @@ export function migrateHistoryShape<T extends { score: number }>(
   const out: Record<string, Partial<Record<Difficulty, T>>> = {};
   let changed = false;
   for (const [date, value] of Object.entries(history)) {
+    if (isValidResult(value)) {
+      // v1 flat entry
+      out[date] = { medium: value as T };
+      changed = true;
+      continue;
+    }
     if (!value || typeof value !== 'object') {
       // Corrupted entry — drop it rather than crash stats/history rendering
       changed = true;
-    } else if ('score' in value) {
-      out[date] = { medium: value as T };
-      changed = true;
-    } else {
-      out[date] = value as Partial<Record<Difficulty, T>>;
+      continue;
     }
+    // Nested entry — keep only valid results under known difficulty keys
+    const nested: Partial<Record<Difficulty, T>> = {};
+    let kept = 0;
+    for (const d of DIFFICULTY_KEYS) {
+      const entry = (value as Record<string, unknown>)[d];
+      if (entry !== undefined) {
+        if (isValidResult(entry)) {
+          nested[d] = entry as T;
+          kept++;
+        } else {
+          changed = true;
+        }
+      }
+    }
+    if (kept < Object.keys(value).length) changed = true;
+    if (kept > 0) out[date] = nested;
+    else changed = true;
   }
   return { history: out, changed };
 }

@@ -42,6 +42,7 @@ export default function DifficultySwitcher({ available }: DifficultySwitcherProp
       {DIFFICULTY_ORDER.filter((d) => available.includes(d)).map((d) => (
         <button
           key={d}
+          type="button"
           onClick={() => select(d)}
           aria-pressed={selected === d}
           className={`px-2 py-0.5 capitalize text-gray-500 hover:text-white ${ACTIVE_CLASSES[d]}`}

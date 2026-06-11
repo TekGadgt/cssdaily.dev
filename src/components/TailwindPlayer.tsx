@@ -55,7 +55,7 @@ export default function TailwindPlayer({ challenge, allDates, availableDifficult
       setScore(existing.score);
       scoreRef.current = existing.score;
     }
-  }, [challenge.date]);
+  }, [challenge.date, challenge.difficulty]);
 
   // If the stamped preference isn't available on this date (legacy pages),
   // point the attribute at a difficulty that exists. Display-only — does
@@ -125,7 +125,7 @@ export default function TailwindPlayer({ challenge, allDates, availableDifficult
       submittedHtml: userHtmlRef.current,
     });
     setShowResults(true);
-  }, [challenge.date]);
+  }, [challenge.date, challenge.difficulty]);
 
   const handleTimeUp = useCallback(() => {
     doSubmit();
