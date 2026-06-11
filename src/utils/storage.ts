@@ -1,4 +1,4 @@
-import type { ChallengeResult, ChallengeHistory, UserStats, StorageData, TailwindChallengeResult, TailwindChallengeHistory, TailwindStorageData, GenericHistory } from './types';
+import type { ChallengeResult, ChallengeHistory, UserStats, StorageData, TailwindChallengeResult, TailwindChallengeHistory, TailwindStorageData, GenericHistory, LayoutMode } from './types';
 
 const STORAGE_KEY = 'css-daily-challenge';
 
@@ -106,4 +106,15 @@ export function getTailwindHistory(): TailwindChallengeHistory {
 
 export function getTailwindStats(): UserStats {
   return computeStats(getTailwindHistory());
+}
+
+// Read counterpart lives in Layout.astro's inline <head> script (which receives
+// this key via define:vars) and applies the preference to <html data-layout>
+// before first paint to avoid layout flash.
+export const LAYOUT_KEY = 'css-daily-layout';
+
+export function saveLayoutPreference(layout: LayoutMode): void {
+  try {
+    localStorage.setItem(LAYOUT_KEY, layout);
+  } catch {}
 }

@@ -9,6 +9,7 @@ import Timer from './Timer';
 import ScoreDisplay from './ScoreDisplay';
 import ResultsModal from './ResultsModal';
 import HistoryView from './HistoryView';
+import LayoutToggle from './LayoutToggle';
 
 type Phase = 'idle' | 'playing' | 'finished';
 type TargetTab = 'target' | 'overlay' | 'diff';
@@ -188,6 +189,7 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
                 Results
               </button>
             )}
+            <LayoutToggle />
             <button
               onClick={() => setShowHistory(true)}
               className="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-lg transition"
@@ -199,9 +201,9 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
       </header>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto p-4 flex flex-col flex-1 min-h-0">
+      <div className="max-w-7xl w-full mx-auto p-4 flex flex-1 min-h-0 flex-col [[data-layout=columns]_&]:flex-row [[data-layout=columns]_&]:gap-4">
         {/* Preview panels */}
-        <div className="flex justify-between mb-4 flex-shrink-0">
+        <div className="flex justify-between mb-4 flex-shrink-0 [[data-layout=columns]_&]:flex-col [[data-layout=columns]_&]:justify-around [[data-layout=columns]_&]:gap-4 [[data-layout=columns]_&]:mb-0 [[data-layout=columns]_&]:overflow-y-auto">
           {/* User Preview */}
           <div>
             <div className="flex items-center h-8 mb-2">
@@ -274,7 +276,7 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
         </div>
 
         {/* Code Editor */}
-        <div className="rounded-lg overflow-hidden border border-gray-700 flex-1 min-h-0">
+        <div className="rounded-lg overflow-hidden border border-gray-700 flex-1 min-h-0 min-w-0">
           <CodeEditor
             initialCss={challenge.starter.css}
             htmlContent={challenge.starter.html}

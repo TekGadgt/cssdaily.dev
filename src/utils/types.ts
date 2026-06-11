@@ -77,3 +77,6 @@ export interface HistoryEntry {
 export interface GenericHistory {
   [date: string]: HistoryEntry;
 }
+
+/** Player layout arrangement: rows = previews above editor; columns = previews left, editor right */
+export type LayoutMode = 'rows' | 'columns';
