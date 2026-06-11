@@ -1,5 +1,5 @@
-import { useState, useRef, useCallback, useEffect } from 'react';
-import type { TailwindChallenge, DiffResult } from '../utils/types';
+import { useState, useRef, useCallback, useEffect, useMemo } from 'react';
+import type { TailwindChallenge, DiffResult, Difficulty } from '../utils/types';
 import { compareToTargetTailwind } from '../utils/diff';
 import { saveTailwindResult, getTailwindResult, getTailwindHistory, getTailwindStats } from '../utils/storage';
 import { formatDate } from '../utils/date';
@@ -11,6 +11,8 @@ import ScoreDisplay from './ScoreDisplay';
 import ResultsModal from './ResultsModal';
 import HistoryView from './HistoryView';
 import LayoutToggle from './LayoutToggle';
+import DifficultySwitcher from './DifficultySwitcher';
+import { SET_VISIBILITY } from '../utils/difficulty';
 
 type Phase = 'idle' | 'playing' | 'finished';
 type TargetTab = 'target' | 'overlay' | 'diff';
@@ -18,9 +20,12 @@ type TargetTab = 'target' | 'overlay' | 'diff';
 interface TailwindPlayerProps {
   challenge: TailwindChallenge;
   allDates: string[];
+  /** All difficulties available on this date; when >1 the player is one of a CSS-switched set */
+  availableDifficulties?: Difficulty[];
 }
 
-export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerProps) {
+export default function TailwindPlayer({ challenge, allDates, availableDifficulties = [challenge.difficulty] }: TailwindPlayerProps) {
+  const multi = availableDifficulties.length > 1;
   const [userHtml, setUserHtml] = useState(challenge.starter.html);
   const userHtmlRef = useRef(challenge.starter.html);
   const [phase, setPhase] = useState<Phase>('idle');
@@ -51,6 +56,20 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
       scoreRef.current = existing.score;
     }
   }, [challenge.date]);
+
+  // If the stamped preference isn't available on this date (legacy pages),
+  // point the attribute at a difficulty that exists. Display-only — does
+  // not overwrite the saved preference. Idempotent across the set's players.
+  useEffect(() => {
+    if (!multi) return;
+    const current = document.documentElement.dataset.difficulty as Difficulty | undefined;
+    if (!current || !availableDifficulties.includes(current)) {
+      document.documentElement.dataset.difficulty = availableDifficulties.includes('medium')
+        ? 'medium'
+        : availableDifficulties[0];
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const runDiff = useCallback(async () => {
     if (diffPendingRef.current) return;
@@ -138,13 +157,19 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
   const nextDate = currentIdx < sortedDates.length - 1 ? sortedDates[currentIdx + 1] : null;
   const displayScore = phase === 'finished' ? submittedScore : score;
 
-  const shareEntries: ShareEntry[] = (['easy', 'medium', 'hard'] as const)
-    .map((d) => ({ d, r: getTailwindResult(challenge.date, d) }))
-    .filter((x) => x.r !== null)
-    .map((x) => ({ difficulty: x.d, score: x.r!.score, timeSpent: x.r!.timeSpent }));
+  const shareEntries: ShareEntry[] = useMemo(
+    () =>
+      (['easy', 'medium', 'hard'] as const)
+        .map((d) => ({ d, r: getTailwindResult(challenge.date, d) }))
+        .filter((x) => x.r !== null)
+        .map((x) => ({ difficulty: x.d, score: x.r!.score, timeSpent: x.r!.timeSpent })),
+    [challenge.date, submittedScore]
+  );
+
+  const targetSrc = `/targets/tailwind/${challenge.targetImage ?? `${challenge.date}.png`}`;
 
   return (
-    <div className="flex-1 flex flex-col min-h-0 bg-gray-900 text-white">
+    <div className={`flex-1 flex flex-col min-h-0 bg-gray-900 text-white${multi ? ` ${SET_VISIBILITY[challenge.difficulty]}` : ''}`}>
       {/* Header */}
       <header className="border-b border-gray-700 px-4 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -164,12 +189,16 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
 
           <div className="flex items-center gap-4">
             <span className="text-sm text-gray-400">{challenge.title}</span>
-            <span className={`text-xs px-2 py-0.5 rounded ${challenge.difficulty === 'easy' ? 'bg-green-900 text-green-300' :
-              challenge.difficulty === 'medium' ? 'bg-yellow-900 text-yellow-300' :
-                'bg-red-900 text-red-300'
-              }`}>
-              {challenge.difficulty}
-            </span>
+            {multi ? (
+              <DifficultySwitcher available={availableDifficulties} />
+            ) : (
+              <span className={`text-xs px-2 py-0.5 rounded ${challenge.difficulty === 'easy' ? 'bg-green-900 text-green-300' :
+                challenge.difficulty === 'medium' ? 'bg-yellow-900 text-yellow-300' :
+                  'bg-red-900 text-red-300'
+                }`}>
+                {challenge.difficulty}
+              </span>
+            )}
           </div>
 
           <div className="flex items-center gap-4">
@@ -246,7 +275,7 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
             <div className="rounded-lg overflow-hidden border border-gray-700 relative" style={{ width: TAILWIND_PREVIEW_WIDTH, height: TAILWIND_PREVIEW_HEIGHT, background: '#f5f5f5' }}>
               {targetTab === 'target' && (
                 <img
-                  src={`/targets/tailwind/${challenge.date}.png`}
+                  src={targetSrc}
                   alt="Target"
                   style={{ width: TAILWIND_PREVIEW_WIDTH, height: TAILWIND_PREVIEW_HEIGHT, objectFit: 'contain' }}
                 />
@@ -254,7 +283,7 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
               {targetTab === 'overlay' && (
                 <>
                   <img
-                    src={`/targets/tailwind/${challenge.date}.png`}
+                    src={targetSrc}
                     alt="Target"
                     style={{ width: TAILWIND_PREVIEW_WIDTH, height: TAILWIND_PREVIEW_HEIGHT, objectFit: 'contain', position: 'absolute', top: 0, left: 0 }}
                   />
