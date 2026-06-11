@@ -181,8 +181,11 @@ export default function ChallengePlayer({ challenge, allDates, availableDifficul
 
   const targetSrc = `/targets/${challenge.targetImage ?? `${challenge.date}.png`}`;
 
+  // In a multi-difficulty set the root's display utility comes solely from
+  // SET_VISIBILITY (hidden + data-attribute variant) so visibility never
+  // depends on Tailwind's utility ordering
   return (
-    <div className={`flex-1 flex flex-col min-h-0 bg-gray-900 text-white${multi ? ` ${SET_VISIBILITY[challenge.difficulty]}` : ''}`}>
+    <div className={`flex-1 flex-col min-h-0 bg-gray-900 text-white ${multi ? SET_VISIBILITY[challenge.difficulty] : 'flex'}`}>
       {/* Header */}
       <header className="border-b border-gray-700 px-4 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
