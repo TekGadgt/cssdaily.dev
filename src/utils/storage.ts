@@ -14,13 +14,21 @@ function isValidResult(value: unknown): boolean {
 const DIFFICULTY_KEYS: Difficulty[] = ['easy', 'medium', 'hard'];
 const DATE_KEY_RE = /^\d{4}-\d{2}-\d{2}$/;
 
-// Shape alone isn't enough: "2026-99-99" parses to Invalid Date and
-// "2026-02-31" silently rolls over to March 3 — both break history
-// rendering and streak math. The round-trip check catches both.
+// Shape alone isn't enough: "2026-99-99" is out of range and "2026-02-31"
+// silently rolls over to March 3 — both break history rendering and streak
+// math. Validated via explicit UTC construction (not Date's string parser,
+// whose date-only handling has been inconsistent in older engines — and a
+// false negative here drops user history). The component round-trip catches
+// rollover: Date normalizes Feb 31 to Mar 3, so the parts won't match back.
 function isValidDateKey(key: string): boolean {
   if (!DATE_KEY_RE.test(key)) return false;
-  const t = new Date(key).getTime();
-  return !Number.isNaN(t) && new Date(t).toISOString().slice(0, 10) === key;
+  const [year, month, day] = key.split('-').map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  return (
+    date.getUTCFullYear() === year &&
+    date.getUTCMonth() === month - 1 &&
+    date.getUTCDate() === day
+  );
 }
 
 /**
