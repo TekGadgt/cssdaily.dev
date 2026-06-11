@@ -108,15 +108,9 @@ export function getTailwindStats(): UserStats {
   return computeStats(getTailwindHistory());
 }
 
+// Read counterpart lives in Layout.astro's inline <head> script, which applies
+// the preference to <html data-layout> before first paint to avoid layout flash.
 const LAYOUT_KEY = 'css-daily-layout';
-
-export function getLayoutPreference(): LayoutMode {
-  try {
-    const raw = localStorage.getItem(LAYOUT_KEY);
-    if (raw === 'rows' || raw === 'columns') return raw;
-  } catch {}
-  return 'rows';
-}
 
 export function saveLayoutPreference(layout: LayoutMode): void {
   try {
