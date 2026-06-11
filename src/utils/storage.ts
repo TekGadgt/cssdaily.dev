@@ -3,10 +3,15 @@ import type { ChallengeResult, ChallengeHistory, UserStats, StorageData, Tailwin
 const STORAGE_KEY = 'css-daily-challenge';
 
 function isValidResult(value: unknown): boolean {
-  return !!value && typeof value === 'object' && typeof (value as { score?: unknown }).score === 'number';
+  if (!value || typeof value !== 'object') return false;
+  const r = value as { score?: unknown; timeSpent?: unknown };
+  // timeSpent feeds minutes/seconds formatting in ResultsModal and share
+  // text — a result without it would render NaN:NaN
+  return typeof r.score === 'number' && typeof r.timeSpent === 'number';
 }
 
 const DIFFICULTY_KEYS: Difficulty[] = ['easy', 'medium', 'hard'];
+const DATE_KEY_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 /**
  * One-time migration: v1 stored one flat result per date
@@ -15,16 +20,21 @@ const DIFFICULTY_KEYS: Difficulty[] = ['easy', 'medium', 'hard'];
  * multi-difficulty days and map to 'medium' (98 of 99 were medium).
  *
  * Also the single validation choke point: anything that isn't a real result
- * (non-numeric score, unknown keys, null entries) is dropped here, so stats
- * and history rendering downstream never see corrupted data. Pure function,
- * exported for verification.
+ * (non-numeric score/timeSpent, non-date keys, unknown keys, null entries)
+ * is dropped here, so stats and history rendering downstream never see
+ * corrupted data. Pure function, exported for verification.
  */
-export function migrateHistoryShape<T extends { score: number }>(
+export function migrateHistoryShape<T extends { score: number; timeSpent: number }>(
   history: Record<string, unknown>
 ): { history: Record<string, Partial<Record<Difficulty, T>>>; changed: boolean } {
   const out: Record<string, Partial<Record<Difficulty, T>>> = {};
   let changed = false;
   for (const [date, value] of Object.entries(history)) {
+    if (!DATE_KEY_RE.test(date)) {
+      // Non-date key (corrupted storage) — would render "Invalid Date" in history
+      changed = true;
+      continue;
+    }
     if (isValidResult(value)) {
       // v1 flat entry
       out[date] = { medium: value as T };
