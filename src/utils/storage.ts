@@ -25,8 +25,14 @@ const DATE_KEY_RE = /^\d{4}-\d{2}-\d{2}$/;
  * corrupted data. Pure function, exported for verification.
  */
 export function migrateHistoryShape<T extends { score: number; timeSpent: number }>(
-  history: Record<string, unknown>
+  history: unknown
 ): { history: Record<string, Partial<Record<Difficulty, T>>>; changed: boolean } {
+  // A history that isn't a plain object (number, boolean, string, array) is
+  // corrupted wholesale — replace with a clean shape and flag the change so
+  // it gets written back instead of lingering in storage
+  if (!history || typeof history !== 'object' || Array.isArray(history)) {
+    return { history: {}, changed: true };
+  }
   const out: Record<string, Partial<Record<Difficulty, T>>> = {};
   let changed = false;
   for (const [date, value] of Object.entries(history)) {
@@ -119,7 +125,7 @@ function getData(): StorageData {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
-      const { history, changed } = migrateHistoryShape<ChallengeResult>(parsed.history || {});
+      const { history, changed } = migrateHistoryShape<ChallengeResult>(parsed.history);
       const data: StorageData = { history };
       // Persist the migrated shape, but never let a write failure (quota,
       // private mode) discard history that was read successfully
@@ -160,7 +166,7 @@ function getTailwindData(): TailwindStorageData {
     const raw = localStorage.getItem(TAILWIND_STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
-      const { history, changed } = migrateHistoryShape<TailwindChallengeResult>(parsed.history || {});
+      const { history, changed } = migrateHistoryShape<TailwindChallengeResult>(parsed.history);
       const data: TailwindStorageData = { history };
       // Persist the migrated shape, but never let a write failure (quota,
       // private mode) discard history that was read successfully
