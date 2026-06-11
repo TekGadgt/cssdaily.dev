@@ -161,15 +161,22 @@ export default function ChallengePlayer({ challenge, allDates, availableDifficul
       // Only the open modal's share text needs these; skip the storage
       // reads while it's closed (the modal renders null anyway)
       if (!showResults) return [];
-      return (['easy', 'medium', 'hard'] as const)
+      const entries = (['easy', 'medium', 'hard'] as const)
         .map((d) => ({ d, r: getResult(challenge.date, d) }))
         .filter((x) => x.r !== null)
         .map((x) => ({ difficulty: x.d, score: x.r!.score, timeSpent: x.r!.timeSpent }));
+      // Persistence is best-effort (writes are swallowed in private
+      // mode/quota), so the just-submitted result may not be readable —
+      // fall back to the in-memory submission for this difficulty
+      if (!entries.some((e) => e.difficulty === challenge.difficulty)) {
+        entries.push({ difficulty: challenge.difficulty, score: submittedScore, timeSpent: submittedTime });
+      }
+      return entries;
     },
     // showResults: also ensures siblings in a multi-difficulty set (mounted
     // but hidden) pick up results submitted on other difficulties when
     // THIS instance's modal opens
-    [challenge.date, submittedScore, showResults]
+    [challenge.date, challenge.difficulty, submittedScore, submittedTime, showResults]
   );
 
   const targetSrc = `/targets/${challenge.targetImage ?? `${challenge.date}.png`}`;

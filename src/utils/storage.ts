@@ -135,7 +135,9 @@ function getData(): StorageData {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
-      const { history, changed } = migrateHistoryShape<ChallengeResult>(parsed.history);
+      // Optional chaining: JSON.parse can legally return null/primitives, and
+      // those must reach the migration guard to get rewritten, not throw here
+      const { history, changed } = migrateHistoryShape<ChallengeResult>(parsed?.history);
       const data: StorageData = { history };
       if (changed) setData(data);
       return data;
@@ -179,7 +181,8 @@ function getTailwindData(): TailwindStorageData {
     const raw = localStorage.getItem(TAILWIND_STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
-      const { history, changed } = migrateHistoryShape<TailwindChallengeResult>(parsed.history);
+      // Optional chaining: see getData
+      const { history, changed } = migrateHistoryShape<TailwindChallengeResult>(parsed?.history);
       const data: TailwindStorageData = { history };
       if (changed) setTailwindData(data);
       return data;
