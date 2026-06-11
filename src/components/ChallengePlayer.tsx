@@ -3,6 +3,7 @@ import type { Challenge, DiffResult } from '../utils/types';
 import { compareToTarget } from '../utils/diff';
 import { saveResult, getResult } from '../utils/storage';
 import { formatDate, adjacentDate } from '../utils/date';
+import type { ShareEntry } from '../utils/share';
 import Preview, { PREVIEW_WIDTH, PREVIEW_HEIGHT } from './Preview';
 import CodeEditor from './CodeEditor';
 import Timer from './Timer';
@@ -40,7 +41,7 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
 
   // Check for existing result
   useEffect(() => {
-    const existing = getResult(challenge.date);
+    const existing = getResult(challenge.date, challenge.difficulty);
     if (existing) {
       setSubmittedScore(existing.score);
       setSubmittedTime(existing.timeSpent);
@@ -99,7 +100,7 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
     phaseRef.current = 'finished';
     setSubmittedScore(finalScore);
     setSubmittedTime(timeSpentRef.current);
-    saveResult(challenge.date, {
+    saveResult(challenge.date, challenge.difficulty, {
       date: challenge.date,
       score: finalScore,
       timeSpent: timeSpentRef.current,
@@ -135,6 +136,11 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
   const prevDate = currentIdx > 0 ? sortedDates[currentIdx - 1] : null;
   const nextDate = currentIdx < sortedDates.length - 1 ? sortedDates[currentIdx + 1] : null;
   const displayScore = phase === 'finished' ? submittedScore : score;
+
+  const shareEntries: ShareEntry[] = (['easy', 'medium', 'hard'] as const)
+    .map((d) => ({ d, r: getResult(challenge.date, d) }))
+    .filter((x) => x.r !== null)
+    .map((x) => ({ difficulty: x.d, score: x.r!.score, timeSpent: x.r!.timeSpent }));
 
   return (
     <div className="flex-1 flex flex-col min-h-0 bg-gray-900 text-white">
@@ -292,6 +298,7 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
         score={submittedScore}
         timeSpent={submittedTime}
         timeLimit={challenge.timeLimit || 600}
+        shareEntries={shareEntries}
         heatmapCanvas={diffResult?.heatmapCanvas || null}
         onClose={() => setShowResults(false)}
       />

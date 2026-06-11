@@ -1,16 +1,44 @@
-import type { ChallengeResult, ChallengeHistory, UserStats, StorageData, TailwindChallengeResult, TailwindChallengeHistory, TailwindStorageData, GenericHistory, LayoutMode } from './types';
+import type { ChallengeResult, ChallengeHistory, UserStats, StorageData, TailwindChallengeResult, TailwindChallengeHistory, TailwindStorageData, GenericHistory, LayoutMode, Difficulty } from './types';
 
 const STORAGE_KEY = 'css-daily-challenge';
 
+/**
+ * One-time migration: v1 stored one flat result per date
+ * (`history[date] = {score,...}`); v2 nests results per difficulty
+ * (`history[date][difficulty] = {score,...}`). Legacy entries predate
+ * multi-difficulty days and map to 'medium' (98 of 99 were medium).
+ * Pure function, exported for verification.
+ */
+export function migrateHistoryShape<T extends { score: number }>(
+  history: Record<string, unknown>
+): { history: Record<string, Partial<Record<Difficulty, T>>>; changed: boolean } {
+  const out: Record<string, Partial<Record<Difficulty, T>>> = {};
+  let changed = false;
+  for (const [date, value] of Object.entries(history)) {
+    if (value && typeof value === 'object' && 'score' in (value as object)) {
+      out[date] = { medium: value as T };
+      changed = true;
+    } else {
+      out[date] = value as Partial<Record<Difficulty, T>>;
+    }
+  }
+  return { history: out, changed };
+}
+
 function computeStats(history: GenericHistory): UserStats {
-  const dates = Object.keys(history).sort();
-  const gamesPlayed = dates.length;
+  const dates = Object.keys(history)
+    .filter((d) => Object.keys(history[d]).length > 0)
+    .sort();
+  const gamesPlayed = dates.reduce((sum, d) => sum + Object.keys(history[d]).length, 0);
 
   if (gamesPlayed === 0) {
     return { gamesPlayed: 0, currentStreak: 0, maxStreak: 0, averageScore: 0 };
   }
 
-  const totalScore = dates.reduce((sum, d) => sum + history[d].score, 0);
+  const totalScore = dates.reduce(
+    (sum, d) => sum + Object.values(history[d]).reduce((s, e) => s + (e?.score ?? 0), 0),
+    0
+  );
   const averageScore = Math.round(totalScore / gamesPlayed);
 
   let currentStreak = 0;
@@ -47,7 +75,13 @@ function computeStats(history: GenericHistory): UserStats {
 function getData(): StorageData {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      const { history, changed } = migrateHistoryShape<ChallengeResult>(parsed.history || {});
+      const data: StorageData = { history };
+      if (changed) setData(data);
+      return data;
+    }
   } catch {}
   return { history: {} };
 }
@@ -56,14 +90,14 @@ function setData(data: StorageData): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
-export function getResult(date: string): ChallengeResult | null {
+export function getResult(date: string, difficulty: Difficulty): ChallengeResult | null {
   const data = getData();
-  return data.history[date] || null;
+  return data.history[date]?.[difficulty] || null;
 }
 
-export function saveResult(date: string, result: ChallengeResult): void {
+export function saveResult(date: string, difficulty: Difficulty, result: ChallengeResult): void {
   const data = getData();
-  data.history[date] = result;
+  data.history[date] = { ...data.history[date], [difficulty]: result };
   setData(data);
 }
 
@@ -80,7 +114,13 @@ const TAILWIND_STORAGE_KEY = 'tailwind-daily-challenge';
 function getTailwindData(): TailwindStorageData {
   try {
     const raw = localStorage.getItem(TAILWIND_STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      const { history, changed } = migrateHistoryShape<TailwindChallengeResult>(parsed.history || {});
+      const data: TailwindStorageData = { history };
+      if (changed) setTailwindData(data);
+      return data;
+    }
   } catch {}
   return { history: {} };
 }
@@ -89,14 +129,14 @@ function setTailwindData(data: TailwindStorageData): void {
   localStorage.setItem(TAILWIND_STORAGE_KEY, JSON.stringify(data));
 }
 
-export function getTailwindResult(date: string): TailwindChallengeResult | null {
+export function getTailwindResult(date: string, difficulty: Difficulty): TailwindChallengeResult | null {
   const data = getTailwindData();
-  return data.history[date] || null;
+  return data.history[date]?.[difficulty] || null;
 }
 
-export function saveTailwindResult(date: string, result: TailwindChallengeResult): void {
+export function saveTailwindResult(date: string, difficulty: Difficulty, result: TailwindChallengeResult): void {
   const data = getTailwindData();
-  data.history[date] = result;
+  data.history[date] = { ...data.history[date], [difficulty]: result };
   setTailwindData(data);
 }
 

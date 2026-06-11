@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { generateShareText, copyToClipboard } from '../utils/share';
+import type { ShareEntry } from '../utils/share';
 import { adjacentDate } from '../utils/date';
 
 interface ResultsModalProps {
@@ -8,12 +9,14 @@ interface ResultsModalProps {
   score: number;
   timeSpent: number;
   timeLimit: number;
+  /** Every submitted difficulty for this date; the share text lists them all */
+  shareEntries: ShareEntry[];
   heatmapCanvas: HTMLCanvasElement | null;
   onClose: () => void;
   basePath?: string;
 }
 
-export default function ResultsModal({ isOpen, date, score, timeSpent, timeLimit, heatmapCanvas, onClose, basePath = '/challenge' }: ResultsModalProps) {
+export default function ResultsModal({ isOpen, date, score, timeSpent, timeLimit, shareEntries, heatmapCanvas, onClose, basePath = '/challenge' }: ResultsModalProps) {
   const canvasContainerRef = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = useState(false);
 
@@ -50,7 +53,7 @@ export default function ResultsModal({ isOpen, date, score, timeSpent, timeLimit
   else if (score >= 50) scoreColor = 'text-yellow-400';
 
   const handleShare = async () => {
-    const text = generateShareText(date, score, timeSpent, timeLimit);
+    const text = generateShareText(date, shareEntries);
     const success = await copyToClipboard(text);
     if (success) {
       setCopied(true);

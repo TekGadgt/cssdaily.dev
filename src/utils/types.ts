@@ -1,7 +1,11 @@
+export type Difficulty = 'easy' | 'medium' | 'hard';
+
 export interface Challenge {
   date: string;
   title: string;
-  difficulty: 'easy' | 'medium' | 'hard';
+  difficulty: Difficulty;
+  /** Target PNG filename (e.g. "2026-06-12-easy.png"); legacy challenges omit it and use `${date}.png` */
+  targetImage?: string;
   timeLimit: number;
   starter: {
     html: string;
@@ -21,7 +25,7 @@ export interface ChallengeResult {
 }
 
 export interface ChallengeHistory {
-  [date: string]: ChallengeResult;
+  [date: string]: Partial<Record<Difficulty, ChallengeResult>>;
 }
 
 export interface UserStats {
@@ -44,7 +48,9 @@ export interface DiffResult {
 export interface TailwindChallenge {
   date: string;
   title: string;
-  difficulty: 'easy' | 'medium' | 'hard';
+  difficulty: Difficulty;
+  /** Target PNG filename (e.g. "2026-06-12-easy.png"); legacy challenges omit it and use `${date}.png` */
+  targetImage?: string;
   timeLimit: number;
   starter: {
     html: string;
@@ -62,7 +68,7 @@ export interface TailwindChallengeResult {
 }
 
 export interface TailwindChallengeHistory {
-  [date: string]: TailwindChallengeResult;
+  [date: string]: Partial<Record<Difficulty, TailwindChallengeResult>>;
 }
 
 export interface TailwindStorageData {
@@ -75,7 +81,7 @@ export interface HistoryEntry {
 }
 
 export interface GenericHistory {
-  [date: string]: HistoryEntry;
+  [date: string]: Partial<Record<Difficulty, HistoryEntry>>;
 }
 
 /** Player layout arrangement: rows = previews above editor; columns = previews left, editor right */

@@ -3,6 +3,7 @@ import type { TailwindChallenge, DiffResult } from '../utils/types';
 import { compareToTargetTailwind } from '../utils/diff';
 import { saveTailwindResult, getTailwindResult, getTailwindHistory, getTailwindStats } from '../utils/storage';
 import { formatDate } from '../utils/date';
+import type { ShareEntry } from '../utils/share';
 import TailwindPreview, { TAILWIND_PREVIEW_WIDTH, TAILWIND_PREVIEW_HEIGHT } from './TailwindPreview';
 import TailwindEditor from './TailwindEditor';
 import Timer from './Timer';
@@ -40,7 +41,7 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
 
   // Check for existing result
   useEffect(() => {
-    const existing = getTailwindResult(challenge.date);
+    const existing = getTailwindResult(challenge.date, challenge.difficulty);
     if (existing) {
       setSubmittedScore(existing.score);
       setSubmittedTime(existing.timeSpent);
@@ -98,7 +99,7 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
     phaseRef.current = 'finished';
     setSubmittedScore(finalScore);
     setSubmittedTime(timeSpentRef.current);
-    saveTailwindResult(challenge.date, {
+    saveTailwindResult(challenge.date, challenge.difficulty, {
       date: challenge.date,
       score: finalScore,
       timeSpent: timeSpentRef.current,
@@ -136,6 +137,11 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
   const prevDate = currentIdx > 0 ? sortedDates[currentIdx - 1] : null;
   const nextDate = currentIdx < sortedDates.length - 1 ? sortedDates[currentIdx + 1] : null;
   const displayScore = phase === 'finished' ? submittedScore : score;
+
+  const shareEntries: ShareEntry[] = (['easy', 'medium', 'hard'] as const)
+    .map((d) => ({ d, r: getTailwindResult(challenge.date, d) }))
+    .filter((x) => x.r !== null)
+    .map((x) => ({ difficulty: x.d, score: x.r!.score, timeSpent: x.r!.timeSpent }));
 
   return (
     <div className="flex-1 flex flex-col min-h-0 bg-gray-900 text-white">
@@ -291,6 +297,7 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
         score={submittedScore}
         timeSpent={submittedTime}
         timeLimit={challenge.timeLimit || 600}
+        shareEntries={shareEntries}
         heatmapCanvas={diffResult?.heatmapCanvas || null}
         onClose={() => setShowResults(false)}
         basePath="/tailwind"

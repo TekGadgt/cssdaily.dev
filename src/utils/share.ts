@@ -1,15 +1,36 @@
-export function generateShareText(date: string, score: number, timeSpent: number, timeLimit: number): string {
-  const minutes = Math.floor(timeSpent / 60);
-  const seconds = timeSpent % 60;
-  const timeStr = `${minutes}:${String(seconds).padStart(2, '0')}`;
+import type { Difficulty } from './types';
+import { DIFFICULTY_ORDER, TIME_LIMITS } from './difficulty';
 
+export interface ShareEntry {
+  difficulty: Difficulty;
+  score: number;
+  timeSpent: number;
+}
+
+function speedEmoji(timeSpent: number, timeLimit: number): string {
   const pctUsed = timeSpent / timeLimit;
-  let speedEmoji = '';
-  if (pctUsed < 0.25) speedEmoji = ' \u26A1';       // lightning
-  else if (pctUsed < 0.50) speedEmoji = ' \uD83C\uDFC3'; // runner
-  else if (pctUsed < 0.75) speedEmoji = ' \uD83D\uDCA8'; // dashing away
+  if (pctUsed < 0.25) return ' ⚡';            // lightning
+  if (pctUsed < 0.50) return ' 🏃';      // runner
+  if (pctUsed < 0.75) return ' 💨';      // dashing away
+  return '';
+}
 
-  return `CSS Daily ${date}${speedEmoji}\nScore: ${score}% | Time: ${timeStr}\n\nhttps://cssdaily.dev`;
+export function generateShareText(date: string, entries: ShareEntry[]): string {
+  const sorted = DIFFICULTY_ORDER.filter((d) => entries.some((e) => e.difficulty === d))
+    .map((d) => entries.find((e) => e.difficulty === d)!);
+
+  if (sorted.length === 1) {
+    const e = sorted[0];
+    const minutes = Math.floor(e.timeSpent / 60);
+    const seconds = e.timeSpent % 60;
+    const timeStr = `${minutes}:${String(seconds).padStart(2, '0')}`;
+    return `CSS Daily ${date} (${e.difficulty})${speedEmoji(e.timeSpent, TIME_LIMITS[e.difficulty])}\nScore: ${e.score}% | Time: ${timeStr}\n\nhttps://cssdaily.dev`;
+  }
+
+  const lines = sorted.map(
+    (e) => `${e.difficulty}: ${e.score}%${speedEmoji(e.timeSpent, TIME_LIMITS[e.difficulty])}`
+  );
+  return `CSS Daily ${date}\n${lines.join('\n')}\n\nhttps://cssdaily.dev`;
 }
 
 export async function copyToClipboard(text: string): Promise<boolean> {
