@@ -1,4 +1,4 @@
-import type { ChallengeResult, ChallengeHistory, UserStats, StorageData, TailwindChallengeResult, TailwindChallengeHistory, TailwindStorageData, GenericHistory } from './types';
+import type { ChallengeResult, ChallengeHistory, UserStats, StorageData, TailwindChallengeResult, TailwindChallengeHistory, TailwindStorageData, GenericHistory, LayoutMode } from './types';
 
 const STORAGE_KEY = 'css-daily-challenge';
 
@@ -106,4 +106,20 @@ export function getTailwindHistory(): TailwindChallengeHistory {
 
 export function getTailwindStats(): UserStats {
   return computeStats(getTailwindHistory());
+}
+
+const LAYOUT_KEY = 'css-daily-layout';
+
+export function getLayoutPreference(): LayoutMode {
+  try {
+    const raw = localStorage.getItem(LAYOUT_KEY);
+    if (raw === 'rows' || raw === 'columns') return raw;
+  } catch {}
+  return 'rows';
+}
+
+export function saveLayoutPreference(layout: LayoutMode): void {
+  try {
+    localStorage.setItem(LAYOUT_KEY, layout);
+  } catch {}
 }
