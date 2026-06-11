@@ -142,7 +142,12 @@ function getData(): StorageData {
       if (changed) setData(data);
       return data;
     }
-  } catch {}
+  } catch {
+    // Unparseable storage is unrecoverable garbage — remove it so read-only
+    // sessions self-heal too (a save would overwrite it anyway). Guarded:
+    // if we landed here because storage access itself threw, so will this.
+    try { localStorage.removeItem(STORAGE_KEY); } catch {}
+  }
   return { history: {} };
 }
 
@@ -187,7 +192,10 @@ function getTailwindData(): TailwindStorageData {
       if (changed) setTailwindData(data);
       return data;
     }
-  } catch {}
+  } catch {
+    // Self-heal unparseable storage — see getData
+    try { localStorage.removeItem(TAILWIND_STORAGE_KEY); } catch {}
+  }
   return { history: {} };
 }
 
