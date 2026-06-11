@@ -162,7 +162,10 @@ export default function ChallengePlayer({ challenge, allDates, availableDifficul
         .map((d) => ({ d, r: getResult(challenge.date, d) }))
         .filter((x) => x.r !== null)
         .map((x) => ({ difficulty: x.d, score: x.r!.score, timeSpent: x.r!.timeSpent })),
-    [challenge.date, submittedScore]
+    // showResults: siblings in a multi-difficulty set stay mounted while
+    // hidden, so recompute when THIS instance's modal opens to pick up
+    // results submitted on other difficulties
+    [challenge.date, submittedScore, showResults]
   );
 
   const targetSrc = `/targets/${challenge.targetImage ?? `${challenge.date}.png`}`;

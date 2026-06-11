@@ -163,7 +163,10 @@ export default function TailwindPlayer({ challenge, allDates, availableDifficult
         .map((d) => ({ d, r: getTailwindResult(challenge.date, d) }))
         .filter((x) => x.r !== null)
         .map((x) => ({ difficulty: x.d, score: x.r!.score, timeSpent: x.r!.timeSpent })),
-    [challenge.date, submittedScore]
+    // showResults: siblings in a multi-difficulty set stay mounted while
+    // hidden, so recompute when THIS instance's modal opens to pick up
+    // results submitted on other difficulties
+    [challenge.date, submittedScore, showResults]
   );
 
   const targetSrc = `/targets/tailwind/${challenge.targetImage ?? `${challenge.date}.png`}`;
