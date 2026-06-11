@@ -6,19 +6,37 @@ import ChallengePlayer from '../../components/ChallengePlayer.tsx';
 export async function getStaticPaths() {
   const challengeFiles = import.meta.glob('../../data/challenges/*.json', { eager: true });
   const challenges = Object.values(challengeFiles).map((mod: any) => mod.default || mod);
-  const allDates = challenges.map((c: any) => c.date).sort();
 
-  return challenges.map((challenge: any) => ({
-    params: { date: challenge.date },
-    props: { challenge, allDates },
+  const byDate: Record<string, any[]> = {};
+  for (const c of challenges) {
+    (byDate[c.date] ??= []).push(c);
+  }
+
+  const order: Record<string, number> = { easy: 0, medium: 1, hard: 2 };
+  const allDates = Object.keys(byDate).sort();
+
+  return Object.entries(byDate).map(([date, set]) => ({
+    params: { date },
+    props: {
+      challenges: set.sort((a, b) => order[a.difficulty] - order[b.difficulty]),
+      allDates,
+    },
   }));
 }
 
-const { challenge, allDates } = Astro.props;
+const { challenges, allDates } = Astro.props;
+const availableDifficulties = challenges.map((c: any) => c.difficulty);
 ---
-<Layout title={`${challenge.title} - CSS Daily`}>
+<Layout title={`${challenges[0].date} - CSS Daily`}>
   <div class="flex flex-col h-screen">
     <Header currentPath="/challenge" />
-    <ChallengePlayer client:load challenge={challenge} allDates={allDates} />
+    {challenges.map((challenge: any) => (
+      <ChallengePlayer
+        client:load
+        challenge={challenge}
+        allDates={allDates}
+        availableDifficulties={availableDifficulties}
+      />
+    ))}
   </div>
 </Layout>
