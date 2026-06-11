@@ -1,4 +1,6 @@
 ---
+import { LAYOUT_KEY } from '../utils/storage';
+
 interface Props {
   title?: string;
   description?: string;
@@ -19,9 +21,9 @@ const { title = 'CSS Daily - A Daily CSS Challenge', description = 'A daily CSS 
     <link rel="manifest" href="/site.webmanifest">
     <title>{title}</title>
     <!-- Apply layout preference before first paint to avoid a rows->columns flash on every page load -->
-    <script is:inline>
+    <script is:inline define:vars={{ LAYOUT_KEY }}>
       try {
-        document.documentElement.dataset.layout = localStorage.getItem('css-daily-layout') === 'columns' ? 'columns' : 'rows';
+        document.documentElement.dataset.layout = localStorage.getItem(LAYOUT_KEY) === 'columns' ? 'columns' : 'rows';
       } catch (e) {
         document.documentElement.dataset.layout = 'rows';
       }
