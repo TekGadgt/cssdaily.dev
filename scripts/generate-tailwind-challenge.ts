@@ -5,12 +5,14 @@ import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { buildTailwindScreenshotHtml } from '../src/utils/code';
 import { measureComponent, isOversize, MAX_COMPONENT_WIDTH, MAX_COMPONENT_HEIGHT } from './measure';
+import type { Difficulty } from '../src/utils/types';
+import { TIME_LIMITS } from '../src/utils/difficulty';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CHALLENGES_DIR = path.join(__dirname, '..', 'src', 'data', 'tailwind-challenges');
 const TARGETS_DIR = path.join(__dirname, '..', 'public', 'targets', 'tailwind');
 
-const SYSTEM_PROMPT = `You are a Tailwind CSS challenge generator for a "Wordle for CSS" game. Generate a self-contained Tailwind challenge where users add utility classes to HTML elements to match a target design.
+const SYSTEM_PROMPT = `You are a Tailwind CSS challenge generator for a "Wordle for CSS" game. Generate a self-contained Tailwind challenge where users add utility classes to HTML elements to match a target design. The user prompt names the target difficulty — calibrate the challenge to it.
 
 STRICT CONSTRAINTS:
 - ONLY Tailwind utility classes, NO custom CSS
@@ -33,10 +35,14 @@ SIZING STRATEGY (viewport is 600x400, body has 20px padding on all sides):
 - Use compact spacing: prefer p-3/p-4 over p-6/p-8, gap-2/gap-3 over gap-6/gap-8, mb-2/mb-3 over mb-6/mb-8.
 - Keep text sizes modest: prefer text-sm/text-base for body, text-lg/text-xl for headings. Avoid text-3xl and above.
 
+DIFFICULTY CRITERIA (the size budget always applies — hard means denser, not bigger):
+- easy: 3-5 elements, one flex container, ~2-5 utility classes per element, 2-3 colors. A single small card, badge, button group, or alert.
+- medium: 6-9 elements, nested flexbox or a simple grid, ~4-8 utilities per element, 3-5 colors. Cards with header/body/footer, profile rows, pricing blocks.
+- hard: 10-14 elements, grid AND nested flex, ~6-12 utilities per element, 5+ colors, varied rounding and typography. Dashboard widgets, media players, stat panels.
+
 OUTPUT FORMAT — use these exact XML tags (no JSON, no code fences):
 
 <title>Challenge Name</title>
-<difficulty>easy|medium|hard</difficulty>
 <targethtml>The target HTML with correct Tailwind classes on every element</targethtml>
 <starterhtml>The starter HTML with class="  " (two spaces) on every element</starterhtml>
 
@@ -44,9 +50,10 @@ Generate creative, visually interesting components like cards, badges, buttons, 
 
 const MAX_ATTEMPTS = 4; // 1 initial generation + 3 size-fix retries
 
+const DIFFICULTIES: Difficulty[] = ['easy', 'medium', 'hard'];
+
 interface TailwindChallengeFields {
   title: string;
-  difficulty: 'easy' | 'medium' | 'hard';
   targetHtml: string;
   starterHtml: string;
 }
@@ -60,7 +67,6 @@ function extractChallenge(text: string): TailwindChallengeFields {
 
   return {
     title: extract('title'),
-    difficulty: extract('difficulty') as 'easy' | 'medium' | 'hard',
     targetHtml: extract('targethtml'),
     // The editor needs class="  " (two spaces) so editable regions are
     // visible; normalize any all-whitespace class value the model emits
@@ -68,26 +74,120 @@ function extractChallenge(text: string): TailwindChallengeFields {
   };
 }
 
-async function generateChallenge(date: string) {
-  // Collect recent challenge titles to avoid repeats
-  const recentTitles: string[] = [];
+function collectRecentTitles(): string[] {
+  const titles: string[] = [];
   if (fs.existsSync(CHALLENGES_DIR)) {
     const files = fs.readdirSync(CHALLENGES_DIR).filter((f) => f.endsWith('.json')).sort().reverse().slice(0, 30);
     for (const file of files) {
       try {
         const data = JSON.parse(fs.readFileSync(path.join(CHALLENGES_DIR, file), 'utf-8'));
-        if (data.title) recentTitles.push(data.title);
+        if (data.title) titles.push(data.title);
       } catch {}
     }
   }
+  return titles;
+}
 
-  let userPrompt = `Generate a Tailwind CSS challenge for date ${date}.`;
-  if (recentTitles.length > 0) {
-    userPrompt += `\n\nRecent challenges (do NOT repeat these themes or similar variations):\n${recentTitles.map((t) => `- ${t}`).join('\n')}`;
+/** Generate one Tailwind challenge at the given difficulty. Returns its title (fed into later calls' avoid-list). */
+async function generateOne(
+  client: Anthropic,
+  page: import('playwright').Page,
+  date: string,
+  difficulty: Difficulty,
+  avoidTitles: string[]
+): Promise<string> {
+  let userPrompt = `Generate a ${difficulty} Tailwind CSS challenge for date ${date}.`;
+  if (avoidTitles.length > 0) {
+    userPrompt += `\n\nRecent challenges (do NOT repeat these themes or similar variations):\n${avoidTitles.map((t) => `- ${t}`).join('\n')}`;
   }
 
-  const client = new Anthropic();
   const messages: Anthropic.MessageParam[] = [{ role: 'user', content: userPrompt }];
+  let fields: TailwindChallengeFields | null = null;
+
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    const message = await client.messages.create({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 4000,
+      messages,
+      system: SYSTEM_PROMPT,
+    });
+
+    const block = message.content[0];
+    if (!block || block.type !== 'text') {
+      throw new Error(`Unexpected response content on attempt ${attempt}: ${JSON.stringify(message.content).substring(0, 200)}`);
+    }
+    const text = block.text;
+
+    let parsed: TailwindChallengeFields;
+    try {
+      parsed = extractChallenge(text);
+    } catch (err) {
+      console.warn(`[${difficulty}] Attempt ${attempt}: failed to parse response — ${(err as Error).message}`);
+      if (attempt === MAX_ATTEMPTS) throw err;
+      messages.push({ role: 'assistant', content: text });
+      messages.push({
+        role: 'user',
+        content: 'Your previous response was missing required XML tags. Output the complete challenge again with ALL of these tags: <title>, <targethtml>, <starterhtml>.',
+      });
+      continue;
+    }
+
+    // Render the target and measure the component (this render is also
+    // reused for the screenshot once the size is accepted)
+    await page.setContent(buildTailwindScreenshotHtml(parsed.targetHtml), { waitUntil: 'networkidle' });
+    // Only assign fields after a successful render so fields, the rendered
+    // page, and the eventual screenshot always correspond to the same attempt.
+    fields = parsed;
+    const size = await measureComponent(page);
+
+    if (!isOversize(size)) {
+      console.log(`[${difficulty}] Attempt ${attempt}: component is ${size.width}x${size.height}px — OK`);
+      break;
+    }
+
+    console.warn(`[${difficulty}] Attempt ${attempt}: component is ${size.width}x${size.height}px (max ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT})`);
+
+    if (attempt === MAX_ATTEMPTS) {
+      // Ship it anyway — a slightly clipped challenge beats a missing day
+      console.log(`::warning::Tailwind ${difficulty} challenge for ${date} shipped oversize at ${size.width}x${size.height}px after ${MAX_ATTEMPTS} attempts`);
+      break;
+    }
+
+    messages.push({ role: 'assistant', content: text });
+    messages.push({
+      role: 'user',
+      content: `Your component rendered at ${size.width}x${size.height}px, which exceeds the ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px maximum. Regenerate the challenge with a more compact layout that fits within ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px — reduce padding, text sizes, or element count as needed. Output all the XML tags again in full.`,
+    });
+  }
+
+  if (!fields) throw new Error('Generation produced no challenge');
+
+  const challenge = {
+    title: fields.title,
+    difficulty,
+    date,
+    timeLimit: TIME_LIMITS[difficulty],
+    starter: { html: fields.starterHtml },
+    target: { html: fields.targetHtml },
+    targetImage: `${date}-${difficulty}.png`,
+  };
+
+  fs.mkdirSync(CHALLENGES_DIR, { recursive: true });
+  const jsonPath = path.join(CHALLENGES_DIR, `${date}-${difficulty}.json`);
+  fs.writeFileSync(jsonPath, JSON.stringify(challenge, null, 2));
+  console.log(`Saved Tailwind challenge JSON: ${jsonPath}`);
+
+  // Screenshot the last rendered attempt (accepted, or shipped-anyway oversize)
+  fs.mkdirSync(TARGETS_DIR, { recursive: true });
+  const pngPath = path.join(TARGETS_DIR, `${date}-${difficulty}.png`);
+  await page.screenshot({ path: pngPath, type: 'png' });
+  console.log(`Saved Tailwind target PNG: ${pngPath}`);
+
+  return fields.title;
+}
+
+async function generateChallenge(date: string) {
+  const client = new Anthropic();
 
   const chromiumPath = process.env.CHROMIUM_PATH;
   const browser = await chromium.launch({
@@ -98,86 +198,27 @@ async function generateChallenge(date: string) {
     const page = await browser.newPage();
     await page.setViewportSize({ width: 600, height: 400 });
 
-    let fields: TailwindChallengeFields | null = null;
+    const recentTitles = collectRecentTitles();
+    const todaysTitles: string[] = [];
+    const failures: Difficulty[] = [];
 
-    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-      const message = await client.messages.create({
-        model: 'claude-sonnet-4-6',
-        max_tokens: 4000,
-        messages,
-        system: SYSTEM_PROMPT,
-      });
-
-      const block = message.content[0];
-      if (!block || block.type !== 'text') {
-        throw new Error(`Unexpected response content on attempt ${attempt}: ${JSON.stringify(message.content).substring(0, 200)}`);
-      }
-      const text = block.text;
-
-      let parsed: TailwindChallengeFields;
+    for (const difficulty of DIFFICULTIES) {
       try {
-        parsed = extractChallenge(text);
+        const title = await generateOne(client, page, date, difficulty, [...todaysTitles, ...recentTitles]);
+        todaysTitles.push(title);
       } catch (err) {
-        console.warn(`Attempt ${attempt}: failed to parse response — ${(err as Error).message}`);
-        if (attempt === MAX_ATTEMPTS) throw err;
-        messages.push({ role: 'assistant', content: text });
-        messages.push({
-          role: 'user',
-          content: 'Your previous response was missing required XML tags. Output the complete challenge again with ALL of these tags: <title>, <difficulty>, <targethtml>, <starterhtml>.',
-        });
-        continue;
+        console.error(`[${difficulty}] generation failed:`, err);
+        console.log(`::warning::Tailwind ${difficulty} challenge generation failed for ${date}`);
+        failures.push(difficulty);
       }
-
-      // Render the target and measure the component (this render is also
-      // reused for the screenshot once the size is accepted)
-      await page.setContent(buildTailwindScreenshotHtml(parsed.targetHtml), { waitUntil: 'networkidle' });
-      // Only assign fields after a successful render so fields, the rendered
-      // page, and the eventual screenshot always correspond to the same attempt.
-      fields = parsed;
-      const size = await measureComponent(page);
-
-      if (!isOversize(size)) {
-        console.log(`Attempt ${attempt}: component is ${size.width}x${size.height}px — OK`);
-        break;
-      }
-
-      console.warn(`Attempt ${attempt}: component is ${size.width}x${size.height}px (max ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT})`);
-
-      if (attempt === MAX_ATTEMPTS) {
-        // Ship it anyway — a slightly clipped challenge beats a missing day
-        console.log(`::warning::Tailwind challenge for ${date} shipped oversize at ${size.width}x${size.height}px after ${MAX_ATTEMPTS} attempts`);
-        break;
-      }
-
-      messages.push({ role: 'assistant', content: text });
-      messages.push({
-        role: 'user',
-        content: `Your component rendered at ${size.width}x${size.height}px, which exceeds the ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px maximum. Regenerate the challenge with a more compact layout that fits within ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px — reduce padding, text sizes, or element count as needed. Output all the XML tags again in full.`,
-      });
     }
 
-    if (!fields) throw new Error('Generation produced no challenge');
-
-    const challenge = {
-      title: fields.title,
-      difficulty: fields.difficulty,
-      date,
-      timeLimit: fields.difficulty === 'easy' ? 300 : fields.difficulty === 'hard' ? 900 : 600,
-      starter: { html: fields.starterHtml },
-      target: { html: fields.targetHtml },
-    };
-
-    // Save JSON
-    fs.mkdirSync(CHALLENGES_DIR, { recursive: true });
-    const jsonPath = path.join(CHALLENGES_DIR, `${date}.json`);
-    fs.writeFileSync(jsonPath, JSON.stringify(challenge, null, 2));
-    console.log(`Saved Tailwind challenge JSON: ${jsonPath}`);
-
-    // Screenshot the last rendered attempt (accepted, or shipped-anyway oversize)
-    fs.mkdirSync(TARGETS_DIR, { recursive: true });
-    const pngPath = path.join(TARGETS_DIR, `${date}.png`);
-    await page.screenshot({ path: pngPath, type: 'png' });
-    console.log(`Saved Tailwind target PNG: ${pngPath}`);
+    if (failures.length === DIFFICULTIES.length) {
+      throw new Error(`All ${DIFFICULTIES.length} difficulty generations failed for ${date}`);
+    }
+    if (failures.length > 0) {
+      console.warn(`Completed with failures: ${failures.join(', ')}`);
+    }
   } finally {
     await browser.close();
   }
