@@ -75,7 +75,8 @@ function extractChallenge(text: string): ChallengeFields {
 function collectRecentTitles(): string[] {
   const titles: string[] = [];
   if (fs.existsSync(CHALLENGES_DIR)) {
-    const files = fs.readdirSync(CHALLENGES_DIR).filter((f) => f.endsWith('.json')).sort().reverse().slice(0, 30);
+    // 90 files ≈ 30 days now that each day produces three challenges
+    const files = fs.readdirSync(CHALLENGES_DIR).filter((f) => f.endsWith('.json')).sort().reverse().slice(0, 90);
     for (const file of files) {
       try {
         const data = JSON.parse(fs.readFileSync(path.join(CHALLENGES_DIR, file), 'utf-8'));
@@ -170,16 +171,19 @@ async function generateOne(
     targetImage: `${date}-${difficulty}.png`,
   };
 
-  fs.mkdirSync(CHALLENGES_DIR, { recursive: true });
-  const jsonPath = path.join(CHALLENGES_DIR, `${date}-${difficulty}.json`);
-  fs.writeFileSync(jsonPath, JSON.stringify(challenge, null, 2));
-  console.log(`Saved challenge JSON: ${jsonPath}`);
-
-  // Screenshot the last rendered attempt (accepted, or shipped-anyway oversize)
+  // Screenshot the last rendered attempt (accepted, or shipped-anyway
+  // oversize) BEFORE writing the JSON: a screenshot failure must not leave
+  // an orphan JSON whose target image 404s on the site. An orphan PNG is
+  // harmless (nothing references it).
   fs.mkdirSync(TARGETS_DIR, { recursive: true });
   const pngPath = path.join(TARGETS_DIR, `${date}-${difficulty}.png`);
   await page.screenshot({ path: pngPath, type: 'png' });
   console.log(`Saved target PNG: ${pngPath}`);
+
+  fs.mkdirSync(CHALLENGES_DIR, { recursive: true });
+  const jsonPath = path.join(CHALLENGES_DIR, `${date}-${difficulty}.json`);
+  fs.writeFileSync(jsonPath, JSON.stringify(challenge, null, 2));
+  console.log(`Saved challenge JSON: ${jsonPath}`);
 
   return fields.title;
 }
