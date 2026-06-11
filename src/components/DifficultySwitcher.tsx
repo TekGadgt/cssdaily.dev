@@ -17,17 +17,24 @@ const ACTIVE_CLASSES: Record<Difficulty, string> = {
 
 export default function DifficultySwitcher({ available }: DifficultySwitcherProps) {
   // aria-pressed needs real state for screen readers; hydrated post-mount so
-  // the build-time render (no document) never mismatches
+  // the build-time render (no document) never mismatches. Observed from the
+  // html attribute (not set locally on click) because each player in a
+  // multi-difficulty set mounts its own switcher instance — they must all
+  // stay in sync no matter which one was clicked, including the players'
+  // fallback effect rewriting the attribute.
   const [selected, setSelected] = useState<Difficulty | null>(null);
 
   useEffect(() => {
-    setSelected((document.documentElement.dataset.difficulty as Difficulty) ?? null);
+    const read = () => setSelected((document.documentElement.dataset.difficulty as Difficulty) ?? null);
+    read();
+    const observer = new MutationObserver(read);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-difficulty'] });
+    return () => observer.disconnect();
   }, []);
 
   const select = (d: Difficulty) => {
     document.documentElement.dataset.difficulty = d;
     saveDifficultyPreference(d);
-    setSelected(d);
   };
 
   return (
