@@ -19,6 +19,12 @@ export function generateShareText(date: string, entries: ShareEntry[]): string {
   const sorted = DIFFICULTY_ORDER.filter((d) => entries.some((e) => e.difficulty === d))
     .map((d) => entries.find((e) => e.difficulty === d)!);
 
+  // Reachable when persistence fails (private mode/quota) and no history is
+  // readable at share time — don't emit a blank results section
+  if (sorted.length === 0) {
+    return `CSS Daily ${date}\n\nhttps://cssdaily.dev`;
+  }
+
   if (sorted.length === 1) {
     const e = sorted[0];
     const minutes = Math.floor(e.timeSpent / 60);

@@ -6,12 +6,22 @@ function isValidResult(value: unknown): boolean {
   if (!value || typeof value !== 'object') return false;
   const r = value as { score?: unknown; timeSpent?: unknown };
   // timeSpent feeds minutes/seconds formatting in ResultsModal and share
-  // text — a result without it would render NaN:NaN
-  return typeof r.score === 'number' && typeof r.timeSpent === 'number';
+  // text — a result without it would render NaN:NaN. isFinite also rejects
+  // NaN/Infinity (typeof NaN === 'number' would pass a typeof check).
+  return Number.isFinite(r.score) && Number.isFinite(r.timeSpent);
 }
 
 const DIFFICULTY_KEYS: Difficulty[] = ['easy', 'medium', 'hard'];
 const DATE_KEY_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+// Shape alone isn't enough: "2026-99-99" parses to Invalid Date and
+// "2026-02-31" silently rolls over to March 3 — both break history
+// rendering and streak math. The round-trip check catches both.
+function isValidDateKey(key: string): boolean {
+  if (!DATE_KEY_RE.test(key)) return false;
+  const t = new Date(key).getTime();
+  return !Number.isNaN(t) && new Date(t).toISOString().slice(0, 10) === key;
+}
 
 /**
  * One-time migration: v1 stored one flat result per date
@@ -36,7 +46,7 @@ export function migrateHistoryShape<T extends { score: number; timeSpent: number
   const out: Record<string, Partial<Record<Difficulty, T>>> = {};
   let changed = false;
   for (const [date, value] of Object.entries(history)) {
-    if (!DATE_KEY_RE.test(date)) {
+    if (!isValidDateKey(date)) {
       // Non-date key (corrupted storage) — would render "Invalid Date" in history
       changed = true;
       continue;
@@ -127,17 +137,20 @@ function getData(): StorageData {
       const parsed = JSON.parse(raw);
       const { history, changed } = migrateHistoryShape<ChallengeResult>(parsed.history);
       const data: StorageData = { history };
-      // Persist the migrated shape, but never let a write failure (quota,
-      // private mode) discard history that was read successfully
-      if (changed) try { setData(data); } catch {}
+      if (changed) setData(data);
       return data;
     }
   } catch {}
   return { history: {} };
 }
 
+// Swallows write failures (quota, Safari private mode): persistence is best
+// effort — a failed write must never break the submit flow or discard
+// history that was read successfully
 function setData(data: StorageData): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  } catch {}
 }
 
 export function getResult(date: string, difficulty: Difficulty): ChallengeResult | null {
@@ -168,17 +181,18 @@ function getTailwindData(): TailwindStorageData {
       const parsed = JSON.parse(raw);
       const { history, changed } = migrateHistoryShape<TailwindChallengeResult>(parsed.history);
       const data: TailwindStorageData = { history };
-      // Persist the migrated shape, but never let a write failure (quota,
-      // private mode) discard history that was read successfully
-      if (changed) try { setTailwindData(data); } catch {}
+      if (changed) setTailwindData(data);
       return data;
     }
   } catch {}
   return { history: {} };
 }
 
+// Best-effort write — see setData
 function setTailwindData(data: TailwindStorageData): void {
-  localStorage.setItem(TAILWIND_STORAGE_KEY, JSON.stringify(data));
+  try {
+    localStorage.setItem(TAILWIND_STORAGE_KEY, JSON.stringify(data));
+  } catch {}
 }
 
 export function getTailwindResult(date: string, difficulty: Difficulty): TailwindChallengeResult | null {
