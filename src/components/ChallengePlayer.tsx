@@ -1,5 +1,5 @@
-import { useState, useRef, useCallback, useEffect } from 'react';
-import type { Challenge, DiffResult } from '../utils/types';
+import { useState, useRef, useCallback, useEffect, useMemo } from 'react';
+import type { Challenge, DiffResult, Difficulty } from '../utils/types';
 import { compareToTarget } from '../utils/diff';
 import { saveResult, getResult } from '../utils/storage';
 import { formatDate, adjacentDate } from '../utils/date';
@@ -11,6 +11,8 @@ import ScoreDisplay from './ScoreDisplay';
 import ResultsModal from './ResultsModal';
 import HistoryView from './HistoryView';
 import LayoutToggle from './LayoutToggle';
+import DifficultySwitcher from './DifficultySwitcher';
+import { SET_VISIBILITY } from '../utils/difficulty';
 
 type Phase = 'idle' | 'playing' | 'finished';
 type TargetTab = 'target' | 'overlay' | 'diff';
@@ -18,9 +20,12 @@ type TargetTab = 'target' | 'overlay' | 'diff';
 interface ChallengePlayerProps {
   challenge: Challenge;
   allDates: string[];
+  /** All difficulties available on this date; when >1 the player is one of a CSS-switched set */
+  availableDifficulties?: Difficulty[];
 }
 
-export default function ChallengePlayer({ challenge, allDates }: ChallengePlayerProps) {
+export default function ChallengePlayer({ challenge, allDates, availableDifficulties = [challenge.difficulty] }: ChallengePlayerProps) {
+  const multi = availableDifficulties.length > 1;
   const [userCss, setUserCss] = useState(challenge.starter.css);
   const userCssRef = useRef(challenge.starter.css);
   const [phase, setPhase] = useState<Phase>('idle');
@@ -51,6 +56,20 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
       scoreRef.current = existing.score;
     }
   }, [challenge.date]);
+
+  // If the stamped preference isn't available on this date (legacy pages),
+  // point the attribute at a difficulty that exists. Display-only — does
+  // not overwrite the saved preference. Idempotent across the set's players.
+  useEffect(() => {
+    if (!multi) return;
+    const current = document.documentElement.dataset.difficulty as Difficulty | undefined;
+    if (!current || !availableDifficulties.includes(current)) {
+      document.documentElement.dataset.difficulty = availableDifficulties.includes('medium')
+        ? 'medium'
+        : availableDifficulties[0];
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const runDiff = useCallback(async () => {
     if (diffPendingRef.current) return;
@@ -137,13 +156,19 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
   const nextDate = currentIdx < sortedDates.length - 1 ? sortedDates[currentIdx + 1] : null;
   const displayScore = phase === 'finished' ? submittedScore : score;
 
-  const shareEntries: ShareEntry[] = (['easy', 'medium', 'hard'] as const)
-    .map((d) => ({ d, r: getResult(challenge.date, d) }))
-    .filter((x) => x.r !== null)
-    .map((x) => ({ difficulty: x.d, score: x.r!.score, timeSpent: x.r!.timeSpent }));
+  const shareEntries: ShareEntry[] = useMemo(
+    () =>
+      (['easy', 'medium', 'hard'] as const)
+        .map((d) => ({ d, r: getResult(challenge.date, d) }))
+        .filter((x) => x.r !== null)
+        .map((x) => ({ difficulty: x.d, score: x.r!.score, timeSpent: x.r!.timeSpent })),
+    [challenge.date, submittedScore]
+  );
+
+  const targetSrc = `/targets/${challenge.targetImage ?? `${challenge.date}.png`}`;
 
   return (
-    <div className="flex-1 flex flex-col min-h-0 bg-gray-900 text-white">
+    <div className={`flex-1 flex flex-col min-h-0 bg-gray-900 text-white${multi ? ` ${SET_VISIBILITY[challenge.difficulty]}` : ''}`}>
       {/* Header */}
       <header className="border-b border-gray-700 px-4 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -163,12 +188,16 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
 
           <div className="flex items-center gap-4">
             <span className="text-sm text-gray-400">{challenge.title}</span>
-            <span className={`text-xs px-2 py-0.5 rounded ${challenge.difficulty === 'easy' ? 'bg-green-900 text-green-300' :
-              challenge.difficulty === 'medium' ? 'bg-yellow-900 text-yellow-300' :
-                'bg-red-900 text-red-300'
-              }`}>
-              {challenge.difficulty}
-            </span>
+            {multi ? (
+              <DifficultySwitcher available={availableDifficulties} />
+            ) : (
+              <span className={`text-xs px-2 py-0.5 rounded ${challenge.difficulty === 'easy' ? 'bg-green-900 text-green-300' :
+                challenge.difficulty === 'medium' ? 'bg-yellow-900 text-yellow-300' :
+                  'bg-red-900 text-red-300'
+                }`}>
+                {challenge.difficulty}
+              </span>
+            )}
           </div>
 
           <div className="flex items-center gap-4">
@@ -246,7 +275,7 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
             <div className="rounded-lg overflow-hidden border border-gray-700 relative" style={{ width: PREVIEW_WIDTH, height: PREVIEW_HEIGHT, background: '#f5f5f5' }}>
               {targetTab === 'target' && (
                 <img
-                  src={`/targets/${challenge.date}.png`}
+                  src={targetSrc}
                   alt="Target"
                   style={{ width: PREVIEW_WIDTH, height: PREVIEW_HEIGHT, objectFit: 'contain' }}
                 />
@@ -254,7 +283,7 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
               {targetTab === 'overlay' && (
                 <>
                   <img
-                    src={`/targets/${challenge.date}.png`}
+                    src={targetSrc}
                     alt="Target"
                     style={{ width: PREVIEW_WIDTH, height: PREVIEW_HEIGHT, objectFit: 'contain', position: 'absolute', top: 0, left: 0 }}
                   />
@@ -297,7 +326,6 @@ export default function ChallengePlayer({ challenge, allDates }: ChallengePlayer
         date={challenge.date}
         score={submittedScore}
         timeSpent={submittedTime}
-        timeLimit={challenge.timeLimit || 600}
         shareEntries={shareEntries}
         heatmapCanvas={diffResult?.heatmapCanvas || null}
         onClose={() => setShowResults(false)}

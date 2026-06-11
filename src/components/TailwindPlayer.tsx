@@ -296,7 +296,6 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
         date={challenge.date}
         score={submittedScore}
         timeSpent={submittedTime}
-        timeLimit={challenge.timeLimit || 600}
         shareEntries={shareEntries}
         heatmapCanvas={diffResult?.heatmapCanvas || null}
         onClose={() => setShowResults(false)}

@@ -8,7 +8,6 @@ interface ResultsModalProps {
   date: string;
   score: number;
   timeSpent: number;
-  timeLimit: number;
   /** Every submitted difficulty for this date; the share text lists them all */
   shareEntries: ShareEntry[];
   heatmapCanvas: HTMLCanvasElement | null;
@@ -16,7 +15,7 @@ interface ResultsModalProps {
   basePath?: string;
 }
 
-export default function ResultsModal({ isOpen, date, score, timeSpent, timeLimit, shareEntries, heatmapCanvas, onClose, basePath = '/challenge' }: ResultsModalProps) {
+export default function ResultsModal({ isOpen, date, score, timeSpent, shareEntries, heatmapCanvas, onClose, basePath = '/challenge' }: ResultsModalProps) {
   const canvasContainerRef = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = useState(false);
 
