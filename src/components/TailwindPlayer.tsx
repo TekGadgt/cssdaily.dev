@@ -158,14 +158,18 @@ export default function TailwindPlayer({ challenge, allDates, availableDifficult
   const displayScore = phase === 'finished' ? submittedScore : score;
 
   const shareEntries: ShareEntry[] = useMemo(
-    () =>
-      (['easy', 'medium', 'hard'] as const)
+    () => {
+      // Only the open modal's share text needs these; skip the storage
+      // reads while it's closed (the modal renders null anyway)
+      if (!showResults) return [];
+      return (['easy', 'medium', 'hard'] as const)
         .map((d) => ({ d, r: getTailwindResult(challenge.date, d) }))
         .filter((x) => x.r !== null)
-        .map((x) => ({ difficulty: x.d, score: x.r!.score, timeSpent: x.r!.timeSpent })),
-    // showResults: siblings in a multi-difficulty set stay mounted while
-    // hidden, so recompute when THIS instance's modal opens to pick up
-    // results submitted on other difficulties
+        .map((x) => ({ difficulty: x.d, score: x.r!.score, timeSpent: x.r!.timeSpent }));
+    },
+    // showResults: also ensures siblings in a multi-difficulty set (mounted
+    // but hidden) pick up results submitted on other difficulties when
+    // THIS instance's modal opens
     [challenge.date, submittedScore, showResults]
   );
 
