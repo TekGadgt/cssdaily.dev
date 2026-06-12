@@ -16,6 +16,7 @@ export default function LayoutToggle() {
 
   return (
     <button
+      type="button"
       onClick={toggle}
       title="Toggle layout"
       aria-label="Toggle layout"

@@ -1,8 +1,9 @@
-import { useState, useRef, useCallback, useEffect } from 'react';
-import type { TailwindChallenge, DiffResult } from '../utils/types';
+import { useState, useRef, useCallback, useEffect, useMemo } from 'react';
+import type { TailwindChallenge, DiffResult, Difficulty } from '../utils/types';
 import { compareToTargetTailwind } from '../utils/diff';
 import { saveTailwindResult, getTailwindResult, getTailwindHistory, getTailwindStats } from '../utils/storage';
 import { formatDate } from '../utils/date';
+import type { ShareEntry } from '../utils/share';
 import TailwindPreview, { TAILWIND_PREVIEW_WIDTH, TAILWIND_PREVIEW_HEIGHT } from './TailwindPreview';
 import TailwindEditor from './TailwindEditor';
 import Timer from './Timer';
@@ -10,6 +11,8 @@ import ScoreDisplay from './ScoreDisplay';
 import ResultsModal from './ResultsModal';
 import HistoryView from './HistoryView';
 import LayoutToggle from './LayoutToggle';
+import DifficultySwitcher from './DifficultySwitcher';
+import { SET_VISIBILITY } from '../utils/difficulty';
 
 type Phase = 'idle' | 'playing' | 'finished';
 type TargetTab = 'target' | 'overlay' | 'diff';
@@ -17,9 +20,12 @@ type TargetTab = 'target' | 'overlay' | 'diff';
 interface TailwindPlayerProps {
   challenge: TailwindChallenge;
   allDates: string[];
+  /** All difficulties available on this date; when >1 the player is one of a CSS-switched set */
+  availableDifficulties?: Difficulty[];
 }
 
-export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerProps) {
+export default function TailwindPlayer({ challenge, allDates, availableDifficulties = [challenge.difficulty] }: TailwindPlayerProps) {
+  const multi = availableDifficulties.length > 1;
   const [userHtml, setUserHtml] = useState(challenge.starter.html);
   const userHtmlRef = useRef(challenge.starter.html);
   const [phase, setPhase] = useState<Phase>('idle');
@@ -40,7 +46,7 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
 
   // Check for existing result
   useEffect(() => {
-    const existing = getTailwindResult(challenge.date);
+    const existing = getTailwindResult(challenge.date, challenge.difficulty);
     if (existing) {
       setSubmittedScore(existing.score);
       setSubmittedTime(existing.timeSpent);
@@ -49,7 +55,21 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
       setScore(existing.score);
       scoreRef.current = existing.score;
     }
-  }, [challenge.date]);
+  }, [challenge.date, challenge.difficulty]);
+
+  // If the stamped preference isn't available on this date (legacy pages),
+  // point the attribute at a difficulty that exists. Display-only — does
+  // not overwrite the saved preference. Idempotent across the set's players.
+  useEffect(() => {
+    if (!multi) return;
+    const current = document.documentElement.dataset.difficulty as Difficulty | undefined;
+    if (!current || !availableDifficulties.includes(current)) {
+      document.documentElement.dataset.difficulty = availableDifficulties.includes('medium')
+        ? 'medium'
+        : availableDifficulties[0];
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const runDiff = useCallback(async () => {
     if (diffPendingRef.current) return;
@@ -98,14 +118,14 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
     phaseRef.current = 'finished';
     setSubmittedScore(finalScore);
     setSubmittedTime(timeSpentRef.current);
-    saveTailwindResult(challenge.date, {
+    saveTailwindResult(challenge.date, challenge.difficulty, {
       date: challenge.date,
       score: finalScore,
       timeSpent: timeSpentRef.current,
       submittedHtml: userHtmlRef.current,
     });
     setShowResults(true);
-  }, [challenge.date]);
+  }, [challenge.date, challenge.difficulty]);
 
   const handleTimeUp = useCallback(() => {
     doSubmit();
@@ -137,8 +157,36 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
   const nextDate = currentIdx < sortedDates.length - 1 ? sortedDates[currentIdx + 1] : null;
   const displayScore = phase === 'finished' ? submittedScore : score;
 
+  const shareEntries: ShareEntry[] = useMemo(
+    () => {
+      // Only the open modal's share text needs these; skip the storage
+      // reads while it's closed (the modal renders null anyway)
+      if (!showResults) return [];
+      const entries = (['easy', 'medium', 'hard'] as const)
+        .map((d) => ({ d, r: getTailwindResult(challenge.date, d) }))
+        .filter((x) => x.r !== null)
+        .map((x) => ({ difficulty: x.d, score: x.r!.score, timeSpent: x.r!.timeSpent }));
+      // Persistence is best-effort (writes are swallowed in private
+      // mode/quota), so the just-submitted result may not be readable —
+      // fall back to the in-memory submission for this difficulty
+      if (!entries.some((e) => e.difficulty === challenge.difficulty)) {
+        entries.push({ difficulty: challenge.difficulty, score: submittedScore, timeSpent: submittedTime });
+      }
+      return entries;
+    },
+    // showResults: also ensures siblings in a multi-difficulty set (mounted
+    // but hidden) pick up results submitted on other difficulties when
+    // THIS instance's modal opens
+    [challenge.date, challenge.difficulty, submittedScore, submittedTime, showResults]
+  );
+
+  const targetSrc = `/targets/tailwind/${challenge.targetImage ?? `${challenge.date}.png`}`;
+
+  // In a multi-difficulty set the root's display utility comes solely from
+  // SET_VISIBILITY (hidden + data-attribute variant) so visibility never
+  // depends on Tailwind's utility ordering
   return (
-    <div className="flex-1 flex flex-col min-h-0 bg-gray-900 text-white">
+    <div className={`flex-1 flex-col min-h-0 bg-gray-900 text-white ${multi ? SET_VISIBILITY[challenge.difficulty] : 'flex'}`}>
       {/* Header */}
       <header className="border-b border-gray-700 px-4 py-3">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -158,12 +206,16 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
 
           <div className="flex items-center gap-4">
             <span className="text-sm text-gray-400">{challenge.title}</span>
-            <span className={`text-xs px-2 py-0.5 rounded ${challenge.difficulty === 'easy' ? 'bg-green-900 text-green-300' :
-              challenge.difficulty === 'medium' ? 'bg-yellow-900 text-yellow-300' :
-                'bg-red-900 text-red-300'
-              }`}>
-              {challenge.difficulty}
-            </span>
+            {multi ? (
+              <DifficultySwitcher available={availableDifficulties} />
+            ) : (
+              <span className={`text-xs px-2 py-0.5 rounded ${challenge.difficulty === 'easy' ? 'bg-green-900 text-green-300' :
+                challenge.difficulty === 'medium' ? 'bg-yellow-900 text-yellow-300' :
+                  'bg-red-900 text-red-300'
+                }`}>
+                {challenge.difficulty}
+              </span>
+            )}
           </div>
 
           <div className="flex items-center gap-4">
@@ -240,7 +292,7 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
             <div className="rounded-lg overflow-hidden border border-gray-700 relative" style={{ width: TAILWIND_PREVIEW_WIDTH, height: TAILWIND_PREVIEW_HEIGHT, background: '#f5f5f5' }}>
               {targetTab === 'target' && (
                 <img
-                  src={`/targets/tailwind/${challenge.date}.png`}
+                  src={targetSrc}
                   alt="Target"
                   style={{ width: TAILWIND_PREVIEW_WIDTH, height: TAILWIND_PREVIEW_HEIGHT, objectFit: 'contain' }}
                 />
@@ -248,7 +300,7 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
               {targetTab === 'overlay' && (
                 <>
                   <img
-                    src={`/targets/tailwind/${challenge.date}.png`}
+                    src={targetSrc}
                     alt="Target"
                     style={{ width: TAILWIND_PREVIEW_WIDTH, height: TAILWIND_PREVIEW_HEIGHT, objectFit: 'contain', position: 'absolute', top: 0, left: 0 }}
                   />
@@ -290,7 +342,7 @@ export default function TailwindPlayer({ challenge, allDates }: TailwindPlayerPr
         date={challenge.date}
         score={submittedScore}
         timeSpent={submittedTime}
-        timeLimit={challenge.timeLimit || 600}
+        shareEntries={shareEntries}
         heatmapCanvas={diffResult?.heatmapCanvas || null}
         onClose={() => setShowResults(false)}
         basePath="/tailwind"

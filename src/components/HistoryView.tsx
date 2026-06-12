@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { getHistory as getDefaultHistory, getStats as getDefaultStats } from '../utils/storage';
 import { formatDate } from '../utils/date';
 import type { GenericHistory, UserStats } from '../utils/types';
+import { DIFFICULTY_ORDER } from '../utils/difficulty';
 
 interface HistoryViewProps {
   isOpen: boolean;
@@ -57,11 +58,7 @@ export default function HistoryView({
         ) : (
           <div className="space-y-1">
             {sortedDates.map((date) => {
-              const result = history[date];
-              let scoreColor = 'text-red-400';
-              if (result.score >= 80) scoreColor = 'text-green-400';
-              else if (result.score >= 50) scoreColor = 'text-yellow-400';
-
+              const entries = history[date];
               return (
                 <a
                   key={date}
@@ -71,7 +68,19 @@ export default function HistoryView({
                   <span className="text-sm text-gray-300">
                     {formatDate(date, { month: 'short', day: 'numeric', year: 'numeric' })}
                   </span>
-                  <span className={`font-mono font-bold ${scoreColor}`}>{result.score}%</span>
+                  <span className="flex gap-3 font-mono font-bold text-sm">
+                    {DIFFICULTY_ORDER.filter((d) => entries[d]).map((d) => {
+                      const score = entries[d]!.score;
+                      let scoreColor = 'text-red-400';
+                      if (score >= 80) scoreColor = 'text-green-400';
+                      else if (score >= 50) scoreColor = 'text-yellow-400';
+                      return (
+                        <span key={d} className={scoreColor} title={d}>
+                          {d.charAt(0).toUpperCase()}&thinsp;{score}%
+                        </span>
+                      );
+                    })}
+                  </span>
                 </a>
               );
             })}

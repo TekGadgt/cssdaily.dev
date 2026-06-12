@@ -5,12 +5,14 @@ import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { buildScreenshotHtml } from '../src/utils/code';
 import { measureComponent, isOversize, MAX_COMPONENT_WIDTH, MAX_COMPONENT_HEIGHT } from './measure';
+import type { Difficulty } from '../src/utils/types';
+import { TIME_LIMITS } from '../src/utils/difficulty';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CHALLENGES_DIR = path.join(__dirname, '..', 'src', 'data', 'challenges');
 const TARGETS_DIR = path.join(__dirname, '..', 'public', 'targets');
 
-const SYSTEM_PROMPT = `You are a CSS challenge generator for a "Wordle for CSS" game. Generate a self-contained CSS challenge that users will try to replicate.
+const SYSTEM_PROMPT = `You are a CSS challenge generator for a "Wordle for CSS" game. Generate a self-contained CSS challenge that users will try to replicate. The user prompt names the target difficulty — calibrate the challenge to it.
 
 STRICT CONSTRAINTS:
 - NO font-family declarations (Inter and Noto Color Emoji fonts are loaded and set by the environment)
@@ -29,10 +31,14 @@ SIZING STRATEGY (viewport is 600x400, body has 20px padding on all sides):
 - Use compact spacing: small/medium padding (8-16px), tight margins/gaps (4-12px). Avoid large spacing values.
 - Keep text sizes modest: body text 14px, headings 18-24px max. No hero-sized text.
 
+DIFFICULTY CRITERIA (the size budget always applies — hard means denser, not bigger):
+- easy: 3-5 elements, one flex container, ~8-15 CSS properties in the target, 2-3 colors. A single small card, badge, button group, or alert.
+- medium: 6-9 elements, nested flexbox or a simple grid, ~16-30 properties, 3-5 colors. Cards with header/body/footer, profile rows, pricing blocks.
+- hard: 10-14 elements, grid AND nested flex, ~30-50 properties, 5+ colors, varied border-radius and typography. Dashboard widgets, media players, stat panels.
+
 OUTPUT FORMAT — use these exact XML tags (no JSON, no code fences):
 
 <title>Challenge Name</title>
-<difficulty>easy|medium|hard</difficulty>
 <html>The HTML markup (shared by target and starter)</html>
 <targetcss>The complete target CSS with all properties</targetcss>
 <startercss>The starter CSS: same :root block with all variables, plus empty selector stubs</startercss>
@@ -42,9 +48,10 @@ Generate creative, visually interesting components like cards, badges, buttons, 
 
 const MAX_ATTEMPTS = 4; // 1 initial generation + 3 size-fix retries
 
+const DIFFICULTIES: Difficulty[] = ['easy', 'medium', 'hard'];
+
 interface ChallengeFields {
   title: string;
-  difficulty: 'easy' | 'medium' | 'hard';
   html: string;
   targetCss: string;
   starterCss: string;
@@ -59,33 +66,130 @@ function extractChallenge(text: string): ChallengeFields {
 
   return {
     title: extract('title'),
-    difficulty: extract('difficulty') as 'easy' | 'medium' | 'hard',
     html: extract('html'),
     targetCss: extract('targetcss'),
     starterCss: extract('startercss'),
   };
 }
 
-async function generateChallenge(date: string) {
-  // Collect recent challenge titles to avoid repeats
-  const recentTitles: string[] = [];
+function collectRecentTitles(): string[] {
+  const titles: string[] = [];
   if (fs.existsSync(CHALLENGES_DIR)) {
-    const files = fs.readdirSync(CHALLENGES_DIR).filter((f) => f.endsWith('.json')).sort().reverse().slice(0, 30);
+    // 90 files ≈ 30 days now that each day produces three challenges
+    const files = fs.readdirSync(CHALLENGES_DIR).filter((f) => f.endsWith('.json')).sort().reverse().slice(0, 90);
     for (const file of files) {
       try {
         const data = JSON.parse(fs.readFileSync(path.join(CHALLENGES_DIR, file), 'utf-8'));
-        if (data.title) recentTitles.push(data.title);
+        if (data.title) titles.push(data.title);
       } catch {}
     }
   }
+  return titles;
+}
 
-  let userPrompt = `Generate a CSS challenge for date ${date}.`;
-  if (recentTitles.length > 0) {
-    userPrompt += `\n\nRecent challenges (do NOT repeat these themes or similar variations):\n${recentTitles.map((t) => `- ${t}`).join('\n')}`;
+/** Generate one challenge at the given difficulty. Returns its title (fed into later calls' avoid-list). */
+async function generateOne(
+  client: Anthropic,
+  page: import('playwright').Page,
+  date: string,
+  difficulty: Difficulty,
+  avoidTitles: string[]
+): Promise<string> {
+  let userPrompt = `Generate a ${difficulty} CSS challenge for date ${date}.`;
+  if (avoidTitles.length > 0) {
+    userPrompt += `\n\nRecent challenges (do NOT repeat these themes or similar variations):\n${avoidTitles.map((t) => `- ${t}`).join('\n')}`;
   }
 
-  const client = new Anthropic();
   const messages: Anthropic.MessageParam[] = [{ role: 'user', content: userPrompt }];
+  let fields: ChallengeFields | null = null;
+
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    const message = await client.messages.create({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 4000,
+      messages,
+      system: SYSTEM_PROMPT,
+    });
+
+    const block = message.content[0];
+    if (!block || block.type !== 'text') {
+      throw new Error(`Unexpected response content on attempt ${attempt}: ${JSON.stringify(message.content).substring(0, 200)}`);
+    }
+    const text = block.text;
+
+    let parsed: ChallengeFields;
+    try {
+      parsed = extractChallenge(text);
+    } catch (err) {
+      console.warn(`[${difficulty}] Attempt ${attempt}: failed to parse response — ${(err as Error).message}`);
+      if (attempt === MAX_ATTEMPTS) throw err;
+      messages.push({ role: 'assistant', content: text });
+      messages.push({
+        role: 'user',
+        content: 'Your previous response was missing required XML tags. Output the complete challenge again with ALL of these tags: <title>, <html>, <targetcss>, <startercss>.',
+      });
+      continue;
+    }
+
+    // Render the target and measure the component (this render is also
+    // reused for the screenshot once the size is accepted)
+    await page.setContent(buildScreenshotHtml(parsed.html, parsed.targetCss), { waitUntil: 'networkidle' });
+    // Only assign fields after a successful render so fields, the rendered
+    // page, and the eventual screenshot always correspond to the same attempt.
+    fields = parsed;
+    const size = await measureComponent(page);
+
+    if (!isOversize(size)) {
+      console.log(`[${difficulty}] Attempt ${attempt}: component is ${size.width}x${size.height}px — OK`);
+      break;
+    }
+
+    console.warn(`[${difficulty}] Attempt ${attempt}: component is ${size.width}x${size.height}px (max ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT})`);
+
+    if (attempt === MAX_ATTEMPTS) {
+      // Ship it anyway — a slightly clipped challenge beats a missing day
+      console.log(`::warning::CSS ${difficulty} challenge for ${date} shipped oversize at ${size.width}x${size.height}px after ${MAX_ATTEMPTS} attempts`);
+      break;
+    }
+
+    messages.push({ role: 'assistant', content: text });
+    messages.push({
+      role: 'user',
+      content: `Your component rendered at ${size.width}x${size.height}px, which exceeds the ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px maximum. Regenerate the challenge with a more compact layout that fits within ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px — reduce padding, font sizes, or element count as needed. Output all the XML tags again in full.`,
+    });
+  }
+
+  if (!fields) throw new Error('Generation produced no challenge');
+
+  const challenge = {
+    title: fields.title,
+    difficulty,
+    target: { html: fields.html, css: fields.targetCss },
+    starter: { html: fields.html, css: fields.starterCss },
+    date,
+    timeLimit: TIME_LIMITS[difficulty],
+    targetImage: `${date}-${difficulty}.png`,
+  };
+
+  // Screenshot the last rendered attempt (accepted, or shipped-anyway
+  // oversize) BEFORE writing the JSON: a screenshot failure must not leave
+  // an orphan JSON whose target image 404s on the site. An orphan PNG is
+  // harmless (nothing references it).
+  fs.mkdirSync(TARGETS_DIR, { recursive: true });
+  const pngPath = path.join(TARGETS_DIR, `${date}-${difficulty}.png`);
+  await page.screenshot({ path: pngPath, type: 'png' });
+  console.log(`Saved target PNG: ${pngPath}`);
+
+  fs.mkdirSync(CHALLENGES_DIR, { recursive: true });
+  const jsonPath = path.join(CHALLENGES_DIR, `${date}-${difficulty}.json`);
+  fs.writeFileSync(jsonPath, JSON.stringify(challenge, null, 2));
+  console.log(`Saved challenge JSON: ${jsonPath}`);
+
+  return fields.title;
+}
+
+async function generateChallenge(date: string) {
+  const client = new Anthropic();
 
   const chromiumPath = process.env.CHROMIUM_PATH;
   const browser = await chromium.launch({
@@ -96,86 +200,27 @@ async function generateChallenge(date: string) {
     const page = await browser.newPage();
     await page.setViewportSize({ width: 600, height: 400 });
 
-    let fields: ChallengeFields | null = null;
+    const recentTitles = collectRecentTitles();
+    const todaysTitles: string[] = [];
+    const failures: Difficulty[] = [];
 
-    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-      const message = await client.messages.create({
-        model: 'claude-sonnet-4-6',
-        max_tokens: 4000,
-        messages,
-        system: SYSTEM_PROMPT,
-      });
-
-      const block = message.content[0];
-      if (!block || block.type !== 'text') {
-        throw new Error(`Unexpected response content on attempt ${attempt}: ${JSON.stringify(message.content).substring(0, 200)}`);
-      }
-      const text = block.text;
-
-      let parsed: ChallengeFields;
+    for (const difficulty of DIFFICULTIES) {
       try {
-        parsed = extractChallenge(text);
+        const title = await generateOne(client, page, date, difficulty, [...todaysTitles, ...recentTitles]);
+        todaysTitles.push(title);
       } catch (err) {
-        console.warn(`Attempt ${attempt}: failed to parse response — ${(err as Error).message}`);
-        if (attempt === MAX_ATTEMPTS) throw err;
-        messages.push({ role: 'assistant', content: text });
-        messages.push({
-          role: 'user',
-          content: 'Your previous response was missing required XML tags. Output the complete challenge again with ALL of these tags: <title>, <difficulty>, <html>, <targetcss>, <startercss>.',
-        });
-        continue;
+        console.error(`[${difficulty}] generation failed:`, err);
+        console.log(`::warning::CSS ${difficulty} challenge generation failed for ${date}`);
+        failures.push(difficulty);
       }
-
-      // Render the target and measure the component (this render is also
-      // reused for the screenshot once the size is accepted)
-      await page.setContent(buildScreenshotHtml(parsed.html, parsed.targetCss), { waitUntil: 'networkidle' });
-      // Only assign fields after a successful render so fields, the rendered
-      // page, and the eventual screenshot always correspond to the same attempt.
-      fields = parsed;
-      const size = await measureComponent(page);
-
-      if (!isOversize(size)) {
-        console.log(`Attempt ${attempt}: component is ${size.width}x${size.height}px — OK`);
-        break;
-      }
-
-      console.warn(`Attempt ${attempt}: component is ${size.width}x${size.height}px (max ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT})`);
-
-      if (attempt === MAX_ATTEMPTS) {
-        // Ship it anyway — a slightly clipped challenge beats a missing day
-        console.log(`::warning::CSS challenge for ${date} shipped oversize at ${size.width}x${size.height}px after ${MAX_ATTEMPTS} attempts`);
-        break;
-      }
-
-      messages.push({ role: 'assistant', content: text });
-      messages.push({
-        role: 'user',
-        content: `Your component rendered at ${size.width}x${size.height}px, which exceeds the ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px maximum. Regenerate the challenge with a more compact layout that fits within ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px — reduce padding, font sizes, or element count as needed. Output all the XML tags again in full.`,
-      });
     }
 
-    if (!fields) throw new Error('Generation produced no challenge');
-
-    const challenge = {
-      title: fields.title,
-      difficulty: fields.difficulty,
-      target: { html: fields.html, css: fields.targetCss },
-      starter: { html: fields.html, css: fields.starterCss },
-      date,
-      timeLimit: fields.difficulty === 'easy' ? 300 : fields.difficulty === 'hard' ? 900 : 600,
-    };
-
-    // Save JSON
-    fs.mkdirSync(CHALLENGES_DIR, { recursive: true });
-    const jsonPath = path.join(CHALLENGES_DIR, `${date}.json`);
-    fs.writeFileSync(jsonPath, JSON.stringify(challenge, null, 2));
-    console.log(`Saved challenge JSON: ${jsonPath}`);
-
-    // Screenshot the last rendered attempt (accepted, or shipped-anyway oversize)
-    fs.mkdirSync(TARGETS_DIR, { recursive: true });
-    const pngPath = path.join(TARGETS_DIR, `${date}.png`);
-    await page.screenshot({ path: pngPath, type: 'png' });
-    console.log(`Saved target PNG: ${pngPath}`);
+    if (failures.length === DIFFICULTIES.length) {
+      throw new Error(`All ${DIFFICULTIES.length} difficulty generations failed for ${date}`);
+    }
+    if (failures.length > 0) {
+      console.warn(`Completed with failures: ${failures.join(', ')}`);
+    }
   } finally {
     await browser.close();
   }

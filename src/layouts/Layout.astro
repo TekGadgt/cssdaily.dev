@@ -1,5 +1,6 @@
 ---
 import { LAYOUT_KEY } from '../utils/storage';
+import { DIFFICULTY_KEY } from '../utils/difficulty';
 
 interface Props {
   title?: string;
@@ -20,12 +21,15 @@ const { title = 'CSS Daily - A Daily CSS Challenge', description = 'A daily CSS 
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <title>{title}</title>
-    <!-- Apply layout preference before first paint to avoid a rows->columns flash on every page load -->
-    <script is:inline define:vars={{ LAYOUT_KEY }}>
+    <!-- Apply layout + difficulty preferences before first paint to avoid flashes on every page load -->
+    <script is:inline define:vars={{ LAYOUT_KEY, DIFFICULTY_KEY }}>
       try {
         document.documentElement.dataset.layout = localStorage.getItem(LAYOUT_KEY) === 'columns' ? 'columns' : 'rows';
+        const d = localStorage.getItem(DIFFICULTY_KEY);
+        document.documentElement.dataset.difficulty = d === 'easy' || d === 'hard' ? d : 'medium';
       } catch (e) {
         document.documentElement.dataset.layout = 'rows';
+        document.documentElement.dataset.difficulty = 'medium';
       }
     </script>
   </head>
