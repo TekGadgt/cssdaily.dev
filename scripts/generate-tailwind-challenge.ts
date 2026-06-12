@@ -108,7 +108,9 @@ async function generateOne(
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
     const message = await client.messages.create({
       model: 'claude-sonnet-4-6',
-      max_tokens: 4000,
+      // Hard challenges (two full HTML trees, heavily classed) need headroom —
+      // the CSS generator hit the old 4000 cap in production (2026-06-13)
+      max_tokens: 8000,
       messages,
       system: SYSTEM_PROMPT,
     });
@@ -118,6 +120,20 @@ async function generateOne(
       throw new Error(`Unexpected response content on attempt ${attempt}: ${JSON.stringify(message.content).substring(0, 200)}`);
     }
     const text = block.text;
+
+    // A truncated response would fail extraction anyway, but with a
+    // misleading missing-tags retry message — the model would regenerate at
+    // the same length and truncate again. Tell it the real problem.
+    if (message.stop_reason === 'max_tokens') {
+      console.warn(`[${difficulty}] Attempt ${attempt}: response truncated at the token limit`);
+      if (attempt === MAX_ATTEMPTS) throw new Error(`Response truncated at the token limit on final attempt`);
+      messages.push({ role: 'assistant', content: text });
+      messages.push({
+        role: 'user',
+        content: 'Your previous response was cut off before completing. Regenerate the challenge more compactly — fewer elements and terser classes — and output ALL the XML tags in full.',
+      });
+      continue;
+    }
 
     let parsed: TailwindChallengeFields;
     try {
