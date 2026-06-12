@@ -20,7 +20,10 @@ export default function LayoutToggle() {
       onClick={toggle}
       title="Toggle layout"
       aria-label="Toggle layout"
-      className="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-white text-sm inline-flex items-center rounded-lg transition"
+      // h-8 matches the text buttons' rendered height (text-sm line + py-1.5):
+      // an icon-only flex button generates no text line box, so without an
+      // explicit height it collapses to the 16px icon and sits shorter
+      className="px-3 h-8 bg-gray-700 hover:bg-gray-600 text-white inline-flex items-center rounded-lg transition"
     >
       {/* Each icon previews the layout clicking switches to; CSS swaps them */}
       <svg className="[[data-layout=columns]_&]:hidden" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">

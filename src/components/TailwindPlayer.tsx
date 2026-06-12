@@ -206,9 +206,7 @@ export default function TailwindPlayer({ challenge, allDates, availableDifficult
 
           <div className="flex items-center gap-4">
             <span className="text-sm text-gray-400">{challenge.title}</span>
-            {multi ? (
-              <DifficultySwitcher available={availableDifficulties} />
-            ) : (
+            {!multi && (
               <span className={`text-xs px-2 py-0.5 rounded ${challenge.difficulty === 'easy' ? 'bg-green-900 text-green-300' :
                 challenge.difficulty === 'medium' ? 'bg-yellow-900 text-yellow-300' :
                   'bg-red-900 text-red-300'
@@ -245,6 +243,11 @@ export default function TailwindPlayer({ challenge, allDates, availableDifficult
                 Results
               </button>
             )}
+            {/* Placed left of the constant-width Layout/Stats buttons: the
+                cluster is right-anchored, so the switcher's position is
+                immune to timer/score/phase-button width changes — a stable
+                click target when rapidly cycling difficulties */}
+            {multi && <DifficultySwitcher available={availableDifficulties} />}
             <LayoutToggle />
             <button
               onClick={() => setShowHistory(true)}

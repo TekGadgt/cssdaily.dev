@@ -7,13 +7,16 @@ interface DifficultySwitcherProps {
 }
 
 // Visual active state is CSS-only (driven by <html data-difficulty>, stamped
-// pre-paint) so it never flashes. The hover literals lock the active color at
-// higher specificity than `hover:text-white`, independent of stylesheet order.
+// pre-paint) so it never flashes. The hover literals lock the active color
+// and background at higher specificity than the base hover utilities,
+// independent of stylesheet order.
 const ACTIVE_CLASSES: Record<Difficulty, string> = {
-  easy: '[[data-difficulty=easy]_&]:bg-green-900 [[data-difficulty=easy]_&]:text-green-300 [[data-difficulty=easy]_&]:hover:text-green-300',
-  medium: '[[data-difficulty=medium]_&]:bg-yellow-900 [[data-difficulty=medium]_&]:text-yellow-300 [[data-difficulty=medium]_&]:hover:text-yellow-300',
-  hard: '[[data-difficulty=hard]_&]:bg-red-900 [[data-difficulty=hard]_&]:text-red-300 [[data-difficulty=hard]_&]:hover:text-red-300',
+  easy: '[[data-difficulty=easy]_&]:bg-green-900 [[data-difficulty=easy]_&]:text-green-300 [[data-difficulty=easy]_&]:hover:bg-green-900 [[data-difficulty=easy]_&]:hover:text-green-300',
+  medium: '[[data-difficulty=medium]_&]:bg-yellow-900 [[data-difficulty=medium]_&]:text-yellow-300 [[data-difficulty=medium]_&]:hover:bg-yellow-900 [[data-difficulty=medium]_&]:hover:text-yellow-300',
+  hard: '[[data-difficulty=hard]_&]:bg-red-900 [[data-difficulty=hard]_&]:text-red-300 [[data-difficulty=hard]_&]:hover:bg-red-900 [[data-difficulty=hard]_&]:hover:text-red-300',
 };
+
+const LABELS: Record<Difficulty, string> = { easy: 'E', medium: 'M', hard: 'H' };
 
 export default function DifficultySwitcher({ available }: DifficultySwitcherProps) {
   // aria-pressed needs real state for screen readers; hydrated post-mount so
@@ -38,16 +41,20 @@ export default function DifficultySwitcher({ available }: DifficultySwitcherProp
   };
 
   return (
-    <div className="flex text-xs rounded overflow-hidden border border-gray-700" role="group" aria-label="Difficulty">
+    // Themed like the neighboring control buttons (h-8, gray-700 base);
+    // single letters keep the cluster compact — full names go to aria/title
+    <div className="flex h-8 rounded-lg overflow-hidden divide-x divide-gray-800" role="group" aria-label="Difficulty">
       {DIFFICULTY_ORDER.filter((d) => available.includes(d)).map((d) => (
         <button
           key={d}
           type="button"
           onClick={() => select(d)}
           aria-pressed={selected === d}
-          className={`px-2 py-0.5 capitalize text-gray-500 hover:text-white ${ACTIVE_CLASSES[d]}`}
+          aria-label={d}
+          title={d.charAt(0).toUpperCase() + d.slice(1)}
+          className={`px-2.5 text-sm font-medium inline-flex items-center bg-gray-700 hover:bg-gray-600 text-gray-400 hover:text-white ${ACTIVE_CLASSES[d]}`}
         >
-          {d}
+          {LABELS[d]}
         </button>
       ))}
     </div>
