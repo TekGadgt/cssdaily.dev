@@ -1,0 +1,35 @@
+name: Feedback
+description: Report a bug, flag a challenge, or suggest an improvement
+title: "[Feedback]: "
+labels: ["feedback"]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Bug
+        - Challenge quality (too easy/hard, broken target, unfair scoring)
+        - Idea / suggestion
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: challenge
+    attributes:
+      label: Challenge (if applicable)
+      description: Date, mode, and difficulty of the challenge this is about
+      placeholder: "2026-06-13, CSS, hard"
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What happened, or what would you like to see?
+      placeholder: Screenshots welcome — drag and drop them here.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser / OS (for bugs)
+      placeholder: "Chrome 137, macOS"
