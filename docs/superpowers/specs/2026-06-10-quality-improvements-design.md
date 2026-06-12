@@ -87,28 +87,27 @@ Replace the model-chosen single difficulty with three generated challenges per d
 
 ## Package 4: Structural scoring
 
+> **Revised 2026-06-12 (pre-implementation).** The original design recorded `targetRects` at generation time in the challenge JSON. During planning we realized scoring is already fully client-side — the pixel diff renders both the user's code AND the target in hidden iframes in the player's browser; the CI screenshot is only a visual reference. Generation-side rects would have introduced the first cross-engine comparison into scoring (Playwright-on-Linux layout vs the player's browser — sub-pixel text metrics differ, and IoU punishes drift the player can't control). Rects are instead measured client-side for both renders in the same engine. This also removes all generator/JSON changes and makes structural scoring apply to every challenge, legacy included — accepted: replaying an old challenge may score slightly differently than the stored historical result (history itself is untouched). Cheat-resistance was considered and dismissed as a non-goal: the full target ships in the static page bundle by construction, scores are local-only, and there is no leaderboard.
+
 Add an element-level metric so correct structure/size/position is rewarded, not just pixel color overlap.
 
-### Generation side
+### Measurement (client side, both renders)
 
-After the target render in Playwright, walk every element inside `body` in document order and record its bounding box (`x`, `y`, `width`, `height`, viewport-relative). Store as `targetRects: Rect[]` in the challenge JSON.
+- Inside the existing diff pipeline's hidden iframes, after layout and before capture, walk every element inside `body` in document order (`querySelectorAll('*')`) and record its `getBoundingClientRect` — for the user render and the target render alike. Same engine, same viewport (600×400), no scaling, no stored rect data.
+- HTML structure is identical by construction in both modes (CSS mode shares the HTML; Tailwind mode locks edits to class values), so rects pair 1:1 by index.
+- Defense: if the two element lists differ in length (corrupted/sanitized markup), structural scoring is skipped for that diff — pixel-only, never misaligned pairs.
 
-### Client side
+### Scoring
 
-- After each diff render, measure the same elements in the user's preview iframe in document order (`getBoundingClientRect`), producing 1:1 pairs with `targetRects` (HTML structure is identical by construction). The player preview iframe and the generation viewport are both 600×400, so rects compare directly with no scaling.
-- Per-element score: IoU (intersection-over-union) of user rect vs target rect; 0 when disjoint.
-- Structural score = mean IoU across elements, as 0–100.
+- Per-element score: IoU (intersection-over-union) of user rect vs target rect; 0 when disjoint; two zero-area rects count as a match.
+- Structural score = mean IoU across elements (0–1).
 
 ### Blending
 
-- `finalScore = round(0.6 * pixelScore + 0.4 * structuralScore)` — weights are named constants, tunable.
-- `pixelScore` is the existing power-curved pixel diff score.
-- Challenges without `targetRects` (all existing ones) score pixel-only — no retroactive changes.
-- The score display may show the two components in a tooltip/breakdown (implementation detail).
-
-### Tailwind mode
-
-Works identically: the DOM structure is fixed (players edit only class values), so tree-order correspondence holds. Generation-side rects are measured in the same Playwright render that produces the Tailwind target screenshot.
+- `finalScore = round(PIXEL_WEIGHT * pixelScore + STRUCTURAL_WEIGHT * structuralScore * 100)` with 0.6/0.4 named constants, tunable.
+- `pixelScore` is the existing power-curved pixel diff score. The structural component starts linear; if unstyled-starter inflation shows up in practice (default block layout already overlaps targets), a power curve like the pixel score's is the tuning knob.
+- When structural scoring is skipped (element mismatch), the final score is the pixel score alone.
+- `DiffResult` carries the components (`pixelScore`, `structuralScore`) so the UI can show a breakdown (tooltip-level, implementation detail).
 
 ## Out of scope
 
