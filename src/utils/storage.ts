@@ -1,4 +1,5 @@
 import type { ChallengeResult, ChallengeHistory, UserStats, StorageData, TailwindChallengeResult, TailwindChallengeHistory, TailwindStorageData, GenericHistory, LayoutMode, Difficulty } from './types';
+import { adjacentDate } from './date';
 
 const STORAGE_KEY = 'css-daily-challenge';
 
@@ -91,7 +92,8 @@ export function migrateHistoryShape<T extends { score: number; timeSpent: number
   return { history: out, changed };
 }
 
-function computeStats(history: GenericHistory): UserStats {
+/** Exported for verification (no test framework in this repo). */
+export function computeStats(history: GenericHistory): UserStats {
   const dates = Object.keys(history)
     .filter((d) => Object.keys(history[d]).length > 0)
     .sort();
@@ -111,14 +113,15 @@ function computeStats(history: GenericHistory): UserStats {
   let maxStreak = 0;
   let streak = 0;
 
+  // Consecutive-day checks compare date keys via calendar arithmetic
+  // (adjacentDate) instead of millisecond diffs, which are exact only when
+  // the engine parses date-only strings as UTC — older engines parsed them
+  // as local time, where DST days are 23/25 hours and break streaks.
   for (let i = 0; i < dates.length; i++) {
     if (i === 0) {
       streak = 1;
     } else {
-      const prev = new Date(dates[i - 1]);
-      const curr = new Date(dates[i]);
-      const diffDays = (curr.getTime() - prev.getTime()) / (1000 * 60 * 60 * 24);
-      streak = diffDays === 1 ? streak + 1 : 1;
+      streak = adjacentDate(dates[i - 1], 1) === dates[i] ? streak + 1 : 1;
     }
     maxStreak = Math.max(maxStreak, streak);
   }
@@ -127,12 +130,11 @@ function computeStats(history: GenericHistory): UserStats {
   const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
   const lastDate = dates[dates.length - 1];
 
-  if (lastDate === todayStr) {
+  // Streak is alive if the last play was today or yesterday
+  if (lastDate === todayStr || adjacentDate(lastDate, 1) === todayStr) {
     currentStreak = streak;
   } else {
-    const last = new Date(lastDate);
-    const diffDays = (today.getTime() - last.getTime()) / (1000 * 60 * 60 * 24);
-    currentStreak = diffDays <= 1.5 ? streak : 0;
+    currentStreak = 0;
   }
 
   return { gamesPlayed, currentStreak, maxStreak, averageScore };
