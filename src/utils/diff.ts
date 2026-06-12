@@ -1,5 +1,6 @@
 import type { DiffResult } from './types';
 import { buildSrcdoc, buildTailwindSrcdoc } from './code';
+import { computeStructuralScore, blendScores, type ElementRect } from './structural';
 
 // Matches Synhax defaults
 const COLOR_TOLERANCE = 30;
@@ -8,6 +9,14 @@ const MAX_RGB_DISTANCE = 441.67; // sqrt(255^2 + 255^2 + 255^2)
 
 function rgbDistance(r1: number, g1: number, b1: number, r2: number, g2: number, b2: number): number {
   return Math.sqrt((r1 - r2) ** 2 + (g1 - g2) ** 2 + (b1 - b2) ** 2);
+}
+
+/** Viewport-relative rects for every element in body, in document order */
+function measureElementRects(doc: Document): ElementRect[] {
+  return Array.from(doc.body.querySelectorAll('*')).map((el) => {
+    const r = el.getBoundingClientRect();
+    return { x: r.x, y: r.y, width: r.width, height: r.height };
+  });
 }
 
 /**
@@ -19,7 +28,7 @@ export async function renderAndCapture(
   css: string,
   width: number,
   height: number
-): Promise<HTMLCanvasElement> {
+): Promise<{ canvas: HTMLCanvasElement; rects: ElementRect[] }> {
   const { snapdom } = await import('@zumer/snapdom');
 
   const iframe = document.createElement('iframe');
@@ -55,6 +64,7 @@ export async function renderAndCapture(
     // Capture using snapdom -> toSvg -> canvas (matching Synhax pipeline)
     const body = doc.body;
     body.getBoundingClientRect(); // Force layout
+    const rects = measureElementRects(doc);
     const snap = await snapdom(body);
     const svgImg = await snap.toSvg();
 
@@ -64,7 +74,7 @@ export async function renderAndCapture(
     const ctx = canvas.getContext('2d')!;
     ctx.drawImage(svgImg, 0, 0, width, height);
 
-    return canvas;
+    return { canvas, rects };
   } finally {
     document.body.removeChild(iframe);
   }
@@ -83,7 +93,7 @@ function computeDiffScore(
   targetCanvas: HTMLCanvasElement,
   width: number,
   height: number
-): DiffResult {
+): { score: number; diffCanvas: HTMLCanvasElement; heatmapCanvas: HTMLCanvasElement } {
   const userCtx = userCanvas.getContext('2d')!;
   const targetCtx = targetCanvas.getContext('2d')!;
 
@@ -212,6 +222,25 @@ function computeDiffScore(
   return { score, diffCanvas, heatmapCanvas };
 }
 
+/** Assemble the final DiffResult: pixel diff + structural IoU, blended */
+function buildDiffResult(
+  user: { canvas: HTMLCanvasElement; rects: ElementRect[] },
+  target: { canvas: HTMLCanvasElement; rects: ElementRect[] },
+  width: number,
+  height: number
+): DiffResult {
+  const pixel = computeDiffScore(user.canvas, target.canvas, width, height);
+  const structural = computeStructuralScore(user.rects, target.rects);
+
+  return {
+    score: blendScores(pixel.score, structural),
+    pixelScore: pixel.score,
+    structuralScore: structural === null ? null : Math.round(structural * 100),
+    diffCanvas: pixel.diffCanvas,
+    heatmapCanvas: pixel.heatmapCanvas,
+  };
+}
+
 export async function compareToTarget(
   html: string,
   userCss: string,
@@ -220,12 +249,12 @@ export async function compareToTarget(
 ): Promise<DiffResult> {
   const { compareWidth: width, compareHeight: height } = options;
 
-  const [userCanvas, targetCanvas] = await Promise.all([
+  const [user, target] = await Promise.all([
     renderAndCapture(html, userCss, width, height),
     renderAndCapture(html, targetCss, width, height),
   ]);
 
-  return computeDiffScore(userCanvas, targetCanvas, width, height);
+  return buildDiffResult(user, target, width, height);
 }
 
 /**
@@ -236,7 +265,7 @@ export async function renderAndCaptureTailwind(
   html: string,
   width: number,
   height: number
-): Promise<HTMLCanvasElement> {
+): Promise<{ canvas: HTMLCanvasElement; rects: ElementRect[] }> {
   const { snapdom } = await import('@zumer/snapdom');
 
   const iframe = document.createElement('iframe');
@@ -270,6 +299,7 @@ export async function renderAndCaptureTailwind(
 
     const body = iframe.contentDocument!.body;
     body.getBoundingClientRect(); // Force layout
+    const rects = measureElementRects(iframe.contentDocument!);
     const snap = await snapdom(body);
     const svgImg = await snap.toSvg();
 
@@ -279,7 +309,7 @@ export async function renderAndCaptureTailwind(
     const ctx = canvas.getContext('2d')!;
     ctx.drawImage(svgImg, 0, 0, width, height);
 
-    return canvas;
+    return { canvas, rects };
   } finally {
     document.body.removeChild(iframe);
   }
@@ -292,12 +322,12 @@ export async function compareToTargetTailwind(
 ): Promise<DiffResult> {
   const { compareWidth: width, compareHeight: height } = options;
 
-  const [userCanvas, targetCanvas] = await Promise.all([
+  const [user, target] = await Promise.all([
     renderAndCaptureTailwind(userHtml, width, height),
     renderAndCaptureTailwind(targetHtml, width, height),
   ]);
 
-  return computeDiffScore(userCanvas, targetCanvas, width, height);
+  return buildDiffResult(user, target, width, height);
 }
 
 function hslToRgb(h: number, s: number, l: number): [number, number, number] {
