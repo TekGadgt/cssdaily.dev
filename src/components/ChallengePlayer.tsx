@@ -224,7 +224,10 @@ export default function ChallengePlayer({ challenge, allDates, availableDifficul
               onTimeUp={handleTimeUp}
               onTick={handleTick}
             />
-            <ScoreDisplay score={displayScore} />
+            <ScoreDisplay
+              score={displayScore}
+              breakdown={diffResult ? { pixelScore: diffResult.pixelScore, structuralScore: diffResult.structuralScore } : undefined}
+            />
             {phase === 'playing' && (
               <button
                 onClick={doSubmit}

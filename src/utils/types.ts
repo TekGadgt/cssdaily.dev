@@ -40,7 +40,12 @@ export interface StorageData {
 }
 
 export interface DiffResult {
+  /** Blended display score (pixel-only when structuralScore is null) */
   score: number;
+  /** Power-curved pixel diff component, 0-100 */
+  pixelScore: number;
+  /** Mean element IoU component, 0-100; null when element lists couldn't be paired */
+  structuralScore: number | null;
   diffCanvas: HTMLCanvasElement;
   heatmapCanvas: HTMLCanvasElement;
 }

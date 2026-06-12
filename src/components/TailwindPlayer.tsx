@@ -225,7 +225,10 @@ export default function TailwindPlayer({ challenge, allDates, availableDifficult
               onTimeUp={handleTimeUp}
               onTick={handleTick}
             />
-            <ScoreDisplay score={displayScore} />
+            <ScoreDisplay
+              score={displayScore}
+              breakdown={diffResult ? { pixelScore: diffResult.pixelScore, structuralScore: diffResult.structuralScore } : undefined}
+            />
             {phase === 'playing' && (
               <button
                 onClick={doSubmit}
