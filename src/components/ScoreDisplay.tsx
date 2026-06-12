@@ -19,7 +19,13 @@ export default function ScoreDisplay({ score, breakdown }: ScoreDisplayProps) {
     : undefined;
 
   return (
-    <span className={`font-mono text-lg font-bold ${color}`} title={title}>
+    <span
+      className={`font-mono text-lg font-bold ${color}`}
+      title={title}
+      // title is hover-only; mirror the breakdown (with the score, since
+      // aria-label replaces the text content) for assistive tech
+      aria-label={title ? `Score ${score}%. ${title}` : undefined}
+    >
       {score}%
     </span>
   );
