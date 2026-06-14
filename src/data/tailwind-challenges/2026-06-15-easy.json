@@ -1,0 +1,13 @@
+{
+  "title": "Library Book Checkout Card",
+  "difficulty": "easy",
+  "date": "2026-06-15",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">📚</span>\n    <div class=\"  \">\n      <span class=\"  \">City Library</span>\n      <h2 class=\"  \">Book Checkout</h2>\n    </div>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">The Midnight Library</p>\n    <p class=\"  \">Matt Haig · Fiction</p>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">Due: <span class=\"  \">Jul 6, 2026</span></span>\n    <span class=\"  \">Checked Out</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-white rounded-xl border-2 border-amber-200 p-4 w-80 mx-auto mt-8\">\n  <header class=\"flex items-center gap-3 mb-4\">\n    <span class=\"text-3xl\">📚</span>\n    <div class=\"flex flex-col\">\n      <span class=\"text-xs font-semibold uppercase tracking-widest text-amber-500\">City Library</span>\n      <h2 class=\"text-base font-bold text-gray-800\">Book Checkout</h2>\n    </div>\n  </header>\n  <section class=\"bg-amber-50 rounded-lg p-3 mb-3\">\n    <p class=\"text-sm font-semibold text-gray-800\">The Midnight Library</p>\n    <p class=\"text-xs text-gray-500\">Matt Haig · Fiction</p>\n  </section>\n  <footer class=\"flex items-center justify-between\">\n    <span class=\"text-xs text-gray-500\">Due: <span class=\"font-semibold text-gray-700\">Jul 6, 2026</span></span>\n    <span class=\"bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full\">Checked Out</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-06-15-easy.png"
+}
