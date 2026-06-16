@@ -1,0 +1,13 @@
+{
+  "title": "Museum Entry Ticket",
+  "difficulty": "easy",
+  "date": "2026-06-17",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">General Admission</span>\n    <span class=\"  \">🏛️</span>\n  </header>\n  <section class=\"  \">\n    <h1 class=\"  \">City History Museum</h1>\n    <p class=\"  \">Permanent Collection · Floor 1–3</p>\n    <div class=\"  \">\n      <div class=\"  \">\n        <p class=\"  \">Date</p>\n        <p class=\"  \">Jun 17, 2026</p>\n      </div>\n      <div class=\"  \">\n        <p class=\"  \">Time</p>\n        <p class=\"  \">10:00 AM</p>\n      </div>\n      <div class=\"  \">\n        <p class=\"  \">Guests</p>\n        <p class=\"  \">2 Adults</p>\n      </div>\n    </div>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">Ticket #CHM-20260617</span>\n    <span class=\"  \">$18.00</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 bg-white border-2 border-amber-400 rounded-xl overflow-hidden\">\n  <header class=\"bg-amber-400 px-5 py-3 flex items-center justify-between\">\n    <span class=\"text-amber-900 text-xs font-semibold uppercase tracking-widest\">General Admission</span>\n    <span class=\"text-amber-900 text-lg\">🏛️</span>\n  </header>\n  <section class=\"px-5 py-4\">\n    <h1 class=\"text-gray-800 text-xl font-bold mb-1\">City History Museum</h1>\n    <p class=\"text-gray-500 text-sm mb-4\">Permanent Collection · Floor 1–3</p>\n    <div class=\"flex items-center gap-4\">\n      <div class=\"bg-amber-50 border border-amber-200 rounded-lg px-4 py-2 text-center\">\n        <p class=\"text-amber-700 text-xs font-medium\">Date</p>\n        <p class=\"text-gray-800 text-sm font-bold\">Jun 17, 2026</p>\n      </div>\n      <div class=\"bg-amber-50 border border-amber-200 rounded-lg px-4 py-2 text-center\">\n        <p class=\"text-amber-700 text-xs font-medium\">Time</p>\n        <p class=\"text-gray-800 text-sm font-bold\">10:00 AM</p>\n      </div>\n      <div class=\"bg-amber-50 border border-amber-200 rounded-lg px-4 py-2 text-center\">\n        <p class=\"text-amber-700 text-xs font-medium\">Guests</p>\n        <p class=\"text-gray-800 text-sm font-bold\">2 Adults</p>\n      </div>\n    </div>\n  </section>\n  <footer class=\"border-t-2 border-dashed border-amber-300 px-5 py-3 flex items-center justify-between\">\n    <span class=\"text-gray-400 text-xs\">Ticket #CHM-20260617</span>\n    <span class=\"bg-amber-400 text-amber-900 text-xs font-bold px-3 py-1 rounded-full\">$18.00</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-06-17-easy.png"
+}
