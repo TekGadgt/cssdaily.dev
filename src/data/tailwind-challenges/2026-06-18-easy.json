@@ -1,0 +1,13 @@
+{
+  "title": "Bird Watching Log Card",
+  "difficulty": "easy",
+  "date": "2026-06-18",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🐦</span>\n    <div class=\"  \">\n      <h1 class=\"  \">Bird Watching Log</h1>\n      <p class=\"  \">Morning Field Session</p>\n    </div>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Northern Cardinal</p>\n    <p class=\"  \">Spotted at 7:14 AM · Oakwood Trail</p>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">June 18, 2026</span>\n    <span class=\"  \">1 Bird Logged</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-white rounded-2xl border border-green-200 p-4 w-72 mx-auto mt-6\">\n  <header class=\"flex items-center gap-3 mb-4\">\n    <span class=\"text-3xl\">🐦</span>\n    <div class=\"flex flex-col\">\n      <h1 class=\"text-base font-bold text-green-800\">Bird Watching Log</h1>\n      <p class=\"text-xs text-green-500\">Morning Field Session</p>\n    </div>\n  </header>\n  <section class=\"bg-green-50 rounded-xl p-3 mb-3\">\n    <p class=\"text-sm font-semibold text-green-700\">Northern Cardinal</p>\n    <p class=\"text-xs text-gray-500\">Spotted at 7:14 AM · Oakwood Trail</p>\n  </section>\n  <footer class=\"flex items-center justify-between\">\n    <span class=\"text-xs text-gray-400\">June 18, 2026</span>\n    <span class=\"bg-green-100 text-green-700 text-xs font-medium px-3 py-1 rounded-full\">1 Bird Logged</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-06-18-easy.png"
+}
