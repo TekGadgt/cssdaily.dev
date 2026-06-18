@@ -1,0 +1,13 @@
+{
+  "title": "Summer Solstice Event Badge",
+  "difficulty": "easy",
+  "date": "2026-06-19",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <figure class=\"  \">\n    🌞\n  </figure>\n  <section class=\"  \">\n    <span class=\"  \">Summer Solstice</span>\n    <h2 class=\"  \">June 21 Festival</h2>\n    <p class=\"  \">Longest day of the year celebration</p>\n  </section>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"flex items-center gap-4 bg-white rounded-2xl border-2 border-amber-300 p-4 w-80\">\n  <figure class=\"flex items-center justify-center bg-amber-400 rounded-full w-16 h-16 text-4xl shrink-0\">\n    🌞\n  </figure>\n  <section class=\"flex flex-col gap-1\">\n    <span class=\"text-xs font-semibold uppercase tracking-widest text-amber-500\">Summer Solstice</span>\n    <h2 class=\"text-lg font-bold text-gray-800\">June 21 Festival</h2>\n    <p class=\"text-sm text-gray-500\">Longest day of the year celebration</p>\n  </section>\n</article>"
+  },
+  "targetImage": "2026-06-19-easy.png"
+}
