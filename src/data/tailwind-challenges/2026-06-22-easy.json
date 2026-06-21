@@ -1,0 +1,13 @@
+{
+  "title": "Campfire S'mores Recipe Card",
+  "difficulty": "easy",
+  "date": "2026-06-22",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🔥</span>\n    <div class=\"  \">\n      <h1 class=\"  \">Campfire S'mores</h1>\n      <p class=\"  \">Classic Campfire Recipe</p>\n    </div>\n  </header>\n  <ul class=\"  \">\n    <li class=\"  \">\n      <span class=\"  \">🍫</span>\n      <p class=\"  \">2 squares milk chocolate</p>\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">🍪</span>\n      <p class=\"  \">4 graham cracker halves</p>\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">🤍</span>\n      <p class=\"  \">2 large marshmallows</p>\n    </li>\n  </ul>\n  <footer class=\"  \">\n    <p class=\"  \">Toast marshmallow over flame until golden!</p>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-amber-50 border-2 border-amber-300 rounded-2xl p-5 w-80 mx-auto\">\n  <header class=\"flex items-center gap-3 mb-4\">\n    <span class=\"text-3xl\">🔥</span>\n    <div class=\"flex flex-col\">\n      <h1 class=\"text-lg font-bold text-amber-900\">Campfire S'mores</h1>\n      <p class=\"text-xs text-amber-600\">Classic Campfire Recipe</p>\n    </div>\n  </header>\n  <ul class=\"flex flex-col gap-2\">\n    <li class=\"flex items-center gap-2 bg-amber-100 rounded-lg px-3 py-2\">\n      <span class=\"text-base\">🍫</span>\n      <p class=\"text-sm font-medium text-amber-800\">2 squares milk chocolate</p>\n    </li>\n    <li class=\"flex items-center gap-2 bg-amber-100 rounded-lg px-3 py-2\">\n      <span class=\"text-base\">🍪</span>\n      <p class=\"text-sm font-medium text-amber-800\">4 graham cracker halves</p>\n    </li>\n    <li class=\"flex items-center gap-2 bg-amber-100 rounded-lg px-3 py-2\">\n      <span class=\"text-base\">🤍</span>\n      <p class=\"text-sm font-medium text-amber-800\">2 large marshmallows</p>\n    </li>\n  </ul>\n  <footer class=\"mt-4 bg-amber-300 rounded-xl px-4 py-2 text-center\">\n    <p class=\"text-xs font-bold text-amber-900\">Toast marshmallow over flame until golden!</p>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-06-22-easy.png"
+}
