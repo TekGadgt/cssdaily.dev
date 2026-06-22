@@ -1,0 +1,13 @@
+{
+  "title": "Yoga Studio Class Pass",
+  "difficulty": "easy",
+  "date": "2026-06-23",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🧘</span>\n    <div class=\"  \">\n      <h1 class=\"  \">Zenflow Studio</h1>\n      <p class=\"  \">Monthly Class Pass</p>\n    </div>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Classes Remaining</p>\n    <p class=\"  \">8 <span class=\"  \">/ 12</span></p>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">Expires Jul 31, 2026</span>\n    <span class=\"  \">Active</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-white rounded-2xl p-4 w-72 border border-violet-100\">\n  <header class=\"flex items-center gap-3 mb-4\">\n    <span class=\"text-3xl\">🧘</span>\n    <div class=\"flex flex-col\">\n      <h1 class=\"text-base font-bold text-violet-800\">Zenflow Studio</h1>\n      <p class=\"text-xs text-violet-400\">Monthly Class Pass</p>\n    </div>\n  </header>\n  <section class=\"bg-violet-50 rounded-xl p-3 mb-4\">\n    <p class=\"text-xs font-semibold text-violet-500 uppercase mb-1\">Classes Remaining</p>\n    <p class=\"text-2xl font-bold text-violet-700\">8 <span class=\"text-sm font-normal text-violet-400\">/ 12</span></p>\n  </section>\n  <footer class=\"flex items-center justify-between\">\n    <span class=\"text-xs text-gray-400\">Expires Jul 31, 2026</span>\n    <span class=\"bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full\">Active</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-06-23-easy.png"
+}
