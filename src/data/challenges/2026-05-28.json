@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #ffffff;\n  --bg-header: #1a1a2e;\n  --bg-featured: #f0f4ff;\n  --bg-row-alt: #fafafa;\n  --bg-full: #fff5f5;\n  --color-title: #ffffff;\n  --color-label: #a0a8d0;\n  --color-time: #1a1a2e;\n  --color-name: #1a1a2e;\n  --color-meta: #888888;\n  --color-spots: #3b82f6;\n  --color-full: #ef4444;\n  --color-footer-note: #888888;\n  --border-card: #e5e7eb;\n  --border-row: #f0f0f0;\n  --tag-yoga-bg: #ede9fe;\n  --tag-yoga-text: #7c3aed;\n  --tag-hiit-bg: #fef3c7;\n  --tag-hiit-text: #d97706;\n  --tag-pilates-bg: #d1fae5;\n  --tag-pilates-text: #059669;\n  --tag-spin-bg: #fce7f3;\n  --tag-spin-text: #db2777;\n  --tag-box-bg: #fee2e2;\n  --tag-box-text: #dc2626;\n  --btn-bg: #3b82f6;\n  --btn-text: #ffffff;\n  --week-badge-bg: #2d2d4e;\n  --week-badge-text: #a0a8d0;\n  --featured-border: #6366f1;\n}\n\nbody {}\n\n.schedule-card {}\n\n.card-header {}\n\n.gym-label {}\n\n.card-title {}\n\n.week-badge {}\n\n.class-list {}\n\n.class-row {}\n\n.class-row:nth-child(even) {}\n\n.class-row.featured {}\n\n.class-row.full {}\n\n.class-time {}\n\n.class-info {}\n\n.class-name {}\n\n.class-meta {}\n\n.class-tag {}\n\n.tag-yoga  {}\n.tag-hiit  {}\n.tag-pilates {}\n.tag-spin  {}\n.tag-box   {}\n\n.spots-left {}\n\n.spots-left.full-text {}\n\n.card-footer {}\n\n.footer-note {}\n\n.book-btn {}"
   },
   "date": "2026-05-28",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-28.webp"
 }

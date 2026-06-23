@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #1a2740;\n  --card-header-bg: #1e3054;\n  --accent-blue: #4a9eff;\n  --accent-yellow: #ffd166;\n  --text-primary: #ffffff;\n  --text-secondary: #8ba3c7;\n  --divider-color: #2e4270;\n  --today-bg: #2e4a7a;\n  --today-border: #4a9eff;\n  --day-card-bg: #243352;\n  --stat-bg: #243352;\n  --high-temp: #ffffff;\n  --low-temp: #8ba3c7;\n  --border-radius-card: 16px;\n  --border-radius-day: 10px;\n  --border-radius-stat: 8px;\n}\n\n.forecast-card {\n}\n\n.card-header {\n}\n\n.location {\n}\n\n.city {\n}\n\n.region {\n}\n\n.current-temp {\n}\n\n.temp-value {\n}\n\n.temp-label {\n}\n\n.divider {\n}\n\n.forecast-grid {\n}\n\n.day-card {\n}\n\n.day-card.today {\n}\n\n.day-name {\n}\n\n.day-card.today .day-name {\n}\n\n.day-icon {\n}\n\n.day-high {\n}\n\n.day-low {\n}\n\n.stats-row {\n}\n\n.stat-item {\n}\n\n.stat-label {\n}\n\n.stat-value {\n}"
   },
   "date": "2026-04-15",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-15.webp"
 }

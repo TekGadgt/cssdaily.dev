@@ -1,9 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Not Found - CSS Daily">
-  <div id="redirect"></div>
-  <script>
-    window.location.href = '/';
-  </script>
-</Layout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>Not Found - CSS Daily</title>
+    <meta http-equiv="refresh" content="0; url=/" />
+    <script>window.location.replace('/');</script>
+  </head>
+  <body>
+    <noscript><a href="/">CSS Daily</a></noscript>
+  </body>
+</html>

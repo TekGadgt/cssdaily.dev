@@ -9,5 +9,5 @@
   "target": {
     "html": "<article class=\"bg-green-800 rounded-2xl p-4 w-72 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-green-200 text-xs font-semibold uppercase tracking-widest\">Annual Pass</span>\n    <span class=\"bg-yellow-400 text-green-900 text-xs font-bold px-2 py-1 rounded-full\">2026</span>\n  </header>\n  <h1 class=\"text-white text-xl font-bold mb-1\">National Parks</h1>\n  <p class=\"text-green-300 text-sm mb-4\">America the Beautiful</p>\n  <footer class=\"flex items-center justify-between bg-green-900 rounded-xl px-4 py-3\">\n    <div class=\"text-green-400 text-xs\">Valid Through</div>\n    <div class=\"text-yellow-300 text-sm font-bold\">Dec 31, 2026</div>\n  </footer>\n</article>"
   },
-  "targetImage": "2026-06-14-easy.png"
+  "targetImage": "2026-06-14-easy.webp"
 }

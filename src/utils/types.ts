@@ -4,7 +4,7 @@ export interface Challenge {
   date: string;
   title: string;
   difficulty: Difficulty;
-  /** Target PNG filename (e.g. "2026-06-12-easy.png"); legacy challenges omit it and use `${date}.png` */
+  /** Target WebP filename (e.g. "2026-06-12-easy.webp"); legacy challenges omit it and use `${date}.webp` */
   targetImage?: string;
   timeLimit: number;
   starter: {
@@ -54,7 +54,7 @@ export interface TailwindChallenge {
   date: string;
   title: string;
   difficulty: Difficulty;
-  /** Target PNG filename (e.g. "2026-06-12-easy.png"); legacy challenges omit it and use `${date}.png` */
+  /** Target WebP filename (e.g. "2026-06-12-easy.webp"); legacy challenges omit it and use `${date}.webp` */
   targetImage?: string;
   timeLimit: number;
   starter: {

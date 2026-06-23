@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #ffffff;\n  --header-bg: #1a1a2e;\n  --tag-bg: #e63946;\n  --tag-color: #ffffff;\n  --date-color: #a0a8c0;\n  --headline-color: #1a1a2e;\n  --subtext-color: #555e7a;\n  --divider-color: #e2e6f0;\n  --stat-value-color: #e63946;\n  --stat-label-color: #8891aa;\n  --footer-bg: #f0f2f8;\n  --source-color: #555e7a;\n  --pill-bg: #fff0c2;\n  --pill-color: #7a5a00;\n  --card-border: #d8dce8;\n}\n\nbody {\n}\n\n.card {\n}\n\n.card-header {\n}\n\n.tag {\n}\n\n.date {\n}\n\n.headline {\n}\n\n.subtext {\n}\n\n.divider {\n}\n\n.stats-row {\n}\n\n.stat {\n}\n\n.stat-value {\n}\n\n.stat-label {\n}\n\n.footer {\n}\n\n.source {\n}\n\n.pill {\n}"
   },
   "date": "2026-04-01",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-01.webp"
 }

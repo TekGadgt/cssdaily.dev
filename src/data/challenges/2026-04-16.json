@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #1a1a2e;\n  --bg-header: #16213e;\n  --bg-stat: #0f3460;\n  --accent: #e94560;\n  --accent-soft: #ff6b6b;\n  --green: #06d6a0;\n  --yellow: #ffd166;\n  --text-primary: #eaeaea;\n  --text-muted: #8892a4;\n  --av1: #7c3aed;\n  --av2: #0891b2;\n  --av3: #d97706;\n  --milestone-done: #06d6a0;\n  --milestone-active: #ffd166;\n  --milestone-inactive: #2d3a55;\n  --border-subtle: #2d3a55;\n}\n\n.dashboard {\n}\n\n.dash-header {\n}\n\n.event-badge {\n}\n\n.event-title {\n}\n\n.time-left {\n}\n\n.dash-body {\n}\n\n.team-card {\n}\n\n.team-name {\n}\n\n.team-project {\n}\n\n.member-list {\n}\n\n.member {\n}\n\n.avatar {\n}\n\n.av1 { }\n.av2 { }\n.av3 { }\n\n.member-name {\n}\n\n.stats-panel {\n}\n\n.stat-item {\n}\n\n.stat-value {\n}\n\n.stat-label {\n}\n\n.milestone-row {\n}\n\n.milestone {\n}\n\n.milestone.done {\n}\n\n.milestone.active {\n}"
   },
   "date": "2026-04-16",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-16.webp"
 }

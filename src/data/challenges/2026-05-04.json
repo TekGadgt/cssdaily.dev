@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #ffffff;\n  --card-border: #c9e8f0;\n  --card-radius: 16px;\n\n  --header-bg: #e0f4fa;\n  --tank-name-color: #0e4f6b;\n  --tank-type-color: #5a8fa0;\n\n  --badge-bg: #1a9e6e;\n  --badge-text: #ffffff;\n\n  --param-label-color: #6a8f9a;\n  --param-value-color: #0e4f6b;\n  --param-unit-color: #8ab5c4;\n  --bar-track: #dff0f5;\n\n  --fill-temp: #f4a35a;\n  --fill-ph: #4db8d4;\n  --fill-sal: #6c8ef5;\n  --fill-nit: #e06b6b;\n\n  --section-title-color: #0e4f6b;\n\n  --fish-tag-bg: #dff0f5;\n  --fish-tag-text: #1a6a80;\n  --coral-tag-bg: #fde9d5;\n  --coral-tag-text: #a0522d;\n\n  --footer-bg: #f4fbfd;\n  --footer-label: #8ab5c4;\n  --footer-val: #0e4f6b;\n  --footer-good: #1a9e6e;\n  --divider: #d0eaf2;\n}\n\n.tank-card {\n}\n\n.card-header {\n}\n\n.header-left {\n}\n\n.tank-icon {\n}\n\n.tank-name {\n}\n\n.tank-type {\n}\n\n.status-badge {\n}\n\n.params-grid {\n}\n\n.param-item {\n}\n\n.param-item:last-child {\n}\n\n.param-label {\n}\n\n.param-value {\n}\n\n.param-unit {\n}\n\n.param-bar {\n}\n\n.param-fill {\n}\n\n.fill-temp {}\n.fill-ph   {}\n.fill-sal  {}\n.fill-nit  {}\n\n.inhabitants-section {\n}\n\n.section-title {\n}\n\n.inhabitants-list {\n}\n\n.fish-tag {\n}\n\n.coral-tag {\n}\n\n.card-footer {\n}\n\n.footer-item {\n}\n\n.footer-item:first-child {\n}\n\n.footer-item:last-child {\n}\n\n.footer-label {\n}\n\n.footer-val {\n}\n\n.footer-val.good {\n}"
   },
   "date": "2026-05-04",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-04.webp"
 }

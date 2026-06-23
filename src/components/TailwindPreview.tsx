@@ -20,6 +20,7 @@ const TailwindPreview = forwardRef<HTMLIFrameElement, TailwindPreviewProps>(({ h
   return (
     <iframe
       ref={ref}
+      title="Live preview of your code"
       srcDoc={buildTailwindSrcdoc(html)}
       sandbox="allow-scripts allow-same-origin"
       style={{ width: TAILWIND_PREVIEW_WIDTH, height: TAILWIND_PREVIEW_HEIGHT, border: 'none', background: '#f5f5f5' }}

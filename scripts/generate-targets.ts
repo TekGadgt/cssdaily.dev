@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { buildScreenshotHtml } from '../src/utils/code';
+import { encodeWebpLossless } from './webp';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CHALLENGES_DIR = path.join(__dirname, '..', 'src', 'data', 'challenges');
@@ -30,9 +31,11 @@ async function generateTargets() {
     const html = buildScreenshotHtml(challenge.target.html, challenge.target.css);
     await page.setContent(html, { waitUntil: 'networkidle' });
 
-    const pngPath = path.join(TARGETS_DIR, `${challenge.date}.png`);
-    await page.screenshot({ path: pngPath, type: 'png' });
-    console.log(`Generated: ${pngPath}`);
+    const outName = (challenge.targetImage ?? `${challenge.date}.png`).replace(/\.png$/, '.webp');
+    const webpPath = path.join(TARGETS_DIR, outName);
+    const png = await page.screenshot({ type: 'png' });
+    fs.writeFileSync(webpPath, await encodeWebpLossless(png));
+    console.log(`Generated: ${webpPath}`);
 
     await page.close();
   }

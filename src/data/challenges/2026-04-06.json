@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #1a1a2e;\n  --card-border: #2e2e50;\n  --header-bg: #16213e;\n  --label-color: #a78bfa;\n  --label-bg: #2d1f5e;\n  --room-color: #94a3b8;\n  --frame-bg: #0f3460;\n  --frame-border: #2e2e50;\n  --art-circle: #a78bfa;\n  --art-rect: #f472b6;\n  --art-triangle: #34d399;\n  --title-color: #f1f5f9;\n  --artist-color: #a78bfa;\n  --year-color: #64748b;\n  --desc-color: #94a3b8;\n  --tag-bg: #1e293b;\n  --tag-color: #a78bfa;\n  --tag-border: #2e2e50;\n  --footer-bg: #16213e;\n  --footer-border: #2e2e50;\n  --stat-value-color: #f1f5f9;\n  --stat-label-color: #64748b;\n  --btn-bg: #a78bfa;\n  --btn-color: #1a1a2e;\n}\n\n.gallery-card {\n}\n\n.gallery-header {\n}\n\n.gallery-label {\n}\n\n.gallery-room {\n}\n\n.artwork-display {\n}\n\n.artwork-frame {\n}\n\n.artwork-inner {\n}\n\n.art-shape {\n}\n\n.shape-circle {\n}\n\n.shape-rect {\n}\n\n.shape-triangle {\n}\n\n.artwork-info {\n}\n\n.artwork-title {\n}\n\n.artwork-artist {\n}\n\n.artwork-year {\n}\n\n.artwork-desc {\n}\n\n.artwork-tags {\n}\n\n.tag {\n}\n\n.gallery-footer {\n}\n\n.footer-stat {\n}\n\n.stat-value {\n}\n\n.stat-label {\n}\n\n.enquire-btn {\n}"
   },
   "date": "2026-04-06",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-06.webp"
 }

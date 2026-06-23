@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #2a1a2e;\n  --bg-header: #3d1f3f;\n  --bg-footer: #1e1220;\n  --accent-gold: #c9a84c;\n  --accent-rose: #d4507a;\n  --text-primary: #f2ead8;\n  --text-muted: #a89080;\n  --dot-1: #8b1a3a;\n  --dot-2: #c0392b;\n  --dot-3: #7d3068;\n  --dot-4: #4a2060;\n  --fill-1: #8b1a3a;\n  --fill-2: #c0392b;\n  --fill-3: #7d3068;\n  --fill-4: #4a2060;\n  --bar-bg: #3d2840;\n  --border-color: #5a3060;\n  --tag-bg: #3a2040;\n}\n\n.flight-card {\n}\n\n.card-header {\n}\n\n.label {\n}\n\n.title {\n}\n\n.subtitle {\n}\n\n.wines {\n}\n\n.wine-item {\n}\n\n.pour-dot {\n}\n\n.dot-1 {}\n.dot-2 {}\n.dot-3 {}\n.dot-4 {}\n\n.wine-info {\n}\n\n.wine-name {\n}\n\n.wine-origin {\n}\n\n.tasting-bar {\n}\n\n.bar-fill {\n}\n\n.fill-1 {}\n.fill-2 {}\n.fill-3 {}\n.fill-4 {}\n\n.wine-note {\n}\n\n.card-footer {\n}\n\n.footer-tag {\n}\n\n.footer-tag:first-child {\n}\n\n.footer-tag:last-child {\n}\n\n.tag-label {\n}\n\n.tag-value {\n}"
   },
   "date": "2026-06-01",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-06-01.webp"
 }

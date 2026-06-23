@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #ffffff;\n  --card-border: #e8e0d5;\n  --card-radius: 16px;\n  --header-bg: #2d1b0e;\n  --category-color: #f5c97a;\n  --vegan-bg: #4a7c59;\n  --vegan-text: #ffffff;\n  --item-name-color: #1a1008;\n  --desc-color: #6b5744;\n  --meta-pill-bg: #f4ede4;\n  --meta-pill-color: #7a5c44;\n  --image-bg: #e8ddd0;\n  --image-accent: #c4a882;\n  --price-color: #2d1b0e;\n  --btn-bg: #c0392b;\n  --btn-text: #ffffff;\n  --btn-radius: 8px;\n  --footer-bg: #faf6f1;\n  --footer-border: #e8e0d5;\n  --footer-label-color: #a0856c;\n  --chip-bg: #ede4d8;\n  --chip-color: #6b4f37;\n}\n\n.menu-card {\n}\n\n.menu-header {\n}\n\n.category-tag {\n}\n\n.dietary-badge {\n}\n\n.dietary-badge.vegan {\n}\n\n.menu-body {\n}\n\n.item-info {\n}\n\n.item-name {\n}\n\n.item-desc {\n}\n\n.item-meta {\n}\n\n.meta-pill {\n}\n\n.item-side {\n}\n\n.item-image-placeholder {\n}\n\n.price-row {\n}\n\n.price {\n}\n\n.add-btn {\n}\n\n.menu-footer {\n}\n\n.footer-label {\n}\n\n.pairing-chip {\n}"
   },
   "date": "2026-03-18",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-18.webp"
 }

@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #ffffff;\n  --border-card: #e2e8f0;\n  --color-primary: #0f766e;\n  --color-primary-light: #ccfbf1;\n  --color-accent: #f0fdf4;\n  --color-tag-bg: #e0f2fe;\n  --color-tag-text: #0369a1;\n  --color-status-bg: #dcfce7;\n  --color-status-text: #15803d;\n  --color-heading: #0f172a;\n  --color-label: #64748b;\n  --color-value: #1e293b;\n  --color-reading-bg: #f8fafc;\n  --color-reading-border: #e2e8f0;\n  --color-reading-value: #0f766e;\n  --color-track: #e2e8f0;\n  --color-fill: #0f766e;\n  --color-phase-dot: #22c55e;\n  --color-footer-text: #94a3b8;\n}\n\n.lab-card {\n}\n\n.lab-header {\n}\n\n.lab-title-group {\n}\n\n.lab-tag {\n}\n\n.lab-title {\n}\n\n.status-badge {\n}\n\n.lab-meta {\n}\n\n.meta-item {\n}\n\n.meta-item:last-child {\n}\n\n.meta-label {\n}\n\n.meta-value {\n}\n\n.readings-section {\n}\n\n.readings-title {\n}\n\n.readings-grid {\n}\n\n.reading-card {\n}\n\n.reading-label {\n}\n\n.reading-value {\n}\n\n.reading-unit {\n}\n\n.progress-section {\n}\n\n.progress-header {\n}\n\n.progress-label {\n}\n\n.progress-pct {\n}\n\n.progress-track {\n}\n\n.progress-fill {\n}\n\n.lab-footer {\n}\n\n.phase-indicator {\n}\n\n.phase-dot {\n}\n\n.phase-text {\n}\n\n.log-count {\n}"
   },
   "date": "2026-04-03",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-03.webp"
 }

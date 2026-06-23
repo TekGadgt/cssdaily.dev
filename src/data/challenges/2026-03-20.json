@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #ffffff;\n  --card-border: #e2e8f0;\n  --header-bg: #1e293b;\n  --tag-bg: #0ea5e9;\n  --tag-text: #ffffff;\n  --product-name-color: #ffffff;\n  --product-model-color: #94a3b8;\n  --score-number-color: #38bdf8;\n  --score-label-color: #94a3b8;\n  --label-color: #475569;\n  --bar-track-bg: #e2e8f0;\n  --bar-fill-color: #0ea5e9;\n  --value-color: #1e293b;\n  --positive-color: #16a34a;\n  --positive-bg: #dcfce7;\n  --negative-color: #dc2626;\n  --negative-bg: #fee2e2;\n  --vote-desc-color: #64748b;\n  --review-count-color: #64748b;\n  --btn-bg: #1e293b;\n  --btn-text: #ffffff;\n  --btn-border: #334155;\n}\n\n.review-card {\n}\n\n.review-header {\n}\n\n.product-info {\n}\n\n.product-tag {\n}\n\n.product-name {\n}\n\n.product-model {\n}\n\n.overall-score {\n}\n\n.score-number {\n}\n\n.score-label {\n}\n\n.rating-breakdown {\n}\n\n.rating-row {\n}\n\n.rating-label {\n}\n\n.rating-bar-track {\n}\n\n.rating-bar-fill {\n}\n\n.rating-value {\n}\n\n.review-footer {\n}\n\n.vote-counts {\n}\n\n.vote-item {\n}\n\n.vote-positive {\n}\n\n.vote-negative {\n}\n\n.vote-icon {\n}\n\n.vote-num {\n}\n\n.vote-desc {\n}\n\n.vote-positive .vote-desc,\n.vote-negative .vote-desc {\n}\n\n.review-meta {\n}\n\n.review-count {\n}\n\n.write-review-btn {\n}"
   },
   "date": "2026-03-20",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-20.webp"
 }

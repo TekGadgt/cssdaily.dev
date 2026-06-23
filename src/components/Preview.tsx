@@ -20,6 +20,7 @@ const Preview = forwardRef<HTMLIFrameElement, PreviewProps>(({ html, css, onLoad
   return (
     <iframe
       ref={ref}
+      title="Live preview of your code"
       srcDoc={buildSrcdoc(html, css)}
       sandbox="allow-same-origin"
       style={{ width: PREVIEW_WIDTH, height: PREVIEW_HEIGHT, border: 'none', background: '#f5f5f5' }}

@@ -10,5 +10,6 @@
     "css": ":root {\n  --brand-dark: #1a2e4a;\n  --brand-mid: #2d5282;\n  --brand-accent: #e07b39;\n  --brand-accent-dark: #c4612a;\n  --bg-card: #ffffff;\n  --bg-header: #1a2e4a;\n  --bg-detail: #f0f4f9;\n  --bg-amenity: #e8f0fb;\n  --rating-bg: #e07b39;\n  --tag-bg: #e07b39;\n  --tag-text: #ffffff;\n  --text-primary: #1a2e4a;\n  --text-secondary: #5a7396;\n  --text-light: #ffffff;\n  --text-muted: #8aa0b8;\n  --original-price-color: #8aa0b8;\n  --final-price-color: #e07b39;\n  --border-color: #dde6f0;\n  --btn-bg: #e07b39;\n  --btn-text: #ffffff;\n  --btn-hover: #c4612a;\n}\n\n.booking-card {\n}\n\n.card-header {\n}\n\n.hotel-info {\n}\n\n.hotel-tag {\n}\n\n.hotel-name {\n}\n\n.hotel-location {\n}\n\n.rating-box {\n}\n\n.rating-score {\n}\n\n.rating-label {\n}\n\n.room-details {\n}\n\n.detail-item {\n}\n\n.detail-label {\n}\n\n.detail-value {\n}\n\n.amenities {\n}\n\n.amenity {\n}\n\n.card-footer {\n}\n\n.price-section {\n}\n\n.price-nights {\n}\n\n.price-row {\n}\n\n.original-price {\n}\n\n.final-price {\n}\n\n.price-note {\n}\n\n.book-btn {\n}"
   },
   "date": "2026-03-23",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-23.webp"
 }

@@ -32,6 +32,7 @@ export async function renderAndCapture(
   const { snapdom } = await import('@zumer/snapdom');
 
   const iframe = document.createElement('iframe');
+  iframe.title = 'Offscreen render for scoring';
   iframe.style.position = 'fixed';
   iframe.style.left = '-9999px';
   iframe.style.top = '0';
@@ -269,6 +270,7 @@ export async function renderAndCaptureTailwind(
   const { snapdom } = await import('@zumer/snapdom');
 
   const iframe = document.createElement('iframe');
+  iframe.title = 'Offscreen render for scoring';
   iframe.style.position = 'fixed';
   iframe.style.left = '-9999px';
   iframe.style.top = '0';

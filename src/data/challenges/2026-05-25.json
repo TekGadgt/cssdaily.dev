@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-board: #fdf6ee;\n  --bg-card: #ffffff;\n  --bg-tag: #f2e8d9;\n  --color-accent: #8b5e3c;\n  --color-accent-light: #c49a6c;\n  --color-title: #3b2710;\n  --color-subtitle: #7a5c3e;\n  --color-origin: #a07850;\n  --color-price: #8b5e3c;\n  --color-tag-text: #6b4226;\n  --color-footer: #9a7254;\n  --color-border: #e5d4be;\n  --color-label-bg: #8b5e3c;\n  --color-label-text: #fdf6ee;\n  --color-divider: #c49a6c;\n  --color-footer-bg: #f2e8d9;\n}\n\n.cheese-board {\n}\n\n.board-header {\n}\n\n.board-label {\n}\n\n.board-title {\n}\n\n.board-subtitle {\n}\n\n.cheese-grid {\n}\n\n.cheese-card {\n}\n\n.cheese-top {\n}\n\n.cheese-icon {\n}\n\n.cheese-info {\n}\n\n.cheese-name {\n}\n\n.cheese-origin {\n}\n\n.cheese-price {\n}\n\n.cheese-tags {\n}\n\n.tag {\n}\n\n.board-footer {\n}\n\n.footer-item {\n}\n\n.footer-divider {\n}"
   },
   "date": "2026-05-25",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-25.webp"
 }

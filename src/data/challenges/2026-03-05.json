@@ -10,5 +10,6 @@
   "starter": {
     "html": "<div class=\"notification\">\n  <div class=\"icon\">&#128276;</div>\n  <div class=\"content\">\n    <div class=\"title\">New Message</div>\n    <div class=\"subtitle\">You have 3 unread messages</div>\n  </div>\n  <div class=\"badge\">3</div>\n</div>",
     "css": ":root {\n  --bg-notification: #ffffff;\n  --text-title: #1a1a2e;\n  --text-subtitle: #6b7280;\n  --badge-bg: #ef4444;\n  --badge-text: #ffffff;\n  --border: #e5e7eb;\n  --icon-bg: #f3f4f6;\n}\n\n.notification {\n}\n\n.icon {\n}\n\n.content {\n}\n\n.title {\n}\n\n.subtitle {\n}\n\n.badge {\n}"
-  }
+  },
+  "targetImage": "2026-03-05.webp"
 }

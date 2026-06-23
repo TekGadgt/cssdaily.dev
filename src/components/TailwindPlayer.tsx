@@ -180,7 +180,7 @@ export default function TailwindPlayer({ challenge, allDates, availableDifficult
     [challenge.date, challenge.difficulty, submittedScore, submittedTime, showResults]
   );
 
-  const targetSrc = `/targets/tailwind/${challenge.targetImage ?? `${challenge.date}.png`}`;
+  const targetSrc = `/targets/tailwind/${challenge.targetImage ?? `${challenge.date}.webp`}`;
 
   // In a multi-difficulty set the root's display utility comes solely from
   // SET_VISIBILITY (hidden + data-attribute variant) so visibility never
@@ -192,13 +192,13 @@ export default function TailwindPlayer({ challenge, allDates, availableDifficult
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2 text-sm text-gray-400">
             {prevDate ? (
-              <a href={`/tailwind/${prevDate}`} className="hover:text-white">&larr;</a>
+              <a href={`/tailwind/${prevDate}/`} className="hover:text-white">&larr;</a>
             ) : (
               <span className="text-gray-600">&larr;</span>
             )}
             <span>{formatDate(challenge.date, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
             {nextDate ? (
-              <a href={`/tailwind/${nextDate}`} className="hover:text-white">&rarr;</a>
+              <a href={`/tailwind/${nextDate}/`} className="hover:text-white">&rarr;</a>
             ) : (
               <span className="text-gray-600">&rarr;</span>
             )}

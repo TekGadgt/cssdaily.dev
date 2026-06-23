@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg: #ffffff;\n  --border: #e2e8f0;\n  --title-color: #1e293b;\n  --week-color: #64748b;\n  --week-bg: #f1f5f9;\n  --habit-name-color: #334155;\n  --day-bg: #f1f5f9;\n  --day-color: #94a3b8;\n  --done-bg: #6366f1;\n  --done-color: #ffffff;\n  --footer-bg: #f8fafc;\n  --footer-label: #64748b;\n  --footer-score: #6366f1;\n  --score-track: #e2e8f0;\n  --score-fill: #6366f1;\n  --divider: #e2e8f0;\n}\n\n.tracker {\n}\n\n.tracker-header {\n}\n\n.tracker-title {\n}\n\n.tracker-week {\n}\n\n.habit-list {\n}\n\n.habit-row {\n}\n\n.habit-name {\n}\n\n.habit-days {\n}\n\n.day {\n}\n\n.day.done {\n}\n\n.tracker-footer {\n}\n\n.footer-label {\n}\n\n.score-bar {\n}\n\n.score-fill {\n}\n\n.footer-score {\n}"
   },
   "date": "2026-03-08",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-08.webp"
 }

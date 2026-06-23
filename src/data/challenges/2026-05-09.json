@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #ffffff;\n  --header-bg: #fff7ed;\n  --header-border: #fed7aa;\n  --pet-avatar-bg: #ffedd5;\n  --pet-avatar-border: #fb923c;\n  --pet-name-color: #7c2d12;\n  --pet-breed-color: #9a3412;\n  --badge-bg: #dcfce7;\n  --badge-text: #166534;\n  --badge-border: #86efac;\n  --stat-bg: #fff7ed;\n  --stat-border: #fed7aa;\n  --stat-value-color: #ea580c;\n  --stat-label-color: #78716c;\n  --trait-bg: #fef3c7;\n  --trait-text: #92400e;\n  --trait-border: #fcd34d;\n  --desc-color: #57534e;\n  --footer-border: #e7e5e4;\n  --shelter-color: #78716c;\n  --btn-bg: #ea580c;\n  --btn-text: #ffffff;\n  --btn-hover-bg: #c2410c;\n  --card-border: #e7e5e4;\n}\n\nbody {\n}\n\n.card {\n}\n\n.card-header {\n}\n\n.pet-avatar {\n}\n\n.pet-info {\n}\n\n.pet-name {\n}\n\n.pet-breed {\n}\n\n.status-badge {\n}\n\n.stats-row {\n}\n\n.stat {\n}\n\n.stat-value {\n}\n\n.stat-label {\n}\n\n.traits {\n}\n\n.trait {\n}\n\n.desc {\n}\n\n.card-footer {\n}\n\n.shelter-info {\n}\n\n.adopt-btn {\n}\n\n.adopt-btn:hover {\n}"
   },
   "date": "2026-05-09",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-09.webp"
 }

@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #1a1a2e;\n  --card-border: #2e2e50;\n  --header-accent: #e94560;\n  --badge-bg: #e94560;\n  --badge-text: #ffffff;\n  --title-color: #f0f0f8;\n  --price-color: #f0f0f8;\n  --price-period-color: #8888aa;\n  --gear-item-bg: #16213e;\n  --gear-item-border: #2e2e50;\n  --gear-name-color: #d0d0e8;\n  --gear-tag-color: #8888aa;\n  --gear-tag-bg: #0f3460;\n  --status-available-bg: #0d3b2e;\n  --status-available-text: #2ecc71;\n  --status-low-bg: #3b2800;\n  --status-low-text: #f39c12;\n  --status-unavailable-bg: #3b0d1a;\n  --status-unavailable-text: #e74c3c;\n  --footer-bg: #16213e;\n  --deposit-label-color: #8888aa;\n  --deposit-value-color: #f0f0f8;\n  --dur-btn-bg: #0f3460;\n  --dur-btn-text: #8888aa;\n  --dur-btn-active-bg: #e94560;\n  --dur-btn-active-text: #ffffff;\n  --rent-btn-bg: #e94560;\n  --rent-btn-text: #ffffff;\n  --icon-bg: #0f3460;\n}\n\n.rental-card {\n}\n\n.card-header {\n}\n\n.header-left {\n}\n\n.category-badge {\n}\n\n.card-title {\n}\n\n.price-block {\n}\n\n.price-amount {\n}\n\n.price-period {\n}\n\n.gear-list {\n}\n\n.gear-item {\n}\n\n.gear-icon {\n}\n\n.gear-info {\n}\n\n.gear-name {\n}\n\n.gear-tag {\n}\n\n.gear-status {\n}\n\n.gear-status.available {\n}\n\n.gear-status.low {\n}\n\n.gear-status.unavailable {\n}\n\n.card-footer {\n}\n\n.deposit-info {\n}\n\n.deposit-label {\n}\n\n.deposit-value {\n}\n\n.duration-picker {\n}\n\n.dur-btn {\n}\n\n.dur-btn.active {\n}\n\n.rent-btn {\n}"
   },
   "date": "2026-04-25",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-25.webp"
 }

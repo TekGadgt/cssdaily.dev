@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-board: #0a0a1a;\n  --bg-header: #12122a;\n  --border-main: #ff00ff;\n  --border-inner: #00ffff;\n  --color-title: #ffff00;\n  --color-subtitle: #00ffff;\n  --color-gold: #ffd700;\n  --color-silver: #c0c8d8;\n  --color-bronze: #cd7f32;\n  --color-normal: #e0e0ff;\n  --color-badge-bg: #1a1a3a;\n  --color-dots: #333366;\n  --color-footer: #ff00ff;\n  --color-icon: #ff00ff;\n  --row-hover: #1a1a3a;\n}\n\n.arcade-board {\n}\n\n.board-header {\n}\n\n.header-icon {\n}\n\n.board-title {\n}\n\n.board-subtitle {\n}\n\n.score-list {\n}\n\n.score-row {\n}\n\n.rank-badge {\n}\n\n.rank-gold .rank-badge { }\n.rank-silver .rank-badge { }\n.rank-bronze .rank-badge { }\n.rank-normal .rank-badge { }\n\n.player-name {\n}\n\n.rank-gold .player-name { }\n.rank-silver .player-name { }\n.rank-bronze .player-name { }\n.rank-normal .player-name { }\n\n.score-dots {\n}\n\n.score-value {\n}\n\n.rank-gold .score-value { }\n.rank-silver .score-value { }\n.rank-bronze .score-value { }\n.rank-normal .score-value { }\n\n.board-footer {\n}\n\n.footer-text {\n}"
   },
   "date": "2026-04-08",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-08.webp"
 }

@@ -4,6 +4,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { buildScreenshotHtml } from '../src/utils/code';
+import { encodeWebpLossless } from './webp';
 import { measureComponent, isOversize, MAX_COMPONENT_WIDTH, MAX_COMPONENT_HEIGHT } from './measure';
 import type { Difficulty } from '../src/utils/types';
 import { TIME_LIMITS } from '../src/utils/difficulty';
@@ -184,17 +185,18 @@ async function generateOne(
     starter: { html: fields.html, css: fields.starterCss },
     date,
     timeLimit: TIME_LIMITS[difficulty],
-    targetImage: `${date}-${difficulty}.png`,
+    targetImage: `${date}-${difficulty}.webp`,
   };
 
   // Screenshot the last rendered attempt (accepted, or shipped-anyway
   // oversize) BEFORE writing the JSON: a screenshot failure must not leave
-  // an orphan JSON whose target image 404s on the site. An orphan PNG is
+  // an orphan JSON whose target image 404s on the site. An orphan WebP is
   // harmless (nothing references it).
   fs.mkdirSync(TARGETS_DIR, { recursive: true });
-  const pngPath = path.join(TARGETS_DIR, `${date}-${difficulty}.png`);
-  await page.screenshot({ path: pngPath, type: 'png' });
-  console.log(`Saved target PNG: ${pngPath}`);
+  const png = await page.screenshot({ type: 'png' });
+  const webpPath = path.join(TARGETS_DIR, `${date}-${difficulty}.webp`);
+  fs.writeFileSync(webpPath, await encodeWebpLossless(png));
+  console.log(`Saved target WebP: ${webpPath}`);
 
   fs.mkdirSync(CHALLENGES_DIR, { recursive: true });
   const jsonPath = path.join(CHALLENGES_DIR, `${date}-${difficulty}.json`);

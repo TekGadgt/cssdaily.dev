@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #ffffff;\n  --header-bg: #4f46e5;\n  --badge-bg: #f59e0b;\n  --badge-text: #ffffff;\n  --plan-name-color: #ffffff;\n  --price-color: #ffffff;\n  --currency-color: #c7d2fe;\n  --period-color: #c7d2fe;\n  --desc-color: #c7d2fe;\n  --feature-included-color: #1e1b4b;\n  --feature-excluded-color: #9ca3af;\n  --feature-included-dot: #4f46e5;\n  --feature-excluded-dot: #d1d5db;\n  --divider-color: #e5e7eb;\n  --cta-bg: #4f46e5;\n  --cta-text: #ffffff;\n  --note-color: #9ca3af;\n  --card-border: #e5e7eb;\n}\n\nbody {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 100vh;\n  margin: 0;\n}\n\n.card {\n}\n\n.plan-header {\n}\n\n.plan-badge {\n}\n\n.plan-name {\n}\n\n.plan-price {\n}\n\n.currency {\n}\n\n.amount {\n}\n\n.period {\n}\n\n.plan-desc {\n}\n\n.feature-list {\n}\n\n.feature-item {\n}\n\n.feature-item::before {\n}\n\n.feature-item.included {\n}\n\n.feature-item.included::before {\n}\n\n.feature-item.excluded {\n}\n\n.feature-item.excluded::before {\n}\n\n.cta-btn {\n}\n\n.plan-note {\n}"
   },
   "date": "2026-03-15",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-15.webp"
 }

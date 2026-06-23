@@ -148,6 +148,7 @@ export default function TailwindEditor({ initialHtml, onChange }: TailwindEditor
           '.cm-tw-locked': { opacity: '0.5' },
           '.cm-tw-editable': { opacity: '1', backgroundColor: 'rgba(59, 130, 246, 0.08)' },
         }),
+        EditorView.contentAttributes.of({ 'aria-label': 'Tailwind HTML editor' }),
         keymap.of([indentWithTab, ...defaultKeymap]),
         Prec.highest(keymap.of([{ key: 'Tab', run: acceptCompletion }])),
         autocompletion({ override: [tailwindCompletion] }),

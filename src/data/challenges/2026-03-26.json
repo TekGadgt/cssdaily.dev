@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #ffffff;\n  --card-border: #e2e8f0;\n  --card-radius: 16px;\n  --header-accent: #7c3aed;\n  --badge-bg: #7c3aed;\n  --badge-text: #ffffff;\n  --lang-name-color: #1e1b4b;\n  --lang-level-color: #6b7280;\n  --flame-bg: #fff7ed;\n  --flame-border: #fed7aa;\n  --flame-count-color: #ea580c;\n  --progress-track: #f1f5f9;\n  --progress-fill: #7c3aed;\n  --progress-label-color: #374151;\n  --xp-value-color: #7c3aed;\n  --skill-bg: #f8f7ff;\n  --skill-border: #ede9fe;\n  --skill-name-color: #4b5563;\n  --skill-score-color: #7c3aed;\n  --day-bg: #f1f5f9;\n  --day-text: #9ca3af;\n  --day-active-bg: #7c3aed;\n  --day-active-text: #ffffff;\n  --day-today-bg: #ddd6fe;\n  --day-today-text: #5b21b6;\n  --section-divider: #f1f5f9;\n}\n\nbody {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 100vh;\n  margin: 0;\n  padding: 20px;\n  box-sizing: border-box;\n}\n\n.streak-card {\n}\n\n.card-header {\n}\n\n.lang-badge {\n}\n\n.header-text {\n}\n\n.lang-name {\n}\n\n.lang-level {\n}\n\n.streak-flame {\n}\n\n.flame-icon {\n}\n\n.flame-count {\n}\n\n.progress-section {\n}\n\n.progress-label {\n}\n\n.xp-value {\n}\n\n.progress-bar {\n}\n\n.progress-fill {\n}\n\n.skills-grid {\n}\n\n.skill-item {\n}\n\n.skill-icon {\n}\n\n.skill-name {\n}\n\n.skill-score {\n}\n\n.week-row {\n}\n\n.day-dot {\n}\n\n.day-dot.active {\n}\n\n.day-dot.today {\n}"
   },
   "date": "2026-03-26",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-26.webp"
 }

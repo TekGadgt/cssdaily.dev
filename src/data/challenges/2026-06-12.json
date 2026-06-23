@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #ffffff;\n  --header-bg: #0a3d62;\n  --header-text: #ffffff;\n  --subtitle-text: #a8d4f5;\n  --badge-bg: #1e88e5;\n  --badge-text: #ffffff;\n  --gold-bg: #fffbea;\n  --gold-border: #f9c513;\n  --gold-rank: #b8860b;\n  --silver-bg: #f6f8fb;\n  --silver-border: #9eb4cc;\n  --silver-rank: #607d8b;\n  --bronze-bg: #fff5ef;\n  --bronze-border: #d4845a;\n  --bronze-rank: #a0522d;\n  --normal-bg: #fafafa;\n  --normal-border: #e0e0e0;\n  --normal-rank: #9e9e9e;\n  --name-color: #1a1a2e;\n  --club-color: #607d8b;\n  --time-color: #0a3d62;\n  --diff-color: #9e9e9e;\n  --footer-bg: #f0f6fc;\n  --footer-text: #546e7a;\n  --card-radius: 12px;\n  --row-radius: 6px;\n}\n\narticle.regatta-card {\n}\n\n.regatta-header {\n}\n\n.trophy {\n}\n\n.header-text {\n}\n\n.regatta-title {\n}\n\n.regatta-subtitle {\n}\n\n.race-badge {\n}\n\n.leaderboard {\n}\n\n.race-list {\n}\n\n.race-row {\n}\n\n.race-row.gold {\n}\n\n.race-row.silver {\n}\n\n.race-row.bronze {\n}\n\n.race-row.normal {\n}\n\n.rank {\n}\n\n.race-row.gold .rank {}\n.race-row.silver .rank {}\n.race-row.bronze .rank {}\n\n.medal {\n}\n\n.racer-info {\n}\n\n.racer-name {\n}\n\n.racer-club {\n}\n\n.race-time {\n}\n\n.diff {\n}\n\n.regatta-footer {\n}\n\n.footer-detail {\n}"
   },
   "date": "2026-06-12",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-06-12.webp"
 }

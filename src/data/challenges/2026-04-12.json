@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #1e1208;\n  --bg-header: #2e1a0e;\n  --bg-body: #fdf6ee;\n  --bg-stat: #f4e8d6;\n  --bg-tag: #ffe8c4;\n  --accent-primary: #b85c1a;\n  --accent-secondary: #e8935a;\n  --bar-filled: #b85c1a;\n  --bar-half: #e8c49a;\n  --bar-empty: #e0d0be;\n  --text-header-title: #f5dfc0;\n  --text-header-date: #c49a6c;\n  --text-bean-name: #2e1a0e;\n  --text-bean-origin: #7a5230;\n  --text-stat-value: #b85c1a;\n  --text-stat-label: #9a7252;\n  --text-flavor-label: #7a5230;\n  --text-tag: #7a3c10;\n  --text-rating-label: #7a5230;\n  --text-rating-score: #b85c1a;\n  --badge-bg: #b85c1a;\n  --badge-text: #fff7ee;\n  --border-color: #e0c8a8;\n  --radius-card: 14px;\n  --radius-stat: 8px;\n  --radius-tag: 20px;\n  --radius-bar: 4px;\n}\n\n.journal {\n}\n\n.journal-header {\n}\n\n.brew-icon {\n}\n\n.header-text {\n}\n\n.journal-title {\n}\n\n.journal-date {\n}\n\n.brew-badge {\n}\n\n.journal-body {\n}\n\n.bean-info {\n}\n\n.bean-name {\n}\n\n.bean-origin {\n}\n\n.stats-row {\n}\n\n.stat {\n}\n\n.stat-value {\n}\n\n.stat-label {\n}\n\n.flavor-section {\n}\n\n.flavor-label {\n}\n\n.flavor-tags {\n}\n\n.tag {\n}\n\n.rating-row {\n}\n\n.rating-label {\n}\n\n.rating-bars {\n}\n\n.bar {\n}\n\n.bar.filled {\n}\n\n.bar.half {\n}\n\n.rating-score {\n}"
   },
   "date": "2026-04-12",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-12.webp"
 }

@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #0d1b2a;\n  --bg-header: #112240;\n  --bg-stats: #0a1628;\n  --bg-track: #1e3a5f;\n  --accent-blue: #4fc3f7;\n  --accent-green: #00e5a0;\n  --accent-alert: #ff6b35;\n  --text-primary: #e8f4fd;\n  --text-secondary: #7fb3d3;\n  --text-muted: #4a7fa5;\n  --crew-bg: #1e3a5f;\n  --tag-bg: #1a3050;\n  --tag-alert-bg: #3d1a0d;\n  --tag-alert-text: #ff6b35;\n  --border-color: #1e3a5f;\n  --btn-bg: #4fc3f7;\n  --btn-text: #0d1b2a;\n}\n\n.mission-card {\n}\n\n.card-header {\n}\n\n.mission-status {\n}\n\n.status-dot {\n}\n\n.status-label {\n}\n\n.mission-id {\n}\n\n.card-body {\n}\n\n.mission-info {\n}\n\n.mission-name {\n}\n\n.mission-desc {\n}\n\n.crew-row {\n}\n\n.crew-label {\n}\n\n.crew-badges {\n}\n\n.crew-badge {\n}\n\n.stats-panel {\n}\n\n.stat-block {\n}\n\n.stat-value {\n}\n\n.stat-unit {\n}\n\n.stat-key {\n}\n\n.progress-bar-wrap {\n}\n\n.progress-bar-track {\n}\n\n.progress-bar-fill {\n}\n\n.progress-labels {\n}\n\n.card-footer {\n}\n\n.tag-row {\n}\n\n.tag {\n}\n\n.tag-alert {\n}\n\n.telemetry-btn {\n}"
   },
   "date": "2026-05-10",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-10.webp"
 }

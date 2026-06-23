@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-deep: #0f1b2d;\n  --bg-card: #162237;\n  --bg-surface: #1e2f47;\n  --accent-gold: #f0c040;\n  --accent-teal: #4ecdc4;\n  --accent-highlight: #7b61ff;\n  --text-primary: #e8edf5;\n  --text-secondary: #8a9bb8;\n  --text-muted: #506080;\n  --border-subtle: #2a3f5f;\n  --badge-bg: #f0c040;\n  --badge-text: #0f1b2d;\n  --dot-filled: #4ecdc4;\n  --dot-empty: #2a3f5f;\n  --highlight-border: #7b61ff;\n  --highlight-bg: #201a3d;\n}\n\n.planner {\n}\n\n.planner-header {\n}\n\n.header-label {\n}\n\n.header-title {\n}\n\n.moon-phase {\n}\n\n.moon-icon {\n}\n\n.moon-label {\n}\n\n.conditions-bar {\n}\n\n.condition {\n}\n\n.condition-value {\n}\n\n.condition-label {\n}\n\n.objects-grid {\n}\n\n.object-card {\n}\n\n.object-card.highlight {\n}\n\n.object-time {\n}\n\n.object-name {\n}\n\n.object-info {\n}\n\n.object-badge {\n}\n\n.planner-footer {\n}\n\n.location {\n}\n\n.rating-row {\n}\n\n.rating-label {\n}\n\n.rating-dots {\n}\n\n.dot {\n}\n\n.dot.filled {\n}"
   },
   "date": "2026-05-21",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-21.webp"
 }

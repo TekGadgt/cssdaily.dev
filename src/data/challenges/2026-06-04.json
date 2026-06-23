@@ -10,5 +10,6 @@
     "css": ":root {\n  --green-dark: #2d6a4f;\n  --green-mid: #52b788;\n  --green-light: #d8f3dc;\n  --green-pale: #f0faf2;\n  --amber: #e76f00;\n  --amber-light: #fff3e0;\n  --text-dark: #1b2e22;\n  --text-mid: #4a6651;\n  --text-muted: #7a9e82;\n  --white: #ffffff;\n  --border: #b7dfc2;\n  --featured-bg: #fff8e1;\n  --featured-border: #e76f00;\n}\n\n.stall-card {\n}\n\n.stall-header {\n}\n\n.stall-badge {\n}\n\n.stall-title {\n}\n\n.vendor-name {\n}\n\n.vendor-tagline {\n}\n\n.open-tag {\n}\n\n.stall-body {\n}\n\n.produce-grid {\n}\n\n.produce-item {\n}\n\n.produce-item.featured {\n}\n\n.produce-icon {\n}\n\n.produce-name {\n}\n\n.produce-price {\n}\n\n.produce-item.featured .produce-price {\n}\n\n.stall-footer {\n}\n\n.footer-info {\n}\n\n.info-label {\n}\n\n.info-value {\n}\n\n.footer-divider {\n}"
   },
   "date": "2026-06-04",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-06-04.webp"
 }

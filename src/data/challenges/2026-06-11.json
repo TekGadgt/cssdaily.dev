@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg: #ffffff;\n  --border: #e4e0d8;\n  --header-bg: #2c2416;\n  --header-text: #f5efe4;\n  --label-color: #a8916a;\n  --title-color: #f5efe4;\n  --ring-bg: #3e3020;\n  --ring-border: #c4894a;\n  --ring-value: #f0c97a;\n  --ring-sub: #a8916a;\n  --task-bg: #faf8f4;\n  --task-border: #ede8de;\n  --task-done-icon: #7aab6e;\n  --task-done-name: #7a7060;\n  --task-active-bg: #fff8ec;\n  --task-active-border: #c4894a;\n  --task-active-icon: #c4894a;\n  --task-active-name: #2c2416;\n  --task-pending-icon: #c8bfae;\n  --task-pending-name: #a09080;\n  --task-date: #b0a090;\n  --footer-bg: #faf8f4;\n  --stat-value: #2c2416;\n  --stat-label: #a09080;\n  --divider-color: #ede8de;\n}\n\nbody {}\n\n.tracker {}\n\n.tracker-header {}\n\n.header-left {}\n\n.label {}\n\n.project-title {}\n\n.progress-ring {}\n\n.ring-value {}\n\n.ring-sub {}\n\n.tasks {}\n\n.task {}\n\n.task--active {}\n\n.task-icon {}\n\n.task--done .task-icon {}\n\n.task--active .task-icon {}\n\n.task--pending .task-icon {}\n\n.task-name {}\n\n.task--done .task-name {}\n\n.task--active .task-name {}\n\n.task--pending .task-name {}\n\n.task-date {}\n\n.tracker-footer {}\n\n.stat {}\n\n.stat-value {}\n\n.stat-label {}\n\n.divider {}"
   },
   "date": "2026-06-11",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-06-11.webp"
 }

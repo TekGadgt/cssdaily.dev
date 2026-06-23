@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #1a1a2e;\n  --card-border: #e8b86d;\n  --header-bg: #16213e;\n  --title-color: #e8b86d;\n  --subtitle-color: #a89bb0;\n  --tag-bg: #e8b86d;\n  --tag-color: #1a1a2e;\n  --item-border: #2d2d4e;\n  --item-featured-bg: #22224a;\n  --item-bg: transparent;\n  --name-color: #f0e6ff;\n  --price-color: #e8b86d;\n  --ingredients-color: #8a8aaa;\n  --dots-color: #3a3a5e;\n  --badge-strong-bg: #4a1942;\n  --badge-strong-color: #e88dd4;\n  --badge-bitter-bg: #1a3a2e;\n  --badge-bitter-color: #6edba8;\n  --badge-light-bg: #3a3010;\n  --badge-light-color: #f0d060;\n  --badge-fruity-bg: #3a1010;\n  --badge-fruity-color: #f08080;\n  --badge-smoky-bg: #252535;\n  --badge-smoky-color: #b0b0d8;\n  --badge-spicy-bg: #3a1a10;\n  --badge-spicy-color: #f09060;\n  --footer-bg: #16213e;\n  --footer-note-color: #e8b86d;\n  --footer-hours-color: #a89bb0;\n}\n\n.menu-card {\n}\n\n.menu-header {\n}\n\n.menu-tag {\n}\n\n.menu-title {\n}\n\n.menu-subtitle {\n}\n\n.cocktail-list {\n}\n\n.cocktail-item {\n}\n\n.cocktail-item.featured {\n}\n\n.cocktail-info {\n}\n\n.cocktail-name {\n}\n\n.cocktail-dots {\n}\n\n.cocktail-price {\n}\n\n.cocktail-ingredients {\n}\n\n.cocktail-badges {\n}\n\n.badge {\n}\n\n.badge-strong {\n}\n\n.badge-bitter {\n}\n\n.badge-light {\n}\n\n.badge-fruity {\n}\n\n.badge-smoky {\n}\n\n.badge-spicy {\n}\n\n.menu-footer {\n}\n\n.footer-note {\n}\n\n.footer-hours {\n}"
   },
   "date": "2026-04-19",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-19.webp"
 }

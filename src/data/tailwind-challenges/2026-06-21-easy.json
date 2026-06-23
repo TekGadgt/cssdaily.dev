@@ -9,5 +9,5 @@
   "target": {
     "html": "<article class=\"w-72 mx-auto mt-8 bg-teal-700 rounded-2xl p-4 border-4 border-teal-400\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-teal-200 text-xs font-semibold uppercase tracking-widest\">State Issued</span>\n    <span class=\"bg-teal-400 text-teal-900 text-xs font-bold px-2 py-1 rounded-full\">2026</span>\n  </header>\n  <h1 class=\"text-white text-xl font-bold text-center mb-1\">Freshwater Fishing</h1>\n  <p class=\"text-teal-300 text-sm text-center mb-4\">Annual License</p>\n  <ul class=\"bg-teal-800 rounded-xl p-3 text-sm text-teal-100 space-y-2\">\n    <li class=\"flex justify-between\">\n      <span class=\"text-teal-400 font-medium\">Holder</span>\n      <span>Jamie Caldwell</span>\n    </li>\n    <li class=\"flex justify-between\">\n      <span class=\"text-teal-400 font-medium\">Issued</span>\n      <span>Jun 21, 2026</span>\n    </li>\n    <li class=\"flex justify-between\">\n      <span class=\"text-teal-400 font-medium\">Expires</span>\n      <span>Jun 20, 2027</span>\n    </li>\n  </ul>\n  <footer class=\"mt-3 text-center\">\n    <span class=\"text-teal-300 text-xs\">License No. FW-2026-4471</span>\n  </footer>\n</article>"
   },
-  "targetImage": "2026-06-21-easy.png"
+  "targetImage": "2026-06-21-easy.webp"
 }

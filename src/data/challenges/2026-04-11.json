@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #2d1a2e;\n  --card-border: #6b3a6e;\n  --header-bg: #3d1f3f;\n  --accent: #c4587a;\n  --accent-light: #e88fa5;\n  --gold: #d4a843;\n  --badge-bg: #7a2040;\n  --badge-text: #f5c4d0;\n  --wine-name-color: #f0e6f1;\n  --label-color: #c9a8cc;\n  --score-color: #e0d0e2;\n  --bar-bg: #4a2a4d;\n  --bar-aroma: #c4587a;\n  --bar-body: #9b4f8e;\n  --bar-tannin: #7a6bbf;\n  --bar-finish: #d4a843;\n  --tag-bg: #4a2040;\n  --tag-text: #f0c8d4;\n  --tag-border: #7a3a5a;\n  --footer-border: #4a2a4d;\n  --score-big: #d4a843;\n  --meta-color: #a888aa;\n}\n\n.card {\n}\n\n.card-header {\n}\n\n.wine-label {\n}\n\n.vintage {\n}\n\n.region {\n}\n\n.wine-badge {\n}\n\n.wine-name {\n}\n\n.tasting-grid {\n}\n\n.taste-item {\n}\n\n.taste-label {\n}\n\n.taste-bar {\n}\n\n.taste-fill {\n}\n\n.aroma-fill {\n}\n\n.body-fill {\n}\n\n.tannin-fill {\n}\n\n.finish-fill {\n}\n\n.taste-score {\n}\n\n.notes-section {\n}\n\n.notes-title {\n}\n\n.notes-tags {\n}\n\n.tag {\n}\n\n.card-footer {\n}\n\n.score-block {\n}\n\n.score-num {\n}\n\n.score-label {\n}\n\n.footer-meta {\n}\n\n.serve-temp {\n}\n\n.pair-label {\n}"
   },
   "date": "2026-04-11",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-11.webp"
 }

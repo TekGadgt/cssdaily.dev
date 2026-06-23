@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-widget: #1e1e2e;\n  --bg-header: #2a2a3d;\n  --bg-tag: #2e2e42;\n  --bg-tag-active: #6c63ff;\n  --bg-progress-track: #2e2e42;\n  --bg-progress-fill: #6c63ff;\n  --bg-btn-primary: #6c63ff;\n  --bg-btn-secondary: #2e2e42;\n  --color-label: #a0a0c0;\n  --color-digits: #ffffff;\n  --color-unit: #6c63ff;\n  --color-tag: #a0a0c0;\n  --color-tag-active: #ffffff;\n  --color-stat-value: #ffffff;\n  --color-stat-label: #a0a0c0;\n  --color-btn-primary: #ffffff;\n  --color-btn-secondary: #a0a0c0;\n  --color-marker: #ffffff;\n  --color-dot: #4ade80;\n  --color-divider: #2e2e42;\n  --radius-widget: 20px;\n  --radius-tag: 20px;\n  --radius-btn: 10px;\n  --radius-progress: 6px;\n}\n\n.timer-widget {\n}\n\n.widget-header {\n}\n\n.widget-label {\n}\n\n.status-dot {\n}\n\n.timer-display {\n}\n\n.timer-digits {\n}\n\n.timer-unit {\n}\n\n.progress-track {\n}\n\n.progress-fill {\n}\n\n.progress-marker {\n}\n\n.session-tags {\n}\n\n.tag {\n}\n\n.tag-active {\n}\n\n.controls {\n}\n\n.btn-secondary {\n}\n\n.btn-primary {\n}\n\n.widget-footer {\n}\n\n.stat {\n}\n\n.stat-value {\n}\n\n.stat-label {\n}\n\n.divider-v {\n}"
   },
   "date": "2026-03-12",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-12.webp"
 }

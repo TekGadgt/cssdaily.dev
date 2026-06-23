@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-board: #1a1a2e;\n  --bg-header: #16213e;\n  --bg-table-head: #0f3460;\n  --bg-active: #1e3a5f;\n  --bg-footer: #16213e;\n  --text-primary: #e8e0d0;\n  --text-secondary: #9a9080;\n  --text-dim: #5a5568;\n  --text-brand: #f5c842;\n  --border-subtle: #2a2a4a;\n  --border-active: #f5c842;\n  --badge-ontime-bg: #1a4731;\n  --badge-ontime-text: #4cde8a;\n  --badge-delayed-bg: #4a2010;\n  --badge-delayed-text: #f87c3a;\n  --badge-departed-bg: #2a2a3a;\n  --badge-departed-text: #7a7a9a;\n  --clock-bg: #0f3460;\n  --platform-text: #a0c4ff;\n}\n\n.timetable {\n}\n\n.board-header {\n}\n\n.header-left {\n}\n\n.station-label {\n}\n\n.station-name {\n}\n\n.clock-badge {\n}\n\n.clock-time {\n}\n\n.clock-date {\n}\n\n.table-head {\n}\n\n.train-row {\n}\n\n.active-row {\n}\n\n.time {\n}\n\n.departed .time {\n}\n\n.destination {\n}\n\n.departed .destination {\n}\n\n.platform {\n}\n\n.departed .platform {\n}\n\n.status-badge {\n}\n\n.ontime-badge {\n}\n\n.delayed-badge {\n}\n\n.departed-badge {\n}\n\n.board-footer {\n}\n\n.footer-note {\n}\n\n.footer-brand {\n}"
   },
   "date": "2026-04-30",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-30.webp"
 }

@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #1c1410;\n  --card-border: #6b4c2a;\n  --header-bg: #2e1d0e;\n  --accent-gold: #c9963a;\n  --accent-gold-light: #e8be6f;\n  --text-primary: #f2e8d9;\n  --text-secondary: #a8906e;\n  --text-muted: #7a6248;\n  --course-border: #3a2a18;\n  --course-hover: #251a0f;\n  --num-color: #c9963a;\n  --tag-cold-bg: #1a2e3a;\n  --tag-cold-text: #6db8d8;\n  --tag-hot-bg: #3a1a10;\n  --tag-hot-text: #e87a4a;\n  --tag-room-bg: #2a2a18;\n  --tag-room-text: #b8b86a;\n  --footer-bg: #2e1d0e;\n  --divider: #4a3420;\n}\n\nbody {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 100vh;\n  margin: 0;\n  padding: 20px;\n  box-sizing: border-box;\n}\n\n.menu-card {\n}\n\n.menu-header {\n}\n\n.menu-label {\n}\n\n.menu-title {\n}\n\n.menu-subtitle {\n}\n\n.courses {\n}\n\n.course {\n}\n\n.course:last-child {\n}\n\n.course-num {\n}\n\n.course-info {\n}\n\n.course-name {\n}\n\n.course-desc {\n}\n\n.course-tag {\n}\n\n.tag-cold {\n}\n\n.tag-hot {\n}\n\n.tag-room {\n}\n\n.menu-footer {\n}\n\n.footer-price {\n}\n\n.footer-note {\n}"
   },
   "date": "2026-05-24",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-24.webp"
 }

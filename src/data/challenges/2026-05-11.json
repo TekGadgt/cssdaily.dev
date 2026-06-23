@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #1a1033;\n  --bg-header: #2a1a55;\n  --bg-headliner: #3d2270;\n  --bg-item: #241540;\n  --bg-tab-active: #f0c040;\n  --bg-tab: #2a1a55;\n  --color-accent: #f0c040;\n  --color-accent-alt: #e0607a;\n  --color-text-primary: #f0eaff;\n  --color-text-secondary: #a890cc;\n  --color-text-muted: #7a60a0;\n  --color-label: #c0a8ff;\n  --color-tab-active: #1a1033;\n  --color-tab: #a890cc;\n  --color-tag-alt-bg: #4a2040;\n  --color-tag-alt-text: #e0607a;\n  --color-tag-plain-bg: #2a2045;\n  --color-tag-plain-text: #7a60a0;\n  --color-border: #3a2560;\n  --color-footer-bg: #120c28;\n  --radius-card: 16px;\n  --radius-tab: 20px;\n  --radius-tag: 6px;\n  --radius-badge: 10px;\n}\n\n.festival-card {\n}\n\n.festival-header {\n}\n\n.festival-title-block {\n}\n\n.festival-label {\n}\n\n.festival-name {\n}\n\n.festival-date {\n}\n\n.festival-badge {\n}\n\n.badge-day {\n}\n\n.badge-num {\n}\n\n.stage-tabs {\n}\n\n.tab {\n}\n\n.tab-active {\n}\n\n.lineup-list {\n}\n\n.lineup-item {\n}\n\n.headliner {\n}\n\n.item-time {\n}\n\n.item-info {\n}\n\n.item-name {\n}\n\n.item-genre {\n}\n\n.item-tag {\n}\n\n.tag-alt {\n}\n\n.tag-plain {\n}\n\n.festival-footer {\n}\n\n.footer-info {\n}"
   },
   "date": "2026-05-11",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-11.webp"
 }

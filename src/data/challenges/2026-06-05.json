@@ -10,5 +10,6 @@
     "css": ":root {\n  --clay: #c1440e;\n  --clay-light: #f5e6de;\n  --clay-mid: #e8a882;\n  --earth: #5c3d2e;\n  --earth-light: #8b6351;\n  --cream: #fdf6f0;\n  --ash: #f0ebe6;\n  --text-dark: #2e1a10;\n  --text-mid: #6b4c3b;\n  --text-light: #a07060;\n  --badge-bg: #fff3ee;\n  --badge-border: #e8c4b0;\n  --divider: #ead8cd;\n  --avatar-bg: #c1440e;\n  --avatar-text: #ffffff;\n  --include-bg: #fdf6f0;\n  --include-border: #e8d4c8;\n}\n\nbody {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 100vh;\n  margin: 0;\n  padding: 20px;\n  box-sizing: border-box;\n}\n\n.card {\n}\n\n.card-header {\n}\n\n.studio-label {\n}\n\n.session-badge {\n}\n\n.card-body {\n}\n\n.workshop-title {\n}\n\n.workshop-meta {\n}\n\n.meta-item {\n}\n\n.divider {\n}\n\n.includes-grid {\n}\n\n.include-item {\n}\n\n.include-icon {\n}\n\n.include-text {\n}\n\n.card-footer {\n}\n\n.instructor {\n}\n\n.instructor-avatar {\n}\n\n.instructor-name {\n}\n\n.instructor-role {\n}\n\n.price-block {\n}\n\n.price-amount {\n}\n\n.price-label {\n}"
   },
   "date": "2026-06-05",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-06-05.webp"
 }
