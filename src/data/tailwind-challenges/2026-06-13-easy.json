@@ -9,5 +9,5 @@
   "target": {
     "html": "<article class=\"bg-white rounded-2xl p-5 w-80 mx-auto mt-8 border border-gray-200\">\n  <header class=\"flex items-center gap-3 mb-4\">\n    <span class=\"text-2xl\">🎁</span>\n    <h1 class=\"text-base font-bold text-gray-800\">Gift Card Balance</h1>\n  </header>\n  <section class=\"bg-emerald-50 rounded-xl p-4 mb-4 border border-emerald-200\">\n    <p class=\"text-xs text-emerald-600 font-medium mb-1\">Available Balance</p>\n    <p class=\"text-2xl font-bold text-emerald-700\">$47.50</p>\n  </section>\n  <footer class=\"flex gap-2\">\n    <button class=\"flex-1 bg-emerald-500 text-white text-sm font-semibold rounded-lg py-2\">Redeem</button>\n    <button class=\"flex-1 bg-gray-100 text-gray-600 text-sm font-semibold rounded-lg py-2\">Details</button>\n  </footer>\n</article>"
   },
-  "targetImage": "2026-06-13-easy.png"
+  "targetImage": "2026-06-13-easy.webp"
 }

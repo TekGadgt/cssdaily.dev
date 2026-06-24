@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #1e1e2e;\n  --card-border: #2e2e45;\n  --header-bg: #16162a;\n  --avatar-bg: #7c5cbf;\n  --avatar-text: #ffffff;\n  --name-color: #e8e8f8;\n  --title-color: #9090b8;\n  --badge-bg: #7c5cbf;\n  --badge-text: #f0eaff;\n  --divider-color: #2e2e45;\n  --skill-label: #c0c0d8;\n  --skill-bar-bg: #2e2e45;\n  --fill-js: #f0c040;\n  --fill-ts: #4080e0;\n  --fill-react: #40c8e0;\n  --fill-node: #60c060;\n  --skill-pct: #9090b8;\n  --stat-value: #e8e8f8;\n  --stat-label: #6060a0;\n  --stat-border: #2e2e45;\n}\n\nbody {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 100vh;\n  margin: 0;\n  padding: 20px;\n  box-sizing: border-box;\n}\n\n.card {\n}\n\n.card-header {\n}\n\n.avatar {\n}\n\n.header-info {\n}\n\n.name {\n}\n\n.title {\n}\n\n.level-badge {\n}\n\n.divider {\n}\n\n.skills-grid {\n}\n\n.skill-item {\n}\n\n.skill-name {\n}\n\n.skill-bar {\n}\n\n.skill-fill {\n}\n\n.fill-js {\n}\n\n.fill-ts {\n}\n\n.fill-react {\n}\n\n.fill-node {\n}\n\n.skill-pct {\n}\n\n.stats-row {\n}\n\n.stat {\n}\n\n.stat-value {\n}\n\n.stat-label {\n}"
   },
   "date": "2026-05-27",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-27.webp"
 }

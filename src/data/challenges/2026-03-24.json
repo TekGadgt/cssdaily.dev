@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-terminal: #0d0d0d;\n  --bg-header: #1a1a1a;\n  --bg-track: #1e1e1e;\n  --color-text: #c8ffc8;\n  --color-dim: #5a8a5a;\n  --color-title: #a0e0a0;\n  --color-high: #ff5f5f;\n  --color-mid: #f0c040;\n  --color-low: #50e080;\n  --color-dot-red: #ff5f5f;\n  --color-dot-yellow: #f0c040;\n  --color-dot-green: #50e080;\n  --color-divider: #2a3a2a;\n  --color-prompt: #50e080;\n  --color-log: #6aaa6a;\n  --color-info-label: #5a8a5a;\n  --color-info-value: #c8ffc8;\n}\n\n.terminal {\n}\n\n.terminal-header {\n}\n\n.header-dots {\n}\n\n.dot {\n}\n\n.dot-red {}\n.dot-yellow {}\n.dot-green {}\n\n.terminal-title {\n}\n\n.terminal-body {\n}\n\n.status-row {\n}\n\n.label {\n}\n\n.bar-track {\n}\n\n.bar-fill {\n}\n\n.bar-high {}\n.bar-mid  {}\n.bar-low  {}\n\n.value {\n}\n\n.val-high {}\n.val-mid  {}\n.val-low  {}\n\n.divider {\n}\n\n.info-grid {\n}\n\n.info-cell {\n}\n\n.info-label {\n}\n\n.info-value {\n}\n\n.log-line {\n}\n\n.prompt {\n}"
   },
   "date": "2026-03-24",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-24.webp"
 }

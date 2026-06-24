@@ -10,5 +10,6 @@
     "css": ":root {\n  --ocean: #0077b6;\n  --ocean-dark: #023e8a;\n  --ocean-light: #90e0ef;\n  --ocean-pale: #caf0f8;\n  --sand: #f4a261;\n  --sand-light: #fde8d0;\n  --green: #2d6a4f;\n  --green-light: #d8f3dc;\n  --yellow: #b5830a;\n  --yellow-light: #fff3cd;\n  --alert-bg: #fff1e6;\n  --alert-text: #9c4221;\n  --text-dark: #1a1a2e;\n  --text-mid: #4a4a6a;\n  --text-light: #8888aa;\n  --card-bg: #ffffff;\n  --border: #e0e8f0;\n  --dot-filled: #0077b6;\n  --dot-empty: #dde6f0;\n}\n\nbody {}\n\n.surf-card {}\n\n.surf-header {}\n\n.location {}\n\n.location-dot {}\n\n.location-name {}\n\n.surf-date {}\n\n.conditions-row {}\n\n.wave-stat {}\n\n.stat-value {}\n\n.stat-unit {}\n\n.stat-label {}\n\n.divider-v {}\n\n.rating-bar {}\n\n.rating-label {}\n\n.rating-dots {}\n\n.dot {}\n\n.dot.filled {}\n\n.rating-text {}\n\n.sessions-grid {}\n\n.session {}\n\n.session-time {}\n\n.session-badge {}\n\n.session-badge.best {}\n\n.session-badge.good {}\n\n.session-badge.ok {}\n\n.session-tide {}\n\n.surf-footer {}\n\n.alert-icon {}\n\n.alert-text {}"
   },
   "date": "2026-05-06",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-06.webp"
 }

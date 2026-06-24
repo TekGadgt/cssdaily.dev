@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-panel: #1a1f2e;\n  --bg-header: #222840;\n  --bg-room: #2a3050;\n  --bg-room-active: #3d5afe;\n  --bg-device: #222840;\n  --bg-device-on: #1e2d40;\n  --bg-footer: #222840;\n  --border-room: #3a4060;\n  --border-device: #2e3555;\n  --border-device-on: #3d5afe;\n  --text-title: #ffffff;\n  --text-status: #4caf50;\n  --text-room: #8892b0;\n  --text-room-active: #ffffff;\n  --text-device-name: #ccd6f6;\n  --text-device-detail: #607090;\n  --text-toggle-on: #4caf50;\n  --text-toggle-off: #607090;\n  --text-stat-val: #ffffff;\n  --text-stat-label: #607090;\n  --accent-on: #3d5afe;\n  --radius-panel: 16px;\n  --radius-room: 20px;\n  --radius-device: 12px;\n}\n\nbody {}\n\n.panel {}\n\n.panel-header {}\n\n.panel-title {}\n\n.panel-status {}\n\n.rooms {}\n\n.room {}\n\n.room.active {}\n\n.room-icon {}\n\n.room-name {}\n\n.room.active .room-name {}\n\n.devices {}\n\n.device-card {}\n\n.device-card.on {}\n\n.device-top {}\n\n.device-icon {}\n\n.toggle {}\n\n.on-toggle {}\n\n.off-toggle {}\n\n.device-name {}\n\n.device-detail {}\n\n.panel-footer {}\n\n.stat {}\n\n.stat:last-child {}\n\n.stat-val {}\n\n.stat-label {}"
   },
   "date": "2026-05-02",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-02.webp"
 }

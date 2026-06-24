@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #1a2744;\n  --header-bg: #243057;\n  --accent: #4f8ef7;\n  --accent-light: #e8f0fe;\n  --confirmed-bg: #1e4d2b;\n  --confirmed-text: #4cde80;\n  --text-primary: #ffffff;\n  --text-secondary: #8fa3cc;\n  --city-code-color: #ffffff;\n  --time-color: #4f8ef7;\n  --divider-color: #2e3f6a;\n  --notch-color: #f5f5f5;\n  --detail-label-color: #8fa3cc;\n  --detail-value-color: #ffffff;\n  --footer-bg: #243057;\n  --price-color: #4f8ef7;\n}\n\nbody {\n}\n\n.booking-card {\n}\n\n.card-header {\n}\n\n.airline-label {\n}\n\n.flight-badge {\n}\n\n.route-row {\n}\n\n.city-block {\n}\n\n.city-block--right {\n}\n\n.city-code {\n}\n\n.city-name {\n}\n\n.time {\n}\n\n.route-line {\n}\n\n.plane-icon {\n}\n\n.dashed-line {\n}\n\n.duration {\n}\n\n.divider {\n}\n\n.notch {\n}\n\n.notch--left {\n}\n\n.notch--right {\n}\n\n.dashed-divider {\n}\n\n.details-row {\n}\n\n.detail-item {\n}\n\n.detail-label {\n}\n\n.detail-value {\n}\n\n.card-footer {\n}\n\n.price-label {\n}\n\n.price-value {\n}"
   },
   "date": "2026-03-11",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-11.webp"
 }

@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #1a1f36;\n  --bg-header: #2d3561;\n  --bg-details: #252b4a;\n  --accent: #f5a623;\n  --accent-light: #ffc85c;\n  --text-primary: #ffffff;\n  --text-secondary: #a0a8d0;\n  --text-label: #6b75a8;\n  --divider: #3a4170;\n  --notch: #f5f5f5;\n  --barcode-bar: #a0a8d0;\n}\n\nbody {\n}\n\n.boarding-pass {\n}\n\n.pass-header {\n}\n\n.airline {\n}\n\n.pass-type {\n}\n\n.route {\n}\n\n.city {\n}\n\n.city--right {\n}\n\n.code {\n}\n\n.name {\n}\n\n.flight-arrow {\n}\n\n.arrow-line {\n}\n\n.plane {\n}\n\n.divider {\n}\n\n.notch {\n}\n\n.dash-line {\n}\n\n.details {\n}\n\n.detail-item {\n}\n\n.label {\n}\n\n.value {\n}\n\n.barcode {\n}\n\n.bar {\n}\n\n.bar--thin {\n}\n\n.bar--wide {\n}"
   },
   "date": "2026-03-14",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-14.webp"
 }

@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-dark: #0f1b2d;\n  --bg-card: #162236;\n  --bg-object: #1e2f45;\n  --bg-highlight: #1a3558;\n  --accent-primary: #4f9cf9;\n  --accent-secondary: #a78bfa;\n  --accent-highlight: #fbbf24;\n  --text-primary: #e8f0fe;\n  --text-secondary: #7ea8d8;\n  --text-muted: #4a6a8a;\n  --border-color: #243a55;\n  --border-highlight: #4f9cf9;\n  --badge-bg: #1e2f45;\n  --type-planet: #4ade80;\n  --type-nebula: #f472b6;\n  --type-cluster: #fb923c;\n  --type-galaxy: #a78bfa;\n  --footer-bg: #0d1824;\n}\n\n.planner {\n}\n\n.planner-header {\n}\n\n.header-left {\n}\n\n.header-label {\n}\n\n.header-title {\n}\n\n.moon-badge {\n}\n\n.moon-icon {\n}\n\n.moon-label {\n}\n\n.planner-body {\n}\n\n.conditions-row {\n}\n\n.condition-item {\n}\n\n.condition-item:last-child {\n}\n\n.condition-value {\n}\n\n.condition-label {\n}\n\n.objects-grid {\n}\n\n.object-card {\n}\n\n.object-card.highlight {\n}\n\n.object-type {\n}\n\n.object-card:nth-child(1) .object-type {}\n.object-card:nth-child(2) .object-type {}\n.object-card:nth-child(3) .object-type {}\n.object-card:nth-child(4) .object-type {}\n\n.object-name {\n}\n\n.object-time {\n}\n\n.object-rating {\n}\n\n.planner-footer {\n}\n\n.footer-note {\n}\n\n.footer-tag {\n}"
   },
   "date": "2026-04-18",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-18.webp"
 }

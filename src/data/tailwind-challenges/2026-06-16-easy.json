@@ -9,5 +9,5 @@
   "target": {
     "html": "<article class=\"bg-white rounded-2xl border-2 border-pink-200 p-5 max-w-sm mx-auto\">\n  <header class=\"flex items-center gap-3 mb-4\">\n    <span class=\"text-3xl\">🎁</span>\n    <h1 class=\"text-lg font-bold text-pink-700\">Gift Wrapping Station</h1>\n  </header>\n  <section class=\"flex gap-2 mb-4\">\n    <span class=\"bg-pink-100 text-pink-600 text-xs font-semibold px-3 py-1 rounded-full\">Ribbons</span>\n    <span class=\"bg-purple-100 text-purple-600 text-xs font-semibold px-3 py-1 rounded-full\">Bows</span>\n    <span class=\"bg-yellow-100 text-yellow-600 text-xs font-semibold px-3 py-1 rounded-full\">Tags</span>\n  </section>\n  <p class=\"text-sm text-gray-500 mb-4\">Everything you need to wrap the perfect gift. Choose your style and get started!</p>\n  <button class=\"w-full bg-pink-500 text-white text-sm font-semibold py-2 rounded-xl\">Start Wrapping</button>\n</article>"
   },
-  "targetImage": "2026-06-16-easy.png"
+  "targetImage": "2026-06-16-easy.webp"
 }

@@ -10,5 +10,6 @@
     "css": ":root {\n  --cream: #fdf6ec;\n  --gold: #c9a84c;\n  --gold-light: #f0dfa0;\n  --dark: #1e1a14;\n  --text-main: #3a3228;\n  --text-muted: #8a7c6e;\n  --section-bg: #ffffff;\n  --featured-bg: #fdf3d8;\n  --featured-border: #c9a84c;\n  --border-light: #e8dece;\n  --btn-bg: #1e1a14;\n  --btn-text: #fdf6ec;\n  --badge-bg: #c9a84c;\n  --badge-text: #1e1a14;\n  --star-color: #c9a84c;\n}\n\n* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 100vh;\n}\n\n.menu-card {\n}\n\n.menu-header {\n}\n\n.hotel-star {\n}\n\n.header-text {\n}\n\n.menu-title {\n}\n\n.menu-subtitle {\n}\n\n.room-badge {\n}\n\n.menu-sections {\n}\n\n.menu-section {\n}\n\n.section-title {\n}\n\n.menu-item {\n}\n\n.menu-item.featured {\n}\n\n.item-name {\n}\n\n.item-price {\n}\n\n.menu-footer {\n}\n\n.footer-note {\n}\n\n.order-btn {\n}"
   },
   "date": "2026-05-15",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-15.webp"
 }

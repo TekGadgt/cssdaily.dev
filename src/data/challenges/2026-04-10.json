@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #0f0f1a;\n  --bg-header: #1a1a2e;\n  --bg-tabs: #12121f;\n  --bg-item: #1e1e32;\n  --bg-item-headliner: #22203a;\n  --bg-footer: #16162a;\n  --accent-primary: #c084fc;\n  --accent-secondary: #38bdf8;\n  --accent-hot: #fb923c;\n  --accent-new: #34d399;\n  --text-primary: #f0f0ff;\n  --text-secondary: #9898b8;\n  --text-muted: #5a5a7a;\n  --tab-active-bg: #c084fc;\n  --tab-active-text: #0f0f1a;\n  --headliner-border: #c084fc;\n  --badge-headliner-bg: #3b1f5e;\n  --badge-headliner-text: #c084fc;\n  --badge-hot-bg: #431a07;\n  --badge-hot-text: #fb923c;\n  --badge-new-bg: #063a25;\n  --badge-new-text: #34d399;\n  --divider: #2a2a44;\n  --cta-bg: #c084fc;\n  --cta-text: #0f0f1a;\n  --logo-icon-color: #c084fc;\n}\n\n.festival-card {\n}\n\n.festival-header {\n}\n\n.festival-logo {\n}\n\n.logo-icon {\n}\n\n.logo-text {\n}\n\n.festival-name {\n}\n\n.festival-subtitle {\n}\n\n.festival-date {\n}\n\n.date-day {\n}\n\n.date-month {\n}\n\n.stage-tabs {\n}\n\n.tab {\n}\n\n.tab--active {\n}\n\n.lineup-list {\n}\n\n.lineup-item {\n}\n\n.lineup-item--headliner {\n}\n\n.lineup-time {\n}\n\n.lineup-info {\n}\n\n.lineup-artist {\n}\n\n.lineup-genre {\n}\n\n.lineup-badge {\n}\n\n.badge--headliner {\n}\n\n.badge--hot {\n}\n\n.badge--new {\n}\n\n.festival-footer {\n}\n\n.footer-stat {\n}\n\n.stat-value {\n}\n\n.stat-label {\n}\n\n.footer-divider {\n}\n\n.footer-cta {\n}"
   },
   "date": "2026-04-10",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-10.webp"
 }

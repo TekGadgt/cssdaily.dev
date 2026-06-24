@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #ffffff;\n  --card-border: #e2e0f0;\n  --header-bg: #4c3d8f;\n  --header-text: #ffffff;\n  --meta-text: #c5bef0;\n  --badge-bg: #f04a4a;\n  --badge-text: #ffffff;\n  --leader-bg: #f4f1ff;\n  --leader-border: #c9bff5;\n  --row-border: #f0eef9;\n  --rank-color: #9b8ec4;\n  --name-color: #2d2550;\n  --score-color: #4c3d8f;\n  --bar-track: #ede9fa;\n  --bar-leader: #4c3d8f;\n  --bar-default: #a899e6;\n  --delta-up: #22a06b;\n  --delta-down: #e0443c;\n  --delta-neutral: #9b8ec4;\n  --footer-bg: #f9f8ff;\n  --chip-border: #e2e0f0;\n  --stat-label-color: #9b8ec4;\n  --stat-value-color: #2d2550;\n}\n\n.scorecard {\n}\n\n.scorecard-header {\n}\n\n.game-icon {\n}\n\n.header-text {\n}\n\n.game-title {\n}\n\n.game-meta {\n}\n\n.round-badge {\n}\n\n.players-grid {\n}\n\n.player-row {\n}\n\n.player-leader {\n}\n\n.player-rank {\n}\n\n.player-avatar {\n}\n\n.player-name {\n}\n\n.score-bar-wrap {\n}\n\n.player-leader .score-bar {\n}\n\n.score-bar {\n}\n\n.player-score {\n}\n\n.player-delta {\n}\n\n.delta-up {\n}\n\n.delta-down {\n}\n\n.delta-neutral {\n}\n\n.scorecard-footer {\n}\n\n.stat-chip {\n}\n\n.stat-label {\n}\n\n.stat-value {\n}"
   },
   "date": "2026-04-17",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-17.webp"
 }

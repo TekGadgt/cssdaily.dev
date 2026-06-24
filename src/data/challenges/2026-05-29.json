@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #1a1a2e;\n  --bg-header: #16213e;\n  --bg-row: #0f3460;\n  --bg-row-now: #1b2a5e;\n  --bg-footer: #16213e;\n  --accent-gold: #e2b04a;\n  --accent-red: #e05a5a;\n  --accent-green: #4abf7e;\n  --accent-blue: #4a90e2;\n  --text-primary: #f0f0f8;\n  --text-secondary: #9090b8;\n  --text-meta: #6868a0;\n  --border-row: #2a2a5a;\n  --tag-now-bg: #e2b04a22;\n  --tag-now-text: #e2b04a;\n  --tag-open-bg: #4abf7e22;\n  --tag-open-text: #4abf7e;\n  --tag-full-bg: #e05a5a22;\n  --tag-full-text: #e05a5a;\n  --btn-bg: #e2b04a;\n  --btn-text: #1a1a2e;\n  --now-border: #e2b04a;\n}\n\n.festival-card {\n}\n\n.festival-header {\n}\n\n.festival-logo {\n}\n\n.festival-title {\n}\n\n.festival-name {\n}\n\n.festival-subtitle {\n}\n\n.festival-badge {\n}\n\n.screenings {\n}\n\n.screening-row {\n}\n\n.screening-now {\n}\n\n.time-block {\n}\n\n.time {\n}\n\n.hall {\n}\n\n.film-info {\n}\n\n.film-title {\n}\n\n.film-meta {\n}\n\n.status-tag {\n}\n\n.tag-now {\n}\n\n.tag-open {\n}\n\n.tag-full {\n}\n\n.festival-footer {\n}\n\n.footer-stat {\n}\n\n.stat-num {\n}\n\n.stat-label {\n}\n\n.footer-divider {\n}\n\n.book-btn {\n}"
   },
   "date": "2026-05-29",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-29.webp"
 }

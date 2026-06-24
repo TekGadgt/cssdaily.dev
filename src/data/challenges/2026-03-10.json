@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #1a1a2e;\n  --album-bg: #16213e;\n  --accent: #e94560;\n  --accent-soft: #ff6b6b;\n  --highlight: #0f3460;\n  --text-primary: #eaeaea;\n  --text-secondary: #a0a0c0;\n  --disc-outer: #2a2a4a;\n  --disc-inner: #1e1e38;\n  --disc-center: #e94560;\n  --progress-track: #2e2e50;\n  --progress-fill: #e94560;\n  --progress-thumb: #ffffff;\n  --ctrl-bg: #0f3460;\n  --ctrl-hover: #e94560;\n  --tag-bg: #0f3460;\n  --tag-text: #a0c4ff;\n  --genre-bg: #e94560;\n  --genre-text: #ffffff;\n}\n\nbody {}\n\n.player-card {}\n\n.album-art {}\n\n.art-inner {}\n\n.disc-ring {}\n\n.outer-ring {}\n\n.inner-ring {}\n\n.disc-center {}\n\n.genre-tag {}\n\n.player-info {}\n\n.track-meta {}\n\n.track-title {}\n\n.track-artist {}\n\n.progress-section {}\n\n.progress-bar {}\n\n.progress-fill {}\n\n.progress-thumb {}\n\n.time-labels {}\n\n.controls {}\n\n.ctrl-btn {}\n\n.skip-btn {}\n\n.play-btn {}\n\n.extras {}\n\n.extra-tag {}"
   },
   "date": "2026-03-10",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-10.webp"
 }

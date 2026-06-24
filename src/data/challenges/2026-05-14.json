@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #1a1f3c;\n  --bg-stub: #12162b;\n  --accent: #f5a623;\n  --accent-light: #ffc85e;\n  --text-primary: #ffffff;\n  --text-secondary: #8b92b8;\n  --text-muted: #555e8a;\n  --divider: #2e3560;\n  --badge-bg: #f5a623;\n  --badge-text: #1a1f3c;\n  --barcode-color: #2e3560;\n  --city-code-color: #ffffff;\n  --route-line: #2e3560;\n}\n\n.boarding-pass {\n}\n\n.pass-main {\n}\n\n.airline-header {\n}\n\n.airline-logo {\n}\n\n.airline-name {\n}\n\n.flight-badge {\n}\n\n.route-row {\n}\n\n.city-block {\n}\n\n.city-block--right {\n}\n\n.city-code {\n}\n\n.city-name {\n}\n\n.route-arrow {\n}\n\n.dashes {\n}\n\n.plane-icon {\n}\n\n.info-row {\n}\n\n.info-item {\n}\n\n.info-label {\n}\n\n.info-value {\n}\n\n.pass-divider {\n}\n\n.notch {\n}\n\n.notch--top {\n}\n\n.notch--bottom {\n}\n\n.divider-line {\n}\n\n.pass-stub {\n}\n\n.stub-item {\n}\n\n.stub-value {\n}\n\n.barcode {\n}\n\n.barcode-lines {\n}\n\n.barcode-text {\n}"
   },
   "date": "2026-05-14",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-14.webp"
 }

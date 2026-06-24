@@ -10,5 +10,6 @@
     "css": ":root {\n  --brand-primary: #1a3a5c;\n  --brand-accent: #e8a020;\n  --brand-light: #e8f0fa;\n  --card-bg: #ffffff;\n  --header-bg: #1a3a5c;\n  --footer-bg: #f0f4fa;\n  --text-primary: #1a2a3a;\n  --text-secondary: #5a6a7a;\n  --text-light: #ffffff;\n  --zone-a-bg: #1a3a5c;\n  --zone-b-bg: #2e7d52;\n  --zone-c-bg: #7b3fa0;\n  --zone-text: #ffffff;\n  --avatar-bg: #e8a020;\n  --avatar-text: #1a3a5c;\n  --border-color: #d0dcea;\n  --bar-color: #1a2a3a;\n  --barcode-text: #8a9aaa;\n}\n\n.pass-card {}\n\n.pass-header {}\n\n.transit-logo {}\n\n.logo-icon {}\n\n.logo-text {}\n\n.logo-name {}\n\n.logo-sub {}\n\n.pass-type {}\n\n.pass-body {}\n\n.rider-section {}\n\n.rider-avatar {}\n\n.rider-info {}\n\n.rider-name {}\n\n.rider-id {}\n\n.zone-badges {}\n\n.zone {}\n\n.zone-a {}\n.zone-b {}\n.zone-c {}\n\n.pass-details {}\n\n.detail-item {}\n\n.detail-label {}\n\n.detail-value {}\n\n.pass-footer {}\n\n.barcode {}\n\n.bar {}\n\n.bar.wide {}\n\n.barcode-num {}"
   },
   "date": "2026-05-31",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-31.webp"
 }

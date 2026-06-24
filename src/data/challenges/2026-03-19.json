@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #1a1d2e;\n  --bg-row: #242740;\n  --bg-row-hover: #2c3052;\n  --border-card: #2e3250;\n  --text-primary: #ffffff;\n  --text-secondary: #8b90b8;\n  --text-label: #5c6180;\n  --accent-btc: #f7931a;\n  --accent-eth: #627eea;\n  --accent-sol: #9945ff;\n  --accent-dot: #e6007a;\n  --color-positive: #22c98e;\n  --color-negative: #f04f63;\n  --bar-track: #2e3250;\n  --bar-btc: #f7931a;\n  --bar-eth: #627eea;\n  --bar-sol: #9945ff;\n  --bar-dot: #e6007a;\n  --footer-bg: #14162a;\n  --divider: #2e3250;\n}\n\n.portfolio {\n}\n\n.portfolio-header {\n}\n\n.portfolio-title {\n}\n\n.portfolio-label {\n}\n\n.portfolio-value {\n}\n\n.portfolio-change {\n}\n\n.portfolio-change.positive {\n}\n\n.change-arrow {\n}\n\n.coin-list {\n}\n\n.coin-row {\n}\n\n.coin-icon {\n}\n\n.coin-icon.btc {}\n.coin-icon.eth {}\n.coin-icon.sol {}\n.coin-icon.dot {}\n\n.coin-info {\n}\n\n.coin-name {\n}\n\n.coin-ticker {\n}\n\n.coin-bar-wrap {\n}\n\n.coin-row:nth-child(1) .coin-bar {}\n.coin-row:nth-child(2) .coin-bar {}\n.coin-row:nth-child(3) .coin-bar {}\n.coin-row:nth-child(4) .coin-bar {}\n\n.coin-bar {\n}\n\n.coin-stats {\n}\n\n.coin-price {\n}\n\n.coin-change {\n}\n\n.coin-change.positive {}\n.coin-change.negative {}\n\n.portfolio-footer {\n}\n\n.footer-stat {\n}\n\n.footer-label {\n}\n\n.footer-val {\n}\n\n.footer-divider {\n}"
   },
   "date": "2026-03-19",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-19.webp"
 }

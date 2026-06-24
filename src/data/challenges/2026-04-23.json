@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-board: #1e1a14;\n  --bg-card: #2c2519;\n  --bg-featured: #3a2e1c;\n  --border-card: #4a3e2a;\n  --border-featured: #c9a84c;\n  --text-primary: #f0e6cc;\n  --text-secondary: #a8936a;\n  --text-day: #c9a84c;\n  --text-price: #f0e6cc;\n  --badge-pick-bg: #c9a84c;\n  --badge-pick-text: #1e1a14;\n  --badge-veg-bg: #3a5e3a;\n  --badge-veg-text: #a8d4a8;\n  --badge-fish-bg: #1e3a5e;\n  --badge-fish-text: #a8c8f0;\n  --badge-pop-bg: #5e2a2a;\n  --badge-pop-text: #f0a8a8;\n  --footer-text: #6e5e3e;\n  --tag-bg: #c9a84c;\n  --tag-text: #1e1a14;\n}\n\n.board {\n}\n\n.board-header {\n}\n\n.board-tag {\n}\n\n.board-title {\n}\n\n.board-subtitle {\n}\n\n.specials-grid {\n}\n\n.special-card {\n}\n\n.special-card.featured {\n}\n\n.card-day {\n}\n\n.card-name {\n}\n\n.card-desc {\n}\n\n.card-footer {\n}\n\n.card-badge {\n}\n\n.card-badge.veg {\n}\n\n.card-badge.fish {\n}\n\n.card-badge.pop {\n}\n\n.card-price {\n}\n\n.board-footer {\n}\n\n.footer-note {\n}"
   },
   "date": "2026-04-23",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-23.webp"
 }

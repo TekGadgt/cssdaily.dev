@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-board: #0f2a4a;\n  --bg-header: #0a1e36;\n  --bg-card: #1a3a5c;\n  --bg-card-hover: #1e4268;\n  --bg-run-track: #1a3a5c;\n  --color-accent: #4fc3f7;\n  --color-white: #ffffff;\n  --color-muted: #7fb3d3;\n  --color-badge-bg: #27ae60;\n  --color-badge-text: #ffffff;\n  --color-date: #4fc3f7;\n  --color-green-run: #27ae60;\n  --color-blue-run: #2980b9;\n  --color-black-run: #2c3e50;\n  --color-bar-green: #27ae60;\n  --color-bar-blue: #4fc3f7;\n  --color-bar-black: #95a5a6;\n  --color-divider: #1e4268;\n  --color-lift-num: #ffffff;\n  --color-lift-label: #7fb3d3;\n  --border-radius-board: 16px;\n  --border-radius-card: 10px;\n  --border-radius-badge: 6px;\n}\n\n.board {\n}\n\n.board-header {\n}\n\n.resort-name {\n}\n\n.board-meta {\n}\n\n.status-badge {\n}\n\n.date-label {\n}\n\n.conditions-grid {\n}\n\n.condition-card {\n}\n\n.condition-icon {\n}\n\n.condition-value {\n}\n\n.unit {\n}\n\n.condition-label {\n}\n\n.runs-section {\n}\n\n.run-row {\n}\n\n.run-dot {\n}\n\n.run-dot.green {}\n.run-dot.blue  {}\n.run-dot.black {}\n\n.run-name {\n}\n\n.run-count {\n}\n\n.run-bar-track {\n}\n\n.run-bar {\n}\n\n.run-row:nth-child(1) .run-bar {}\n.run-row:nth-child(2) .run-bar {}\n.run-row:nth-child(3) .run-bar {}\n\n.lifts-row {\n}\n\n.lift-item {\n}\n\n.lift-num {\n}\n\n.lift-unit {\n}\n\n.lift-label {\n}\n\n.lift-divider {\n}"
   },
   "date": "2026-04-04",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-04.webp"
 }

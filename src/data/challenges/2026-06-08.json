@@ -10,5 +10,6 @@
     "css": ":root {\n  --color-bg: #1e2d1f;\n  --color-surface: #ffffff;\n  --color-header-bg: #2d4a2f;\n  --color-accent: #5a9e4b;\n  --color-accent-light: #d4edcf;\n  --color-highlight: #e8a020;\n  --color-highlight-light: #fdf0d5;\n  --color-text-primary: #1a2b1b;\n  --color-text-secondary: #5a6e5b;\n  --color-text-muted: #8fa08f;\n  --color-text-white: #ffffff;\n  --color-divider: #dde8dd;\n  --color-dot: #c8dcc8;\n  --color-dot-active: #5a9e4b;\n  --color-badge-bg: #5a9e4b;\n  --color-tag-bg: #eef4ee;\n  --color-tag-text: #3a5e3b;\n}\n\n.trail-card {\n}\n\n.trail-header {\n}\n\n.trail-badge {\n}\n\n.difficulty-tag {\n}\n\n.trail-title {\n}\n\n.trail-name {\n}\n\n.trail-region {\n}\n\n.trail-stats {\n}\n\n.stat-item {\n}\n\n.stat-value {\n}\n\n.stat-label {\n}\n\n.stat-divider {\n}\n\n.trail-body {\n}\n\n.waypoints {\n}\n\n.trail-meta {\n}\n\n.section-label {\n}\n\n.waypoint-list {\n}\n\n.waypoint {\n}\n\n.wp-dot {\n}\n\n.wp-dot.active {\n}\n\n.wp-name {\n}\n\n.wp-dist {\n}\n\n.condition-tags {\n}\n\n.tag {\n}\n\n.tag.highlight {\n}"
   },
   "date": "2026-06-08",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-06-08.webp"
 }

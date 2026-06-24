@@ -62,7 +62,7 @@ export default function HistoryView({
               return (
                 <a
                   key={date}
-                  href={`${basePath}/${date}`}
+                  href={`${basePath}/${date}/`}
                   className="flex justify-between items-center py-2 px-3 rounded hover:bg-gray-700 transition"
                 >
                   <span className="text-sm text-gray-300">

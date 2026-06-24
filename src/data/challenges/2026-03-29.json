@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #ffffff;\n  --bg-dashboard: #f0f7f0;\n  --border-main: #c8e0c8;\n  --accent-green: #3a8a4a;\n  --accent-green-light: #e6f4e8;\n  --text-primary: #1a2e1a;\n  --text-secondary: #5a7a5a;\n  --text-muted: #8aaa8a;\n  --status-ok: #2e8b57;\n  --status-ok-bg: #e6f4ec;\n  --status-warn: #c87800;\n  --status-warn-bg: #fff4e0;\n  --status-urgent: #c0392b;\n  --status-urgent-bg: #fdecea;\n  --strip-bg: #2d6a3f;\n  --strip-text: #ffffff;\n  --strip-muted: #a8d4b4;\n  --divider-strip: #3d8a52;\n}\n\n.dashboard {\n}\n\n.dash-header {\n}\n\n.dash-title {\n}\n\n.dash-count {\n}\n\n.plant-grid {\n}\n\n.plant-card {\n}\n\n.plant-icon {\n}\n\n.plant-info {\n}\n\n.plant-name {\n}\n\n.plant-type {\n}\n\n.water-status {\n}\n\n.water-status.ok {\n}\n\n.water-status.warn {\n}\n\n.water-status.urgent {\n}\n\n.status-dot {\n}\n\n.water-status.ok .status-dot {\n}\n\n.water-status.warn .status-dot {\n}\n\n.water-status.urgent .status-dot {\n}\n\n.status-label {\n}\n\n.water-status.ok .status-label {\n}\n\n.water-status.warn .status-label {\n}\n\n.water-status.urgent .status-label {\n}\n\n.care-strip {\n}\n\n.care-stat {\n}\n\n.care-value {\n}\n\n.care-label {\n}\n\n.care-divider {\n}"
   },
   "date": "2026-03-29",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-29.webp"
 }

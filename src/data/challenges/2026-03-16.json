@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #ffffff;\n  --bg-header: #1a1f2e;\n  --bg-footer: #f8f9fb;\n  --bg-item-hover: #f4f6ff;\n  --border-color: #e4e8f0;\n  --text-primary: #1a1f2e;\n  --text-secondary: #6b7491;\n  --text-header: #ffffff;\n  --text-meta: #9199b5;\n  --status-ready: #22c55e;\n  --status-review: #f59e0b;\n  --status-changes: #ef4444;\n  --status-draft: #9199b5;\n  --badge-approved-bg: #dcfce7;\n  --badge-approved-text: #16a34a;\n  --badge-review-bg: #fef3c7;\n  --badge-review-text: #d97706;\n  --badge-changes-bg: #fee2e2;\n  --badge-changes-text: #dc2626;\n  --badge-draft-bg: #f1f2f6;\n  --badge-draft-text: #6b7491;\n  --stat-value-color: #1a1f2e;\n  --divider-color: #d1d5e8;\n}\n\n.dashboard {\n}\n\n.dash-header {\n}\n\n.dash-title {\n}\n\n.dash-count {\n}\n\n.pr-list {\n}\n\n.pr-item {\n}\n\n.pr-item:last-child {\n}\n\n.pr-status {\n}\n\n.status-ready { }\n.status-review { }\n.status-changes { }\n.status-draft { }\n\n.pr-info {\n}\n\n.pr-name {\n}\n\n.pr-meta {\n}\n\n.pr-badge {\n}\n\n.badge-approved {\n}\n\n.badge-review {\n}\n\n.badge-changes {\n}\n\n.badge-draft {\n}\n\n.dash-footer {\n}\n\n.stat {\n}\n\n.stat-value {\n}\n\n.stat-label {\n}\n\n.stat-divider {\n}"
   },
   "date": "2026-03-16",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-16.webp"
 }

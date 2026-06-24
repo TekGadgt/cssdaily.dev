@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg: #1a1a2e;\n  --accent: #e94560;\n  --text-light: #ffffff;\n  --text-muted: #a0a0c0;\n  --divider: #2e2e4e;\n  --qr-bg: #ffffff;\n  --ticket-right-bg: #16213e;\n}\n\n.ticket {\n}\n\n.ticket-left {\n}\n\n.event-label {\n}\n\n.event-title {\n}\n\n.event-subtitle {\n}\n\n.event-meta {\n}\n\n.meta-item {\n}\n\n.ticket-divider {\n}\n\n.notch {\n}\n\n.dashes {\n}\n\n.ticket-right {\n}\n\n.ticket-number {\n}\n\n.qr-placeholder {\n}\n\n.ticket-admit {\n}"
   },
   "date": "2026-03-06",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-06.webp"
 }

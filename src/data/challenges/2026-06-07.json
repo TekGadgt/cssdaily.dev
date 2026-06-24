@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #ffffff;\n  --accent: #5b4ef8;\n  --accent-light: #ede9ff;\n  --text-primary: #1a1a2e;\n  --text-secondary: #6b6b8a;\n  --text-muted: #a0a0b8;\n  --border: #e8e8f0;\n  --row-alt: #f9f9fc;\n  --badge-bg: #fff3cd;\n  --badge-text: #7a5c00;\n  --status-bg: #e8f5e9;\n  --status-text: #2e7d32;\n  --grand-bg: #5b4ef8;\n  --grand-text: #ffffff;\n}\n\nbody {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 100vh;\n  margin: 0;\n  padding: 20px;\n  box-sizing: border-box;\n}\n\n.invoice-card {\n}\n\n.invoice-header {\n}\n\n.brand {\n}\n\n.brand-mark {\n}\n\n.brand-name {\n}\n\n.invoice-meta {\n}\n\n.invoice-label {\n}\n\n.invoice-number {\n}\n\n.divider {\n}\n\n.client-row {\n}\n\n.client-info,\n.due-info {\n}\n\n.due-info {\n}\n\n.field-label {\n}\n\n.client-name {\n}\n\n.client-sub {\n}\n\n.due-date {\n}\n\n.due-badge {\n}\n\n.line-items {\n}\n\n.line-item {\n}\n\n.line-item:nth-child(even) {\n}\n\n.line-item.header-row {\n}\n\n.line-item span:not(:first-child) {\n}\n\n.totals-row {\n}\n\n.totals-block {\n}\n\n.total-line {\n}\n\n.total-line.grand {\n}\n\n.invoice-footer {\n}\n\n.status-badge {\n}\n\n.footer-note {\n}"
   },
   "date": "2026-06-07",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-06-07.webp"
 }

@@ -10,5 +10,6 @@
     "css": ":root {\n  --color-card-bg: #ffffff;\n  --color-header-bg: #1a1a2e;\n  --color-header-text: #ffffff;\n  --color-gym-label: #a78bfa;\n  --color-title: #ffffff;\n  --color-badge-bg: #a78bfa;\n  --color-badge-text: #1a1a2e;\n  --color-yoga-accent: #34d399;\n  --color-spin-accent: #f97316;\n  --color-hiit-accent: #f43f5e;\n  --color-pilates-accent: #60a5fa;\n  --color-boxing-accent: #fbbf24;\n  --color-item-bg: #f8f7ff;\n  --color-item-border: #e9e7f5;\n  --color-time-text: #374151;\n  --color-name-text: #111827;\n  --color-meta-text: #6b7280;\n  --color-spots-text: #059669;\n  --color-spots-bg: #d1fae5;\n  --color-full-text: #dc2626;\n  --color-full-bg: #fee2e2;\n  --color-footer-bg: #f3f2fc;\n  --color-legend-text: #6b7280;\n  --color-dot-low: #fbbf24;\n  --color-dot-full: #dc2626;\n  --color-btn-bg: #a78bfa;\n  --color-btn-text: #1a1a2e;\n}\n\n.schedule-card {\n}\n\n.card-header {\n}\n\n.header-left {\n}\n\n.gym-label {\n}\n\n.card-title {\n}\n\n.day-badge {\n}\n\n.class-list {\n}\n\n.class-item {\n}\n\n.class-yoga { }\n.class-spin { }\n.class-hiit { }\n.class-pilates { }\n.class-boxing { }\n\n.class-time {\n}\n\n.class-info {\n}\n\n.class-name {\n}\n\n.class-meta {\n}\n\n.class-spots {\n}\n\n.class-spots.full {\n}\n\n.card-footer {\n}\n\n.legend-item {\n}\n\n.legend-dot {\n}\n\n.dot-low { }\n.dot-full { }\n\n.legend-text {\n}\n\n.book-btn {\n}"
   },
   "date": "2026-04-27",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-27.webp"
 }

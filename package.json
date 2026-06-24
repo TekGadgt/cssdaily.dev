@@ -7,7 +7,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "generate": "tsx scripts/generate-challenge.ts"
+    "generate": "tsx scripts/generate-challenge.ts",
+    "migrate-targets": "tsx scripts/migrate-targets-to-webp.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
@@ -24,6 +25,7 @@
     "codemirror": "^6.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "sharp": "0.34.5",
     "tailwindcss": "^3.4.17"
   },
   "devDependencies": {

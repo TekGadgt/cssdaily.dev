@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-board: #1a0a2e;\n  --bg-entry: #2d1b4e;\n  --bg-entry-hover: #3a2460;\n  --border-board: #7b2fff;\n  --border-entry: #4a2080;\n  --color-gold: #ffd700;\n  --color-silver: #c0c8d8;\n  --color-bronze: #cd7f32;\n  --color-default: #8888aa;\n  --color-title: #ff00ff;\n  --color-subtitle: #00ffcc;\n  --color-score: #ffffff;\n  --color-rank: #aaaacc;\n  --color-footer: #6644aa;\n  --bar-gold: #ffd700;\n  --bar-silver: #c0c8d8;\n  --bar-bronze: #cd7f32;\n  --bar-default: #5544aa;\n  --color-credits: #ff4488;\n}\n\n.arcade-board {\n}\n\n.board-header {\n}\n\n.header-icon {\n}\n\n.board-title {\n}\n\n.board-subtitle {\n}\n\n.leaderboard {\n}\n\n.entry {\n}\n\n.rank {\n}\n\n.initials {\n}\n\n.entry--gold .initials {}\n.entry--silver .initials {}\n.entry--bronze .initials {}\n.entry .initials {}\n\n.score-bar {\n}\n\n.score-bar--gold {}\n.score-bar--silver {}\n.score-bar--bronze {}\n.score-bar--default {}\n\n.score {\n}\n\n.board-footer {\n}\n\n.footer-text {\n}\n\n.credits {\n}"
   },
   "date": "2026-05-12",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-12.webp"
 }

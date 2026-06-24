@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #1a1025;\n  --header-bg: #2d1f45;\n  --accent: #c084fc;\n  --accent-dark: #7c3aed;\n  --text-primary: #f3e8ff;\n  --text-secondary: #c4b5d4;\n  --text-muted: #8b7aa0;\n  --amount-bg: #3b2860;\n  --amount-color: #e2c9ff;\n  --step-num-bg: #7c3aed;\n  --step-num-color: #ffffff;\n  --meta-bg: #2d1f45;\n  --divider: #3b2860;\n  --badge-bg: #c084fc;\n  --badge-text: #1a1025;\n}\n\n.card {\n}\n\n.card-header {\n}\n\n.badge {\n}\n\n.drink-name {\n}\n\n.drink-sub {\n}\n\n.card-body {\n}\n\n.ingredients-panel {\n}\n\n.details-panel {\n}\n\n.section-title {\n}\n\n.ingredient-list {\n}\n\n.ingredient-item {\n}\n\n.amount {\n}\n\n.ingredient {\n}\n\n.steps {\n}\n\n.step {\n}\n\n.step-num {\n}\n\n.step-text {\n}\n\n.meta-row {\n}\n\n.meta-item {\n}\n\n.meta-label {\n}\n\n.meta-value {\n}"
   },
   "date": "2026-05-20",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-20.webp"
 }

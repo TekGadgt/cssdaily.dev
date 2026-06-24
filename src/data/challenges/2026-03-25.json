@@ -10,5 +10,6 @@
     "css": ":root {\n  --panel-bg: #1e1e2e;\n  --panel-border: #313145;\n  --header-text: #e0e0f0;\n  --subtext: #8888aa;\n  --accent: #7c6af7;\n  --accent-light: #a99df9;\n  --room-bg: #2a2a3e;\n  --room-active-bg: #7c6af7;\n  --room-active-text: #ffffff;\n  --room-text: #8888aa;\n  --device-bg: #2a2a3e;\n  --device-on-bg: #32324a;\n  --device-on-border: #7c6af7;\n  --device-off-border: #313145;\n  --device-name: #c8c8e0;\n  --device-value-on: #a99df9;\n  --device-value-off: #555570;\n  --toggle-off-bg: #3a3a52;\n  --toggle-on-bg: #7c6af7;\n  --toggle-knob: #ffffff;\n  --footer-bg: #252538;\n  --stat-label: #8888aa;\n  --stat-value: #c8c8e0;\n  --dot-color: #4caf82;\n}\n\n.panel {}\n\n.panel-header {}\n\n.panel-title {}\n\n.status-dot {}\n\n.rooms {}\n\n.room {}\n\n.room.active {}\n\n.room-icon {}\n\n.room-name {}\n\n.room.active .room-name {}\n\n.devices {}\n\n.device-card {}\n\n.device-card.on {}\n\n.device-top {}\n\n.device-icon {}\n\n.toggle {}\n\n.toggle::after {}\n\n.toggle.on {}\n\n.toggle.on::after {}\n\n.device-name {}\n\n.device-value {}\n\n.device-card.on .device-value {}\n\n.panel-footer {}\n\n.stat {}\n\n.stat-label {}\n\n.stat-value {}"
   },
   "date": "2026-03-25",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-25.webp"
 }

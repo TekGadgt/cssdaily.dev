@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg: #ffffff;\n  --border: #e4ddd4;\n  --accent: #7c5c3e;\n  --accent-light: #f5ede3;\n  --accent-mid: #c49a72;\n  --title-color: #2e1f0f;\n  --text-main: #4a3728;\n  --text-muted: #9c8472;\n  --cover-bg: #7c5c3e;\n  --cover-text: #ffffff;\n  --progress-bg: #ede4da;\n  --progress-fill: #7c5c3e;\n  --done-bg: #e4f2e8;\n  --done-text: #2e7d4f;\n  --reading-bg: #e8f0fb;\n  --reading-text: #2c5faa;\n  --behind-bg: #fdecea;\n  --behind-text: #c0392b;\n  --av1: #d4a5c9;\n  --av2: #a5c4d4;\n  --av3: #a5d4b8;\n  --av4: #d4c5a5;\n  --footer-bg: #faf7f4;\n  --tag-bg: #ede4da;\n  --tag-text: #7c5c3e;\n}\n\n.tracker {\n}\n\n.tracker-header {\n}\n\n.header-left {\n}\n\n.label {\n}\n\n.title {\n}\n\n.badge {\n}\n\n.book-main {\n}\n\n.book-cover {\n}\n\n.cover-initial {\n}\n\n.book-info {\n}\n\n.book-meta {\n}\n\n.book-title {\n}\n\n.book-author {\n}\n\n.progress-bar {\n}\n\n.progress-fill {\n}\n\n.progress-label {\n}\n\n.members {\n}\n\n.member {\n}\n\n.avatar {\n}\n\n.av1 {}\n.av2 {}\n.av3 {}\n.av4 {}\n\n.member-info {\n}\n\n.member-name {\n}\n\n.member-status {\n}\n\n.member-status.done {\n}\n\n.member-status.reading {\n}\n\n.member-status.behind {\n}\n\n.member-pages {\n}\n\n.footer {\n}\n\n.next-meet {\n}\n\n.genre-tag {\n}"
   },
   "date": "2026-05-03",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-03.webp"
 }

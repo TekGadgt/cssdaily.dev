@@ -10,5 +10,6 @@
     "css": ":root {\n  --green-dark: #2d6a4f;\n  --green-mid: #52b788;\n  --green-light: #d8f3dc;\n  --green-pale: #f0faf2;\n  --accent-yellow: #f4a261;\n  --accent-red: #e63946;\n  --text-primary: #1b2e22;\n  --text-secondary: #4a7c59;\n  --text-muted: #8aab94;\n  --white: #ffffff;\n  --border: #b7e4c7;\n  --star-active: #f4a261;\n  --star-dim: #c8dfd0;\n  --price-old: #a0b8a8;\n  --badge-bg: #2d6a4f;\n  --badge-text: #ffffff;\n  --tag-bg: #d8f3dc;\n  --tag-text: #2d6a4f;\n}\n\n.catalog-card {\n}\n\n.card-header {\n}\n\n.season-tag {\n}\n\n.stock-badge {\n}\n\n.plant-showcase {\n}\n\n.plant-icon {\n}\n\n.plant-info {\n}\n\n.plant-name {\n}\n\n.plant-latin {\n}\n\n.rating-row {\n}\n\n.star {\n}\n\n.star.dim {\n}\n\n.review-count {\n}\n\n.care-grid {\n}\n\n.care-item {\n}\n\n.care-icon {\n}\n\n.care-label {\n}\n\n.care-value {\n}\n\n.card-footer {\n}\n\n.price-block {\n}\n\n.price-old {\n}\n\n.price-now {\n}\n\n.add-btn {\n}"
   },
   "date": "2026-05-30",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-30.webp"
 }

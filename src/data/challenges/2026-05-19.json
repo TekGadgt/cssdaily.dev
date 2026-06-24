@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #1a2744;\n  --card-border: #2e4080;\n  --header-bg: #0f1a33;\n  --accent-blue: #4a90e2;\n  --accent-teal: #3ecfcf;\n  --accent-warm: #f5a623;\n  --text-primary: #ffffff;\n  --text-secondary: #8fa8d0;\n  --text-muted: #556a90;\n  --stat-bg: #0f1a33;\n  --stat-border: #2e4080;\n  --forecast-bg: #243058;\n  --forecast-active-bg: #4a90e2;\n  --forecast-active-text: #ffffff;\n  --dot-color: #3ecfcf;\n  --divider: #2e4080;\n}\n\n.weather-card {\n}\n\n.card-header {\n}\n\n.location {\n}\n\n.location-dot {\n}\n\n.location-name {\n}\n\n.date-label {\n}\n\n.main-weather {\n}\n\n.temp-block {\n}\n\n.temp-value {\n}\n\n.temp-unit {\n}\n\n.condition-block {\n}\n\n.condition-icon {\n}\n\n.condition-text {\n}\n\n.feels-like {\n}\n\n.stats-row {\n}\n\n.stat {\n}\n\n.stat-icon {\n}\n\n.stat-value {\n}\n\n.stat-label {\n}\n\n.forecast-row {\n}\n\n.forecast-item {\n}\n\n.forecast-item.active {\n}\n\n.forecast-day {\n}\n\n.forecast-item.active .forecast-day {\n}\n\n.forecast-icon {\n}\n\n.forecast-temp {\n}"
   },
   "date": "2026-05-19",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-19.webp"
 }

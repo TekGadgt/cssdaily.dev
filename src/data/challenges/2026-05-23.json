@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #0f1117;\n  --bg-row-alt: #181c27;\n  --bg-header-row: #1e2333;\n  --border: #2a2f42;\n  --text-primary: #e8eaf0;\n  --text-secondary: #7b82a0;\n  --text-header: #4a5170;\n  --accent-up: #22c97a;\n  --accent-down: #f04f5e;\n  --accent-neutral: #7b82a0;\n  --badge-up-bg: #0d3325;\n  --badge-up-text: #22c97a;\n  --color-btc: #f7931a;\n  --color-eth: #627eea;\n  --color-sol: #9945ff;\n  --color-usdc: #2775ca;\n}\n\n.portfolio-card {\n}\n\n.card-header {\n}\n\n.header-left {\n}\n\n.label {\n}\n\n.total-value {\n}\n\n.badge {\n}\n\n.badge--up {\n}\n\n.assets-grid {\n}\n\n.asset-row {\n}\n\n.asset-row:last-child {\n}\n\n.asset-row--header {\n}\n\n.asset-row:not(.asset-row--header):nth-child(even) {\n}\n\n.asset-name {\n}\n\n.coin-dot {\n}\n\n.coin-dot--btc { }\n.coin-dot--eth { }\n.coin-dot--sol { }\n.coin-dot--usdc { }\n\n.coin-symbol {\n}\n\n.coin-label {\n}\n\n.price {\n}\n\n.change {\n}\n\n.change--up { }\n.change--down { }\n.change--neutral { }\n\n.holding {\n}\n\n.card-footer {\n}\n\n.bar-wrap {\n}\n\n.bar-segment {\n}\n\n.bar-seg--btc { }\n.bar-seg--eth { }\n.bar-seg--sol { }\n.bar-seg--usdc { }\n\n.legend {\n}\n\n.legend-item {\n}\n\n.legend-dot {\n}\n\n.legend-dot--btc { }\n.legend-dot--eth { }\n.legend-dot--sol { }\n.legend-dot--usdc { }"
   },
   "date": "2026-05-23",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-23.webp"
 }

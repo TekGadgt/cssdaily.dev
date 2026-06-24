@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #ffffff;\n  --card-border: #e8e8e8;\n  --card-radius: 16px;\n\n  --label-color: #9b8fc2;\n  --title-color: #1e1b2e;\n\n  --badge-bg: #d4f0de;\n  --badge-text: #1e7a42;\n\n  --stat-value-color: #1e1b2e;\n  --stat-unit-color: #9b8fc2;\n  --stat-label-color: #aaa9b8;\n  --divider-color: #eeecf7;\n\n  --progress-track: #eeecf7;\n  --progress-fill: #7c6bc9;\n  --progress-label-color: #5a5870;\n  --progress-pct-color: #7c6bc9;\n\n  --dot-done: #7c6bc9;\n  --dot-skip: #d8d6e8;\n  --exercise-name-color: #1e1b2e;\n  --exercise-detail-color: #9b8fc2;\n\n  --streak-color: #5a5870;\n  --btn-bg: #7c6bc9;\n  --btn-text: #ffffff;\n  --btn-radius: 8px;\n}\n\nbody {}\n\n.card {}\n\n.card-header {}\n\n.header-left {}\n\n.label {}\n\n.title {}\n\n.badge {}\n\n.stats-row {}\n\n.stat {}\n\n.stat-value {}\n\n.stat-unit {}\n\n.stat-label {}\n\n.stat-divider {}\n\n.progress-section {}\n\n.progress-header {}\n\n.progress-label {}\n\n.progress-pct {}\n\n.progress-bar {}\n\n.progress-fill {}\n\n.exercise-list {}\n\n.exercise-item {}\n\n.exercise-dot {}\n\n.dot-done {}\n\n.dot-skip {}\n\n.exercise-name {}\n\n.exercise-detail {}\n\n.card-footer {}\n\n.streak {}\n\n.btn {}"
   },
   "date": "2026-03-27",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-27.webp"
 }

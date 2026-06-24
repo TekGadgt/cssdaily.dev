@@ -10,5 +10,6 @@
     "css": ":root {\n  --color-card-bg: #ffffff;\n  --color-header-bg: #1e1b4b;\n  --color-header-text: #ffffff;\n  --color-count-bg: #4338ca;\n  --color-count-text: #e0e7ff;\n  --color-border: #e2e8f0;\n  --color-title: #1e293b;\n  --color-author: #94a3b8;\n  --color-track: #e2e8f0;\n  --color-done: #22c55e;\n  --color-reading: #6366f1;\n  --color-done-label: #16a34a;\n  --color-reading-label: #4338ca;\n  --color-unread-label: #94a3b8;\n  --color-spine-1: #f59e0b;\n  --color-spine-2: #6366f1;\n  --color-spine-3: #ef4444;\n  --color-spine-4: #14b8a6;\n  --color-footer-bg: #f8fafc;\n  --color-stat-pill-bg: #f1f5f9;\n  --color-stat-value: #1e293b;\n  --color-stat-name: #64748b;\n}\n\n.bookshelf {\n}\n\n.shelf-header {\n}\n\n.shelf-title {\n}\n\n.shelf-count {\n}\n\n.book-list {\n}\n\n.book-item {\n}\n\n.book-item:last-child {\n}\n\n.book-spine {\n}\n\n.book-info {\n}\n\n.book-title {\n}\n\n.book-author {\n}\n\n.book-progress {\n}\n\n.progress-bar {\n}\n\n.progress-fill {\n}\n\n.progress-label {\n}\n\n.done-label {\n}\n\n.reading-label {\n}\n\n.unread-label {\n}\n\n.shelf-footer {\n}\n\n.stat-pill {\n}\n\n.stat-value {\n}\n\n.stat-name {\n}"
   },
   "date": "2026-04-02",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-02.webp"
 }

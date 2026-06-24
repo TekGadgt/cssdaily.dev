@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #1a1a2e;\n  --bg-item: #16213e;\n  --bg-winner: #0f3460;\n  --accent: #e94560;\n  --accent-light: #ff6b6b;\n  --bar-default: #2a4a7f;\n  --bar-winner: #e94560;\n  --text-primary: #eaeaea;\n  --text-secondary: #8892a4;\n  --text-rank: #ffffff;\n  --tag-bg: #0d2240;\n  --tag-text: #7aafd4;\n  --crown-col: #f5c518;\n  --footer-bg: #101026;\n  --btn-bg: #e94560;\n  --btn-text: #ffffff;\n  --border-winner: #e94560;\n  --border-item: #1e2d4a;\n}\n\n.board {\n}\n\n.board-header {\n}\n\n.board-icon {\n}\n\n.board-title h2 {\n}\n\n.board-title p {\n}\n\n.board-date {\n}\n\n.movie-list {\n}\n\n.movie-item {\n}\n\n.movie-item.winner {\n}\n\n.rank {\n}\n\n.movie-info {\n}\n\n.movie-title {\n}\n\n.tags {\n}\n\n.tag {\n}\n\n.vote-bar-wrap {\n}\n\n.vote-bar {\n}\n\n.movie-item.winner .vote-bar {\n}\n\n.vote-pct {\n}\n\n.crown {\n}\n\n.board-footer {\n}\n\n.stat {\n}\n\n.stat-num {\n}\n\n.stat-label {\n}\n\n.divider-v {\n}\n\n.vote-btn {\n}"
   },
   "date": "2026-04-28",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-28.webp"
 }

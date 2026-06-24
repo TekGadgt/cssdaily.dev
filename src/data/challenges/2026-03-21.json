@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg: #ffffff;\n  --border: #e8e8e8;\n  --header-bg: #1a1a2e;\n  --header-text: #ffffff;\n  --count-bg: #2d2d4e;\n  --count-text: #a0a0cc;\n  --company-text: #1a1a2e;\n  --role-text: #6b7280;\n  --item-hover: #f9f9fb;\n  --divider: #f0f0f4;\n  --footer-bg: #f7f7fb;\n  --stat-value: #1a1a2e;\n  --stat-label: #9ca3af;\n\n  --status-interview-bg: #dbeafe;\n  --status-interview-text: #1d4ed8;\n  --status-applied-bg: #f3f4f6;\n  --status-applied-text: #374151;\n  --status-offer-bg: #d1fae5;\n  --status-offer-text: #065f46;\n  --status-review-bg: #fef3c7;\n  --status-review-text: #92400e;\n  --status-rejected-bg: #fee2e2;\n  --status-rejected-text: #991b1b;\n}\n\n.tracker {\n}\n\n.tracker-header {\n}\n\n.tracker-title {\n}\n\n.tracker-count {\n}\n\n.job-list {\n}\n\n.job-item {\n}\n\n.job-item:last-child {\n}\n\n.company {\n}\n\n.role {\n}\n\n.status {\n}\n\n.status--interview {\n}\n\n.status--applied {\n}\n\n.status--offer {\n}\n\n.status--review {\n}\n\n.status--rejected {\n}\n\n.tracker-footer {\n}\n\n.stat {\n}\n\n.stat-value {\n}\n\n.stat-label {\n}"
   },
   "date": "2026-03-21",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-21.webp"
 }

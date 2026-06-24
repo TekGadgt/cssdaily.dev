@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-slip: #1a1a2e;\n  --bg-header: #16213e;\n  --bg-record-item: #0f3460;\n  --bg-badge: #e94560;\n  --bg-total: #e94560;\n  --color-store-name: #ffffff;\n  --color-store-sub: #a0aec0;\n  --color-badge-text: #ffffff;\n  --color-divider-bg: #2d3748;\n  --color-divider-label: #e2c97e;\n  --color-record-icon: #e2c97e;\n  --color-record-title: #ffffff;\n  --color-record-artist: #a0aec0;\n  --color-record-price: #e2c97e;\n  --color-customer-label: #718096;\n  --color-customer-name: #e2e8f0;\n  --color-total-label: #ffffff;\n  --color-total-amount: #ffffff;\n  --border-slip: #2d3748;\n}\n\n.slip-wrapper {}\n\n.slip-header {}\n\n.store-info {}\n\n.store-name {}\n\n.store-sub {}\n\n.slip-badge {}\n\n.slip-divider {}\n\n.divider-label {}\n\n.slip-body {}\n\n.record-list {}\n\n.record-item {}\n\n.record-icon {}\n\n.record-info {}\n\n.record-title {}\n\n.record-artist {}\n\n.record-price {}\n\n.slip-footer {}\n\n.customer-row {}\n\n.customer-label {}\n\n.customer-name {}\n\n.total-row {}\n\n.total-label {}\n\n.total-amount {}"
   },
   "date": "2026-06-02",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-06-02.webp"
 }

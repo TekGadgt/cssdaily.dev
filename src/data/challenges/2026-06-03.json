@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #fffdf7;\n  --bg-header: #2c2416;\n  --bg-active: #fdf6e3;\n  --border-card: #d6c9a8;\n  --border-item: #e8dfc8;\n  --text-primary: #2c2416;\n  --text-secondary: #7a6a4f;\n  --text-header: #fffdf7;\n  --text-label: #b8a882;\n  --spine-red: #c0392b;\n  --spine-blue: #2471a3;\n  --spine-green: #1e8449;\n  --spine-yellow: #d4a017;\n  --spine-purple: #7d3c98;\n  --status-done-bg: #d5f5e3;\n  --status-done-text: #1e8449;\n  --status-reading-bg: #fdebd0;\n  --status-reading-text: #d35400;\n  --status-queued-bg: #eaecee;\n  --status-queued-text: #7f8c8d;\n  --star-color: #d4a017;\n  --footer-bg: #f4ede0;\n}\n\n.tracker {\n}\n\n.tracker-header {\n}\n\n.tracker-label {\n}\n\n.tracker-year {\n}\n\n.book-list {\n}\n\n.book-item {\n}\n\n.book-item--active {\n}\n\n.book-spine {\n}\n\n.book-item:nth-child(1) .book-spine {}\n.book-item:nth-child(2) .book-spine {}\n.book-item:nth-child(3) .book-spine {}\n.book-item:nth-child(4) .book-spine {}\n.book-item:nth-child(5) .book-spine {}\n\n.book-info {\n}\n\n.book-title {\n}\n\n.book-author {\n}\n\n.book-status {\n}\n\n.status-done {\n}\n\n.status-reading {\n}\n\n.status-queued {\n}\n\n.book-rating {\n}\n\n.tracker-footer {\n}\n\n.stat {\n}\n\n.stat-value {\n}\n\n.stat-label {\n}"
   },
   "date": "2026-06-03",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-06-03.webp"
 }

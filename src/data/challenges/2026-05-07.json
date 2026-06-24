@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #ffffff;\n  --bg-pro: #1e1b4b;\n  --bg-pro-btn: #6366f1;\n  --bg-tag: #6366f1;\n  --border-default: #e2e8f0;\n  --border-pro: #6366f1;\n  --text-heading: #1e293b;\n  --text-muted: #94a3b8;\n  --text-pro: #ffffff;\n  --text-pro-muted: #a5b4fc;\n  --text-label: #64748b;\n  --text-price: #1e293b;\n  --text-on: #22c55e;\n  --text-off: #cbd5e1;\n  --text-tag: #ffffff;\n  --badge-bg: #f1f5f9;\n  --badge-text: #64748b;\n  --btn-outline-border: #cbd5e1;\n  --btn-outline-text: #475569;\n  --btn-solid-text: #ffffff;\n}\n\n.card {\n}\n\n.card-header {\n}\n\n.label {\n}\n\n.badge {\n}\n\n.plans {\n}\n\n.plan {\n}\n\n.plan--pro {\n}\n\n.plan-tag {\n}\n\n.plan-name {\n}\n\n.plan--pro .plan-name {\n}\n\n.plan-price {\n}\n\n.amount {\n}\n\n.plan--pro .amount {\n}\n\n.period {\n}\n\n.plan--pro .period {\n}\n\n.features {\n}\n\n.feature {\n}\n\n.feature::before {\n}\n\n.feature--on {\n}\n\n.plan--pro .feature--on {\n}\n\n.feature--on::before {\n}\n\n.feature--off {\n}\n\n.feature--off::before {\n}\n\n.plan--pro .feature--off {\n}\n\n.btn {\n}\n\n.btn--outline {\n}\n\n.btn--solid {\n}"
   },
   "date": "2026-05-07",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-07.webp"
 }

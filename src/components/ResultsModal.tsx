@@ -91,10 +91,10 @@ export default function ResultsModal({ isOpen, date, score, timeSpent, shareEntr
         </div>
 
         <div className="flex justify-between mt-4 text-sm">
-          <a href={`${basePath}/${prevDate}`} className="text-blue-400 hover:text-blue-300">
+          <a href={`${basePath}/${prevDate}/`} className="text-blue-400 hover:text-blue-300">
             &larr; Previous
           </a>
-          <a href={`${basePath}/${nextDate}`} className="text-blue-400 hover:text-blue-300">
+          <a href={`${basePath}/${nextDate}/`} className="text-blue-400 hover:text-blue-300">
             Next &rarr;
           </a>
         </div>

@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #ffffff;\n  --card-border: #e8e0f0;\n  --accent: #7c4dbd;\n  --accent-light: #f0eafa;\n  --accent-mid: #c4a8e8;\n  --text-primary: #1e1530;\n  --text-secondary: #6b5f7a;\n  --text-muted: #a89bbf;\n  --bar-filled: #7c4dbd;\n  --bar-empty: #e8e0f0;\n  --tag-bg: #f0eafa;\n  --tag-text: #7c4dbd;\n  --cuisine-bg: #7c4dbd;\n  --cuisine-text: #ffffff;\n  --time-bg: #f0eafa;\n  --time-text: #7c4dbd;\n  --divider: #e8e0f0;\n  --stat-value-color: #1e1530;\n  --stat-label-color: #a89bbf;\n  --difficulty-text-color: #7c4dbd;\n}\n\n.card {\n}\n\n.card-header {\n}\n\n.cuisine-tag {\n}\n\n.time-badge {\n}\n\n.recipe-title {\n}\n\n.recipe-desc {\n}\n\n.difficulty-row {\n}\n\n.difficulty-label {\n}\n\n.difficulty-bars {\n}\n\n.bar {\n}\n\n.bar--filled {\n}\n\n.bar--empty {\n}\n\n.difficulty-text {\n}\n\n.stats-row {\n}\n\n.stat {\n}\n\n.stat-value {\n}\n\n.stat-label {\n}\n\n.stat-divider {\n}\n\n.tag-row {\n}\n\n.tag {\n}"
   },
   "date": "2026-04-09",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-09.webp"
 }

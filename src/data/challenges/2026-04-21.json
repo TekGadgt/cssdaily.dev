@@ -10,5 +10,6 @@
     "css": ":root {\n  --color-card-bg: #ffffff;\n  --color-header-bg: #2d6a4f;\n  --color-header-text: #ffffff;\n  --color-stall-number: #95d5b2;\n  --color-stall-name: #ffffff;\n  --color-badge-bg: #95d5b2;\n  --color-badge-text: #1b4332;\n  --color-divider: #e0e0e0;\n  --color-item-bg: #f8fdf9;\n  --color-item-featured-bg: #d8f3dc;\n  --color-item-featured-border: #52b788;\n  --color-item-border: #e8f5e9;\n  --color-produce-name: #2d3a2e;\n  --color-produce-price: #2d6a4f;\n  --color-footer-bg: #f0faf3;\n  --color-footer-border: #c8e6c9;\n  --color-dot-primary: #52b788;\n  --color-dot-accent: #f4a261;\n  --color-tag-text: #4a6741;\n  --color-hours-text: #7a9e7e;\n}\n\n.market-card {\n}\n\n.card-header {\n}\n\n.header-left {\n}\n\n.stall-number {\n}\n\n.stall-name {\n}\n\n.open-badge {\n}\n\n.divider {\n}\n\n.produce-grid {\n}\n\n.produce-item {\n}\n\n.produce-item.featured {\n}\n\n.produce-icon {\n}\n\n.produce-name {\n}\n\n.produce-price {\n}\n\n.card-footer {\n}\n\n.footer-tag {\n}\n\n.tag-dot {\n}\n\n.tag-dot.accent {\n}\n\n.footer-hours {\n}"
   },
   "date": "2026-04-21",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-21.webp"
 }

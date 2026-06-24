@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #1a1a2e;\n  --bg-header: #16213e;\n  --bg-avatar: #0f3460;\n  --bg-stat-wrap: #0f3460;\n  --bg-footer: #16213e;\n  --accent-primary: #e94560;\n  --accent-secondary: #f5a623;\n  --accent-green: #4caf82;\n  --accent-blue: #4a9eff;\n  --text-primary: #ffffff;\n  --text-secondary: #a0aec0;\n  --text-muted: #5a6a7e;\n  --bar-matches: #4a9eff;\n  --bar-winrate: #4caf82;\n  --bar-kd: #e94560;\n  --bar-acc: #f5a623;\n  --badge-mvp-bg: #e94560;\n  --badge-streak-bg: #f5a623;\n  --badge-top-bg: #4caf82;\n  --badge-text: #ffffff;\n  --rank-bg: #e94560;\n  --player-tag-bg: #4a9eff;\n  --border-color: #2a2a4a;\n  --divider-color: #2a2a4a;\n}\n\n.controller-card {\n}\n\n.card-header {\n}\n\n.player-tag {\n}\n\n.header-info {\n}\n\n.card-title {\n}\n\n.card-subtitle {\n}\n\n.rank-badge {\n}\n\n.card-body {\n}\n\n.avatar-section {\n}\n\n.avatar {\n}\n\n.avatar-icon {\n}\n\n.username {\n}\n\n.level-row {\n}\n\n.level-label {\n}\n\n.level-value {\n}\n\n.stats-section {\n}\n\n.stat-row {\n}\n\n.stat-label {\n}\n\n.stat-bar-wrap {\n}\n\n.stat-bar {\n}\n\n.bar-matches {}\n.bar-winrate {}\n.bar-kd      {}\n.bar-acc     {}\n\n.stat-value {\n}\n\n.badges-row {\n}\n\n.badge {\n}\n\n.badge-mvp    {}\n.badge-streak {}\n.badge-top    {}\n\n.card-footer {\n}\n\n.footer-item {\n}\n\n.divider {\n}"
   },
   "date": "2026-05-18",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-18.webp"
 }

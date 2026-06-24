@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #ffffff;\n  --header-bg: #1e1b4b;\n  --avatar-bg: #4f46e5;\n  --avatar-text: #ffffff;\n  --avatar-border: #ffffff;\n  --badge-bg: #dcfce7;\n  --badge-text: #16a34a;\n  --name-color: #1e1b4b;\n  --role-color: #6b7280;\n  --divider-color: #e5e7eb;\n  --stat-value-color: #1e1b4b;\n  --stat-label-color: #9ca3af;\n  --btn-primary-bg: #4f46e5;\n  --btn-primary-text: #ffffff;\n  --btn-secondary-bg: #f3f4f6;\n  --btn-secondary-text: #374151;\n  --card-radius: 16px;\n  --card-border: #e5e7eb;\n}\n\nbody {\n}\n\n.profile-card {\n}\n\n.profile-header {\n}\n\n.avatar {\n}\n\n.avatar-initials {\n}\n\n.status-badge {\n}\n\n.profile-body {\n}\n\n.profile-name {\n}\n\n.profile-role {\n}\n\n.divider {\n}\n\n.stats-row {\n}\n\n.stat {\n}\n\n.stat-value {\n}\n\n.stat-label {\n}\n\n.profile-footer {\n}\n\n.btn {\n}\n\n.btn-primary {\n}\n\n.btn-secondary {\n}"
   },
   "date": "2026-03-07",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-07.webp"
 }

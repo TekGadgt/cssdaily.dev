@@ -10,5 +10,6 @@
     "css": ":root {\n  --card-bg: #ffffff;\n  --header-bg: #2d5a27;\n  --tag-bg: #7ab648;\n  --tag-color: #ffffff;\n  --trail-name-color: #ffffff;\n  --location-color: #c8e6b0;\n  --badge-bg: #e05c2a;\n  --badge-color: #ffffff;\n  --stat-bg: #f4f9f0;\n  --stat-border: #d0e8c0;\n  --stat-value-color: #2d5a27;\n  --stat-label-color: #6b8f5e;\n  --elevation-track: #e0eed8;\n  --elevation-fill: #7ab648;\n  --elevation-label-color: #6b8f5e;\n  --feature-bg: #edf7e5;\n  --feature-color: #3a7030;\n  --feature-border: #c4deb8;\n  --footer-border: #e0eed8;\n  --dot-good: #5ab033;\n  --conditions-color: #4a6e40;\n  --btn-bg: #2d5a27;\n  --btn-color: #ffffff;\n  --card-border: #c8dfc0;\n}\n\nbody {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 100vh;\n  margin: 0;\n  padding: 20px;\n  box-sizing: border-box;\n}\n\n.card {\n}\n\n.card-header {\n}\n\n.header-left {\n}\n\n.tag {\n}\n\n.trail-name {\n}\n\n.location {\n}\n\n.difficulty-badge {\n}\n\n.stats-row {\n}\n\n.stat {\n}\n\n.stat-value {\n}\n\n.stat-label {\n}\n\n.elevation-bar {\n}\n\n.elevation-label {\n}\n\n.elevation-fill {\n}\n\n.features {\n}\n\n.feature {\n}\n\n.card-footer {\n}\n\n.conditions {\n}\n\n.dot {\n}\n\n.dot.good {\n}\n\n.conditions-text {\n}\n\n.save-btn {\n}"
   },
   "date": "2026-05-08",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-08.webp"
 }

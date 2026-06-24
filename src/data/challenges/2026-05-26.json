@@ -10,5 +10,6 @@
     "css": ":root {\n  --brand-dark: #0f1c2e;\n  --brand-accent: #2563eb;\n  --brand-accent-light: #dbeafe;\n  --brand-green: #16a34a;\n  --brand-green-light: #dcfce7;\n  --text-primary: #0f1c2e;\n  --text-secondary: #64748b;\n  --text-muted: #94a3b8;\n  --surface: #ffffff;\n  --surface-alt: #f8fafc;\n  --border: #e2e8f0;\n  --highlight-bg: #eff6ff;\n  --highlight-text: #1d4ed8;\n  --badge-bg: #fef9c3;\n  --badge-text: #854d0e;\n}\n\nbody {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 100vh;\n  margin: 0;\n  padding: 20px;\n  box-sizing: border-box;\n}\n\n.pitch-card {\n}\n\n.pitch-header {\n}\n\n.logo-mark {\n}\n\n.header-text {\n}\n\n.company-name {\n}\n\n.tagline {\n}\n\n.stage-badge {\n}\n\n.metrics-row {\n}\n\n.metric {\n}\n\n.metric.highlight {\n}\n\n.metric-value {\n}\n\n.metric.highlight .metric-value {\n}\n\n.metric-label {\n}\n\n.pitch-body {\n}\n\n.problem-block,\n.solution-block {\n}\n\n.problem-block {\n}\n\n.solution-block {\n}\n\n.block-title {\n}\n\n.block-text {\n}\n\n.pitch-footer {\n}\n\n.founder-row {\n}\n\n.founder-avatar {\n}\n\n.founder-info {\n}\n\n.founder-name {\n}\n\n.founder-role {\n}\n\n.cta-btn {\n}"
   },
   "date": "2026-05-26",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-05-26.webp"
 }

@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #1a1a2e;\n  --bg-art: #16213e;\n  --bg-art-inner: #0f3460;\n  --accent: #e94560;\n  --accent-secondary: #f5a623;\n  --text-primary: #ffffff;\n  --text-secondary: #a0a8c0;\n  --text-muted: #5a6080;\n  --tag-bg: #2a2a4a;\n  --tag-text: #a0a8c0;\n  --progress-track: #2a2a4a;\n  --progress-fill: #e94560;\n  --progress-thumb: #ffffff;\n  --ctrl-bg: #2a2a4a;\n  --ctrl-text: #a0a8c0;\n  --play-bg: #e94560;\n  --play-text: #ffffff;\n  --info-bg: #111128;\n  --info-border: #2a2a4a;\n  --art-circle: #e94560;\n  --art-dot: #1a1a2e;\n}\n\n.player-card {\n}\n\n.episode-header {\n}\n\n.podcast-art {\n}\n\n.art-inner {\n}\n\n.art-circle {\n}\n\n.art-dot {\n}\n\n.episode-meta {\n}\n\n.podcast-name {\n}\n\n.episode-title {\n}\n\n.episode-tags {\n}\n\n.tag {\n}\n\n.progress-section {\n}\n\n.progress-bar {\n}\n\n.progress-fill {\n}\n\n.progress-thumb {\n}\n\n.time-row {\n}\n\n.time-current {\n}\n\n.time-total {\n}\n\n.controls-row {\n}\n\n.ctrl-btn {\n}\n\n.ctrl-btn.play {\n}\n\n.info-row {\n}\n\n.info-item {\n}\n\n.info-label {\n}\n\n.info-value {\n}"
   },
   "date": "2026-04-22",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-04-22.webp"
 }

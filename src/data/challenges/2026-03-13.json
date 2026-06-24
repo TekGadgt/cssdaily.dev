@@ -10,5 +10,6 @@
     "css": ":root {\n  --bg-card: #1e3a5f;\n  --bg-header: #16305a;\n  --bg-stats: #16305a;\n  --bg-forecast: #243f6a;\n  --bg-forecast-active: #3b6faa;\n  --color-city: #ffffff;\n  --color-country: #7eb8f7;\n  --color-date: #7eb8f7;\n  --color-temp: #ffffff;\n  --color-unit: #7eb8f7;\n  --color-condition: #c5deff;\n  --color-stat-label: #7eb8f7;\n  --color-stat-value: #ffffff;\n  --color-day-name: #7eb8f7;\n  --color-day-temp: #ffffff;\n  --border-radius-card: 20px;\n  --border-radius-stat: 10px;\n  --border-radius-forecast: 12px;\n}\n\nbody {\n}\n\n.weather-widget {\n}\n\n.weather-header {\n}\n\n.location {\n}\n\n.city {\n}\n\n.country {\n}\n\n.date-label {\n}\n\n.weather-main {\n}\n\n.temp-block {\n}\n\n.temp-value {\n}\n\n.temp-unit {\n}\n\n.condition-block {\n}\n\n.condition-icon {\n}\n\n.condition-text {\n}\n\n.weather-stats {\n}\n\n.stat {\n}\n\n.stat-label {\n}\n\n.stat-value {\n}\n\n.forecast-row {\n}\n\n.forecast-day {\n}\n\n.forecast-day.active {\n}\n\n.day-name {\n}\n\n.day-icon {\n}\n\n.day-temp {\n}"
   },
   "date": "2026-03-13",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-03-13.webp"
 }

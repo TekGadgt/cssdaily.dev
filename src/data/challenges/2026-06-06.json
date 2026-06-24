@@ -10,5 +10,6 @@
     "css": ":root {\n  --ocean-deep: #0a3d62;\n  --ocean-mid: #1a6b9a;\n  --ocean-light: #5dade2;\n  --foam: #eaf6fd;\n  --sand: #f9e4b7;\n  --sand-dark: #e8c87a;\n  --coral: #e74c3c;\n  --coral-light: #fadbd8;\n  --sage: #27ae60;\n  --sage-light: #d5f5e3;\n  --amber: #f39c12;\n  --amber-light: #fef9e7;\n  --card-bg: #ffffff;\n  --text-primary: #0a3d62;\n  --text-muted: #7f8c8d;\n  --border-light: #d6eaf8;\n  --rating-bg: #0a3d62;\n  --rating-text: #ffffff;\n  --primary-block-bg: #eaf6fd;\n  --primary-block-border: #5dade2;\n}\n\n.surf-card {\n}\n\n.surf-header {\n}\n\n.location-label {\n}\n\n.location-name {\n}\n\n.surf-rating {\n}\n\n.rating-score {\n}\n\n.rating-label {\n}\n\n.conditions-grid {\n}\n\n.condition-block {\n}\n\n.condition-block.primary {\n}\n\n.cond-value {\n}\n\n.cond-unit {\n}\n\n.cond-label {\n}\n\n.tide-section {\n}\n\n.tide-title {\n}\n\n.tide-bar-wrap {\n}\n\n.tide-bar {\n}\n\n.tide-fill {\n}\n\n.tide-marker {\n}\n\n.tide-labels {\n}\n\n.session-tags {\n}\n\n.tag {\n}\n\n.tag-expert {\n}\n\n.tag-reef {\n}\n\n.tag-morning {\n}\n\n.tag-warning {\n}"
   },
   "date": "2026-06-06",
-  "timeLimit": 600
+  "timeLimit": 600,
+  "targetImage": "2026-06-06.webp"
 }
