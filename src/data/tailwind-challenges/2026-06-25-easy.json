@@ -1,0 +1,13 @@
+{
+  "title": "Bakery Fresh Loaf Tag",
+  "difficulty": "easy",
+  "date": "2026-06-25",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🍞</span>\n    <h1 class=\"  \">Golden Crust Bakery</h1>\n  </header>\n  <p class=\"  \">Sourdough Country Loaf</p>\n  <footer class=\"  \">\n    <span class=\"  \">Fresh Today</span>\n    <span class=\"  \">$6.50</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-amber-50 border-2 border-amber-400 rounded-2xl p-5 w-72 mx-auto mt-8\">\n  <header class=\"flex items-center gap-2 mb-3\">\n    <span class=\"text-2xl\">🍞</span>\n    <h1 class=\"text-lg font-bold text-amber-900\">Golden Crust Bakery</h1>\n  </header>\n  <p class=\"text-sm text-amber-700 font-medium mb-4\">Sourdough Country Loaf</p>\n  <footer class=\"flex items-center justify-between\">\n    <span class=\"bg-amber-400 text-amber-900 text-xs font-bold px-3 py-1 rounded-full\">Fresh Today</span>\n    <span class=\"text-amber-900 font-bold text-base\">$6.50</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-06-25-easy.webp"
+}
