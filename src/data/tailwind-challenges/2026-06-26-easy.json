@@ -1,0 +1,13 @@
+{
+  "title": "Cozy Bookshelf Reading Nook Badge",
+  "difficulty": "easy",
+  "date": "2026-06-26",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <figure class=\"  \">\n    📚\n  </figure>\n  <section class=\"  \">\n    <header class=\"  \">Reading Nook</header>\n    <h2 class=\"  \">Corner Bookshelf</h2>\n    <p class=\"  \">Cozy spot · 42 books shelved</p>\n    <span class=\"  \">Active</span>\n  </section>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"flex items-center gap-4 bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 w-80\">\n  <figure class=\"flex items-center justify-center bg-amber-200 rounded-xl w-16 h-16 text-3xl shrink-0\">\n    📚\n  </figure>\n  <section class=\"flex flex-col gap-1\">\n    <header class=\"text-xs font-semibold uppercase tracking-widest text-amber-500\">Reading Nook</header>\n    <h2 class=\"text-lg font-bold text-amber-900\">Corner Bookshelf</h2>\n    <p class=\"text-sm text-amber-700\">Cozy spot · 42 books shelved</p>\n    <span class=\"mt-1 self-start bg-amber-300 text-amber-900 text-xs font-semibold px-2 py-0.5 rounded-full\">Active</span>\n  </section>\n</article>"
+  },
+  "targetImage": "2026-06-26-easy.webp"
+}
