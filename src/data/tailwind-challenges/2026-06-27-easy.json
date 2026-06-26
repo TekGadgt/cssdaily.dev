@@ -1,0 +1,13 @@
+{
+  "title": "Campsite Reservation Badge",
+  "difficulty": "easy",
+  "date": "2026-06-27",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🏕️</span>\n    <h1 class=\"  \">Campsite Pass</h1>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Site Name</p>\n    <p class=\"  \">Pine Ridge — Plot 7</p>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">Jun 27–30</span>\n    <span class=\"  \">3 nights</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-green-800 rounded-2xl p-4 w-72 mx-auto mt-6 border-4 border-green-600\">\n  <header class=\"flex items-center gap-2 mb-3\">\n    <span class=\"text-2xl\">🏕️</span>\n    <h1 class=\"text-white text-lg font-bold tracking-wide\">Campsite Pass</h1>\n  </header>\n  <section class=\"bg-green-700 rounded-xl p-3 mb-3\">\n    <p class=\"text-green-200 text-xs uppercase font-semibold mb-1\">Site Name</p>\n    <p class=\"text-white text-base font-bold\">Pine Ridge — Plot 7</p>\n  </section>\n  <footer class=\"flex justify-between items-center\">\n    <span class=\"bg-yellow-400 text-green-900 text-xs font-bold px-3 py-1 rounded-full\">Jun 27–30</span>\n    <span class=\"text-green-300 text-xs font-medium\">3 nights</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-06-27-easy.webp"
+}
