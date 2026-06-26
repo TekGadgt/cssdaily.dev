@@ -11,7 +11,7 @@
     "migrate-targets": "tsx scripts/migrate-targets-to-webp.ts"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.39.0",
+    "@anthropic-ai/sdk": "^0.106.0",
     "@astrojs/check": "^0.9.8",
     "@astrojs/react": "^4.2.1",
     "@astrojs/tailwind": "^6.0.2",
