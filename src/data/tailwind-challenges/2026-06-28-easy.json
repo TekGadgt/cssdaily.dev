@@ -1,0 +1,13 @@
+{
+  "title": "Hiking Trail Difficulty Badge",
+  "difficulty": "easy",
+  "date": "2026-06-28",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <figure class=\"  \">\n    🥾\n  </figure>\n  <section class=\"  \">\n    <span class=\"  \">Moderate Trail</span>\n    <h2 class=\"  \">Pine Ridge Loop</h2>\n    <div class=\"  \">\n      <span class=\"  \">6.2 mi</span>\n      <span class=\"  \">+1,400 ft</span>\n    </div>\n  </section>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"flex items-center gap-4 bg-white rounded-2xl border border-stone-200 p-4 w-80\">\n  <figure class=\"flex items-center justify-center w-16 h-16 rounded-xl bg-emerald-100 text-4xl\">\n    🥾\n  </figure>\n  <section class=\"flex flex-col gap-1\">\n    <span class=\"text-xs font-semibold uppercase tracking-widest text-emerald-600\">Moderate Trail</span>\n    <h2 class=\"text-lg font-bold text-stone-800\">Pine Ridge Loop</h2>\n    <div class=\"flex items-center gap-2 text-sm text-stone-500\">\n      <span class=\"bg-stone-100 rounded-full px-2 py-0.5\">6.2 mi</span>\n      <span class=\"bg-amber-100 text-amber-700 rounded-full px-2 py-0.5\">+1,400 ft</span>\n    </div>\n  </section>\n</article>"
+  },
+  "targetImage": "2026-06-28-easy.webp"
+}
