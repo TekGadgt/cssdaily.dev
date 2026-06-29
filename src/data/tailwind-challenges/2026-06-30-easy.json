@@ -1,0 +1,13 @@
+{
+  "title": "Cocktail Hour Drink Ticket",
+  "difficulty": "easy",
+  "date": "2026-06-30",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Drink Ticket</span>\n    <span class=\"  \">x1</span>\n  </header>\n  <p class=\"  \">Mango Mojito</p>\n  <p class=\"  \">Rum · Fresh Mint · Mango Puree</p>\n  <footer class=\"  \">\n    <span class=\"  \">Valid: Jun 30, 2026</span>\n    <span class=\"  \">Redeem</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-72 bg-amber-50 border-2 border-amber-400 rounded-2xl p-4 mx-auto my-6\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-xs font-bold uppercase tracking-widest text-amber-600\">Drink Ticket</span>\n    <span class=\"bg-amber-400 text-white text-xs font-bold px-2 py-1 rounded-full\">x1</span>\n  </header>\n  <p class=\"text-xl font-bold text-amber-900 mb-1\">Mango Mojito</p>\n  <p class=\"text-sm text-amber-700 mb-3\">Rum · Fresh Mint · Mango Puree</p>\n  <footer class=\"flex items-center justify-between border-t border-amber-300 pt-3\">\n    <span class=\"text-xs text-amber-500\">Valid: Jun 30, 2026</span>\n    <span class=\"bg-amber-100 border border-amber-300 text-amber-800 text-xs font-semibold px-3 py-1 rounded-lg\">Redeem</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-06-30-easy.webp"
+}
