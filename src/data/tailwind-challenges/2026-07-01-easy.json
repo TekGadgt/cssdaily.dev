@@ -1,0 +1,13 @@
+{
+  "title": "Fireworks Show Ticket",
+  "difficulty": "easy",
+  "date": "2026-07-01",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">July 4th Celebration</span>\n    <span class=\"  \">2026</span>\n  </header>\n  <section class=\"  \">\n    <h1 class=\"  \">Grand Fireworks Show</h1>\n    <p class=\"  \">Riverside Park • Main Stage</p>\n    <div class=\"  \">\n      <div class=\"  \">\n        <p class=\"  \">Date</p>\n        <p class=\"  \">Jul 4, 2026</p>\n      </div>\n      <div class=\"  \">\n        <p class=\"  \">Time</p>\n        <p class=\"  \">9:00 PM</p>\n      </div>\n      <div class=\"  \">\n        <p class=\"  \">Gate</p>\n        <p class=\"  \">West B</p>\n      </div>\n    </div>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">ADMIT ONE</span>\n    <span class=\"  \">General</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-80 bg-indigo-950 rounded-2xl overflow-hidden border-2 border-indigo-700\">\n  <header class=\"bg-indigo-800 px-5 py-3 flex items-center justify-between\">\n    <span class=\"text-yellow-300 text-xs font-bold uppercase tracking-widest\">July 4th Celebration</span>\n    <span class=\"text-indigo-300 text-xs\">2026</span>\n  </header>\n  <section class=\"px-5 py-4\">\n    <h1 class=\"text-white text-xl font-bold mb-1\">Grand Fireworks Show</h1>\n    <p class=\"text-indigo-300 text-sm mb-4\">Riverside Park • Main Stage</p>\n    <div class=\"flex gap-3\">\n      <div class=\"bg-indigo-900 rounded-lg px-3 py-2 flex-1 text-center\">\n        <p class=\"text-indigo-400 text-xs mb-1\">Date</p>\n        <p class=\"text-white text-sm font-semibold\">Jul 4, 2026</p>\n      </div>\n      <div class=\"bg-indigo-900 rounded-lg px-3 py-2 flex-1 text-center\">\n        <p class=\"text-indigo-400 text-xs mb-1\">Time</p>\n        <p class=\"text-white text-sm font-semibold\">9:00 PM</p>\n      </div>\n      <div class=\"bg-indigo-900 rounded-lg px-3 py-2 flex-1 text-center\">\n        <p class=\"text-indigo-400 text-xs mb-1\">Gate</p>\n        <p class=\"text-white text-sm font-semibold\">West B</p>\n      </div>\n    </div>\n  </section>\n  <footer class=\"border-t-2 border-dashed border-indigo-700 px-5 py-3 flex items-center justify-between\">\n    <span class=\"text-yellow-400 text-xs font-bold\">ADMIT ONE</span>\n    <span class=\"bg-yellow-400 text-indigo-950 text-xs font-bold px-3 py-1 rounded-full\">General</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-01-easy.webp"
+}
