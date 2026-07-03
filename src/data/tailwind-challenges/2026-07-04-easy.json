@@ -1,0 +1,13 @@
+{
+  "title": "Independence Day BBQ Menu Card",
+  "difficulty": "easy",
+  "date": "2026-07-04",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🎆 BBQ Menu</span>\n    <span class=\"  \">July 4th</span>\n  </header>\n  <ul class=\"  \">\n    <li class=\"  \">\n      <span class=\"  \">🌽 Grilled Corn</span>\n      <span class=\"  \">Side</span>\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">🍔 Cheeseburger</span>\n      <span class=\"  \">Main</span>\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">🥗 Potato Salad</span>\n      <span class=\"  \">Side</span>\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">🍉 Watermelon</span>\n      <span class=\"  \">Dessert</span>\n    </li>\n  </ul>\n  <footer class=\"  \">\n    <span class=\"  \">⭐ Happy Independence Day ⭐</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-80 bg-white rounded-2xl overflow-hidden border-4 border-red-600\">\n  <header class=\"bg-red-600 px-4 py-3 flex items-center justify-between\">\n    <span class=\"text-white text-lg font-bold tracking-wide\">🎆 BBQ Menu</span>\n    <span class=\"bg-white text-red-600 text-xs font-bold px-2 py-1 rounded-full\">July 4th</span>\n  </header>\n  <ul class=\"px-4 py-3 space-y-2\">\n    <li class=\"flex items-center justify-between border-b border-gray-100 pb-2\">\n      <span class=\"text-sm font-semibold text-gray-800\">🌽 Grilled Corn</span>\n      <span class=\"text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full\">Side</span>\n    </li>\n    <li class=\"flex items-center justify-between border-b border-gray-100 pb-2\">\n      <span class=\"text-sm font-semibold text-gray-800\">🍔 Cheeseburger</span>\n      <span class=\"text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full\">Main</span>\n    </li>\n    <li class=\"flex items-center justify-between border-b border-gray-100 pb-2\">\n      <span class=\"text-sm font-semibold text-gray-800\">🥗 Potato Salad</span>\n      <span class=\"text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full\">Side</span>\n    </li>\n    <li class=\"flex items-center justify-between pb-1\">\n      <span class=\"text-sm font-semibold text-gray-800\">🍉 Watermelon</span>\n      <span class=\"text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full\">Dessert</span>\n    </li>\n  </ul>\n  <footer class=\"bg-blue-700 px-4 py-2 flex items-center justify-center\">\n    <span class=\"text-white text-xs font-semibold tracking-widest uppercase\">⭐ Happy Independence Day ⭐</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-04-easy.webp"
+}
