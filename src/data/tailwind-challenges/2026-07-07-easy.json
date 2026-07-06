@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Kite Festival Entry Tag",
+  "difficulty": "easy",
+  "date": "2026-07-07",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🪁</span>\n    <h1 class=\"  \">Kite Festival</h1>\n    <span class=\"  \">🌤️</span>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Participant</p>\n    <p class=\"  \">Jamie Windsworth</p>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">Entry #42</span>\n    <span class=\"  \">July 7, 2026</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-sky-100 border-4 border-sky-400 rounded-2xl p-4 w-72 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-2xl\">🪁</span>\n    <h1 class=\"text-base font-bold text-sky-800 uppercase tracking-widest\">Kite Festival</h1>\n    <span class=\"text-2xl\">🌤️</span>\n  </header>\n  <section class=\"bg-white rounded-xl border-2 border-sky-300 p-3 mb-3\">\n    <p class=\"text-xs text-sky-500 font-semibold uppercase tracking-wide mb-1\">Participant</p>\n    <p class=\"text-lg font-bold text-sky-900\">Jamie Windsworth</p>\n  </section>\n  <footer class=\"flex items-center justify-between\">\n    <span class=\"bg-sky-400 text-white text-xs font-bold px-3 py-1 rounded-full\">Entry #42</span>\n    <span class=\"text-xs text-sky-600 font-medium\">July 7, 2026</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-07-easy.webp"
+}
