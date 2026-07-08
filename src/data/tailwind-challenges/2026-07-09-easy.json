@@ -1,0 +1,13 @@
+{
+  "title": "Snorkeling Gear Rental Tag",
+  "difficulty": "easy",
+  "date": "2026-07-09",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Reef Rentals</span>\n    <span class=\"  \">Day Pass</span>\n  </header>\n  <p class=\"  \">Snorkel Kit #7</p>\n  <p class=\"  \">Mask · Fins · Vest</p>\n  <footer class=\"  \">\n    <span class=\"  \">Returns by</span>\n    <span class=\"  \">5:00 PM</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-cyan-500 rounded-2xl p-4 w-64 mx-auto mt-6 border-4 border-cyan-700\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-white text-xs font-bold uppercase tracking-widest\">Reef Rentals</span>\n    <span class=\"bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full\">Day Pass</span>\n  </header>\n  <p class=\"text-white text-lg font-bold mb-1\">Snorkel Kit #7</p>\n  <p class=\"text-cyan-100 text-sm mb-3\">Mask · Fins · Vest</p>\n  <footer class=\"flex items-center justify-between bg-cyan-700 rounded-xl px-3 py-2\">\n    <span class=\"text-cyan-200 text-xs\">Returns by</span>\n    <span class=\"text-white text-sm font-bold\">5:00 PM</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-09-easy.webp"
+}
