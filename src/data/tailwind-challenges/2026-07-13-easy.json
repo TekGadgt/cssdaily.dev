@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Roller Rink Session Pass",
+  "difficulty": "easy",
+  "date": "2026-07-13",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🛼 Roll On!</span>\n    <span class=\"  \">PASS</span>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Session Date</p>\n    <p class=\"  \">July 13, 2026</p>\n  </section>\n  <section class=\"  \">\n    <div class=\"  \">\n      <p class=\"  \">Start</p>\n      <p class=\"  \">7:00 PM</p>\n    </div>\n    <div class=\"  \">\n      <p class=\"  \">End</p>\n      <p class=\"  \">9:30 PM</p>\n    </div>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">⭐ Stardust Rink Co.</span>\n    <span class=\"  \">$8.50</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-80 bg-pink-600 rounded-2xl p-4 mx-auto border-4 border-yellow-300\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-yellow-300 text-xl font-bold tracking-widest uppercase\">🛼 Roll On!</span>\n    <span class=\"bg-yellow-300 text-pink-700 text-xs font-bold px-2 py-1 rounded-full\">PASS</span>\n  </header>\n  <section class=\"bg-white rounded-xl p-3 mb-3\">\n    <p class=\"text-pink-600 text-xs font-semibold uppercase tracking-wide mb-1\">Session Date</p>\n    <p class=\"text-gray-800 text-base font-bold\">July 13, 2026</p>\n  </section>\n  <section class=\"flex gap-2 mb-3\">\n    <div class=\"bg-pink-500 rounded-lg p-2 flex-1 text-center\">\n      <p class=\"text-pink-200 text-xs uppercase tracking-wide\">Start</p>\n      <p class=\"text-white text-sm font-bold\">7:00 PM</p>\n    </div>\n    <div class=\"bg-pink-500 rounded-lg p-2 flex-1 text-center\">\n      <p class=\"text-pink-200 text-xs uppercase tracking-wide\">End</p>\n      <p class=\"text-white text-sm font-bold\">9:30 PM</p>\n    </div>\n  </section>\n  <footer class=\"flex items-center justify-between\">\n    <span class=\"text-pink-200 text-xs\">⭐ Stardust Rink Co.</span>\n    <span class=\"bg-yellow-300 text-pink-700 text-xs font-bold px-3 py-1 rounded-full\">$8.50</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-13-easy.webp"
+}
