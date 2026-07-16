@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Fireworks Safety Inspector Badge",
+  "difficulty": "easy",
+  "date": "2026-07-17",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Official</span>\n    <span class=\"  \">No. 47</span>\n  </header>\n  <figure class=\"  \">\n    <div class=\"  \">\n      <span class=\"  \">🎆</span>\n    </div>\n  </figure>\n  <section class=\"  \">\n    <h1 class=\"  \">Safety Inspector</h1>\n    <p class=\"  \">Bureau of Pyrotechnic Standards</p>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Valid: July 2026</p>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-64 bg-amber-50 border-4 border-red-800 rounded p-4 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-red-800 text-xs font-bold uppercase tracking-widest\">Official</span>\n    <span class=\"bg-red-800 text-amber-50 text-xs font-bold px-2 py-0.5 rounded\">No. 47</span>\n  </header>\n  <figure class=\"flex items-center justify-center mb-3\">\n    <div class=\"w-16 h-16 rounded-full bg-red-800 border-4 border-amber-400 flex items-center justify-center\">\n      <span class=\"text-3xl\">🎆</span>\n    </div>\n  </figure>\n  <section class=\"text-center mb-3\">\n    <h1 class=\"text-red-800 text-base font-bold uppercase tracking-wide\">Safety Inspector</h1>\n    <p class=\"text-amber-700 text-xs mt-1\">Bureau of Pyrotechnic Standards</p>\n  </section>\n  <footer class=\"border-t-2 border-red-800 pt-2 text-center\">\n    <p class=\"text-red-800 text-xs font-semibold\">Valid: July 2026</p>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-17-easy.webp"
+}
