@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Tide Pool Explorer Pass",
+  "difficulty": "easy",
+  "date": "2026-07-19",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🦀</span>\n    <h1 class=\"  \">Tide Pool Pass</h1>\n    <span class=\"  \">🐚</span>\n  </header>\n  <p class=\"  \">Coastal Nature Reserve · 2026</p>\n  <ul class=\"  \">\n    <li class=\"  \">Explorer: <span class=\"  \">Theodora Marsh</span></li>\n    <li class=\"  \">Zone: <span class=\"  \">Rocky Intertidal B</span></li>\n    <li class=\"  \">Date: <span class=\"  \">July 19, 2026</span></li>\n  </ul>\n  <footer class=\"  \">\n    <span class=\"  \">VALID</span>\n    <span class=\"  \">No collecting permitted</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-80 bg-cyan-50 border-4 border-cyan-800 rounded-lg p-4 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-2xl\">🦀</span>\n    <h1 class=\"text-base font-bold tracking-widest text-cyan-900 uppercase\">Tide Pool Pass</h1>\n    <span class=\"text-2xl\">🐚</span>\n  </header>\n  <p class=\"text-center text-xs text-cyan-700 italic mb-3\">Coastal Nature Reserve · 2026</p>\n  <ul class=\"bg-white border-2 border-cyan-300 rounded p-3 mb-3 space-y-1\">\n    <li class=\"text-xs text-cyan-900 font-semibold\">Explorer: <span class=\"font-normal\">Theodora Marsh</span></li>\n    <li class=\"text-xs text-cyan-900 font-semibold\">Zone: <span class=\"font-normal\">Rocky Intertidal B</span></li>\n    <li class=\"text-xs text-cyan-900 font-semibold\">Date: <span class=\"font-normal\">July 19, 2026</span></li>\n  </ul>\n  <footer class=\"flex items-center justify-between\">\n    <span class=\"bg-cyan-700 text-white text-xs font-bold px-3 py-1 rounded-full\">VALID</span>\n    <span class=\"text-xs text-cyan-600 italic\">No collecting permitted</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-19-easy.webp"
+}
