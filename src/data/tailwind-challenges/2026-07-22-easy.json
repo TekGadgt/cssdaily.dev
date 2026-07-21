@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Bird Watching Field Log Entry",
+  "difficulty": "easy",
+  "date": "2026-07-22",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Field Log</span>\n    <span class=\"  \">Entry #047</span>\n  </header>\n  <section class=\"  \">\n    <figure class=\"  \">🦜</figure>\n    <section class=\"  \">\n      <h2 class=\"  \">Scarlet Macaw</h2>\n      <p class=\"  \">Ara macao · Tropical Forest</p>\n      <div class=\"  \">\n        <span class=\"  \">Common</span>\n        <span class=\"  \">Diurnal</span>\n      </div>\n    </section>\n  </section>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 bg-amber-50 border-2 border-amber-800 rounded p-4 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between border-b-2 border-amber-700 pb-2 mb-3\">\n    <span class=\"text-xs font-bold uppercase tracking-widest text-amber-700\">Field Log</span>\n    <span class=\"text-xs text-amber-600 font-mono\">Entry #047</span>\n  </header>\n  <section class=\"flex items-start gap-4\">\n    <figure class=\"bg-sky-100 border-2 border-sky-400 rounded-full w-16 h-16 flex items-center justify-center text-3xl flex-shrink-0\">🦜</figure>\n    <section class=\"flex-1\">\n      <h2 class=\"text-base font-bold text-amber-900 mb-1\">Scarlet Macaw</h2>\n      <p class=\"text-xs text-amber-700 italic mb-2\">Ara macao · Tropical Forest</p>\n      <div class=\"flex gap-2\">\n        <span class=\"bg-green-700 text-green-100 text-xs font-semibold px-2 py-0.5 rounded\">Common</span>\n        <span class=\"bg-amber-200 text-amber-800 text-xs font-semibold px-2 py-0.5 rounded\">Diurnal</span>\n      </div>\n    </section>\n  </section>\n</article>"
+  },
+  "targetImage": "2026-07-22-easy.webp"
+}
