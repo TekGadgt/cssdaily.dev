@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Aquifer Map Survey Card",
+  "difficulty": "easy",
+  "date": "2026-07-27",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Pond Log</span>\n    <span class=\"  \">No. 47</span>\n  </header>\n  <h1 class=\"  \">Koi Pond Maintenance</h1>\n  <ul class=\"  \">\n    <li class=\"  \">\n      <span class=\"  \">Water pH</span>\n      <span class=\"  \">7.4</span>\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">Temperature</span>\n      <span class=\"  \">68°F</span>\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">Fish Count</span>\n      <span class=\"  \">12</span>\n    </li>\n  </ul>\n  <footer class=\"  \">\n    <span class=\"  \">Inspected · July 1926</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-amber-50 border-2 border-amber-800 rounded p-4 w-80 mx-auto\">\n  <header class=\"flex items-center justify-between border-b-2 border-amber-800 pb-2 mb-3\">\n    <span class=\"text-amber-800 text-xs font-bold uppercase tracking-widest\">Pond Log</span>\n    <span class=\"bg-amber-800 text-amber-50 text-xs font-bold px-2 py-0.5 rounded\">No. 47</span>\n  </header>\n  <h1 class=\"text-amber-900 text-lg font-bold text-center mb-3\">Koi Pond Maintenance</h1>\n  <ul class=\"flex flex-col gap-2\">\n    <li class=\"flex items-center justify-between bg-amber-100 border border-amber-300 rounded px-3 py-1.5\">\n      <span class=\"text-amber-900 text-sm font-semibold\">Water pH</span>\n      <span class=\"text-amber-700 text-sm font-bold\">7.4</span>\n    </li>\n    <li class=\"flex items-center justify-between bg-amber-100 border border-amber-300 rounded px-3 py-1.5\">\n      <span class=\"text-amber-900 text-sm font-semibold\">Temperature</span>\n      <span class=\"text-amber-700 text-sm font-bold\">68°F</span>\n    </li>\n    <li class=\"flex items-center justify-between bg-amber-100 border border-amber-300 rounded px-3 py-1.5\">\n      <span class=\"text-amber-900 text-sm font-semibold\">Fish Count</span>\n      <span class=\"text-amber-700 text-sm font-bold\">12</span>\n    </li>\n  </ul>\n  <footer class=\"mt-3 border-t-2 border-amber-800 pt-2 text-center\">\n    <span class=\"text-amber-700 text-xs italic\">Inspected · July 1926</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-27-easy.webp"
+}
