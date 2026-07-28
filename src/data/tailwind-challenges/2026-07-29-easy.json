@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Morse Code Transmission Log",
+  "difficulty": "easy",
+  "date": "2026-07-29",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Morse Log</span>\n    <span class=\"  \">1926</span>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Transmission</p>\n    <p class=\"  \">... --- ...</p>\n  </section>\n  <section class=\"  \">\n    <div class=\"  \">\n      <p class=\"  \">Station</p>\n      <p class=\"  \">WXK-7</p>\n    </div>\n    <div class=\"  \">\n      <p class=\"  \">Freq</p>\n      <p class=\"  \">500 kHz</p>\n    </div>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">Operator: R. Holt</span>\n    <span class=\"  \">SENT</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-80 bg-amber-50 border-2 border-amber-800 rounded p-4\">\n  <header class=\"flex items-center justify-between mb-3 border-b-2 border-amber-800 pb-2\">\n    <span class=\"text-xs font-bold uppercase tracking-widest text-amber-800\">Morse Log</span>\n    <span class=\"bg-amber-800 text-amber-50 text-xs font-bold px-2 py-0.5 rounded\">1926</span>\n  </header>\n  <section class=\"mb-3\">\n    <p class=\"text-xs text-amber-700 uppercase tracking-wide mb-1\">Transmission</p>\n    <p class=\"text-base font-bold text-amber-900 tracking-widest\">... --- ...</p>\n  </section>\n  <section class=\"flex gap-3 mb-3\">\n    <div class=\"flex-1 bg-amber-100 border border-amber-400 rounded p-2\">\n      <p class=\"text-xs text-amber-600 uppercase\">Station</p>\n      <p class=\"text-sm font-bold text-amber-900\">WXK-7</p>\n    </div>\n    <div class=\"flex-1 bg-amber-100 border border-amber-400 rounded p-2\">\n      <p class=\"text-xs text-amber-600 uppercase\">Freq</p>\n      <p class=\"text-sm font-bold text-amber-900\">500 kHz</p>\n    </div>\n  </section>\n  <footer class=\"flex items-center justify-between\">\n    <span class=\"text-xs text-amber-700 italic\">Operator: R. Holt</span>\n    <span class=\"text-xs font-bold text-amber-800 border border-amber-800 px-2 py-0.5 rounded\">SENT</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-29-easy.webp"
+}
