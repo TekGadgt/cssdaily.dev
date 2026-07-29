@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Seed Packet Label",
+  "difficulty": "easy",
+  "date": "2026-07-30",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Est. 1912</span>\n    <span class=\"  \">No. 47</span>\n  </header>\n  <figure class=\"  \">\n    <span class=\"  \">🌻</span>\n  </figure>\n  <h1 class=\"  \">Sunflower</h1>\n  <p class=\"  \">Helianthus annuus</p>\n  <footer class=\"  \">\n    <span class=\"  \">50 seeds</span>\n    <span class=\"  \">$1.25</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-64 bg-amber-50 border-4 border-green-800 rounded p-4 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-xs font-bold uppercase tracking-widest text-green-800\">Est. 1912</span>\n    <span class=\"text-xs font-bold uppercase tracking-widest text-green-800\">No. 47</span>\n  </header>\n  <figure class=\"bg-green-100 border-2 border-green-700 rounded flex items-center justify-center py-4 mb-3\">\n    <span class=\"text-5xl\">🌻</span>\n  </figure>\n  <h1 class=\"text-xl font-bold text-center text-green-900 tracking-wide mb-1\">Sunflower</h1>\n  <p class=\"text-xs text-center italic text-amber-700 mb-3\">Helianthus annuus</p>\n  <footer class=\"flex items-center justify-between border-t-2 border-green-700 pt-2\">\n    <span class=\"text-xs text-green-800 font-semibold\">50 seeds</span>\n    <span class=\"bg-green-800 text-amber-50 text-xs font-bold px-2 py-1 rounded\">$1.25</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-30-easy.webp"
+}
