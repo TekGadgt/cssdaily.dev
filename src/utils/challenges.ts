@@ -2,7 +2,7 @@
 // them loosely; tightening these types is deliberately out of scope.
 export type Challenge = any;
 
-const DIFFICULTY_ORDER: Record<string, number> = { easy: 0, medium: 1, hard: 2 };
+const DIFFICULTY_SORT_RANK: Record<string, number> = { easy: 0, medium: 1, hard: 2 };
 
 function groupByDate(modules: Record<string, unknown>): Record<string, Challenge[]> {
   const challenges = Object.values(modules).map((mod: any) => mod.default || mod);
@@ -11,7 +11,7 @@ function groupByDate(modules: Record<string, unknown>): Record<string, Challenge
     (byDate[c.date] ??= []).push(c);
   }
   for (const set of Object.values(byDate)) {
-    set.sort((a, b) => DIFFICULTY_ORDER[a.difficulty] - DIFFICULTY_ORDER[b.difficulty]);
+    set.sort((a, b) => DIFFICULTY_SORT_RANK[a.difficulty] - DIFFICULTY_SORT_RANK[b.difficulty]);
   }
   return byDate;
 }

@@ -9,7 +9,7 @@ import { encodeWebpLossless } from './webp';
 import { measureComponent, isOversize, MAX_COMPONENT_WIDTH, MAX_COMPONENT_HEIGHT } from './measure';
 import type { Difficulty } from '../src/utils/types';
 import { TIME_LIMITS } from '../src/utils/difficulty';
-import { DIFFICULTIES, runDifficulties } from './generate-common';
+import { runDifficulties } from './generate-common';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CHALLENGES_DIR = path.join(__dirname, '..', 'src', 'data', 'challenges');

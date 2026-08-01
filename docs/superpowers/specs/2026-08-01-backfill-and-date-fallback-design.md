@@ -21,7 +21,7 @@ This design closes it.
 From that same prior design, and preserved here:
 
 - **B1** — `index.astro`, `tailwind/index.astro`, and `404.astro` are deliberately bare redirect stubs: no `Layout`, no analytics beacon, and they use `window.location.replace` so the stub never enters history. The new shared redirect component must stay equally bare.
-- **B3** — `trailingSlash: 'always'`. Every redirect target keeps its trailing slash, and the 404 path parser must tolerate one.
+- **B3** — `astro.config.mjs` sets `trailingSlash: 'ignore'`, but Astro's default `directory` build format emits `/challenge/<date>/index.html`, which makes the trailing-slash form canonical on GitHub Pages. So every redirect target must keep its trailing slash (the slashless form costs a 301), and the 404 path parser must tolerate one.
 
 ## Scope
 
@@ -80,6 +80,8 @@ export function resolveAvailableDate(available: string[], ceiling: string): stri
 ```
 
 ISO `YYYY-MM-DD` sorts lexicographically, so this is a filter and a last-element read. The function sorts its input defensively rather than trusting callers. The happy path needs no special case: when today's challenge exists, today is itself `<= today` and is the maximum, so it wins.
+
+The fall-forward branch is a deliberate exception to the clamp: when *nothing* is at or before the ceiling, the function returns the earliest available date, which is by definition **after** the ceiling. A future date is the intended answer there, because landing on a real page beats a dead end. Consequently "never resolves to a future date" is not an unconditional property of the function — it holds for this repo because the corpus's earliest date is well in the past, so no present-day ceiling can reach the fall-forward branch.
 
 **B2. Shared challenge loading.** New `src/utils/challenges.ts` owns the `import.meta.glob` calls for both challenge directories and exports the grouped-by-date maps plus sorted date lists. That glob-and-group block is currently copy-pasted between `challenge/[date].astro` and `tailwind/[date].astro`; both switch to importing it, so the two new fallback consumers do not add a third and fourth copy.
 
