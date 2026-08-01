@@ -490,131 +490,168 @@ git commit -m "Fall back to the latest existing challenge instead of looping"
 
 ---
 
-### Task 4: Skip already-present challenges in the generators
+### Task 4: Skip already-present challenges, via a shared generator module
 
 Makes a backfill run idempotent and able to repair a partial day. `2026-07-30` is a live example: all three CSS difficulties exist, but the Tailwind **hard** is missing.
 
+The skip check and the difficulty loop would otherwise be duplicated verbatim across the two generator scripts, so both move into a shared module that each script calls with its own directories and its own `generateOne` closure.
+
 **Files:**
-- Modify: `scripts/generate-challenge.ts` (add a helper; edit the loop in `generateChallenge`, currently lines 226–242)
-- Modify: `scripts/generate-tailwind-challenge.ts` (identical change, loop currently at lines 228–244)
+- Create: `scripts/generate-common.ts`
+- Modify: `scripts/generate-challenge.ts` (import the shared module; replace the loop body in `generateChallenge`, currently lines 226–242; drop the now-shared `DIFFICULTIES` constant at line 48)
+- Modify: `scripts/generate-tailwind-challenge.ts` (same, loop currently at lines 228–244, `DIFFICULTIES` at line 48)
 
 **Interfaces:**
-- Consumes: nothing from earlier tasks. These are Node scripts run by tsx; they do not import from `src/utils/challenges.ts` (which uses Vite-only `import.meta.glob`).
-- Produces: no exports. Behavior change only.
+- Consumes: nothing from earlier tasks. These are Node scripts run by tsx; they must NOT import from `src/utils/challenges.ts`, which uses Vite-only `import.meta.glob` and would crash under tsx.
+- Produces, exported from `scripts/generate-common.ts`:
+  - `DIFFICULTIES: Difficulty[]` — `['easy', 'medium', 'hard']`, moved out of the two scripts.
+  - `alreadyGenerated(challengesDir: string, targetsDir: string, date: string, difficulty: Difficulty): boolean`
+  - `runDifficulties(opts: RunDifficultiesOptions): Promise<void>` — see the interface in Step 1.
 
-- [ ] **Step 1: Add the existence check to the CSS generator**
+- [ ] **Step 1: Create the shared module**
 
-In `scripts/generate-challenge.ts`, add this function immediately after `collectRecentTitles()` (which ends around line 90):
+Create `scripts/generate-common.ts`:
 
 ```ts
+import * as fs from 'fs';
+import * as path from 'path';
+import type { Difficulty } from '../src/utils/types';
+
+export const DIFFICULTIES: Difficulty[] = ['easy', 'medium', 'hard'];
+
 /**
  * True when this date+difficulty is already fully generated.
  *
  * Both files must be present, not just the JSON: a crashed run can leave a
  * WebP with no JSON, and that pair must still be repairable.
  */
-function alreadyGenerated(date: string, difficulty: Difficulty): boolean {
+export function alreadyGenerated(
+  challengesDir: string,
+  targetsDir: string,
+  date: string,
+  difficulty: Difficulty
+): boolean {
   return (
-    fs.existsSync(path.join(CHALLENGES_DIR, `${date}-${difficulty}.json`)) &&
-    fs.existsSync(path.join(TARGETS_DIR, `${date}-${difficulty}.webp`))
+    fs.existsSync(path.join(challengesDir, `${date}-${difficulty}.json`)) &&
+    fs.existsSync(path.join(targetsDir, `${date}-${difficulty}.webp`))
   );
 }
-```
 
-- [ ] **Step 2: Use it in the CSS generator's loop**
+export interface RunDifficultiesOptions {
+  date: string;
+  /** Used only in the ::warning:: label, e.g. "CSS" or "Tailwind". */
+  mode: string;
+  challengesDir: string;
+  targetsDir: string;
+  /** Titles from recent days, fed to the generator as an avoid-list. */
+  recentTitles: string[];
+  /** Generates one challenge and returns its title. */
+  generateOne: (difficulty: Difficulty, avoidTitles: string[]) => Promise<string>;
+}
 
-Replace the loop and the failure check inside `generateChallenge` (currently lines 226–242) with:
-
-```ts
-    let attempted = 0;
-
-    for (const difficulty of DIFFICULTIES) {
-      if (alreadyGenerated(date, difficulty)) {
-        console.log(`[${difficulty}] already present for ${date} — skipping`);
-        continue;
-      }
-      attempted++;
-      try {
-        const title = await generateOne(client, page, date, difficulty, [...todaysTitles, ...recentTitles]);
-        todaysTitles.push(title);
-      } catch (err) {
-        console.error(`[${difficulty}] generation failed:`, err);
-        console.log(`::warning::CSS ${difficulty} challenge generation failed for ${date}`);
-        failures.push(difficulty);
-      }
-    }
-
-    if (attempted === 0) {
-      console.log(`Nothing to generate for ${date} — all difficulties already present`);
-      return;
-    }
-    // Fail only when everything actually attempted failed. Comparing against
-    // DIFFICULTIES.length would wrongly pass a run whose single missing
-    // difficulty failed.
-    if (failures.length === attempted) {
-      throw new Error(`All ${attempted} attempted generation(s) failed for ${date}`);
-    }
-    if (failures.length > 0) {
-      console.warn(`Completed with failures: ${failures.join(', ')}`);
-    }
-```
-
-- [ ] **Step 3: Apply the identical change to the Tailwind generator**
-
-In `scripts/generate-tailwind-challenge.ts`, add the same helper after `collectRecentTitles()` (ends around line 92):
-
-```ts
 /**
- * True when this date+difficulty is already fully generated.
+ * Runs every difficulty for one date, skipping any that already exist.
  *
- * Both files must be present, not just the JSON: a crashed run can leave a
- * WebP with no JSON, and that pair must still be repairable.
+ * Throws only when everything actually attempted failed. Comparing against
+ * DIFFICULTIES.length instead would wrongly pass a backfill run whose single
+ * missing difficulty failed.
  */
-function alreadyGenerated(date: string, difficulty: Difficulty): boolean {
-  return (
-    fs.existsSync(path.join(CHALLENGES_DIR, `${date}-${difficulty}.json`)) &&
-    fs.existsSync(path.join(TARGETS_DIR, `${date}-${difficulty}.webp`))
-  );
+export async function runDifficulties(opts: RunDifficultiesOptions): Promise<void> {
+  const { date, mode, challengesDir, targetsDir, recentTitles, generateOne } = opts;
+  const todaysTitles: string[] = [];
+  const failures: Difficulty[] = [];
+  let attempted = 0;
+
+  for (const difficulty of DIFFICULTIES) {
+    if (alreadyGenerated(challengesDir, targetsDir, date, difficulty)) {
+      console.log(`[${difficulty}] already present for ${date} — skipping`);
+      continue;
+    }
+    attempted++;
+    try {
+      const title = await generateOne(difficulty, [...todaysTitles, ...recentTitles]);
+      todaysTitles.push(title);
+    } catch (err) {
+      console.error(`[${difficulty}] generation failed:`, err);
+      console.log(`::warning::${mode} ${difficulty} challenge generation failed for ${date}`);
+      failures.push(difficulty);
+    }
+  }
+
+  if (attempted === 0) {
+    console.log(`Nothing to generate for ${date} — all difficulties already present`);
+    return;
+  }
+  if (failures.length === attempted) {
+    throw new Error(`All ${attempted} attempted generation(s) failed for ${date}`);
+  }
+  if (failures.length > 0) {
+    console.warn(`Completed with failures: ${failures.join(', ')}`);
+  }
 }
 ```
 
-Then replace its loop and failure check (currently lines 228–244) with the same block as Step 2, changing only the warning string to `::warning::Tailwind ${difficulty} challenge generation failed for ${date}`:
+- [ ] **Step 2: Wire the CSS generator to the shared module**
+
+In `scripts/generate-challenge.ts`:
+
+Add the import alongside the existing ones at the top:
 
 ```ts
-    let attempted = 0;
-
-    for (const difficulty of DIFFICULTIES) {
-      if (alreadyGenerated(date, difficulty)) {
-        console.log(`[${difficulty}] already present for ${date} — skipping`);
-        continue;
-      }
-      attempted++;
-      try {
-        const title = await generateOne(client, page, date, difficulty, [...todaysTitles, ...recentTitles]);
-        todaysTitles.push(title);
-      } catch (err) {
-        console.error(`[${difficulty}] generation failed:`, err);
-        console.log(`::warning::Tailwind ${difficulty} challenge generation failed for ${date}`);
-        failures.push(difficulty);
-      }
-    }
-
-    if (attempted === 0) {
-      console.log(`Nothing to generate for ${date} — all difficulties already present`);
-      return;
-    }
-    // Fail only when everything actually attempted failed. Comparing against
-    // DIFFICULTIES.length would wrongly pass a run whose single missing
-    // difficulty failed.
-    if (failures.length === attempted) {
-      throw new Error(`All ${attempted} attempted generation(s) failed for ${date}`);
-    }
-    if (failures.length > 0) {
-      console.warn(`Completed with failures: ${failures.join(', ')}`);
-    }
+import { DIFFICULTIES, runDifficulties } from './generate-common';
 ```
 
-- [ ] **Step 4: Verify the skip path costs nothing**
+Delete the local `const DIFFICULTIES: Difficulty[] = ['easy', 'medium', 'hard'];` (line 48) — it now comes from the shared module. Keep the `import type { Difficulty }` line; `generateOne` still uses it in its signature.
+
+Replace the body of the `try` block in `generateChallenge` (currently lines 218–242, from `const page = await browser.newPage();` through the final `if (failures.length > 0)` block) with:
+
+```ts
+    const page = await browser.newPage();
+    await page.setViewportSize({ width: 600, height: 400 });
+
+    await runDifficulties({
+      date,
+      mode: 'CSS',
+      challengesDir: CHALLENGES_DIR,
+      targetsDir: TARGETS_DIR,
+      recentTitles: collectRecentTitles(),
+      generateOne: (difficulty, avoidTitles) =>
+        generateOne(client, page, date, difficulty, avoidTitles),
+    });
+```
+
+Leave the `finally { await browser.close(); }` and everything else in the file unchanged.
+
+- [ ] **Step 3: Wire the Tailwind generator to the shared module**
+
+In `scripts/generate-tailwind-challenge.ts`, make the same three changes — add the import, delete the local `DIFFICULTIES` (line 48), and replace the `try` block body (currently lines 220–244) with the identical call, changing only `mode`:
+
+```ts
+    const page = await browser.newPage();
+    await page.setViewportSize({ width: 600, height: 400 });
+
+    await runDifficulties({
+      date,
+      mode: 'Tailwind',
+      challengesDir: CHALLENGES_DIR,
+      targetsDir: TARGETS_DIR,
+      recentTitles: collectRecentTitles(),
+      generateOne: (difficulty, avoidTitles) =>
+        generateOne(client, page, date, difficulty, avoidTitles),
+    });
+```
+
+`CHALLENGES_DIR` and `TARGETS_DIR` already point at the Tailwind directories in this file, so the call body is otherwise identical by construction rather than by copy-paste.
+
+- [ ] **Step 4: Typecheck both scripts**
+
+```bash
+npx tsc --noEmit -p tsconfig.json
+```
+
+Expected: no errors. If `Difficulty` is reported as unused in either script, the `import type` line can be removed from that file — but only if genuinely unused.
+
+- [ ] **Step 5: Verify the skip path costs nothing**
 
 This must make **no** Anthropic API call, so it is safe to run without credits. Run against a date that is already complete:
 
@@ -622,15 +659,25 @@ This must make **no** Anthropic API call, so it is safe to run without credits. 
 npx tsx scripts/generate-challenge.ts 2026-07-29
 ```
 
-Expected output: three `already present for 2026-07-29 — skipping` lines, then `Nothing to generate`, then `CHALLENGE_DATE=2026-07-29`. Exit code `0`.
+Expected output: three `already present for 2026-07-29 — skipping` lines, then `Nothing to generate for 2026-07-29 — all difficulties already present`, then `CHALLENGE_DATE=2026-07-29`. Exit code `0`.
+
+Note this launches Chromium before the skip check runs, which is wasteful but harmless — restructuring the browser lifecycle is out of scope.
 
 ```bash
 git status --short
 ```
 
-Expected: clean. Nothing was written.
+Expected: no changes under `src/data/` or `public/targets/`. Nothing was written.
 
-- [ ] **Step 5: Verify the partial-day path identifies the real gap**
+- [ ] **Step 6: Verify the same for the Tailwind generator**
+
+```bash
+npx tsx scripts/generate-tailwind-challenge.ts 2026-07-29
+```
+
+Expected: the same three skip lines and `Nothing to generate`, exit code `0`, no files written.
+
+- [ ] **Step 7: Confirm the partial-day gap is what we think it is**
 
 ```bash
 ls src/data/tailwind-challenges/2026-07-30-*.json
@@ -638,12 +685,12 @@ ls src/data/tailwind-challenges/2026-07-30-*.json
 
 Expected: `easy` and `medium` only — no `hard`. So a Tailwind run for `2026-07-30` would skip two difficulties and attempt exactly one.
 
-Do **not** actually run the Tailwind generator here — it costs an API call. That path is exercised for real in Task 5's acceptance.
+Do **not** run the Tailwind generator against `2026-07-30` — it would make a real API call. That path is exercised for real in Task 5's post-merge acceptance.
 
-- [ ] **Step 6: Commit**
+- [ ] **Step 8: Commit**
 
 ```bash
-git add scripts/generate-challenge.ts scripts/generate-tailwind-challenge.ts
+git add scripts/generate-common.ts scripts/generate-challenge.ts scripts/generate-tailwind-challenge.ts
 git commit -m "Skip already-generated challenges so backfill is idempotent"
 ```
 
@@ -744,7 +791,11 @@ git commit -m "Allow a custom date on the challenge generation workflow"
 
 - [ ] **Step 6: Acceptance — dry-run the validation on GitHub**
 
-These runs must happen on the default branch after the work is pushed and merged (`workflow_dispatch` reads the workflow file from the selected ref).
+> **Steps 6–8 are NOT for the implementer.** `workflow_dispatch` reads the
+> workflow file from the selected ref, so these can only run after this
+> branch is merged to the default branch. They also spend Anthropic API
+> credits and push commits to `main`. The implementer stops after Step 5;
+> these steps are handed to the repository owner as a post-merge checklist.
 
 Bad input, should fail fast with no API spend:
 
