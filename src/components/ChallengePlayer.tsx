@@ -2,7 +2,7 @@ import { useState, useRef, useCallback, useEffect, useMemo } from 'react';
 import type { Challenge, DiffResult, Difficulty } from '../utils/types';
 import { compareToTarget } from '../utils/diff';
 import { saveResult, getResult } from '../utils/storage';
-import { formatDate } from '../utils/date';
+import { formatDate, localToday, navigableDates } from '../utils/date';
 import type { ShareEntry } from '../utils/share';
 import Preview, { PREVIEW_WIDTH, PREVIEW_HEIGHT } from './Preview';
 import CodeEditor from './CodeEditor';
@@ -150,7 +150,17 @@ export default function ChallengePlayer({ challenge, allDates, availableDifficul
     }
   }, [targetTab, diffResult]);
 
-  const sortedDates = [...allDates].sort();
+  // Navigation is clamped to the user's LOCAL today so the "→" arrow can
+  // never reach a pre-generated future challenge. The ceiling starts at
+  // challenge.date — a value the server and the first client render agree on,
+  // so hydration never mismatches, and one that already yields nextDate ===
+  // null — then the effect swaps in the real local date right after mount.
+  const [navCeiling, setNavCeiling] = useState(challenge.date);
+  useEffect(() => {
+    setNavCeiling(localToday());
+  }, []);
+
+  const sortedDates = navigableDates(allDates, challenge.date, navCeiling);
   const currentIdx = sortedDates.indexOf(challenge.date);
   const prevDate = currentIdx > 0 ? sortedDates[currentIdx - 1] : null;
   const nextDate = currentIdx < sortedDates.length - 1 ? sortedDates[currentIdx + 1] : null;
