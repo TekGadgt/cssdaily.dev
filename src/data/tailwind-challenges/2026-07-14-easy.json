@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Bastille Day Celebration Badge",
+  "difficulty": "easy",
+  "date": "2026-07-14",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🇫🇷</span>\n    <h1 class=\"  \">Bastille Day</h1>\n    <span class=\"  \">🇫🇷</span>\n  </header>\n  <section class=\"  \">\n    <span class=\"  \">Liberté</span>\n    <span class=\"  \">Égalité</span>\n    <span class=\"  \">Fraternité</span>\n  </section>\n  <p class=\"  \">14 Juillet 2026</p>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-72 mx-auto bg-white border-4 border-blue-700 rounded-lg p-4\">\n  <header class=\"flex items-center justify-center gap-2 mb-3\">\n    <span class=\"text-2xl\">🇫🇷</span>\n    <h1 class=\"text-lg font-bold text-blue-700 uppercase tracking-widest\">Bastille Day</h1>\n    <span class=\"text-2xl\">🇫🇷</span>\n  </header>\n  <section class=\"flex justify-center gap-2 mb-3\">\n    <span class=\"bg-blue-700 text-white text-xs font-bold px-3 py-1 rounded-full\">Liberté</span>\n    <span class=\"bg-white text-gray-700 text-xs font-bold px-3 py-1 rounded-full border border-gray-300\">Égalité</span>\n    <span class=\"bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full\">Fraternité</span>\n  </section>\n  <p class=\"text-center text-sm text-gray-500 tracking-wide\">14 Juillet 2026</p>\n</article>"
+  },
+  "targetImage": "2026-07-14-easy.webp"
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Surf Lesson Voucher",
+  "difficulty": "easy",
+  "date": "2026-07-18",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🏄</span>\n    <h1 class=\"  \">Surf Lesson</h1>\n    <span class=\"  \">🌊</span>\n  </header>\n  <p class=\"  \">Official Voucher</p>\n  <ul class=\"  \">\n    <li class=\"  \"><span class=\"  \">Instructor</span><span class=\"  \">Coach Kai</span></li>\n    <li class=\"  \"><span class=\"  \">Duration</span><span class=\"  \">90 minutes</span></li>\n    <li class=\"  \"><span class=\"  \">Location</span><span class=\"  \">Sunset Beach</span></li>\n  </ul>\n  <footer class=\"  \">Valid One Session</footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-amber-50 border-4 border-amber-800 rounded-lg p-4 w-80 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-2xl\">🏄</span>\n    <h1 class=\"text-amber-900 font-bold text-lg uppercase tracking-widest\">Surf Lesson</h1>\n    <span class=\"text-2xl\">🌊</span>\n  </header>\n  <p class=\"text-center text-amber-700 text-xs uppercase tracking-wider mb-3 border-t border-b border-amber-300 py-1\">Official Voucher</p>\n  <ul class=\"text-sm text-amber-900 space-y-1 mb-3\">\n    <li class=\"flex justify-between\"><span class=\"font-semibold\">Instructor</span><span>Coach Kai</span></li>\n    <li class=\"flex justify-between\"><span class=\"font-semibold\">Duration</span><span>90 minutes</span></li>\n    <li class=\"flex justify-between\"><span class=\"font-semibold\">Location</span><span>Sunset Beach</span></li>\n  </ul>\n  <footer class=\"bg-amber-800 rounded text-amber-50 text-center text-xs py-1 font-bold tracking-widest uppercase\">Valid One Session</footer>\n</article>"
+  },
+  "targetImage": "2026-07-18-easy.webp"
+}

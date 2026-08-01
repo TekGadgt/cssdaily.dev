@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Bicycle Repair Shop Tag",
+  "difficulty": "easy",
+  "date": "2026-07-24",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">Est. 1924</p>\n    <h1 class=\"  \">Spoke & Pedal</h1>\n    <p class=\"  \">Bicycle Repair Co.</p>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Repair Type</p>\n    <span class=\"  \">Flat Tyre Fix</span>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Ready: <span class=\"  \">Fri 24 Jul</span></p>\n    <p class=\"  \">$8.50</p>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-amber-50 border-2 border-amber-800 rounded p-4 w-64 mx-auto mt-8\">\n  <header class=\"border-b-2 border-amber-800 pb-2 mb-3 text-center\">\n    <p class=\"text-amber-800 text-xs font-bold uppercase tracking-widest\">Est. 1924</p>\n    <h1 class=\"text-amber-900 text-xl font-bold\">Spoke & Pedal</h1>\n    <p class=\"text-amber-700 text-xs italic\">Bicycle Repair Co.</p>\n  </header>\n  <section class=\"mb-3\">\n    <p class=\"text-amber-900 text-xs font-semibold uppercase mb-1\">Repair Type</p>\n    <span class=\"bg-amber-800 text-amber-50 text-xs font-bold px-2 py-1 rounded\">Flat Tyre Fix</span>\n  </section>\n  <footer class=\"border-t-2 border-amber-800 pt-2 flex justify-between items-center\">\n    <p class=\"text-amber-800 text-xs\">Ready: <span class=\"font-bold\">Fri 24 Jul</span></p>\n    <p class=\"text-amber-900 text-sm font-bold\">$8.50</p>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-24-easy.webp"
+}

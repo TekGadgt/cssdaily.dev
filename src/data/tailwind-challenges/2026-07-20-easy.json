@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Sundial Garden Marker",
+  "difficulty": "easy",
+  "date": "2026-07-20",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Garden Marker</span>\n    <span class=\"  \">Est. 1887</span>\n  </header>\n  <figure class=\"  \">\n    <span class=\"  \">🕛</span>\n  </figure>\n  <h2 class=\"  \">SUNDIAL</h2>\n  <p class=\"  \">Tempus Fugit — Time Flies</p>\n  <footer class=\"  \">\n    <span class=\"  \">Plot No. 7</span>\n    <span class=\"  \">Solar</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-72 bg-amber-50 border-4 border-amber-800 rounded p-4 mx-auto mt-8\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-amber-800 text-xs font-bold uppercase tracking-widest\">Garden Marker</span>\n    <span class=\"text-amber-600 text-xs italic\">Est. 1887</span>\n  </header>\n  <figure class=\"flex items-center justify-center bg-amber-200 border-2 border-amber-700 rounded py-4 mb-3\">\n    <span class=\"text-5xl\">🕛</span>\n  </figure>\n  <h2 class=\"text-amber-900 text-xl font-bold text-center mb-1\">SUNDIAL</h2>\n  <p class=\"text-amber-700 text-xs text-center italic mb-3\">Tempus Fugit — Time Flies</p>\n  <footer class=\"flex justify-between items-center border-t-2 border-amber-700 pt-2\">\n    <span class=\"text-amber-800 text-xs font-semibold\">Plot No. 7</span>\n    <span class=\"bg-amber-800 text-amber-50 text-xs font-bold px-2 py-1 rounded\">Solar</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-20-easy.webp"
+}

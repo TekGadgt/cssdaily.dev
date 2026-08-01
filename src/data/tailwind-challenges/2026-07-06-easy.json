@@ -1,0 +1,13 @@
+{
+  "title": "Beach Volleyball Tournament Bracket Card",
+  "difficulty": "easy",
+  "date": "2026-07-06",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Summer Slam</span>\n    <span class=\"  \">2026</span>\n  </header>\n  <h1 class=\"  \">Beach Volleyball</h1>\n  <p class=\"  \">Tournament Bracket · July 6</p>\n  <section class=\"  \">\n    <div class=\"  \">\n      <span class=\"  \">Spike & Sun</span>\n      <span class=\"  \">W</span>\n    </div>\n    <div class=\"  \">\n      <span class=\"  \">Sand Devils</span>\n      <span class=\"  \">L</span>\n    </div>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">Court 3 · 2:00 PM</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-amber-500 rounded-2xl p-4 w-72 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-white text-xs font-bold uppercase tracking-widest\">Summer Slam</span>\n    <span class=\"bg-white text-amber-500 text-xs font-bold px-2 py-1 rounded-full\">2026</span>\n  </header>\n  <h1 class=\"text-white text-xl font-extrabold mb-1\">Beach Volleyball</h1>\n  <p class=\"text-amber-100 text-sm mb-4\">Tournament Bracket · July 6</p>\n  <section class=\"bg-white rounded-xl p-3 flex flex-col gap-2\">\n    <div class=\"flex items-center justify-between bg-amber-50 rounded-lg px-3 py-2\">\n      <span class=\"text-amber-900 text-sm font-semibold\">Spike & Sun</span>\n      <span class=\"text-amber-500 text-xs font-bold\">W</span>\n    </div>\n    <div class=\"flex items-center justify-between bg-amber-50 rounded-lg px-3 py-2\">\n      <span class=\"text-amber-900 text-sm font-semibold\">Sand Devils</span>\n      <span class=\"text-gray-400 text-xs font-bold\">L</span>\n    </div>\n  </section>\n  <footer class=\"mt-3 flex items-center justify-center\">\n    <span class=\"bg-amber-600 text-white text-xs font-bold px-4 py-1 rounded-full\">Court 3 · 2:00 PM</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-06-easy.webp"
+}

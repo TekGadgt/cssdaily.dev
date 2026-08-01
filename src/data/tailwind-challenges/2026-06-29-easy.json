@@ -1,0 +1,13 @@
+{
+  "title": "Butterfly Garden Observation Tag",
+  "difficulty": "easy",
+  "date": "2026-06-29",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🦋</span>\n    <h1 class=\"  \">Butterfly Garden</h1>\n  </header>\n  <p class=\"  \">Observation Tag · Summer 2026</p>\n  <ul class=\"  \">\n    <li class=\"  \">\n      <span class=\"  \">Species</span>\n      <span class=\"  \">Monarch</span>\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">Zone</span>\n      <span class=\"  \">Meadow B</span>\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">Count</span>\n      <span class=\"  \">14</span>\n    </li>\n  </ul>\n  <footer class=\"  \">\n    <span class=\"  \">Log Sighting</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-green-50 border-2 border-green-400 rounded-2xl p-4 w-72 mx-auto mt-8\">\n  <header class=\"flex items-center gap-2 mb-3\">\n    <span class=\"text-2xl\">🦋</span>\n    <h1 class=\"text-base font-bold text-green-800 uppercase tracking-wide\">Butterfly Garden</h1>\n  </header>\n  <p class=\"text-xs text-green-600 font-medium mb-3 border-b border-green-300 pb-2\">Observation Tag · Summer 2026</p>\n  <ul class=\"flex flex-col gap-2\">\n    <li class=\"flex justify-between items-center bg-white rounded-lg px-3 py-2 border border-green-200\">\n      <span class=\"text-sm text-gray-700\">Species</span>\n      <span class=\"text-sm font-semibold text-green-700\">Monarch</span>\n    </li>\n    <li class=\"flex justify-between items-center bg-white rounded-lg px-3 py-2 border border-green-200\">\n      <span class=\"text-sm text-gray-700\">Zone</span>\n      <span class=\"text-sm font-semibold text-green-700\">Meadow B</span>\n    </li>\n    <li class=\"flex justify-between items-center bg-white rounded-lg px-3 py-2 border border-green-200\">\n      <span class=\"text-sm text-gray-700\">Count</span>\n      <span class=\"text-sm font-semibold text-orange-500\">14</span>\n    </li>\n  </ul>\n  <footer class=\"mt-3 bg-green-400 rounded-xl py-2 text-center\">\n    <span class=\"text-xs font-bold text-white uppercase tracking-widest\">Log Sighting</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-06-29-easy.webp"
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Kombucha Brew Batch Tag",
+  "difficulty": "easy",
+  "date": "2026-07-05",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Batch #07</span>\n    <span class=\"  \">Active</span>\n  </header>\n  <h1 class=\"  \">Ginger Lemon</h1>\n  <p class=\"  \">Second ferment · 48 hrs</p>\n  <footer class=\"  \">\n    <span class=\"  \">Started Jul 5, 2026</span>\n    <button class=\"  \">Log Taste</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-72 bg-amber-50 border-2 border-amber-400 rounded-2xl p-4 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-xs font-bold uppercase tracking-widest text-amber-600\">Batch #07</span>\n    <span class=\"bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full\">Active</span>\n  </header>\n  <h1 class=\"text-xl font-bold text-amber-900 mb-1\">Ginger Lemon</h1>\n  <p class=\"text-sm text-amber-700 mb-3\">Second ferment · 48 hrs</p>\n  <footer class=\"flex items-center justify-between border-t border-amber-300 pt-3\">\n    <span class=\"text-xs text-amber-500\">Started Jul 5, 2026</span>\n    <button class=\"bg-amber-400 text-white text-xs font-bold px-3 py-1 rounded-lg\">Log Taste</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-05-easy.webp"
+}

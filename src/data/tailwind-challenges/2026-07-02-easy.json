@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Postage Meter Label",
+  "difficulty": "easy",
+  "date": "2026-07-02",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">First Class</span>\n    <span class=\"  \">PREPAID</span>\n  </header>\n  <section class=\"  \">\n    <figure class=\"  \">\n      <span class=\"  \">✉️</span>\n    </figure>\n    <div class=\"  \">\n      <p class=\"  \">Royal Post Office</p>\n      <p class=\"  \">Meter No. 00742-B</p>\n    </div>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">02 JUL 2026</span>\n    <span class=\"  \">$0.73</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-72 bg-amber-50 border-4 border-amber-800 rounded p-4 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-xs font-bold text-amber-800 uppercase tracking-widest\">First Class</span>\n    <span class=\"bg-amber-800 text-amber-50 text-xs font-bold px-2 py-1 rounded\">PREPAID</span>\n  </header>\n  <section class=\"flex items-center gap-3 mb-3\">\n    <figure class=\"w-14 h-14 bg-red-700 rounded flex items-center justify-center\">\n      <span class=\"text-amber-50 text-2xl\">✉️</span>\n    </figure>\n    <div class=\"flex-1\">\n      <p class=\"text-sm font-bold text-amber-900\">Royal Post Office</p>\n      <p class=\"text-xs text-amber-700\">Meter No. 00742-B</p>\n    </div>\n  </section>\n  <footer class=\"flex items-center justify-between border-t-2 border-dashed border-amber-700 pt-2\">\n    <span class=\"text-xs text-amber-800\">02 JUL 2026</span>\n    <span class=\"text-lg font-bold text-red-700\">$0.73</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-02-easy.webp"
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Postman's Delivery Slip",
+  "difficulty": "easy",
+  "date": "2026-07-08",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Delivery Slip</span>\n    <span class=\"  \">MAIL</span>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Recipient</p>\n    <p class=\"  \">Eleanor R. Finch</p>\n    <p class=\"  \">14 Wisteria Lane, Apt. 3B</p>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">Date: 08 Jul 2026</span>\n    <span class=\"  \">DELIVERED</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-amber-50 border-2 border-amber-800 rounded p-4 w-80 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between mb-3 border-b-2 border-amber-800 pb-2\">\n    <span class=\"text-amber-800 font-bold text-lg uppercase tracking-widest\">Delivery Slip</span>\n    <span class=\"bg-amber-800 text-amber-50 text-xs font-bold px-2 py-1 rounded\">MAIL</span>\n  </header>\n  <section class=\"mb-3\">\n    <p class=\"text-xs text-amber-600 uppercase tracking-wide mb-1\">Recipient</p>\n    <p class=\"text-amber-900 font-semibold text-base\">Eleanor R. Finch</p>\n    <p class=\"text-amber-700 text-sm\">14 Wisteria Lane, Apt. 3B</p>\n  </section>\n  <footer class=\"flex items-center justify-between mt-3 pt-2 border-t border-amber-400\">\n    <span class=\"text-amber-600 text-xs\">Date: 08 Jul 2026</span>\n    <span class=\"bg-green-700 text-white text-xs font-bold px-3 py-1 rounded-full\">DELIVERED</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-08-easy.webp"
+}

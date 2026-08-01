@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Jam Jar Label",
+  "difficulty": "easy",
+  "date": "2026-07-15",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">Homemade Preserves</p>\n  </header>\n  <figure class=\"  \">🍓</figure>\n  <h1 class=\"  \">Strawberry Jam</h1>\n  <p class=\"  \">Small-batch · Summer 2026</p>\n  <footer class=\"  \">\n    <p class=\"  \">Best by: July 2027</p>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-64 mx-auto mt-8 bg-amber-50 border-4 border-amber-800 rounded-lg p-4 text-center\">\n  <header class=\"border-b-2 border-amber-700 pb-2 mb-3\">\n    <p class=\"text-xs font-bold uppercase tracking-widest text-amber-700\">Homemade Preserves</p>\n  </header>\n  <figure class=\"text-4xl mb-2\">🍓</figure>\n  <h1 class=\"text-xl font-bold text-amber-900 mb-1\">Strawberry Jam</h1>\n  <p class=\"text-xs text-amber-700 mb-3\">Small-batch · Summer 2026</p>\n  <footer class=\"border-t-2 border-amber-700 pt-2\">\n    <p class=\"text-xs text-amber-800 font-semibold\">Best by: July 2027</p>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-15-easy.webp"
+}

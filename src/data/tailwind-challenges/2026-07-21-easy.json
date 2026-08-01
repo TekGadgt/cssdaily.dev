@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Ice Cream Parlor Flavor Tag",
+  "difficulty": "easy",
+  "date": "2026-07-21",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🍦</span>\n    <h1 class=\"  \">Parlor Pick</h1>\n  </header>\n  <p class=\"  \">Strawberry Ripple</p>\n  <p class=\"  \">Small-batch · House made</p>\n  <footer class=\"  \">\n    <span class=\"  \">Today's Special</span>\n    <span class=\"  \">$3.50</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-64 bg-pink-50 border-4 border-pink-300 rounded-2xl p-4 mx-auto mt-8\">\n  <header class=\"flex items-center justify-center mb-3\">\n    <span class=\"text-2xl mr-2\">🍦</span>\n    <h1 class=\"text-lg font-bold text-pink-700 uppercase tracking-widest\">Parlor Pick</h1>\n  </header>\n  <p class=\"text-center text-base font-semibold text-rose-600 mb-1\">Strawberry Ripple</p>\n  <p class=\"text-center text-xs text-pink-400 mb-3\">Small-batch · House made</p>\n  <footer class=\"flex justify-between items-center border-t-2 border-pink-200 pt-2\">\n    <span class=\"text-xs text-pink-500 font-medium\">Today's Special</span>\n    <span class=\"bg-pink-400 text-white text-xs font-bold px-3 py-1 rounded-full\">$3.50</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-21-easy.webp"
+}

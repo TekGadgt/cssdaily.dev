@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Aquatic Plant Nursery Tag",
+  "difficulty": "easy",
+  "date": "2026-07-28",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🌿 Aqua Flora</span>\n    <span class=\"  \">NURSERY</span>\n  </header>\n  <p class=\"  \">Nymphaea Alba</p>\n  <p class=\"  \">White Water Lily · Depth: 30–90 cm</p>\n  <footer class=\"  \">\n    <span class=\"  \">$4.50</span>\n    <span class=\"  \">Pot No. 047</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-green-50 border-2 border-green-800 rounded p-4 w-72 mx-auto mt-8\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-green-900 font-bold text-lg\">🌿 Aqua Flora</span>\n    <span class=\"bg-green-800 text-green-50 text-xs font-semibold px-2 py-1 rounded\">NURSERY</span>\n  </header>\n  <p class=\"text-green-800 text-sm font-semibold mb-1\">Nymphaea Alba</p>\n  <p class=\"text-green-700 text-xs mb-3\">White Water Lily · Depth: 30–90 cm</p>\n  <footer class=\"flex items-center justify-between border-t border-green-300 pt-3\">\n    <span class=\"text-green-900 text-sm font-bold\">$4.50</span>\n    <span class=\"bg-green-100 text-green-800 text-xs border border-green-400 rounded px-2 py-1\">Pot No. 047</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-28-easy.webp"
+}

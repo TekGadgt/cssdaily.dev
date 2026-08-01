@@ -1,0 +1,15 @@
+{
+  "title": "Firefly Jar Catch & Release Tag",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"jar-tag\">\n  <header class=\"tag-header\">\n    <span class=\"firefly-icon\">🫙</span>\n    <h1 class=\"tag-title\">Firefly Jar</h1>\n  </header>\n  <section class=\"tag-body\">\n    <p class=\"tag-label\">Catch Date</p>\n    <p class=\"tag-value\">July 17, 2026</p>\n    <p class=\"tag-label\">Release By</p>\n    <p class=\"tag-value\">Dusk · Same Evening</p>\n  </section>\n  <footer class=\"tag-footer\">\n    <span class=\"rule-badge\">✦ Always Release ✦</span>\n  </footer>\n</article>",
+    "css": ":root {\n  --bg: #1a1a2e;\n  --card-bg: #16213e;\n  --accent: #f5c842;\n  --accent-soft: #ffe899;\n  --text-main: #f0e6c8;\n  --text-muted: #8a8fad;\n  --border: #f5c842;\n  --footer-bg: #0f3460;\n  --badge-text: #1a1a2e;\n}\n\n.jar-tag {\n  background-color: var(--card-bg);\n  border: 2px solid var(--border);\n  border-radius: 16px;\n  width: 260px;\n  padding: 0;\n  overflow: hidden;\n  margin: 40px auto;\n}\n\n.tag-header {\n  background-color: var(--bg);\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 14px 20px;\n  border-bottom: 1px solid var(--border);\n}\n\n.firefly-icon {\n  font-size: 26px;\n  line-height: 1;\n}\n\n.tag-title {\n  font-size: 20px;\n  font-weight: 700;\n  color: var(--accent);\n  margin: 0;\n  letter-spacing: 0.04em;\n}\n\n.tag-body {\n  padding: 16px 20px;\n  display: grid;\n  grid-template-columns: auto 1fr;\n  gap: 4px 14px;\n  align-items: baseline;\n}\n\n.tag-label {\n  font-size: 11px;\n  font-weight: 600;\n  color: var(--text-muted);\n  text-transform: uppercase;\n  letter-spacing: 0.08em;\n  margin: 0;\n}\n\n.tag-value {\n  font-size: 14px;\n  font-weight: 600;\n  color: var(--text-main);\n  margin: 0;\n}\n\n.tag-footer {\n  background-color: var(--footer-bg);\n  border-top: 1px solid var(--border);\n  padding: 10px 20px;\n  text-align: center;\n}\n\n.rule-badge {\n  font-size: 11px;\n  font-weight: 700;\n  color: var(--accent-soft);\n  letter-spacing: 0.1em;\n  text-transform: uppercase;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"jar-tag\">\n  <header class=\"tag-header\">\n    <span class=\"firefly-icon\">🫙</span>\n    <h1 class=\"tag-title\">Firefly Jar</h1>\n  </header>\n  <section class=\"tag-body\">\n    <p class=\"tag-label\">Catch Date</p>\n    <p class=\"tag-value\">July 17, 2026</p>\n    <p class=\"tag-label\">Release By</p>\n    <p class=\"tag-value\">Dusk · Same Evening</p>\n  </section>\n  <footer class=\"tag-footer\">\n    <span class=\"rule-badge\">✦ Always Release ✦</span>\n  </footer>\n</article>",
+    "css": ":root {\n  --bg: #1a1a2e;\n  --card-bg: #16213e;\n  --accent: #f5c842;\n  --accent-soft: #ffe899;\n  --text-main: #f0e6c8;\n  --text-muted: #8a8fad;\n  --border: #f5c842;\n  --footer-bg: #0f3460;\n  --badge-text: #1a1a2e;\n}\n\n.jar-tag {\n}\n\n.tag-header {\n}\n\n.firefly-icon {\n}\n\n.tag-title {\n}\n\n.tag-body {\n}\n\n.tag-label {\n}\n\n.tag-value {\n}\n\n.tag-footer {\n}\n\n.rule-badge {\n}"
+  },
+  "date": "2026-07-17",
+  "timeLimit": 300,
+  "targetImage": "2026-07-17-easy.webp"
+}

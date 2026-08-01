@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Aquifer Map Survey Card",
+  "difficulty": "easy",
+  "date": "2026-07-26",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🌿</span>\n    <h1 class=\"  \">Terrarium Care Tag</h1>\n  </header>\n  <p class=\"  \">Sundew · Drosera capensis · Batch #7</p>\n  <ul class=\"  \">\n    <li class=\"  \">\n      <span class=\"  \">Light</span>\n      <span class=\"  \">Full sun · 6h</span>\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">Water</span>\n      <span class=\"  \">Distilled only</span>\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">Humidity</span>\n      <span class=\"  \">70–90%</span>\n    </li>\n  </ul>\n  <footer class=\"  \">Carnivorous Plant Society · 2026</footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-green-50 border-2 border-green-700 rounded-lg p-4 w-72 mx-auto mt-8\">\n  <header class=\"flex items-center gap-2 mb-3\">\n    <span class=\"text-2xl\">🌿</span>\n    <h1 class=\"text-green-900 font-bold text-base uppercase tracking-widest\">Terrarium Care Tag</h1>\n  </header>\n  <p class=\"text-green-800 text-xs italic mb-3 border-b border-green-300 pb-2\">Sundew · Drosera capensis · Batch #7</p>\n  <ul class=\"text-green-900 text-sm space-y-1\">\n    <li class=\"flex justify-between\">\n      <span class=\"font-semibold\">Light</span>\n      <span class=\"text-green-700\">Full sun · 6h</span>\n    </li>\n    <li class=\"flex justify-between\">\n      <span class=\"font-semibold\">Water</span>\n      <span class=\"text-green-700\">Distilled only</span>\n    </li>\n    <li class=\"flex justify-between\">\n      <span class=\"font-semibold\">Humidity</span>\n      <span class=\"text-green-700\">70–90%</span>\n    </li>\n  </ul>\n  <footer class=\"mt-3 bg-green-700 rounded text-green-50 text-xs text-center py-1 font-medium tracking-wide\">Carnivorous Plant Society · 2026</footer>\n</article>"
+  },
+  "targetImage": "2026-07-26-easy.webp"
+}

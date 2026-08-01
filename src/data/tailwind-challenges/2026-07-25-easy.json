@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Aquifer Map Survey Card",
+  "difficulty": "easy",
+  "date": "2026-07-25",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Survey No.</span>\n    <span class=\"  \">AQ-1847</span>\n  </header>\n  <h1 class=\"  \">Underground Aquifer</h1>\n  <p class=\"  \">Geological Survey & Water Depth Record</p>\n  <ul class=\"  \">\n    <li class=\"  \">\n      <span class=\"  \">Depth</span>\n      <span class=\"  \">42 ft</span>\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">Flow Rate</span>\n      <span class=\"  \">18 gal/min</span>\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">Mineral Grade</span>\n      <span class=\"  \">Class II</span>\n    </li>\n  </ul>\n  <footer class=\"  \">\n    <span class=\"  \">Est. 1847</span>\n    <span class=\"  \">Certified</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-amber-50 border-2 border-amber-800 rounded p-4 w-72 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-amber-800 text-xs font-bold uppercase tracking-widest\">Survey No.</span>\n    <span class=\"bg-amber-800 text-amber-50 text-xs font-bold px-2 py-0.5 rounded\">AQ-1847</span>\n  </header>\n  <h1 class=\"text-amber-900 text-lg font-bold text-center mb-1\">Underground Aquifer</h1>\n  <p class=\"text-amber-700 text-xs text-center italic mb-3\">Geological Survey & Water Depth Record</p>\n  <ul class=\"divide-y divide-amber-300 mb-3\">\n    <li class=\"flex justify-between py-1\">\n      <span class=\"text-amber-800 text-xs font-semibold\">Depth</span>\n      <span class=\"text-amber-700 text-xs\">42 ft</span>\n    </li>\n    <li class=\"flex justify-between py-1\">\n      <span class=\"text-amber-800 text-xs font-semibold\">Flow Rate</span>\n      <span class=\"text-amber-700 text-xs\">18 gal/min</span>\n    </li>\n    <li class=\"flex justify-between py-1\">\n      <span class=\"text-amber-800 text-xs font-semibold\">Mineral Grade</span>\n      <span class=\"text-amber-700 text-xs\">Class II</span>\n    </li>\n  </ul>\n  <footer class=\"flex items-center justify-between\">\n    <span class=\"text-amber-600 text-xs\">Est. 1847</span>\n    <span class=\"border border-amber-700 text-amber-700 text-xs px-2 py-0.5 rounded-full\">Certified</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-25-easy.webp"
+}

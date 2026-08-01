@@ -1,0 +1,13 @@
+{
+  "title": "Summer Movie Night Ticket",
+  "difficulty": "easy",
+  "date": "2026-07-10",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Outdoor Cinema</span>\n    <span class=\"  \">July 2026</span>\n  </header>\n  <section class=\"  \">\n    <h1 class=\"  \">🎬 Under the Stars</h1>\n    <p class=\"  \">Friday Night Feature Film</p>\n    <div class=\"  \">\n      <div class=\"  \">\n        <span class=\"  \">Date</span>\n        <span class=\"  \">Jul 10, 2026</span>\n      </div>\n      <div class=\"  \">\n        <span class=\"  \">Showtime</span>\n        <span class=\"  \">8:30 PM</span>\n      </div>\n      <div class=\"  \">\n        <span class=\"  \">Gate</span>\n        <span class=\"  \">East Lawn</span>\n      </div>\n    </div>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">Seat: General Admission</span>\n    <span class=\"  \">✓ Valid</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 bg-amber-950 rounded-2xl overflow-hidden border-4 border-amber-400 flex flex-col\">\n  <header class=\"bg-amber-400 px-5 py-3 flex items-center justify-between\">\n    <span class=\"text-amber-950 text-xs font-bold uppercase tracking-widest\">Outdoor Cinema</span>\n    <span class=\"bg-amber-950 text-amber-400 text-xs font-bold px-2 py-1 rounded-full\">July 2026</span>\n  </header>\n  <section class=\"px-5 py-4 flex flex-col gap-2\">\n    <h1 class=\"text-amber-300 text-xl font-bold tracking-tight\">🎬 Under the Stars</h1>\n    <p class=\"text-amber-100 text-sm\">Friday Night Feature Film</p>\n    <div class=\"border-t border-amber-700 pt-3 flex gap-4\">\n      <div class=\"flex flex-col\">\n        <span class=\"text-amber-500 text-xs uppercase tracking-wide\">Date</span>\n        <span class=\"text-amber-100 text-sm font-semibold\">Jul 10, 2026</span>\n      </div>\n      <div class=\"flex flex-col\">\n        <span class=\"text-amber-500 text-xs uppercase tracking-wide\">Showtime</span>\n        <span class=\"text-amber-100 text-sm font-semibold\">8:30 PM</span>\n      </div>\n      <div class=\"flex flex-col\">\n        <span class=\"text-amber-500 text-xs uppercase tracking-wide\">Gate</span>\n        <span class=\"text-amber-100 text-sm font-semibold\">East Lawn</span>\n      </div>\n    </div>\n  </section>\n  <footer class=\"bg-amber-900 px-5 py-3 flex items-center justify-between\">\n    <span class=\"text-amber-400 text-xs\">Seat: General Admission</span>\n    <span class=\"bg-amber-400 text-amber-950 text-xs font-bold px-3 py-1 rounded-full\">✓ Valid</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-10-easy.webp"
+}
