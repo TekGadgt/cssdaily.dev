@@ -6,7 +6,13 @@ interface Props {
 }
 
 const { mode, cssDates = [], tailwindDates = [] } = Astro.props;
-const payload = JSON.stringify({ mode, cssDates, tailwindDates });
+// `set:html` does not escape, and a script element is raw text, so a literal
+// closing-script sequence in the payload would end the tag early. Escaping
+// every `<` to its JSON unicode form keeps the payload inert while parsing
+// back to exactly the same value. (Emitting it as a text node instead is not
+// an option: Astro does not interpolate expressions inside a script element,
+// so the expression would be output verbatim and JSON.parse would throw.)
+const payload = JSON.stringify({ mode, cssDates, tailwindDates }).replace(/</g, '\\u003c');
 ---
 <script type="application/json" id="redirect-data" set:html={payload}></script>
 <script>

@@ -74,6 +74,55 @@ describe('alreadyGenerated', () => {
     seed('easy', { json: true, webp: true });
     expect(alreadyGenerated(challengesDir, targetsDir, '2026-07-31', 'easy')).toBe(false);
   });
+
+  // Days predating the multi-difficulty rollout use unsuffixed filenames.
+  // 100 CSS days and 84 Tailwind days in the repo still look like this, and
+  // backfilling one must not bolt suffixed siblings onto it.
+  describe('legacy unsuffixed days', () => {
+    /** Lays down a pre-rollout day: `<date>.json` + `<date>.webp`. */
+    function seedLegacy(parts: { json?: boolean; webp?: boolean }) {
+      if (parts.json) fs.writeFileSync(path.join(challengesDir, `${DATE}.json`), '{}');
+      if (parts.webp) fs.writeFileSync(path.join(targetsDir, `${DATE}.webp`), 'not-really-a-webp');
+    }
+
+    it('counts a legacy day as complete for every difficulty', () => {
+      seedLegacy({ json: true, webp: true });
+      for (const difficulty of DIFFICULTIES) {
+        expect(alreadyGenerated(challengesDir, targetsDir, DATE, difficulty)).toBe(true);
+      }
+    });
+
+    it('requires both legacy files, not just the JSON', () => {
+      seedLegacy({ json: true });
+      expect(alreadyGenerated(challengesDir, targetsDir, DATE, 'easy')).toBe(false);
+    });
+
+    it('requires both legacy files, not just the WebP', () => {
+      seedLegacy({ webp: true });
+      expect(alreadyGenerated(challengesDir, targetsDir, DATE, 'easy')).toBe(false);
+    });
+
+    it('does not let one date’s legacy pair satisfy another date', () => {
+      seedLegacy({ json: true, webp: true });
+      expect(alreadyGenerated(challengesDir, targetsDir, '2026-07-31', 'easy')).toBe(false);
+    });
+
+    it('makes runDifficulties a no-op on a legacy day', async () => {
+      seedLegacy({ json: true, webp: true });
+      const generateOne = vi.fn(async () => 'should never be called');
+
+      await runDifficulties({
+        date: DATE,
+        mode: 'CSS',
+        challengesDir,
+        targetsDir,
+        recentTitles: [],
+        generateOne,
+      });
+
+      expect(generateOne).not.toHaveBeenCalled();
+    });
+  });
 });
 
 describe('runDifficulties', () => {

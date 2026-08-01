@@ -9,6 +9,13 @@ export const DIFFICULTIES: Difficulty[] = ['easy', 'medium', 'hard'];
  *
  * Both files must be present, not just the JSON: a crashed run can leave a
  * WebP with no JSON, and that pair must still be repairable.
+ *
+ * Days before the multi-difficulty rollout use unsuffixed `<date>.json` /
+ * `<date>.webp` (100 CSS days and 84 Tailwind days still do). Such a day is
+ * treated as complete for EVERY difficulty, because the challenge JSON carries
+ * its own `difficulty` field and the site groups challenges by `date` — so
+ * generating suffixed siblings would render two challenges of the same
+ * difficulty for that date, on top of spending API credits.
  */
 export function alreadyGenerated(
   challengesDir: string,
@@ -16,9 +23,14 @@ export function alreadyGenerated(
   date: string,
   difficulty: Difficulty
 ): boolean {
-  return (
+  const suffixed =
     fs.existsSync(path.join(challengesDir, `${date}-${difficulty}.json`)) &&
-    fs.existsSync(path.join(targetsDir, `${date}-${difficulty}.webp`))
+    fs.existsSync(path.join(targetsDir, `${date}-${difficulty}.webp`));
+  if (suffixed) return true;
+
+  return (
+    fs.existsSync(path.join(challengesDir, `${date}.json`)) &&
+    fs.existsSync(path.join(targetsDir, `${date}.webp`))
   );
 }
 
