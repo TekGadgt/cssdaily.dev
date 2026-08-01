@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Canoe Rental Dock Tag",
+  "difficulty": "easy",
+  "date": "2026-07-31",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">Lakeside Outfitters</p>\n    <h1 class=\"  \">Canoe Rental</h1>\n  </header>\n  <section class=\"  \">\n    <span class=\"  \">Dock #4</span>\n    <span class=\"  \">2 hrs · $18</span>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Return by 4:30 PM · July 31</p>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-amber-50 border-4 border-amber-800 rounded p-4 w-72 mx-auto mt-6\">\n  <header class=\"border-b-2 border-amber-700 pb-2 mb-3 text-center\">\n    <p class=\"text-amber-600 text-xs font-bold uppercase tracking-widest\">Lakeside Outfitters</p>\n    <h1 class=\"text-amber-900 text-xl font-extrabold\">Canoe Rental</h1>\n  </header>\n  <section class=\"flex justify-between items-center mb-3\">\n    <span class=\"bg-amber-800 text-amber-50 text-xs font-bold px-3 py-1 rounded-full\">Dock #4</span>\n    <span class=\"text-amber-700 text-sm font-semibold\">2 hrs · $18</span>\n  </section>\n  <footer class=\"border-t-2 border-dashed border-amber-600 pt-2 text-center\">\n    <p class=\"text-amber-800 text-xs font-medium\">Return by 4:30 PM · July 31</p>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-07-31-easy.webp"
+}
