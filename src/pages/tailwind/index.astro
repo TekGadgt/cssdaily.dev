@@ -1,4 +1,6 @@
 ---
+import ChallengeRedirect from '../../components/ChallengeRedirect.astro';
+import { tailwindDates } from '../../utils/challenges';
 ---
 <!doctype html>
 <html lang="en">
@@ -7,15 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
     <title>Tailwind Daily - CSS Daily</title>
-    <script>
-      const today = new Date();
-      const yyyy = today.getFullYear();
-      const mm = String(today.getMonth() + 1).padStart(2, '0');
-      const dd = String(today.getDate()).padStart(2, '0');
-      window.location.replace(`/tailwind/${yyyy}-${mm}-${dd}/`);
-    </script>
   </head>
   <body>
-    <noscript><a href="/about/">CSS Daily</a></noscript>
+    <ChallengeRedirect mode="tailwind" tailwindDates={tailwindDates} />
   </body>
 </html>

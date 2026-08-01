@@ -2,25 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import TailwindPlayer from '../../components/TailwindPlayer.tsx';
+import { tailwindChallengesByDate, tailwindDates } from '../../utils/challenges';
 
 export async function getStaticPaths() {
-  const challengeFiles = import.meta.glob('../../data/tailwind-challenges/*.json', { eager: true });
-  const challenges = Object.values(challengeFiles).map((mod: any) => mod.default || mod);
-
-  const byDate: Record<string, any[]> = {};
-  for (const c of challenges) {
-    (byDate[c.date] ??= []).push(c);
-  }
-
-  const order: Record<string, number> = { easy: 0, medium: 1, hard: 2 };
-  const allDates = Object.keys(byDate).sort();
-
-  return Object.entries(byDate).map(([date, set]) => ({
+  return Object.entries(tailwindChallengesByDate).map(([date, set]) => ({
     params: { date },
-    props: {
-      challenges: set.sort((a, b) => order[a.difficulty] - order[b.difficulty]),
-      allDates,
-    },
+    props: { challenges: set, allDates: tailwindDates },
   }));
 }
 

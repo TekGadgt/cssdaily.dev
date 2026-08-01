@@ -1,5 +1,5 @@
 import type { ChallengeResult, ChallengeHistory, UserStats, StorageData, TailwindChallengeResult, TailwindChallengeHistory, TailwindStorageData, GenericHistory, LayoutMode, Difficulty } from './types';
-import { adjacentDate } from './date';
+import { adjacentDate, localToday } from './date';
 
 const STORAGE_KEY = 'css-daily-challenge';
 
@@ -126,8 +126,7 @@ export function computeStats(history: GenericHistory): UserStats {
     maxStreak = Math.max(maxStreak, streak);
   }
 
-  const today = new Date();
-  const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+  const todayStr = localToday();
   const lastDate = dates[dates.length - 1];
 
   // Streak is alive if the last play was today or yesterday

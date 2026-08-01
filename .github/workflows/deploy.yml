@@ -26,6 +26,8 @@ jobs:
 
       - run: npm ci
 
+      - run: npm test
+
       - name: Build Astro site
         run: npm run build
 

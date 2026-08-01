@@ -21,7 +21,7 @@ This design closes it.
 From that same prior design, and preserved here:
 
 - **B1** — `index.astro`, `tailwind/index.astro`, and `404.astro` are deliberately bare redirect stubs: no `Layout`, no analytics beacon, and they use `window.location.replace` so the stub never enters history. The new shared redirect component must stay equally bare.
-- **B3** — `trailingSlash: 'always'`. Every redirect target keeps its trailing slash, and the 404 path parser must tolerate one.
+- **B3** — `astro.config.mjs` sets `trailingSlash: 'ignore'`, but Astro's default `directory` build format emits `/challenge/<date>/index.html`, which makes the trailing-slash form canonical on GitHub Pages. So every redirect target must keep its trailing slash (the slashless form costs a 301), and the 404 path parser must tolerate one.
 
 ## Scope
 
@@ -81,6 +81,8 @@ export function resolveAvailableDate(available: string[], ceiling: string): stri
 
 ISO `YYYY-MM-DD` sorts lexicographically, so this is a filter and a last-element read. The function sorts its input defensively rather than trusting callers. The happy path needs no special case: when today's challenge exists, today is itself `<= today` and is the maximum, so it wins.
 
+The fall-forward branch is a deliberate exception to the clamp: when *nothing* is at or before the ceiling, the function returns the earliest available date, which is by definition **after** the ceiling. A future date is the intended answer there, because landing on a real page beats a dead end. Consequently "never resolves to a future date" is not an unconditional property of the function — it holds for this repo because the corpus's earliest date is well in the past, so no present-day ceiling can reach the fall-forward branch.
+
 **B2. Shared challenge loading.** New `src/utils/challenges.ts` owns the `import.meta.glob` calls for both challenge directories and exports the grouped-by-date maps plus sorted date lists. That glob-and-group block is currently copy-pasted between `challenge/[date].astro` and `tailwind/[date].astro`; both switch to importing it, so the two new fallback consumers do not add a third and fourth copy.
 
 **B3. Shared redirect component.** New `src/components/ChallengeRedirect.astro` holds the redirect script once and takes `mode: 'challenge' | 'tailwind' | 'auto'`. It stays a bare stub per the inherited B1 constraint — no `Layout`, no analytics — and continues to use `window.location.replace`. Three consumers:
@@ -91,7 +93,9 @@ ISO `YYYY-MM-DD` sorts lexicographically, so this is a filter and a last-element
 | `tailwind/index.astro` | `tailwind` | today |
 | `404.astro` | `auto` — mode and date parsed from `location.pathname` | `min(requested, today)` |
 
-The date lists are inlined into the stub at build time via `define:vars` (which requires `is:inline`, so the component carries the resolution logic as literal script text rather than importing it — the reason to have the component at all is that this keeps that logic in exactly one file). A single-mode stub inlines only its own list; `mode: 'auto'` inlines both, since it does not know which mode was requested until it parses the path at runtime. ~250 dates is a couple of KB and gzips well; a separate manifest fetch would add a request to a page whose only job is to redirect fast.
+The date lists are embedded at build time in a `<script type="application/json">` tag, and a normal (bundled, module) Astro `<script>` reads that tag and calls `resolveAvailableDate` imported from `date.ts`. A single-mode stub embeds only its own list; `mode: 'auto'` embeds both, since it does not know which mode was requested until it parses the path at runtime. ~250 dates is a couple of KB and gzips well; a separate manifest *fetch* would add a network round trip before the redirect could even start.
+
+**Why not `define:vars`.** `define:vars` requires `is:inline`, and inline scripts cannot `import`. That would force the resolution logic to exist twice — typed and tested in `date.ts`, and again as literal script text in the component — with only one copy covered by tests, on precisely the logic this change exists to fix. The bundled script keeps a single tested implementation at the cost of one extra ~1KB same-origin request on the stub. That request is the accepted price; drift on the resolution rule is not.
 
 **B4. The ceiling is always clamped to today.** This is what stops tomorrow's pre-generated challenge from leaking. `2026-08-02` exists on disk right now, so without the clamp a hand-typed future URL would spoil it.
 
