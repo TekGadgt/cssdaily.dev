@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Balloon Animal Instruction Tag",
+  "difficulty": "easy",
+  "date": "2026-08-02",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Step-by-Step</span>\n    <span class=\"  \">No. 7</span>\n  </header>\n  <h1 class=\"  \">Balloon Poodle</h1>\n  <p class=\"  \">Twist & delight!</p>\n  <ul class=\"  \">\n    <li class=\"  \">\n      <span class=\"  \">1</span>\n      Inflate, leave 4-inch tail\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">2</span>\n      Twist three small bubbles\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">3</span>\n      Lock-twist for the ears\n    </li>\n  </ul>\n  <footer class=\"  \">\n    <span class=\"  \">🎈 Happy Twisting!</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"bg-amber-50 border-2 border-amber-800 rounded p-4 w-64 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-amber-800 text-xs font-bold uppercase tracking-widest\">Step-by-Step</span>\n    <span class=\"bg-amber-800 text-amber-50 text-xs font-bold px-2 py-0.5 rounded\">No. 7</span>\n  </header>\n  <h1 class=\"text-amber-900 text-xl font-extrabold text-center mb-1\">Balloon Poodle</h1>\n  <p class=\"text-amber-700 text-xs text-center italic mb-3\">Twist & delight!</p>\n  <ul class=\"space-y-1 mb-3\">\n    <li class=\"flex items-center gap-2 text-sm text-amber-900\">\n      <span class=\"bg-pink-300 text-pink-900 font-bold text-xs w-5 h-5 flex items-center justify-center rounded-full\">1</span>\n      Inflate, leave 4-inch tail\n    </li>\n    <li class=\"flex items-center gap-2 text-sm text-amber-900\">\n      <span class=\"bg-pink-300 text-pink-900 font-bold text-xs w-5 h-5 flex items-center justify-center rounded-full\">2</span>\n      Twist three small bubbles\n    </li>\n    <li class=\"flex items-center gap-2 text-sm text-amber-900\">\n      <span class=\"bg-pink-300 text-pink-900 font-bold text-xs w-5 h-5 flex items-center justify-center rounded-full\">3</span>\n      Lock-twist for the ears\n    </li>\n  </ul>\n  <footer class=\"border-t border-amber-300 pt-2 text-center\">\n    <span class=\"text-amber-600 text-xs\">🎈 Happy Twisting!</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-02-easy.webp"
+}
