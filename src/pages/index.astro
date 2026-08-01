@@ -1,4 +1,6 @@
 ---
+import ChallengeRedirect from '../components/ChallengeRedirect.astro';
+import { cssDates } from '../utils/challenges';
 ---
 <!doctype html>
 <html lang="en">
@@ -7,15 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
     <title>CSS Daily</title>
-    <script>
-      const today = new Date();
-      const yyyy = today.getFullYear();
-      const mm = String(today.getMonth() + 1).padStart(2, '0');
-      const dd = String(today.getDate()).padStart(2, '0');
-      window.location.replace(`/challenge/${yyyy}-${mm}-${dd}/`);
-    </script>
+    <ChallengeRedirect mode="challenge" cssDates={cssDates} />
   </head>
-  <body>
-    <noscript><a href="/about/">CSS Daily</a></noscript>
-  </body>
+  <body></body>
 </html>

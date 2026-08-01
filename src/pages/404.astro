@@ -1,4 +1,6 @@
 ---
+import ChallengeRedirect from '../components/ChallengeRedirect.astro';
+import { cssDates, tailwindDates } from '../utils/challenges';
 ---
 <!doctype html>
 <html lang="en">
@@ -7,10 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
     <title>Not Found - CSS Daily</title>
-    <meta http-equiv="refresh" content="0; url=/" />
-    <script>window.location.replace('/');</script>
+    <ChallengeRedirect mode="auto" cssDates={cssDates} tailwindDates={tailwindDates} />
   </head>
-  <body>
-    <noscript><a href="/">CSS Daily</a></noscript>
-  </body>
+  <body></body>
 </html>

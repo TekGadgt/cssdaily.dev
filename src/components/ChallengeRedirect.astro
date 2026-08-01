@@ -1,0 +1,47 @@
+---
+interface Props {
+  mode: 'challenge' | 'tailwind' | 'auto';
+  cssDates?: string[];
+  tailwindDates?: string[];
+}
+
+const { mode, cssDates = [], tailwindDates = [] } = Astro.props;
+const payload = JSON.stringify({ mode, cssDates, tailwindDates });
+---
+<script type="application/json" id="redirect-data" set:html={payload}></script>
+<script>
+  import { resolveAvailableDate } from '../utils/date';
+
+  const el = document.getElementById('redirect-data');
+  const { mode, cssDates, tailwindDates } = JSON.parse(el!.textContent!);
+
+  // Local calendar date, matching how the site has always keyed challenges.
+  const now = new Date();
+  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+
+  let target = mode;
+  let ceiling = today;
+
+  if (mode === 'auto') {
+    // GitHub Pages serves 404.html while preserving the requested URL.
+    const match = location.pathname.match(/^\/(challenge|tailwind)\/(\d{4}-\d{2}-\d{2})\/?$/);
+    if (!match) {
+      // Not a challenge URL. "/" always resolves to a real page now, so
+      // this cannot loop.
+      location.replace('/');
+    } else {
+      target = match[1];
+      // Clamp to today so a hand-typed future URL cannot reveal a
+      // pre-generated challenge.
+      ceiling = match[2] < today ? match[2] : today;
+    }
+  }
+
+  if (target !== 'auto') {
+    const dates = target === 'tailwind' ? tailwindDates : cssDates;
+    const resolved = resolveAvailableDate(dates, ceiling);
+    // /about/ is the one terminal state: nothing has been built at all.
+    location.replace(resolved ? `/${target}/${resolved}/` : '/about/');
+  }
+</script>
+<noscript><a href="/about/">CSS Daily</a></noscript>
