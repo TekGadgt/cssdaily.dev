@@ -12,8 +12,11 @@ describe('resolveAvailableDate', () => {
     expect(resolveAvailableDate(dates, '2026-08-01')).toBe('2026-07-30');
   });
 
-  it('never returns a date after the ceiling', () => {
-    // 2026-08-02 is present but must not leak for an earlier ceiling
+  it('does not leak a later date when an earlier one qualifies', () => {
+    // 2026-08-02 is present but must not leak for an earlier ceiling.
+    // Note this is NOT an unconditional "never returns a future date"
+    // guarantee — see the fall-forward case below, where returning a
+    // later date is the intended answer.
     expect(resolveAvailableDate(dates, '2026-07-31')).toBe('2026-07-30');
   });
 

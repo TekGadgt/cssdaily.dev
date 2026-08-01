@@ -10,14 +10,13 @@ const payload = JSON.stringify({ mode, cssDates, tailwindDates });
 ---
 <script type="application/json" id="redirect-data" set:html={payload}></script>
 <script>
-  import { resolveAvailableDate } from '../utils/date';
+  import { localToday, resolveAvailableDate } from '../utils/date';
 
   const el = document.getElementById('redirect-data');
   const { mode, cssDates, tailwindDates } = JSON.parse(el!.textContent!);
 
   // Local calendar date, matching how the site has always keyed challenges.
-  const now = new Date();
-  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+  const today = localToday();
 
   let target = mode;
   let ceiling = today;
