@@ -9,6 +9,7 @@ import { encodeWebpLossless } from './webp';
 import { measureComponent, isOversize, MAX_COMPONENT_WIDTH, MAX_COMPONENT_HEIGHT } from './measure';
 import type { Difficulty } from '../src/utils/types';
 import { TIME_LIMITS } from '../src/utils/difficulty';
+import { DIFFICULTIES, runDifficulties } from './generate-common';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CHALLENGES_DIR = path.join(__dirname, '..', 'src', 'data', 'tailwind-challenges');
@@ -51,8 +52,6 @@ OUTPUT FORMAT — use these exact XML tags (no JSON, no code fences):
 Generate creative, visually interesting components like cards, badges, buttons, navbars, pricing tables, profile cards, etc.`;
 
 const MAX_ATTEMPTS = 4; // 1 initial generation + 3 size-fix retries
-
-const DIFFICULTIES: Difficulty[] = ['easy', 'medium', 'hard'];
 
 interface TailwindChallengeFields {
   title: string;
@@ -221,27 +220,15 @@ async function generateChallenge(date: string) {
     const page = await browser.newPage();
     await page.setViewportSize({ width: 600, height: 400 });
 
-    const recentTitles = collectRecentTitles();
-    const todaysTitles: string[] = [];
-    const failures: Difficulty[] = [];
-
-    for (const difficulty of DIFFICULTIES) {
-      try {
-        const title = await generateOne(client, page, date, difficulty, [...todaysTitles, ...recentTitles]);
-        todaysTitles.push(title);
-      } catch (err) {
-        console.error(`[${difficulty}] generation failed:`, err);
-        console.log(`::warning::Tailwind ${difficulty} challenge generation failed for ${date}`);
-        failures.push(difficulty);
-      }
-    }
-
-    if (failures.length === DIFFICULTIES.length) {
-      throw new Error(`All ${DIFFICULTIES.length} difficulty generations failed for ${date}`);
-    }
-    if (failures.length > 0) {
-      console.warn(`Completed with failures: ${failures.join(', ')}`);
-    }
+    await runDifficulties({
+      date,
+      mode: 'Tailwind',
+      challengesDir: CHALLENGES_DIR,
+      targetsDir: TARGETS_DIR,
+      recentTitles: collectRecentTitles(),
+      generateOne: (difficulty, avoidTitles) =>
+        generateOne(client, page, date, difficulty, avoidTitles),
+    });
   } finally {
     await browser.close();
   }
