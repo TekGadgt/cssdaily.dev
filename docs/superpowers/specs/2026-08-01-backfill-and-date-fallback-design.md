@@ -91,7 +91,9 @@ ISO `YYYY-MM-DD` sorts lexicographically, so this is a filter and a last-element
 | `tailwind/index.astro` | `tailwind` | today |
 | `404.astro` | `auto` — mode and date parsed from `location.pathname` | `min(requested, today)` |
 
-The date lists are inlined into the stub at build time via `define:vars` (which requires `is:inline`, so the component carries the resolution logic as literal script text rather than importing it — the reason to have the component at all is that this keeps that logic in exactly one file). A single-mode stub inlines only its own list; `mode: 'auto'` inlines both, since it does not know which mode was requested until it parses the path at runtime. ~250 dates is a couple of KB and gzips well; a separate manifest fetch would add a request to a page whose only job is to redirect fast.
+The date lists are embedded at build time in a `<script type="application/json">` tag, and a normal (bundled, module) Astro `<script>` reads that tag and calls `resolveAvailableDate` imported from `date.ts`. A single-mode stub embeds only its own list; `mode: 'auto'` embeds both, since it does not know which mode was requested until it parses the path at runtime. ~250 dates is a couple of KB and gzips well; a separate manifest *fetch* would add a network round trip before the redirect could even start.
+
+**Why not `define:vars`.** `define:vars` requires `is:inline`, and inline scripts cannot `import`. That would force the resolution logic to exist twice — typed and tested in `date.ts`, and again as literal script text in the component — with only one copy covered by tests, on precisely the logic this change exists to fix. The bundled script keeps a single tested implementation at the cost of one extra ~1KB same-origin request on the stub. That request is the accepted price; drift on the resolution rule is not.
 
 **B4. The ceiling is always clamped to today.** This is what stops tomorrow's pre-generated challenge from leaking. `2026-08-02` exists on disk right now, so without the clamp a hand-typed future URL would spoil it.
 
