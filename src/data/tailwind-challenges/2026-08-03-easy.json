@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Magic Lantern Show Ticket",
+  "difficulty": "easy",
+  "date": "2026-08-03",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">One Admission</p>\n    <h1 class=\"  \">Magic Lantern Show</h1>\n  </header>\n  <section class=\"  \">\n    <div class=\"  \">\n      <p class=\"  \">Date</p>\n      <p class=\"  \">Aug 3, 1897</p>\n    </div>\n    <div class=\"  \">\n      <p class=\"  \">Time</p>\n      <p class=\"  \">8:00 PM</p>\n    </div>\n    <div class=\"  \">\n      <p class=\"  \">Seat</p>\n      <p class=\"  \">Row C · 14</p>\n    </div>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Admit One</p>\n    <span class=\"  \">6d</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-80 bg-amber-50 border-4 border-amber-800 rounded p-4 mx-auto\">\n  <header class=\"text-center border-b-2 border-amber-700 pb-2 mb-3\">\n    <p class=\"text-amber-700 text-xs font-bold uppercase tracking-widest\">One Admission</p>\n    <h1 class=\"text-amber-900 text-xl font-bold\">Magic Lantern Show</h1>\n  </header>\n  <section class=\"flex justify-between items-center mb-3\">\n    <div class=\"text-center\">\n      <p class=\"text-amber-600 text-xs uppercase font-semibold\">Date</p>\n      <p class=\"text-amber-900 text-sm font-bold\">Aug 3, 1897</p>\n    </div>\n    <div class=\"text-center\">\n      <p class=\"text-amber-600 text-xs uppercase font-semibold\">Time</p>\n      <p class=\"text-amber-900 text-sm font-bold\">8:00 PM</p>\n    </div>\n    <div class=\"text-center\">\n      <p class=\"text-amber-600 text-xs uppercase font-semibold\">Seat</p>\n      <p class=\"text-amber-900 text-sm font-bold\">Row C · 14</p>\n    </div>\n  </section>\n  <footer class=\"flex justify-between items-center border-t-2 border-amber-700 pt-2\">\n    <p class=\"text-amber-800 text-xs italic\">Admit One</p>\n    <span class=\"bg-amber-800 text-amber-50 text-xs font-bold px-3 py-1 rounded-full\">6d</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-03-easy.webp"
+}
