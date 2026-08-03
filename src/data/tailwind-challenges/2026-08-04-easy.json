@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Stationery Shop Gift Voucher",
+  "difficulty": "easy",
+  "date": "2026-08-04",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">Est. 1924</p>\n    <h1 class=\"  \">Inkwell & Quill</h1>\n    <p class=\"  \">Fine Stationery Emporium</p>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Gift Voucher</p>\n    <p class=\"  \">$15.00</p>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">No. 0482</span>\n    <span class=\"  \">Valid 12 months</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-80 bg-amber-50 border-4 border-amber-800 rounded p-4 mx-auto mt-6\">\n  <header class=\"text-center border-b-2 border-amber-700 pb-2 mb-3\">\n    <p class=\"text-xs text-amber-700 uppercase tracking-widest\">Est. 1924</p>\n    <h1 class=\"text-xl font-bold text-amber-900\">Inkwell & Quill</h1>\n    <p class=\"text-xs text-amber-600 italic\">Fine Stationery Emporium</p>\n  </header>\n  <section class=\"bg-amber-100 border border-amber-400 rounded p-3 mb-3 text-center\">\n    <p class=\"text-xs text-amber-700 uppercase tracking-wide mb-1\">Gift Voucher</p>\n    <p class=\"text-3xl font-bold text-amber-900\">$15.00</p>\n  </section>\n  <footer class=\"flex justify-between items-center text-xs text-amber-700\">\n    <span class=\"border border-amber-500 rounded px-2 py-1\">No. 0482</span>\n    <span class=\"italic\">Valid 12 months</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-04-easy.webp"
+}
