@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Canteen Mess Hall Meal Ticket",
+  "difficulty": "easy",
+  "date": "2026-08-05",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">Camp Pinecrest</p>\n    <h1 class=\"  \">Mess Hall</h1>\n    <p class=\"  \">Official Meal Ticket</p>\n  </header>\n  <section class=\"  \">\n    <div class=\"  \">\n      <p class=\"  \">Date</p>\n      <p class=\"  \">Aug 5, 1962</p>\n    </div>\n    <div class=\"  \">\n      <p class=\"  \">Meal</p>\n      <p class=\"  \">Supper</p>\n    </div>\n    <div class=\"  \">\n      <p class=\"  \">Table</p>\n      <p class=\"  \">No. 7</p>\n    </div>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Non-transferable</p>\n    <span class=\"  \">✓ Valid</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-80 bg-amber-50 border-4 border-amber-800 rounded p-4 mx-auto\">\n  <header class=\"border-b-2 border-amber-700 pb-2 mb-3 text-center\">\n    <p class=\"text-xs font-bold tracking-widest text-amber-700 uppercase\">Camp Pinecrest</p>\n    <h1 class=\"text-xl font-black text-amber-900 tracking-wide\">Mess Hall</h1>\n    <p class=\"text-xs text-amber-600 italic\">Official Meal Ticket</p>\n  </header>\n  <section class=\"flex gap-3 mb-3\">\n    <div class=\"flex-1 bg-amber-100 border border-amber-400 rounded p-2 text-center\">\n      <p class=\"text-xs text-amber-700 font-semibold uppercase tracking-wide\">Date</p>\n      <p class=\"text-sm font-bold text-amber-900\">Aug 5, 1962</p>\n    </div>\n    <div class=\"flex-1 bg-amber-100 border border-amber-400 rounded p-2 text-center\">\n      <p class=\"text-xs text-amber-700 font-semibold uppercase tracking-wide\">Meal</p>\n      <p class=\"text-sm font-bold text-amber-900\">Supper</p>\n    </div>\n    <div class=\"flex-1 bg-amber-100 border border-amber-400 rounded p-2 text-center\">\n      <p class=\"text-xs text-amber-700 font-semibold uppercase tracking-wide\">Table</p>\n      <p class=\"text-sm font-bold text-amber-900\">No. 7</p>\n    </div>\n  </section>\n  <footer class=\"flex items-center justify-between border-t-2 border-dashed border-amber-600 pt-2\">\n    <p class=\"text-xs text-amber-700 italic\">Non-transferable</p>\n    <span class=\"bg-amber-800 text-amber-50 text-xs font-bold px-3 py-1 rounded\">✓ Valid</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-05-easy.webp"
+}
