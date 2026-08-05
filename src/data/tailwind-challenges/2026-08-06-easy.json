@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Soda Fountain Punch Card",
+  "difficulty": "easy",
+  "date": "2026-08-06",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Fizzy's Soda Fountain</h1>\n    <p class=\"  \">Est. 1948 — Reward Card</p>\n  </header>\n  <p class=\"  \">Buy 8 sodas, get one FREE!</p>\n  <ul class=\"  \">\n    <li class=\"  \">✓</li>\n    <li class=\"  \">✓</li>\n    <li class=\"  \">✓</li>\n    <li class=\"  \">✓</li>\n    <li class=\"  \">✓</li>\n    <li class=\"  \">✓</li>\n    <li class=\"  \">✓</li>\n    <li class=\"  \">✓</li>\n  </ul>\n  <footer class=\"  \">\n    <p class=\"  \">3 of 8 punched</p>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-80 bg-amber-50 border-4 border-amber-800 rounded-lg p-4 mx-auto\">\n  <header class=\"text-center mb-3\">\n    <h1 class=\"text-lg font-bold text-amber-900 uppercase tracking-widest\">Fizzy's Soda Fountain</h1>\n    <p class=\"text-xs text-amber-700 italic\">Est. 1948 — Reward Card</p>\n  </header>\n  <p class=\"text-xs text-amber-800 text-center mb-3\">Buy 8 sodas, get one FREE!</p>\n  <ul class=\"grid grid-cols-4 gap-2 mb-3\">\n    <li class=\"w-10 h-10 rounded-full border-2 border-amber-700 bg-amber-200 flex items-center justify-center text-amber-900 text-lg\">✓</li>\n    <li class=\"w-10 h-10 rounded-full border-2 border-amber-700 bg-amber-200 flex items-center justify-center text-amber-900 text-lg\">✓</li>\n    <li class=\"w-10 h-10 rounded-full border-2 border-amber-700 bg-amber-200 flex items-center justify-center text-amber-900 text-lg\">✓</li>\n    <li class=\"w-10 h-10 rounded-full border-2 border-amber-700 bg-amber-50 flex items-center justify-center text-amber-300 text-lg\">✓</li>\n    <li class=\"w-10 h-10 rounded-full border-2 border-amber-700 bg-amber-50 flex items-center justify-center text-amber-300 text-lg\">✓</li>\n    <li class=\"w-10 h-10 rounded-full border-2 border-amber-700 bg-amber-50 flex items-center justify-center text-amber-300 text-lg\">✓</li>\n    <li class=\"w-10 h-10 rounded-full border-2 border-amber-700 bg-amber-50 flex items-center justify-center text-amber-300 text-lg\">✓</li>\n    <li class=\"w-10 h-10 rounded-full border-2 border-amber-700 bg-amber-50 flex items-center justify-center text-amber-300 text-lg\">✓</li>\n  </ul>\n  <footer class=\"border-t-2 border-amber-700 border-dashed pt-2 text-center\">\n    <p class=\"text-xs text-amber-700 uppercase tracking-wide\">3 of 8 punched</p>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-06-easy.webp"
+}
