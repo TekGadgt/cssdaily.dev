@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Train Station Platform Ticket",
+  "difficulty": "easy",
+  "date": "2026-08-07",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Platform Pass</span>\n    <span class=\"  \">#0847</span>\n  </header>\n  <p class=\"  \">Hartwell Central</p>\n  <p class=\"  \">Eastbound · Platform 4</p>\n  <section class=\"  \">\n    <div class=\"  \">\n      <p class=\"  \">Departs</p>\n      <p class=\"  \">09:42</p>\n    </div>\n    <div class=\"  \">\n      <p class=\"  \">Class</p>\n      <p class=\"  \">2nd</p>\n    </div>\n    <div class=\"  \">\n      <p class=\"  \">Seat</p>\n      <p class=\"  \">14C</p>\n    </div>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">Valid day of issue only</span>\n    <span class=\"  \">ADMIT</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-80 bg-amber-50 border-2 border-amber-800 rounded p-4 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between border-b-2 border-amber-800 pb-2 mb-3\">\n    <span class=\"text-xs font-bold uppercase tracking-widest text-amber-800\">Platform Pass</span>\n    <span class=\"text-xs font-mono text-amber-600\">#0847</span>\n  </header>\n  <p class=\"text-center text-lg font-bold uppercase tracking-wide text-amber-900 mb-1\">Hartwell Central</p>\n  <p class=\"text-center text-xs text-amber-700 mb-3\">Eastbound · Platform 4</p>\n  <section class=\"flex justify-between bg-amber-100 border border-amber-300 rounded px-3 py-2 mb-3\">\n    <div class=\"text-center\">\n      <p class=\"text-xs text-amber-600 uppercase tracking-wide\">Departs</p>\n      <p class=\"text-sm font-bold text-amber-900\">09:42</p>\n    </div>\n    <div class=\"text-center\">\n      <p class=\"text-xs text-amber-600 uppercase tracking-wide\">Class</p>\n      <p class=\"text-sm font-bold text-amber-900\">2nd</p>\n    </div>\n    <div class=\"text-center\">\n      <p class=\"text-xs text-amber-600 uppercase tracking-wide\">Seat</p>\n      <p class=\"text-sm font-bold text-amber-900\">14C</p>\n    </div>\n  </section>\n  <footer class=\"flex items-center justify-between\">\n    <span class=\"text-xs text-amber-600 italic\">Valid day of issue only</span>\n    <span class=\"text-xs font-bold bg-amber-800 text-amber-50 rounded px-2 py-0.5\">ADMIT</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-07-easy.webp"
+}
