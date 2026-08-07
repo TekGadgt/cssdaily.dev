@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Library Book Return Slip",
+  "difficulty": "easy",
+  "date": "2026-08-08",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Public Library</span>\n    <span class=\"  \">DUE SLIP</span>\n  </header>\n  <p class=\"  \">Title: <span class=\"  \">The Wandering Compass</span></p>\n  <p class=\"  \">Call No: <span class=\"  \">910.4 WAN</span></p>\n  <section class=\"  \">\n    <div class=\"  \">\n      <p class=\"  \">Checked Out</p>\n      <p class=\"  \">Jul 25, 1968</p>\n    </div>\n    <div class=\"  \">\n      <p class=\"  \">Return By</p>\n      <p class=\"  \">Aug 08, 1968</p>\n    </div>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Please return promptly to avoid fines.</p>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-80 bg-amber-50 border-2 border-amber-800 rounded p-4 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between border-b-2 border-amber-800 pb-2 mb-3\">\n    <span class=\"text-amber-800 text-xs font-bold uppercase tracking-widest\">Public Library</span>\n    <span class=\"bg-amber-800 text-amber-50 text-xs font-bold px-2 py-0.5 rounded\">DUE SLIP</span>\n  </header>\n  <p class=\"text-amber-900 text-sm font-semibold mb-1\">Title: <span class=\"font-normal italic\">The Wandering Compass</span></p>\n  <p class=\"text-amber-900 text-sm font-semibold mb-3\">Call No: <span class=\"font-normal\">910.4 WAN</span></p>\n  <section class=\"flex gap-3 mb-3\">\n    <div class=\"flex-1 bg-amber-100 border border-amber-700 rounded p-2 text-center\">\n      <p class=\"text-amber-700 text-xs font-bold uppercase mb-1\">Checked Out</p>\n      <p class=\"text-amber-900 text-sm font-semibold\">Jul 25, 1968</p>\n    </div>\n    <div class=\"flex-1 bg-amber-100 border border-amber-700 rounded p-2 text-center\">\n      <p class=\"text-amber-700 text-xs font-bold uppercase mb-1\">Return By</p>\n      <p class=\"text-red-700 text-sm font-semibold\">Aug 08, 1968</p>\n    </div>\n  </section>\n  <footer class=\"border-t border-amber-700 pt-2 text-center\">\n    <p class=\"text-amber-800 text-xs italic\">Please return promptly to avoid fines.</p>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-08-easy.webp"
+}
