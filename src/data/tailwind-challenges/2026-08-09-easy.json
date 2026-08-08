@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Campfire S'mores Kit Tag",
+  "difficulty": "easy",
+  "date": "2026-08-09",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Kit No. 209</span>\n    <span class=\"  \">S'MORES</span>\n  </header>\n  <h1 class=\"  \">Campfire S'mores Kit</h1>\n  <ul class=\"  \">\n    <li class=\"  \">\n      <span class=\"  \">Graham Crackers</span>\n      <span class=\"  \">×8</span>\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">Marshmallows</span>\n      <span class=\"  \">×6</span>\n    </li>\n    <li class=\"  \">\n      <span class=\"  \">Chocolate Squares</span>\n      <span class=\"  \">×4</span>\n    </li>\n  </ul>\n  <footer class=\"  \">\n    <span class=\"  \">Roast. Stack. Enjoy.</span>\n    <span class=\"  \">$4.50</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-72 bg-amber-50 border-4 border-amber-800 rounded p-4 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-xs font-bold uppercase tracking-widest text-amber-700\">Kit No. 209</span>\n    <span class=\"bg-amber-800 text-amber-50 text-xs font-bold px-2 py-1 rounded\">S'MORES</span>\n  </header>\n  <h1 class=\"text-xl font-extrabold text-amber-900 text-center mb-2\">Campfire S'mores Kit</h1>\n  <ul class=\"text-sm text-amber-800 mb-3 space-y-1\">\n    <li class=\"flex justify-between border-b border-amber-300 pb-1\">\n      <span class=\"font-semibold\">Graham Crackers</span>\n      <span>×8</span>\n    </li>\n    <li class=\"flex justify-between border-b border-amber-300 pb-1\">\n      <span class=\"font-semibold\">Marshmallows</span>\n      <span>×6</span>\n    </li>\n    <li class=\"flex justify-between border-b border-amber-300 pb-1\">\n      <span class=\"font-semibold\">Chocolate Squares</span>\n      <span>×4</span>\n    </li>\n  </ul>\n  <footer class=\"flex items-center justify-between\">\n    <span class=\"text-xs text-amber-600 italic\">Roast. Stack. Enjoy.</span>\n    <span class=\"bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded\">$4.50</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-09-easy.webp"
+}
