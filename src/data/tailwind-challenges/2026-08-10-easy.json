@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Diner Booth Reservation Card",
+  "difficulty": "easy",
+  "date": "2026-08-10",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Est. 1952</span>\n    <span class=\"  \">Booth Reserved</span>\n  </header>\n  <h1 class=\"  \">Rosie's Diner</h1>\n  <p class=\"  \">Home of the Blue Plate Special</p>\n  <ul class=\"  \">\n    <li class=\"  \"><span class=\"  \">Booth</span><span class=\"  \">#7</span></li>\n    <li class=\"  \"><span class=\"  \">Guests</span><span class=\"  \">4</span></li>\n    <li class=\"  \"><span class=\"  \">Time</span><span class=\"  \">6:30 PM</span></li>\n  </ul>\n  <footer class=\"  \">Please present this card to your server</footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-80 bg-amber-50 border-4 border-red-700 rounded p-4 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-red-700 text-xs font-bold tracking-widest uppercase\">Est. 1952</span>\n    <span class=\"bg-red-700 text-amber-50 text-xs font-bold px-2 py-1 rounded\">Booth Reserved</span>\n  </header>\n  <h1 class=\"text-red-800 text-xl font-black text-center tracking-wide mb-1\">Rosie's Diner</h1>\n  <p class=\"text-amber-700 text-xs text-center italic mb-3\">Home of the Blue Plate Special</p>\n  <ul class=\"bg-white border-2 border-amber-300 rounded p-3 space-y-1 mb-3\">\n    <li class=\"flex justify-between text-sm text-gray-700\"><span class=\"font-semibold\">Booth</span><span class=\"text-red-700 font-bold\">#7</span></li>\n    <li class=\"flex justify-between text-sm text-gray-700\"><span class=\"font-semibold\">Guests</span><span>4</span></li>\n    <li class=\"flex justify-between text-sm text-gray-700\"><span class=\"font-semibold\">Time</span><span>6:30 PM</span></li>\n  </ul>\n  <footer class=\"text-center text-amber-600 text-xs font-medium\">Please present this card to your server</footer>\n</article>"
+  },
+  "targetImage": "2026-08-10-easy.webp"
+}
