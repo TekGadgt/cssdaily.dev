@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Puppet Show Backstage Pass",
+  "difficulty": "easy",
+  "date": "2026-08-11",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Backstage</span>\n    <span class=\"  \">PASS</span>\n  </header>\n  <h1 class=\"  \">The Grand Marionette</h1>\n  <p class=\"  \">Summer Touring Company · Est. 1887</p>\n  <footer class=\"  \">\n    <span class=\"  \">Aug 11, 2026</span>\n    <span class=\"  \">ALL ACCESS</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-80 bg-amber-50 border-4 border-amber-800 rounded p-4 mx-auto mt-6\">\n  <header class=\"flex items-center justify-between mb-3\">\n    <span class=\"text-amber-800 text-xs font-bold uppercase tracking-widest\">Backstage</span>\n    <span class=\"bg-amber-800 text-amber-50 text-xs font-bold px-2 py-1 rounded\">PASS</span>\n  </header>\n  <h1 class=\"text-amber-900 text-xl font-bold text-center mb-1\">The Grand Marionette</h1>\n  <p class=\"text-amber-700 text-xs text-center mb-3\">Summer Touring Company · Est. 1887</p>\n  <footer class=\"flex items-center justify-between border-t-2 border-amber-800 pt-3\">\n    <span class=\"text-amber-800 text-xs font-semibold\">Aug 11, 2026</span>\n    <span class=\"bg-red-700 text-white text-xs font-bold px-3 py-1 rounded-full\">ALL ACCESS</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-11-easy.webp"
+}
