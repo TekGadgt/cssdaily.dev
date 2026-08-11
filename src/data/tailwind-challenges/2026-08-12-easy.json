@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Puppet Museum Admission Ticket",
+  "difficulty": "easy",
+  "date": "2026-08-12",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Admit One</span>\n    <span class=\"  \">No. 0812</span>\n  </header>\n  <h1 class=\"  \">Puppet Museum</h1>\n  <p class=\"  \">Est. 1892 · General Admission</p>\n  <footer class=\"  \">\n    <span class=\"  \">Aug 12, 2026</span>\n    <span class=\"  \">Adult · $6.00</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 bg-amber-50 border-2 border-amber-800 rounded p-4 mx-auto\">\n  <header class=\"flex items-center justify-between border-b-2 border-amber-800 pb-2 mb-3\">\n    <span class=\"text-amber-800 text-xs font-bold uppercase tracking-widest\">Admit One</span>\n    <span class=\"bg-amber-800 text-amber-50 text-xs font-bold px-2 py-1 rounded\">No. 0812</span>\n  </header>\n  <h1 class=\"text-amber-900 text-xl font-bold text-center mb-1\">Puppet Museum</h1>\n  <p class=\"text-amber-700 text-xs text-center italic mb-3\">Est. 1892 · General Admission</p>\n  <footer class=\"flex items-center justify-between border-t-2 border-dashed border-amber-700 pt-2\">\n    <span class=\"text-amber-800 text-xs font-semibold\">Aug 12, 2026</span>\n    <span class=\"text-amber-800 text-xs font-semibold\">Adult · $6.00</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-12-easy.webp"
+}
