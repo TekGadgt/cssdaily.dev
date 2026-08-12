@@ -11,7 +11,7 @@ Live at **[cssdaily.dev](https://cssdaily.dev)**
 
 ## How It Works
 
-1. A new challenge is generated daily for each mode via Claude (Anthropic API)
+1. A new challenge is generated daily for each mode through a configurable OpenAI or Anthropic provider
 2. You see a target component and an editor — CSS editor with stubs, or HTML with empty class attributes
 3. Your score updates in real-time as you type, powered by pixel-level visual diffing
 4. Submit before the timer runs out to lock in your score
@@ -35,7 +35,7 @@ Add Tailwind utility classes to pre-structured HTML. The editor locks everything
 - **[Tailwind CSS](https://tailwindcss.com/)** — UI styling + Tailwind CDN for challenge rendering
 - **[@zumer/snapdom](https://github.com/zumerlab/snapdom)** — DOM-to-image capture for visual diffing
 - **[Playwright](https://playwright.dev/)** — Target screenshot generation
-- **[Claude API](https://docs.anthropic.com/)** — Daily challenge generation
+- **[OpenAI API](https://developers.openai.com/api/)** / **[Claude API](https://docs.anthropic.com/)** — Configurable daily challenge generation
 - **GitHub Pages** — Hosting
 - **GitHub Actions** — CI/CD and daily challenge cron
 
@@ -53,7 +53,7 @@ For Tailwind challenges, the diff engine uses iframes with `allow-scripts` sandb
 ## Daily Generation Pipeline
 
 1. A GitHub Actions cron job runs daily at 6am UTC
-2. Claude generates a new CSS challenge and a new Tailwind challenge (independently, with `continue-on-error`)
+2. The configured AI provider generates a new CSS challenge and a new Tailwind challenge (independently, with `continue-on-error`)
 3. Playwright renders the target to a screenshot PNG for each challenge
 4. The challenge JSONs and target images are committed to the repo
 5. The site automatically rebuilds and deploys to GitHub Pages
@@ -65,7 +65,17 @@ npm install
 npm run dev
 ```
 
-To generate challenges locally (requires `ANTHROPIC_API_KEY` env var):
+Challenge generation defaults to OpenAI with `gpt-5.6-terra`. Configure it in `.env`:
+
+```bash
+AI_PROVIDER=openai
+AI_MODEL=gpt-5.6-terra
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+To use Anthropic without changing code, set `AI_PROVIDER=anthropic`, choose an Anthropic model in `AI_MODEL`, and provide `ANTHROPIC_API_KEY`. Only the selected provider is called; failures never fall back to the other provider.
+
+Generate challenges locally with:
 
 ```bash
 # CSS challenges
