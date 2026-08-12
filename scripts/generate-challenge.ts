@@ -1,4 +1,3 @@
-import Anthropic from '@anthropic-ai/sdk';
 import { chromium } from 'playwright';
 import 'dotenv/config'
 import * as fs from 'fs';
@@ -8,14 +7,16 @@ import { buildScreenshotHtml } from '../src/utils/code';
 import { encodeWebpLossless } from './webp';
 import { measureComponent, isOversize, MAX_COMPONENT_WIDTH, MAX_COMPONENT_HEIGHT } from './measure';
 import type { Difficulty } from '../src/utils/types';
-import { TIME_LIMITS } from '../src/utils/difficulty';
 import { runDifficulties } from './generate-common';
+import { cssChallengeFieldsSchema, parseCssChallengeXml, type ChallengeFields } from './challenge-schemas';
+import { createGenerationProvider, type GenerationMessage, type GenerationProvider } from './generation-provider';
+import { buildCssChallenge } from './challenge-artifacts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CHALLENGES_DIR = path.join(__dirname, '..', 'src', 'data', 'challenges');
 const TARGETS_DIR = path.join(__dirname, '..', 'public', 'targets');
 
-const SYSTEM_PROMPT = `You are a CSS challenge generator for a "Wordle for CSS" game. Generate a self-contained CSS challenge that users will try to replicate. The user prompt names the target difficulty — calibrate the challenge to it.
+const SYSTEM_PROMPT_BASE = `You are a CSS challenge generator for a "Wordle for CSS" game. Generate a self-contained CSS challenge that users will try to replicate. The user prompt names the target difficulty — calibrate the challenge to it.
 
 STRICT CONSTRAINTS:
 - NO font-family declarations (Inter and Noto Color Emoji fonts are loaded and set by the environment)
@@ -37,9 +38,9 @@ SIZING STRATEGY (viewport is 600x400, body has 20px padding on all sides):
 DIFFICULTY CRITERIA (the size budget always applies — hard means denser, not bigger):
 - easy: 3-5 elements, one flex container, ~8-15 CSS properties in the target, 2-3 colors. A single small card, badge, button group, or alert.
 - medium: 6-9 elements, nested flexbox or a simple grid, ~16-30 properties, 3-5 colors. Cards with header/body/footer, profile rows, pricing blocks.
-- hard: 10-14 elements, grid AND nested flex, ~30-50 properties, 5+ colors, varied border-radius and typography. Dashboard widgets, media players, stat panels.
+- hard: 10-14 elements, grid AND nested flex, ~30-50 properties, 5+ colors, varied border-radius and typography. Dashboard widgets, media players, stat panels.`;
 
-OUTPUT FORMAT — use these exact XML tags (no JSON, no code fences):
+const ANTHROPIC_OUTPUT_PROMPT = `OUTPUT FORMAT — use these exact XML tags (no JSON, no code fences):
 
 <title>Challenge Name</title>
 <html>The HTML markup (shared by target and starter)</html>
@@ -49,28 +50,13 @@ OUTPUT FORMAT — use these exact XML tags (no JSON, no code fences):
 The starter CSS must include the same :root block with ALL variables, plus empty selector stubs for each class/element used in the target CSS.
 Generate creative, visually interesting components like cards, badges, buttons, navbars, pricing tables, etc.`;
 
+const OPENAI_OUTPUT_PROMPT = `Return the challenge using the requested structured output fields. The starter CSS must include the same :root block with ALL variables, plus empty selector stubs for each class/element used in the target CSS. Generate creative, visually interesting components like cards, badges, buttons, navbars, pricing tables, etc.`;
+
 const MAX_ATTEMPTS = 4; // 1 initial generation + 3 size-fix retries
 
-interface ChallengeFields {
-  title: string;
-  html: string;
-  targetCss: string;
-  starterCss: string;
-}
-
-function extractChallenge(text: string): ChallengeFields {
-  const extract = (tag: string): string => {
-    const match = text.match(new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`));
-    if (!match) throw new Error(`Missing <${tag}> in response:\n${text.substring(0, 500)}`);
-    return match[1].trim();
-  };
-
-  return {
-    title: extract('title'),
-    html: extract('html'),
-    targetCss: extract('targetcss'),
-    starterCss: extract('startercss'),
-  };
+function systemPrompt(provider: GenerationProvider): string {
+  const outputPrompt = provider.provider === 'anthropic' ? ANTHROPIC_OUTPUT_PROMPT : OPENAI_OUTPUT_PROMPT;
+  return `${SYSTEM_PROMPT_BASE}\n\n${outputPrompt}`;
 }
 
 function collectRecentTitles(): string[] {
@@ -90,7 +76,7 @@ function collectRecentTitles(): string[] {
 
 /** Generate one challenge at the given difficulty. Returns its title (fed into later calls' avoid-list). */
 async function generateOne(
-  client: Anthropic,
+  provider: GenerationProvider,
   page: import('playwright').Page,
   date: string,
   difficulty: Difficulty,
@@ -101,52 +87,43 @@ async function generateOne(
     userPrompt += `\n\nRecent challenges (do NOT repeat these themes or similar variations):\n${avoidTitles.map((t) => `- ${t}`).join('\n')}`;
   }
 
-  const messages: Anthropic.MessageParam[] = [{ role: 'user', content: userPrompt }];
+  const messages: GenerationMessage[] = [{ role: 'user', content: userPrompt }];
   let fields: ChallengeFields | null = null;
 
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-    const message = await client.messages.create({
-      model: 'claude-sonnet-4-6',
+    const result = await provider.generateStructured({
+      system: systemPrompt(provider),
+      messages,
       // Hard challenges (full target CSS + starter CSS + HTML) brushed the
       // old 4000 cap in production (2026-06-13: two truncated responses)
-      max_tokens: 8000,
-      messages,
-      system: SYSTEM_PROMPT,
+      maxOutputTokens: 8000,
+      schema: cssChallengeFieldsSchema,
+      schemaName: 'css_challenge',
+      parseAnthropic: parseCssChallengeXml,
     });
 
-    const block = message.content[0];
-    if (!block || block.type !== 'text') {
-      throw new Error(`Unexpected response content on attempt ${attempt}: ${JSON.stringify(message.content).substring(0, 200)}`);
-    }
-    const text = block.text;
-
-    // A truncated response would fail extraction anyway, but with a
-    // misleading missing-tags retry message — the model would regenerate at
-    // the same length and truncate again. Tell it the real problem.
-    if (message.stop_reason === 'max_tokens') {
+    if (result.status === 'truncated') {
       console.warn(`[${difficulty}] Attempt ${attempt}: response truncated at the token limit`);
       if (attempt === MAX_ATTEMPTS) throw new Error(`Response truncated at the token limit on final attempt`);
-      messages.push({ role: 'assistant', content: text });
+      messages.push({ role: 'assistant', content: result.assistantContent });
       messages.push({
         role: 'user',
-        content: 'Your previous response was cut off before completing. Regenerate the challenge more compactly — fewer elements and terser CSS — and output ALL the XML tags in full.',
+        content: 'Your previous response was cut off before completing. Regenerate the challenge more compactly — fewer elements and terser CSS — and return every required field in full.',
       });
       continue;
     }
 
-    let parsed: ChallengeFields;
-    try {
-      parsed = extractChallenge(text);
-    } catch (err) {
-      console.warn(`[${difficulty}] Attempt ${attempt}: failed to parse response — ${(err as Error).message}`);
-      if (attempt === MAX_ATTEMPTS) throw err;
-      messages.push({ role: 'assistant', content: text });
+    if (result.status === 'invalid') {
+      console.warn(`[${difficulty}] Attempt ${attempt}: failed to parse response — ${result.error.message}`);
+      if (attempt === MAX_ATTEMPTS) throw result.error;
+      messages.push({ role: 'assistant', content: result.assistantContent });
       messages.push({
         role: 'user',
-        content: 'Your previous response was missing required XML tags. Output the complete challenge again with ALL of these tags: <title>, <html>, <targetcss>, <startercss>.',
+        content: 'Your previous response was missing required fields. Return the complete challenge again with title, html, targetCss, and starterCss.',
       });
       continue;
     }
+    const parsed = result.data;
 
     // Render the target and measure the component (this render is also
     // reused for the screenshot once the size is accepted)
@@ -169,24 +146,16 @@ async function generateOne(
       break;
     }
 
-    messages.push({ role: 'assistant', content: text });
+    messages.push({ role: 'assistant', content: result.assistantContent });
     messages.push({
       role: 'user',
-      content: `Your component rendered at ${size.width}x${size.height}px, which exceeds the ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px maximum. Regenerate the challenge with a more compact layout that fits within ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px — reduce padding, font sizes, or element count as needed. Output all the XML tags again in full.`,
+      content: `Your component rendered at ${size.width}x${size.height}px, which exceeds the ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px maximum. Regenerate the challenge with a more compact layout that fits within ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px — reduce padding, font sizes, or element count as needed. Return every required field again in full.`,
     });
   }
 
   if (!fields) throw new Error('Generation produced no challenge');
 
-  const challenge = {
-    title: fields.title,
-    difficulty,
-    target: { html: fields.html, css: fields.targetCss },
-    starter: { html: fields.html, css: fields.starterCss },
-    date,
-    timeLimit: TIME_LIMITS[difficulty],
-    targetImage: `${date}-${difficulty}.webp`,
-  };
+  const challenge = buildCssChallenge(fields, date, difficulty);
 
   // Screenshot the last rendered attempt (accepted, or shipped-anyway
   // oversize) BEFORE writing the JSON: a screenshot failure must not leave
@@ -207,7 +176,8 @@ async function generateOne(
 }
 
 async function generateChallenge(date: string) {
-  const client = new Anthropic();
+  const provider = createGenerationProvider();
+  console.log(`Generating CSS challenges with ${provider.provider}/${provider.model}`);
 
   const chromiumPath = process.env.CHROMIUM_PATH;
   const browser = await chromium.launch({
@@ -225,7 +195,7 @@ async function generateChallenge(date: string) {
       targetsDir: TARGETS_DIR,
       recentTitles: collectRecentTitles(),
       generateOne: (difficulty, avoidTitles) =>
-        generateOne(client, page, date, difficulty, avoidTitles),
+        generateOne(provider, page, date, difficulty, avoidTitles),
     });
   } finally {
     await browser.close();

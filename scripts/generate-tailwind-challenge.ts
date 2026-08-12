@@ -1,4 +1,3 @@
-import Anthropic from '@anthropic-ai/sdk';
 import { chromium } from 'playwright';
 import 'dotenv/config'
 import * as fs from 'fs';
@@ -8,14 +7,16 @@ import { buildTailwindScreenshotHtml } from '../src/utils/code';
 import { encodeWebpLossless } from './webp';
 import { measureComponent, isOversize, MAX_COMPONENT_WIDTH, MAX_COMPONENT_HEIGHT } from './measure';
 import type { Difficulty } from '../src/utils/types';
-import { TIME_LIMITS } from '../src/utils/difficulty';
 import { runDifficulties } from './generate-common';
+import { normalizeTailwindFields, parseTailwindChallengeXml, tailwindChallengeFieldsSchema, type TailwindChallengeFields } from './challenge-schemas';
+import { createGenerationProvider, type GenerationMessage, type GenerationProvider } from './generation-provider';
+import { buildTailwindChallenge } from './challenge-artifacts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CHALLENGES_DIR = path.join(__dirname, '..', 'src', 'data', 'tailwind-challenges');
 const TARGETS_DIR = path.join(__dirname, '..', 'public', 'targets', 'tailwind');
 
-const SYSTEM_PROMPT = `You are a Tailwind CSS challenge generator for a "Wordle for CSS" game. Generate a self-contained Tailwind challenge where users add utility classes to HTML elements to match a target design. The user prompt names the target difficulty — calibrate the challenge to it.
+const SYSTEM_PROMPT_BASE = `You are a Tailwind CSS challenge generator for a "Wordle for CSS" game. Generate a self-contained Tailwind challenge where users add utility classes to HTML elements to match a target design. The user prompt names the target difficulty — calibrate the challenge to it.
 
 STRICT CONSTRAINTS:
 - ONLY Tailwind utility classes, NO custom CSS
@@ -41,9 +42,9 @@ SIZING STRATEGY (viewport is 600x400, body has 20px padding on all sides):
 DIFFICULTY CRITERIA (the size budget always applies — hard means denser, not bigger):
 - easy: 3-5 elements, one flex container, ~2-5 utility classes per element, 2-3 colors. A single small card, badge, button group, or alert.
 - medium: 6-9 elements, nested flexbox or a simple grid, ~4-8 utilities per element, 3-5 colors. Cards with header/body/footer, profile rows, pricing blocks.
-- hard: 10-14 elements, grid AND nested flex, ~6-12 utilities per element, 5+ colors, varied rounding and typography. Dashboard widgets, media players, stat panels.
+- hard: 10-14 elements, grid AND nested flex, ~6-12 utilities per element, 5+ colors, varied rounding and typography. Dashboard widgets, media players, stat panels.`;
 
-OUTPUT FORMAT — use these exact XML tags (no JSON, no code fences):
+const ANTHROPIC_OUTPUT_PROMPT = `OUTPUT FORMAT — use these exact XML tags (no JSON, no code fences):
 
 <title>Challenge Name</title>
 <targethtml>The target HTML with correct Tailwind classes on every element</targethtml>
@@ -51,28 +52,13 @@ OUTPUT FORMAT — use these exact XML tags (no JSON, no code fences):
 
 Generate creative, visually interesting components like cards, badges, buttons, navbars, pricing tables, profile cards, etc.`;
 
+const OPENAI_OUTPUT_PROMPT = `Return the challenge using the requested structured output fields. The starter and target HTML must have identical structure, and every starter class attribute must contain two spaces. Generate creative, visually interesting components like cards, badges, buttons, navbars, pricing tables, profile cards, etc.`;
+
 const MAX_ATTEMPTS = 4; // 1 initial generation + 3 size-fix retries
 
-interface TailwindChallengeFields {
-  title: string;
-  targetHtml: string;
-  starterHtml: string;
-}
-
-function extractChallenge(text: string): TailwindChallengeFields {
-  const extract = (tag: string): string => {
-    const match = text.match(new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`));
-    if (!match) throw new Error(`Missing <${tag}> in response:\n${text.substring(0, 500)}`);
-    return match[1].trim();
-  };
-
-  return {
-    title: extract('title'),
-    targetHtml: extract('targethtml'),
-    // The editor needs class="  " (two spaces) so editable regions are
-    // visible; normalize any all-whitespace class value the model emits
-    starterHtml: extract('starterhtml').replace(/class="\s*"/g, 'class="  "'),
-  };
+function systemPrompt(provider: GenerationProvider): string {
+  const outputPrompt = provider.provider === 'anthropic' ? ANTHROPIC_OUTPUT_PROMPT : OPENAI_OUTPUT_PROMPT;
+  return `${SYSTEM_PROMPT_BASE}\n\n${outputPrompt}`;
 }
 
 function collectRecentTitles(): string[] {
@@ -92,7 +78,7 @@ function collectRecentTitles(): string[] {
 
 /** Generate one Tailwind challenge at the given difficulty. Returns its title (fed into later calls' avoid-list). */
 async function generateOne(
-  client: Anthropic,
+  provider: GenerationProvider,
   page: import('playwright').Page,
   date: string,
   difficulty: Difficulty,
@@ -103,52 +89,43 @@ async function generateOne(
     userPrompt += `\n\nRecent challenges (do NOT repeat these themes or similar variations):\n${avoidTitles.map((t) => `- ${t}`).join('\n')}`;
   }
 
-  const messages: Anthropic.MessageParam[] = [{ role: 'user', content: userPrompt }];
+  const messages: GenerationMessage[] = [{ role: 'user', content: userPrompt }];
   let fields: TailwindChallengeFields | null = null;
 
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-    const message = await client.messages.create({
-      model: 'claude-sonnet-4-6',
+    const result = await provider.generateStructured({
+      system: systemPrompt(provider),
+      messages,
       // Hard challenges (two full HTML trees, heavily classed) need headroom —
       // the CSS generator hit the old 4000 cap in production (2026-06-13)
-      max_tokens: 8000,
-      messages,
-      system: SYSTEM_PROMPT,
+      maxOutputTokens: 8000,
+      schema: tailwindChallengeFieldsSchema,
+      schemaName: 'tailwind_challenge',
+      parseAnthropic: parseTailwindChallengeXml,
     });
 
-    const block = message.content[0];
-    if (!block || block.type !== 'text') {
-      throw new Error(`Unexpected response content on attempt ${attempt}: ${JSON.stringify(message.content).substring(0, 200)}`);
-    }
-    const text = block.text;
-
-    // A truncated response would fail extraction anyway, but with a
-    // misleading missing-tags retry message — the model would regenerate at
-    // the same length and truncate again. Tell it the real problem.
-    if (message.stop_reason === 'max_tokens') {
+    if (result.status === 'truncated') {
       console.warn(`[${difficulty}] Attempt ${attempt}: response truncated at the token limit`);
       if (attempt === MAX_ATTEMPTS) throw new Error(`Response truncated at the token limit on final attempt`);
-      messages.push({ role: 'assistant', content: text });
+      messages.push({ role: 'assistant', content: result.assistantContent });
       messages.push({
         role: 'user',
-        content: 'Your previous response was cut off before completing. Regenerate the challenge more compactly — fewer elements and terser classes — and output ALL the XML tags in full.',
+        content: 'Your previous response was cut off before completing. Regenerate the challenge more compactly — fewer elements and terser classes — and return every required field in full.',
       });
       continue;
     }
 
-    let parsed: TailwindChallengeFields;
-    try {
-      parsed = extractChallenge(text);
-    } catch (err) {
-      console.warn(`[${difficulty}] Attempt ${attempt}: failed to parse response — ${(err as Error).message}`);
-      if (attempt === MAX_ATTEMPTS) throw err;
-      messages.push({ role: 'assistant', content: text });
+    if (result.status === 'invalid') {
+      console.warn(`[${difficulty}] Attempt ${attempt}: failed to parse response — ${result.error.message}`);
+      if (attempt === MAX_ATTEMPTS) throw result.error;
+      messages.push({ role: 'assistant', content: result.assistantContent });
       messages.push({
         role: 'user',
-        content: 'Your previous response was missing required XML tags. Output the complete challenge again with ALL of these tags: <title>, <targethtml>, <starterhtml>.',
+        content: 'Your previous response was missing required fields. Return the complete challenge again with title, targetHtml, and starterHtml.',
       });
       continue;
     }
+    const parsed = normalizeTailwindFields(result.data);
 
     // Render the target and measure the component (this render is also
     // reused for the screenshot once the size is accepted)
@@ -171,24 +148,16 @@ async function generateOne(
       break;
     }
 
-    messages.push({ role: 'assistant', content: text });
+    messages.push({ role: 'assistant', content: result.assistantContent });
     messages.push({
       role: 'user',
-      content: `Your component rendered at ${size.width}x${size.height}px, which exceeds the ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px maximum. Regenerate the challenge with a more compact layout that fits within ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px — reduce padding, text sizes, or element count as needed. Output all the XML tags again in full.`,
+      content: `Your component rendered at ${size.width}x${size.height}px, which exceeds the ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px maximum. Regenerate the challenge with a more compact layout that fits within ${MAX_COMPONENT_WIDTH}x${MAX_COMPONENT_HEIGHT}px — reduce padding, text sizes, or element count as needed. Return every required field again in full.`,
     });
   }
 
   if (!fields) throw new Error('Generation produced no challenge');
 
-  const challenge = {
-    title: fields.title,
-    difficulty,
-    date,
-    timeLimit: TIME_LIMITS[difficulty],
-    starter: { html: fields.starterHtml },
-    target: { html: fields.targetHtml },
-    targetImage: `${date}-${difficulty}.webp`,
-  };
+  const challenge = buildTailwindChallenge(fields, date, difficulty);
 
   // Screenshot the last rendered attempt (accepted, or shipped-anyway
   // oversize) BEFORE writing the JSON: a screenshot failure must not leave
@@ -209,7 +178,8 @@ async function generateOne(
 }
 
 async function generateChallenge(date: string) {
-  const client = new Anthropic();
+  const provider = createGenerationProvider();
+  console.log(`Generating Tailwind challenges with ${provider.provider}/${provider.model}`);
 
   const chromiumPath = process.env.CHROMIUM_PATH;
   const browser = await chromium.launch({
@@ -227,7 +197,7 @@ async function generateChallenge(date: string) {
       targetsDir: TARGETS_DIR,
       recentTitles: collectRecentTitles(),
       generateOne: (difficulty, avoidTitles) =>
-        generateOne(client, page, date, difficulty, avoidTitles),
+        generateOne(provider, page, date, difficulty, avoidTitles),
     });
   } finally {
     await browser.close();

@@ -56,15 +56,16 @@ import Header from "../components/Header.astro";
           target="_blank"
           rel="noopener noreferrer"
           class="text-blue-400 hover:text-blue-300">Claude Code</a
-        >. Each morning, the
+        >. Each morning, the configurable
         <a
-          href="https://docs.anthropic.com/en/api"
+          href="https://developers.openai.com/api/"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-blue-400 hover:text-blue-300">Claude API</a
+          class="text-blue-400 hover:text-blue-300">AI generation pipeline</a
         >
-        generates a new challenge — the HTML structure, target CSS, and starter CSS
-        stubs. Playwright automatically renders the target to a screenshot, and GitHub
+        uses OpenAI by default, with Anthropic available through configuration, to
+        generate the HTML structure, target CSS, and starter CSS stubs. Playwright
+        automatically renders the target to a screenshot, and GitHub
         Actions handles the full pipeline: generate, screenshot, commit, and deploy.
         No manual intervention needed.
       </p>

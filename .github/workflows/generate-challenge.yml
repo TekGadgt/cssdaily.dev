@@ -12,6 +12,11 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    env:
+      AI_PROVIDER: ${{ vars.AI_PROVIDER || 'openai' }}
+      AI_MODEL: ${{ vars.AI_MODEL || 'gpt-5.6-terra' }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
     permissions:
       contents: write
       pages: write
@@ -54,7 +59,6 @@ jobs:
         id: css
         continue-on-error: true
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CHALLENGE_DATE: ${{ steps.date.outputs.value }}
         run: npx tsx scripts/generate-challenge.ts "$CHALLENGE_DATE"
 
@@ -62,7 +66,6 @@ jobs:
         id: tailwind
         continue-on-error: true
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CHALLENGE_DATE: ${{ steps.date.outputs.value }}
         run: npx tsx scripts/generate-tailwind-challenge.ts "$CHALLENGE_DATE"
 
@@ -74,6 +77,7 @@ jobs:
         run: |
           echo "## Challenge Generation Report" >> "$GITHUB_STEP_SUMMARY"
           echo "**Date:** $CHALLENGE_DATE" >> "$GITHUB_STEP_SUMMARY"
+          echo "**Generator:** $AI_PROVIDER / $AI_MODEL" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "| Mode | Result |" >> "$GITHUB_STEP_SUMMARY"
           echo "|------|--------|" >> "$GITHUB_STEP_SUMMARY"
