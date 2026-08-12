@@ -1,0 +1,13 @@
+{
+  "title": "Vintage Roller Rink Session Pass",
+  "difficulty": "easy",
+  "date": "2026-08-13",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Roller Rink</span>\n    <span class=\"  \">Session Pass</span>\n  </header>\n  <section class=\"  \">\n    <figure class=\"  \">\n      <span class=\"  \">🛼</span>\n    </figure>\n    <div class=\"  \">\n      <p class=\"  \">Glide & Roll Arena</p>\n      <p class=\"  \">Est. 1952 · Oakwood, OH</p>\n    </div>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">Aug 13 · 2026</span>\n    <span class=\"  \">2-Hour Pass</span>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 mx-auto mt-8 bg-amber-50 border-4 border-amber-800 rounded-lg p-4\">\n  <header class=\"flex items-center justify-between border-b-2 border-amber-700 pb-2 mb-3\">\n    <span class=\"text-xs font-bold uppercase tracking-widest text-amber-700\">Roller Rink</span>\n    <span class=\"text-xs font-bold uppercase tracking-widest text-amber-700\">Session Pass</span>\n  </header>\n  <section class=\"flex items-center gap-4 mb-3\">\n    <figure class=\"w-14 h-14 bg-rose-500 rounded-full flex items-center justify-center border-4 border-amber-800\">\n      <span class=\"text-2xl\">🛼</span>\n    </figure>\n    <div class=\"flex flex-col gap-1\">\n      <p class=\"text-lg font-bold text-amber-900 leading-tight\">Glide & Roll Arena</p>\n      <p class=\"text-xs text-amber-700 italic\">Est. 1952 · Oakwood, OH</p>\n    </div>\n  </section>\n  <footer class=\"flex items-center justify-between bg-amber-800 rounded px-3 py-2\">\n    <span class=\"text-xs font-semibold text-amber-100 uppercase tracking-wide\">Aug 13 · 2026</span>\n    <span class=\"text-sm font-bold text-white bg-rose-500 rounded px-2 py-1\">2-Hour Pass</span>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-13-easy.webp"
+}
