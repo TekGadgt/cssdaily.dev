@@ -1,0 +1,15 @@
+{
+  "title": "Easy — Focus Sprint Timer",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"sprint-card\">\n  <header class=\"card-header\">\n    <section>\n      <h2>Focus sprint</h2>\n      <p class=\"task\">Outline project brief</p>\n    </section>\n    <span class=\"badge\">ACTIVE</span>\n  </header>\n\n  <section class=\"timer\" aria-label=\"Time remaining\">\n    <strong class=\"time\">24:38</strong>\n    <p>minutes remaining</p>\n  </section>\n\n  <footer class=\"controls\">\n    <button class=\"secondary\">Pause</button>\n    <button>Complete</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #1f2937;\n  --muted: #6b7280;\n  --surface: #ffffff;\n  --line: #dbe3ee;\n  --blue: #2563eb;\n  --blue-soft: #eff6ff;\n}\n\n.sprint-card {\n  width: 390px;\n  padding: 16px;\n  background: var(--surface);\n  border: 1px solid var(--line);\n  border-radius: 14px;\n}\n\n.card-header {\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n}\n\n.sprint-card h2 {\n  margin: 0 0 3px;\n  color: var(--ink);\n  font-size: 18px;\n  line-height: 1.2;\n}\n\n.task,\n.timer p {\n  margin: 0;\n  color: var(--muted);\n  font-size: 14px;\n}\n\n.badge {\n  padding: 4px 7px;\n  color: var(--blue);\n  background: var(--blue-soft);\n  border-radius: 999px;\n  font-size: 11px;\n  font-weight: 700;\n}\n\n.timer {\n  margin: 16px 0;\n  padding: 12px;\n  text-align: center;\n  background: var(--blue-soft);\n  border-radius: 10px;\n}\n\n.time {\n  display: block;\n  color: var(--ink);\n  font-size: 28px;\n  line-height: 1;\n}\n\n.timer p {\n  margin-top: 5px;\n}\n\n.controls {\n  display: flex;\n  gap: 8px;\n}\n\nbutton {\n  flex: 1;\n  padding: 9px 12px;\n  color: var(--surface);\n  background: var(--blue);\n  border: 1px solid var(--blue);\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 700;\n}\n\nbutton.secondary {\n  color: var(--ink);\n  background: var(--surface);\n  border-color: var(--line);\n}"
+  },
+  "starter": {
+    "html": "<article class=\"sprint-card\">\n  <header class=\"card-header\">\n    <section>\n      <h2>Focus sprint</h2>\n      <p class=\"task\">Outline project brief</p>\n    </section>\n    <span class=\"badge\">ACTIVE</span>\n  </header>\n\n  <section class=\"timer\" aria-label=\"Time remaining\">\n    <strong class=\"time\">24:38</strong>\n    <p>minutes remaining</p>\n  </section>\n\n  <footer class=\"controls\">\n    <button class=\"secondary\">Pause</button>\n    <button>Complete</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #1f2937;\n  --muted: #6b7280;\n  --surface: #ffffff;\n  --line: #dbe3ee;\n  --blue: #2563eb;\n  --blue-soft: #eff6ff;\n}\n\n.sprint-card {\n}\n\n.card-header {\n}\n\n.sprint-card h2 {\n}\n\n.task {\n}\n\n.timer {\n}\n\n.time {\n}\n\n.timer p {\n}\n\n.badge {\n}\n\n.controls {\n}\n\nbutton {\n}\n\nbutton.secondary {\n}"
+  },
+  "date": "2026-08-14",
+  "timeLimit": 300,
+  "targetImage": "2026-08-14-easy.webp"
+}

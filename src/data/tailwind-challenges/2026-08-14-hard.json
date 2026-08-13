@@ -1,0 +1,13 @@
+{
+  "title": "Hard — Solar Microgrid Status Brief (2026-08-14)",
+  "difficulty": "hard",
+  "date": "2026-08-14",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <h1 class=\"  \">Harbor Microgrid</h1>\n      <p class=\"  \">Friday, August 14 · Operations brief</p>\n    </section>\n    <span class=\"  \">● STABLE</span>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <header class=\"  \">\n        <h2 class=\"  \">Battery reserve</h2>\n        <p class=\"  \">82%</p>\n      </header>\n      <p class=\"  \">14.6 <span class=\"  \">MWh</span></p>\n    </section>\n    <section class=\"  \">\n      <h2 class=\"  \">Solar now</h2>\n      <p class=\"  \">3.8 <span class=\"  \">MW</span></p>\n    </section>\n  </main>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800\">\n  <header class=\"flex items-start justify-between border-b border-slate-200 bg-slate-900 px-4 py-3\">\n    <section class=\"space-y-0.5\">\n      <h1 class=\"text-lg font-bold tracking-tight text-white\">Harbor Microgrid</h1>\n      <p class=\"text-xs font-medium text-slate-300\">Friday, August 14 · Operations brief</p>\n    </section>\n    <span class=\"rounded-full border border-emerald-400 bg-emerald-500/20 px-2.5 py-1 text-xs font-bold text-emerald-300\">● STABLE</span>\n  </header>\n  <main class=\"grid grid-cols-5 gap-3 p-3\">\n    <section class=\"col-span-3 rounded-xl border border-emerald-200 bg-emerald-50 p-3\">\n      <header class=\"flex items-center justify-between\">\n        <h2 class=\"text-sm font-bold text-emerald-950\">Battery reserve</h2>\n        <p class=\"rounded-md bg-emerald-600 px-2 py-0.5 text-xs font-bold text-white\">82%</p>\n      </header>\n      <p class=\"mt-3 text-2xl font-black tracking-tight text-emerald-800\">14.6 <span class=\"text-sm font-bold text-emerald-600\">MWh</span></p>\n    </section>\n    <section class=\"col-span-2 rounded-xl border border-sky-200 bg-sky-50 p-3\">\n      <h2 class=\"text-sm font-bold text-sky-950\">Solar now</h2>\n      <p class=\"mt-3 text-2xl font-black tracking-tight text-sky-800\">3.8 <span class=\"text-sm font-bold text-sky-600\">MW</span></p>\n    </section>\n  </main>\n</article>"
+  },
+  "targetImage": "2026-08-14-hard.webp"
+}
