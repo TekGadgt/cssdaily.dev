@@ -1,0 +1,15 @@
+{
+  "title": "Easy — Cat Café Visit Pass (2026-08-15)",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"pass-card\">\n  <span class=\"cat-icon\">🐈</span>\n  <section class=\"pass-copy\">\n    <h2>Whisker Window</h2>\n    <p>Table 4 is ready for your 3:30 visit.</p>\n  </section>\n  <button>Check in</button>\n</article>",
+    "css": ":root {\n  --ink: #24352d;\n  --cream: #fffaf0;\n  --mint: #bfe8d0;\n  --coral: #ef7863;\n}\n\n.pass-card {\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  gap: 14px;\n  width: 460px;\n  padding: 14px 16px;\n  border: 2px solid var(--ink);\n  border-radius: 16px;\n  background: var(--cream);\n  color: var(--ink);\n}\n\n.cat-icon {\n  display: grid;\n  flex: 0 0 46px;\n  place-items: center;\n  width: 46px;\n  height: 46px;\n  border-radius: 50%;\n  background: var(--mint);\n  font-size: 24px;\n}\n\n.pass-copy {\n  flex: 1;\n}\n\nh2 {\n  margin: 0 0 3px;\n  font-size: 18px;\n  line-height: 1.1;\n}\n\np {\n  margin: 0;\n  font-size: 14px;\n  line-height: 1.3;\n}\n\nbutton {\n  padding: 9px 12px;\n  border: 0;\n  border-radius: 9px;\n  background: var(--coral);\n  color: var(--cream);\n  font-size: 14px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"pass-card\">\n  <span class=\"cat-icon\">🐈</span>\n  <section class=\"pass-copy\">\n    <h2>Whisker Window</h2>\n    <p>Table 4 is ready for your 3:30 visit.</p>\n  </section>\n  <button>Check in</button>\n</article>",
+    "css": ":root {\n  --ink: #24352d;\n  --cream: #fffaf0;\n  --mint: #bfe8d0;\n  --coral: #ef7863;\n}\n\n.pass-card {\n}\n\n.cat-icon {\n}\n\n.pass-copy {\n}\n\nh2 {\n}\n\np {\n}\n\nbutton {\n}"
+  },
+  "date": "2026-08-15",
+  "timeLimit": 300,
+  "targetImage": "2026-08-15-easy.webp"
+}

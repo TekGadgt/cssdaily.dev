@@ -1,0 +1,13 @@
+{
+  "title": "Medium — Podcast Studio Soundcheck Slots — 2026-08-15",
+  "difficulty": "medium",
+  "date": "2026-08-15",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Studio soundcheck</h1>\n    <p class=\"  \">OPEN</p>\n  </header>\n  <section class=\"  \">\n    <button class=\"  \">\n      <span class=\"  \">Morning</span>\n      <span class=\"  \">10:30 AM</span>\n      <span class=\"  \">Booth A · 30 min</span>\n    </button>\n    <button class=\"  \">\n      <span class=\"  \">Afternoon</span>\n      <span class=\"  \">2:15 PM</span>\n      <span class=\"  \">Booth B · 30 min</span>\n    </button>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Saturday · Aug 15, 2026</p>\n    <button class=\"  \">Reserve slot</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-md overflow-hidden rounded-xl border border-slate-200 bg-white\">\n  <header class=\"flex items-start justify-between border-b border-slate-200 bg-slate-900 px-4 py-3 text-white\">\n    <h1 class=\"text-lg font-semibold tracking-tight\">Studio soundcheck</h1>\n    <p class=\"rounded-full bg-teal-400 px-2.5 py-1 text-xs font-bold text-slate-900\">OPEN</p>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 px-4 py-4\">\n    <button class=\"rounded-lg border-2 border-violet-500 bg-violet-50 p-3 text-left text-sm text-slate-700\">\n      <span class=\"block text-xs font-semibold uppercase tracking-wide text-violet-600\">Morning</span>\n      <span class=\"mt-1 block text-base font-bold text-slate-900\">10:30 AM</span>\n      <span class=\"mt-1 block text-xs text-slate-500\">Booth A · 30 min</span>\n    </button>\n    <button class=\"rounded-lg border border-slate-200 bg-slate-50 p-3 text-left text-sm text-slate-700\">\n      <span class=\"block text-xs font-semibold uppercase tracking-wide text-amber-600\">Afternoon</span>\n      <span class=\"mt-1 block text-base font-bold text-slate-900\">2:15 PM</span>\n      <span class=\"mt-1 block text-xs text-slate-500\">Booth B · 30 min</span>\n    </button>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-100 px-4 py-3\">\n    <p class=\"text-xs font-medium text-slate-500\">Saturday · Aug 15, 2026</p>\n    <button class=\"rounded-md bg-slate-900 px-3 py-2 text-sm font-semibold text-white\">Reserve slot</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-15-medium.webp"
+}
