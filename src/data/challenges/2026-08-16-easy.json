@@ -1,0 +1,15 @@
+{
+  "title": "Pocket Charger Status",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"charger-card\">\n  <header class=\"card-header\">\n    <section>\n      <p class=\"eyebrow\">POWER BANK</p>\n      <h1>Ready to roam</h1>\n    </section>\n    <p class=\"battery-icon\">⚡ 82%</p>\n  </header>\n\n  <section class=\"charge-bar\" aria-label=\"Battery charge: 82 percent\">\n    <span class=\"charge-fill\"></span>\n  </section>\n\n  <footer class=\"card-footer\">\n    <p>USB-C • 2h 15m remaining</p>\n    <button type=\"button\">Details</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #19333a;\n  --muted: #658087;\n  --surface: #ffffff;\n  --accent: #4bc9a7;\n  --track: #dce8e6;\n}\n\n.charger-card {\n  width: 440px;\n  padding: 16px;\n  background: var(--surface);\n  border: 1px solid var(--ink);\n  border-radius: 14px;\n}\n\n.card-header,\n.card-footer {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.eyebrow {\n  margin: 0 0 3px;\n  color: var(--muted);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}\n\nh1 {\n  margin: 0;\n  color: var(--ink);\n  font-size: 21px;\n  line-height: 1.1;\n}\n\n.battery-icon {\n  margin: 0;\n  padding: 7px 10px;\n  color: var(--ink);\n  background: var(--accent);\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 700;\n}\n\n.charge-bar {\n  height: 10px;\n  margin: 18px 0 14px;\n  overflow: hidden;\n  background: var(--track);\n  border-radius: 999px;\n}\n\n.charge-fill {\n  display: block;\n  width: 82%;\n  height: 100%;\n  background: var(--accent);\n  border-radius: inherit;\n}\n\n.card-footer p {\n  margin: 0;\n  color: var(--muted);\n  font-size: 13px;\n}\n\nbutton {\n  padding: 7px 12px;\n  color: var(--ink);\n  background: var(--surface);\n  border: 1px solid var(--ink);\n  border-radius: 7px;\n  font-size: 13px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"charger-card\">\n  <header class=\"card-header\">\n    <section>\n      <p class=\"eyebrow\">POWER BANK</p>\n      <h1>Ready to roam</h1>\n    </section>\n    <p class=\"battery-icon\">⚡ 82%</p>\n  </header>\n\n  <section class=\"charge-bar\" aria-label=\"Battery charge: 82 percent\">\n    <span class=\"charge-fill\"></span>\n  </section>\n\n  <footer class=\"card-footer\">\n    <p>USB-C • 2h 15m remaining</p>\n    <button type=\"button\">Details</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #19333a;\n  --muted: #658087;\n  --surface: #ffffff;\n  --accent: #4bc9a7;\n  --track: #dce8e6;\n}\n\n.charger-card {\n}\n\n.card-header,\n.card-footer {\n}\n\n.eyebrow {\n}\n\nh1 {\n}\n\n.battery-icon {\n}\n\n.charge-bar {\n}\n\n.charge-fill {\n}\n\n.card-footer p {\n}\n\nbutton {\n}"
+  },
+  "date": "2026-08-16",
+  "timeLimit": 300,
+  "targetImage": "2026-08-16-easy.webp"
+}

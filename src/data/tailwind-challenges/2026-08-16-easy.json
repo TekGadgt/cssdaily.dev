@@ -1,0 +1,13 @@
+{
+  "title": "Easy — Neighborhood Plant Swap RSVP",
+  "difficulty": "easy",
+  "date": "2026-08-16",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">Neighborhood Plant Swap</header>\n  <p class=\"  \">Bring one leafy cutting and discover a new favorite.</p>\n  <footer class=\"  \">\n    <span class=\"  \">Sun, Aug 16 · 11 AM</span>\n    <button class=\"  \">I’m in</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-sm rounded-xl border border-emerald-200 bg-white p-4 text-slate-800\">\n  <header class=\"text-lg font-bold text-emerald-800\">Neighborhood Plant Swap</header>\n  <p class=\"mt-1 text-sm text-slate-600\">Bring one leafy cutting and discover a new favorite.</p>\n  <footer class=\"mt-4 flex items-center justify-between rounded-lg bg-emerald-50 px-3 py-2\">\n    <span class=\"text-sm font-medium text-emerald-700\">Sun, Aug 16 · 11 AM</span>\n    <button class=\"rounded-md bg-emerald-600 px-3 py-1.5 text-sm font-semibold text-white\">I’m in</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-16-easy.webp"
+}
