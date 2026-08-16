@@ -1,0 +1,13 @@
+{
+  "title": "Hard — Laser Lab Queue Board — 2026-08-17",
+  "difficulty": "hard",
+  "date": "2026-08-17",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Laser Lab Queue</h1>\n    <span class=\"  \">System ready</span>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <div class=\"  \">✦</div>\n      <h2 class=\"  \">Topographic Coasters</h2>\n      <button class=\"  \">Pause queue</button>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">Queue pulse</p>\n      <ul class=\"  \">\n        <li class=\"  \">03<span class=\"  \">active jobs</span></li>\n        <li class=\"  \">18m<span class=\"  \">next pickup</span></li>\n      </ul>\n    </section>\n  </main>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between border-b border-slate-700 bg-slate-900 px-4 py-3\">\n    <h1 class=\"text-base font-bold tracking-tight text-white\">Laser Lab Queue</h1>\n    <span class=\"rounded-full bg-emerald-400 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-emerald-950\">System ready</span>\n  </header>\n  <main class=\"grid grid-cols-2 gap-3 p-3\">\n    <section class=\"flex h-40 flex-col justify-between rounded-xl border border-violet-200 bg-violet-50 p-3\">\n      <div class=\"flex h-10 w-10 items-center justify-center rounded-lg bg-violet-600 text-xl text-white\">✦</div>\n      <h2 class=\"text-base font-bold leading-tight text-violet-950\">Topographic Coasters</h2>\n      <button class=\"w-full rounded-lg bg-violet-600 px-3 py-2 text-sm font-semibold text-white\">Pause queue</button>\n    </section>\n    <section class=\"flex h-40 flex-col justify-between rounded-xl border border-amber-200 bg-amber-50 p-3\">\n      <p class=\"text-xs font-bold uppercase tracking-wider text-amber-800\">Queue pulse</p>\n      <ul class=\"grid grid-cols-2 gap-2\">\n        <li class=\"flex flex-col rounded-lg border border-sky-200 bg-sky-50 px-2 py-2 text-sm font-bold text-sky-950\">03<span class=\"text-xs font-medium text-sky-700\">active jobs</span></li>\n        <li class=\"flex flex-col rounded-lg border border-rose-200 bg-rose-50 px-2 py-2 text-sm font-bold text-rose-950\">18m<span class=\"text-xs font-medium text-rose-700\">next pickup</span></li>\n      </ul>\n    </section>\n  </main>\n</article>"
+  },
+  "targetImage": "2026-08-17-hard.webp"
+}

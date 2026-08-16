@@ -1,0 +1,15 @@
+{
+  "title": "Easy — Rooftop Yoga Check-in Pass — 2026-08-17",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"pass\">\n  <header>\n    <span class=\"studio-mark\">☀️ SKY DECK</span>\n    <span class=\"seat\">CHECKED IN</span>\n  </header>\n  <section class=\"pass-body\">\n    <h1>Sunset Stretch</h1>\n    <p class=\"schedule\">MON · AUG 17 · 6:30 PM</p>\n  </section>\n  <footer>\n    <button type=\"button\">View class details</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --paper: #fffdf7;\n  --ink: #253743;\n  --mist: #e4f1f0;\n  --sun: #f3ad45;\n  --line: #c9dedc;\n}\n\n.pass {\n  box-sizing: border-box;\n  width: 460px;\n  overflow: hidden;\n  background: var(--paper);\n  border: 2px solid var(--ink);\n  border-radius: 18px;\n}\n\n.pass > header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 10px 14px;\n  background: var(--mist);\n  border-bottom: 2px solid var(--ink);\n}\n\n.studio-mark {\n  color: var(--ink);\n  font-size: 13px;\n  font-weight: 800;\n  letter-spacing: 0.08em;\n}\n\n.seat {\n  padding: 4px 8px;\n  color: var(--ink);\n  background: var(--sun);\n  border-radius: 999px;\n  font-size: 11px;\n  font-weight: 800;\n}\n\n.pass-body {\n  padding: 16px 18px 14px;\n}\n\nh1 {\n  margin: 0 0 5px;\n  color: var(--ink);\n  font-size: 23px;\n  line-height: 1.1;\n}\n\n.schedule {\n  margin: 0;\n  color: var(--ink);\n  font-size: 13px;\n  font-weight: 700;\n  letter-spacing: 0.04em;\n}\n\n.pass > footer {\n  padding: 0 18px 16px;\n}\n\nbutton {\n  width: 100%;\n  padding: 9px 12px;\n  color: var(--paper);\n  background: var(--ink);\n  border: 0;\n  border-radius: 9px;\n  font-size: 14px;\n  font-weight: 700;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"pass\">\n  <header>\n    <span class=\"studio-mark\">☀️ SKY DECK</span>\n    <span class=\"seat\">CHECKED IN</span>\n  </header>\n  <section class=\"pass-body\">\n    <h1>Sunset Stretch</h1>\n    <p class=\"schedule\">MON · AUG 17 · 6:30 PM</p>\n  </section>\n  <footer>\n    <button type=\"button\">View class details</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --paper: #fffdf7;\n  --ink: #253743;\n  --mist: #e4f1f0;\n  --sun: #f3ad45;\n  --line: #c9dedc;\n}\n\n.pass {\n}\n\n.pass > header {\n}\n\n.studio-mark {\n}\n\n.seat {\n}\n\n.pass-body {\n}\n\nh1 {\n}\n\n.schedule {\n}\n\n.pass > footer {\n}\n\nbutton {\n}\n"
+  },
+  "date": "2026-08-17",
+  "timeLimit": 300,
+  "targetImage": "2026-08-17-easy.webp"
+}
