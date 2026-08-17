@@ -1,0 +1,13 @@
+{
+  "title": "Hard — Public Pool Lap Lane Board — 2026-08-18",
+  "difficulty": "hard",
+  "date": "2026-08-18",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">Tuesday · Aug 18</p>\n    <h1 class=\"  \">Lap Lane Board</h1>\n  </header>\n  <section class=\"  \">\n    <figure class=\"  \">\n      <span class=\"  \">🏊</span>\n      <figcaption class=\"  \">Open Swim<br><span class=\"  \">6:30 – 8:00 PM</span></figcaption>\n    </figure>\n    <aside class=\"  \">\n      <ul class=\"  \">\n        <li class=\"  \">Lane 1 <span class=\"  \">OPEN</span></li>\n        <li class=\"  \">Lane 2 <span class=\"  \">COACHING</span></li>\n      </ul>\n    </aside>\n  </section>\n  <footer class=\"  \">Northside Aquatic Center <button class=\"  \">View schedule</button></footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[500px] rounded-2xl border border-slate-200 bg-white p-4 text-slate-800\">\n  <header class=\"flex items-start justify-between border-b border-slate-200 pb-3\">\n    <p class=\"rounded-full bg-cyan-100 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-cyan-800\">Tuesday · Aug 18</p>\n    <h1 class=\"text-right text-lg font-bold leading-tight text-slate-900\">Lap Lane Board</h1>\n  </header>\n  <section class=\"mt-3 grid grid-cols-2 gap-3\">\n    <figure class=\"flex min-h-[116px] flex-col justify-between rounded-xl bg-indigo-950 p-3 text-white\">\n      <span class=\"text-3xl leading-none\">🏊</span>\n      <figcaption class=\"text-sm font-semibold leading-snug\">Open Swim<br><span class=\"text-indigo-200\">6:30 – 8:00 PM</span></figcaption>\n    </figure>\n    <aside class=\"rounded-xl border border-slate-200 bg-slate-50 p-3\">\n      <ul class=\"space-y-2\">\n        <li class=\"flex items-center justify-between rounded-lg bg-emerald-100 px-2.5 py-2 text-xs font-bold text-emerald-800\">Lane 1 <span class=\"text-emerald-600\">OPEN</span></li>\n        <li class=\"flex items-center justify-between rounded-lg bg-amber-100 px-2.5 py-2 text-xs font-bold text-amber-800\">Lane 2 <span class=\"text-rose-600\">COACHING</span></li>\n      </ul>\n    </aside>\n  </section>\n  <footer class=\"mt-3 flex items-center justify-between border-t border-slate-200 pt-3 text-xs text-slate-500\">Northside Aquatic Center <button class=\"rounded-lg bg-cyan-600 px-3 py-2 text-xs font-bold text-white\">View schedule</button></footer>\n</article>"
+  },
+  "targetImage": "2026-08-18-hard.webp"
+}

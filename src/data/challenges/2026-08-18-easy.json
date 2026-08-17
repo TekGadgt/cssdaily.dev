@@ -1,0 +1,15 @@
+{
+  "title": "Easy — Public Pool Lane Pass — 2026-08-18",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"swim-pass\" aria-label=\"Public pool lane pass\">\n  <header class=\"pass-header\">\n    <span class=\"pass-mark\" aria-hidden=\"true\">🏊</span>\n    <section class=\"pass-title\">\n      <p>RIVERFRONT AQUATICS</p>\n      <h1>Lane Swim</h1>\n    </section>\n  </header>\n  <section class=\"lane-details\" aria-label=\"Booking details\">\n    <span>TUE · AUG 18</span>\n    <strong>LANE 04 · 07:30</strong>\n  </section>\n  <footer class=\"pass-footer\">\n    <span class=\"status\">CONFIRMED</span>\n    <button type=\"button\">Entry pass</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #163d52;\n  --water: #dff4f4;\n  --blue: #267aa5;\n  --coral: #ff765d;\n  --paper: #ffffff;\n}\n\n.swim-pass {\n  width: 440px;\n  padding: 16px;\n  background: var(--paper);\n  border: 2px solid var(--ink);\n  border-radius: 16px;\n  color: var(--ink);\n}\n\n.pass-header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.pass-mark {\n  display: grid;\n  width: 48px;\n  height: 48px;\n  place-items: center;\n  background: var(--water);\n  border-radius: 50%;\n  font-size: 24px;\n}\n\n.pass-title p {\n  margin: 0 0 2px;\n  color: var(--blue);\n  font-size: 11px;\n  font-weight: 700;\n}\n\n.pass-title h1 {\n  margin: 0;\n  font-size: 22px;\n  line-height: 1.1;\n}\n\n.lane-details {\n  display: flex;\n  justify-content: space-between;\n  margin: 14px 0;\n  padding: 10px 12px;\n  background: var(--water);\n  border-radius: 8px;\n  font-size: 13px;\n}\n\n.pass-footer {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.status {\n  color: var(--coral);\n  font-size: 12px;\n  font-weight: 700;\n}\n\n.pass-footer button {\n  padding: 7px 11px;\n  background: var(--blue);\n  border: 0;\n  border-radius: 6px;\n  color: var(--paper);\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"swim-pass\" aria-label=\"Public pool lane pass\">\n  <header class=\"pass-header\">\n    <span class=\"pass-mark\" aria-hidden=\"true\">🏊</span>\n    <section class=\"pass-title\">\n      <p>RIVERFRONT AQUATICS</p>\n      <h1>Lane Swim</h1>\n    </section>\n  </header>\n  <section class=\"lane-details\" aria-label=\"Booking details\">\n    <span>TUE · AUG 18</span>\n    <strong>LANE 04 · 07:30</strong>\n  </section>\n  <footer class=\"pass-footer\">\n    <span class=\"status\">CONFIRMED</span>\n    <button type=\"button\">Entry pass</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #163d52;\n  --water: #dff4f4;\n  --blue: #267aa5;\n  --coral: #ff765d;\n  --paper: #ffffff;\n}\n\n.swim-pass {\n}\n\n.pass-header {\n}\n\n.pass-mark {\n}\n\n.pass-title p {\n}\n\n.pass-title h1 {\n}\n\n.lane-details {\n}\n\n.pass-footer {\n}\n\n.status {\n}\n\n.pass-footer button {\n}"
+  },
+  "date": "2026-08-18",
+  "timeLimit": 300,
+  "targetImage": "2026-08-18-easy.webp"
+}
