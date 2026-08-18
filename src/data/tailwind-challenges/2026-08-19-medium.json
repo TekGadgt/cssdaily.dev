@@ -1,0 +1,13 @@
+{
+  "title": "Community Garden Watering Shift",
+  "difficulty": "medium",
+  "date": "2026-08-19",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">Garden watering shift</h2>\n    <p class=\"  \">Confirmed</p>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Wed, Aug 19<br>6:30–7:15 PM</p>\n    <p class=\"  \">Plot 14<br>North terrace</p>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Bring your own gloves</p>\n    <button class=\"  \">View checklist</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-teal-200 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between border-b border-teal-100 bg-teal-50 px-4 py-3\">\n    <h2 class=\"text-lg font-bold tracking-tight text-teal-950\">Garden watering shift</h2>\n    <p class=\"rounded-full bg-teal-700 px-3 py-1 text-xs font-semibold text-white\">Confirmed</p>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 p-4\">\n    <p class=\"rounded-xl border border-sky-200 bg-sky-50 px-3 py-3 text-sm font-semibold leading-6 text-sky-950\">Wed, Aug 19<br>6:30–7:15 PM</p>\n    <p class=\"rounded-xl border border-lime-200 bg-lime-50 px-3 py-3 text-sm font-semibold leading-6 text-lime-950\">Plot 14<br>North terrace</p>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-100 px-4 py-3\">\n    <p class=\"text-sm font-medium text-slate-500\">Bring your own gloves</p>\n    <button class=\"rounded-lg bg-teal-700 px-4 py-2 text-sm font-semibold text-white\">View checklist</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-19-medium.webp"
+}

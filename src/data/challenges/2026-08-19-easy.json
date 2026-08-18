@@ -1,0 +1,15 @@
+{
+  "title": "Easy — Bicycle Valet Claim Ticket — 2026-08-19",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"claim-card\">\n  <header>\n    <section>\n      <p class=\"eyebrow\">CITY BIKE VALET</p>\n      <h2>Claim ticket</h2>\n    </section>\n    <span class=\"ticket-number\">#084</span>\n  </header>\n  <section class=\"ticket-details\">\n    <p><strong>Blue commuter</strong><span>Rack B · Spot 12</span></p>\n    <button type=\"button\">Ready at 6:30</button>\n  </section>\n</article>",
+    "css": ":root {\n  --ink: #183153;\n  --paper: #fffdf7;\n  --sky: #d9efff;\n  --blue: #2878b9;\n  --line: #b9d4e5;\n}\n\n.claim-card {\n  width: 460px;\n  overflow: hidden;\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n  background: var(--paper);\n}\n\n.claim-card header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 14px 16px;\n  background: var(--sky);\n  border-bottom: 2px dashed var(--line);\n}\n\n.claim-card header section {\n  display: flex;\n  align-items: baseline;\n  gap: 10px;\n}\n\n.eyebrow,\n.claim-card h2,\n.ticket-details p {\n  margin: 0;\n}\n\n.eyebrow {\n  color: var(--blue);\n  font-size: 11px;\n  font-weight: 800;\n  letter-spacing: 0.08em;\n}\n\n.claim-card h2 {\n  color: var(--ink);\n  font-size: 20px;\n  line-height: 1;\n}\n\n.ticket-number {\n  color: var(--ink);\n  font-size: 18px;\n  font-weight: 800;\n}\n\n.ticket-details {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 14px 16px;\n}\n\n.ticket-details strong,\n.ticket-details span {\n  display: block;\n}\n\n.ticket-details strong {\n  color: var(--ink);\n  font-size: 14px;\n}\n\n.ticket-details span {\n  margin-top: 3px;\n  color: var(--blue);\n  font-size: 12px;\n}\n\n.ticket-details button {\n  border: 0;\n  border-radius: 8px;\n  padding: 8px 10px;\n  background: var(--blue);\n  color: var(--paper);\n  font-size: 12px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"claim-card\">\n  <header>\n    <section>\n      <p class=\"eyebrow\">CITY BIKE VALET</p>\n      <h2>Claim ticket</h2>\n    </section>\n    <span class=\"ticket-number\">#084</span>\n  </header>\n  <section class=\"ticket-details\">\n    <p><strong>Blue commuter</strong><span>Rack B · Spot 12</span></p>\n    <button type=\"button\">Ready at 6:30</button>\n  </section>\n</article>",
+    "css": ":root {\n  --ink: #183153;\n  --paper: #fffdf7;\n  --sky: #d9efff;\n  --blue: #2878b9;\n  --line: #b9d4e5;\n}\n\n.claim-card {\n}\n\n.claim-card header {\n}\n\n.claim-card header section {\n}\n\n.eyebrow,\n.claim-card h2,\n.ticket-details p {\n}\n\n.eyebrow {\n}\n\n.claim-card h2 {\n}\n\n.ticket-number {\n}\n\n.ticket-details {\n}\n\n.ticket-details strong,\n.ticket-details span {\n}\n\n.ticket-details strong {\n}\n\n.ticket-details span {\n}\n\n.ticket-details button {\n}"
+  },
+  "date": "2026-08-19",
+  "timeLimit": 300,
+  "targetImage": "2026-08-19-easy.webp"
+}

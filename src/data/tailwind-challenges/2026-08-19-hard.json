@@ -1,0 +1,13 @@
+{
+  "title": "Hard — Merge Queue Triage Board — 2026-08-19",
+  "difficulty": "hard",
+  "date": "2026-08-19",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Merge Queue Triage</h1>\n    <p class=\"  \">Sprint 42 · frontend release</p>\n    <span class=\"  \">Build passing</span>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <header class=\"  \">\n        <h2 class=\"  \">Needs attention</h2>\n      </header>\n      <ul class=\"  \">\n        <li class=\"  \">#184 · Keyboard focus <span class=\"  \">1 review</span></li>\n        <li class=\"  \">#179 · Billing retry <span class=\"  \">blocked</span></li>\n      </ul>\n    </section>\n    <aside class=\"  \">NEXT DEPLOY<br class=\"  \" />16:30 UTC · 2 approvals left\n      <button class=\"  \">Open release notes</button>\n    </aside>\n  </main>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[500px] rounded-2xl border border-slate-200 bg-white p-4 text-slate-800\">\n  <header class=\"mb-3 flex flex-wrap items-center gap-x-3 gap-y-1 border-b border-slate-100 pb-3\">\n    <h1 class=\"w-full text-lg font-bold tracking-tight text-slate-900\">Merge Queue Triage</h1>\n    <p class=\"text-xs font-medium text-slate-500\">Sprint 42 · frontend release</p>\n    <span class=\"rounded-full bg-emerald-100 px-2 py-1 text-[11px] font-bold uppercase tracking-wide text-emerald-700\">Build passing</span>\n  </header>\n  <main class=\"grid grid-cols-[1.2fr_.8fr] gap-3\">\n    <section class=\"rounded-xl border border-slate-200 bg-slate-50 p-3\">\n      <header class=\"mb-2 flex items-center justify-between\">\n        <h2 class=\"text-sm font-bold text-slate-800\">Needs attention</h2>\n      </header>\n      <ul class=\"space-y-2\">\n        <li class=\"flex items-center justify-between rounded-lg border border-amber-200 bg-amber-50 px-2 py-2 text-xs font-semibold text-amber-900\">#184 · Keyboard focus <span>1 review</span></li>\n        <li class=\"flex items-center justify-between rounded-lg border border-rose-200 bg-rose-50 px-2 py-2 text-xs font-semibold text-rose-900\">#179 · Billing retry <span>blocked</span></li>\n      </ul>\n    </section>\n    <aside class=\"rounded-xl bg-indigo-600 p-3 text-sm font-semibold leading-5 text-white\">NEXT DEPLOY<br class=\"\" />16:30 UTC · 2 approvals left\n      <button class=\"mt-3 w-full rounded-lg bg-cyan-300 px-3 py-2 text-xs font-bold text-indigo-950\">Open release notes</button>\n    </aside>\n  </main>\n</article>"
+  },
+  "targetImage": "2026-08-19-hard.webp"
+}
