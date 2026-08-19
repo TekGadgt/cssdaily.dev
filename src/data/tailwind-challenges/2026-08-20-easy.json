@@ -1,0 +1,13 @@
+{
+  "title": "Easy — Guest Wi‑Fi Access Card — 2026-08-20",
+  "difficulty": "easy",
+  "date": "2026-08-20",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">📶 Guest Wi‑Fi</header>\n  <p class=\"  \">Network: <strong class=\"  \">Studio-Guest</strong><br class=\"  \" />Password: <strong class=\"  \">bluebird24</strong></p>\n  <button class=\"  \">Connected · Floor 3</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"flex w-[440px] flex-col gap-3 rounded-xl border border-slate-200 bg-white p-4\">\n  <header class=\"text-lg font-semibold text-slate-800\">📶 Guest Wi‑Fi</header>\n  <p class=\"text-sm leading-6 text-slate-500\">Network: <strong class=\"font-semibold text-slate-700\">Studio-Guest</strong><br class=\"\" />Password: <strong class=\"font-semibold text-slate-700\">bluebird24</strong></p>\n  <button class=\"rounded-lg bg-emerald-500 px-3 py-2 text-sm font-semibold text-white\">Connected · Floor 3</button>\n</article>"
+  },
+  "targetImage": "2026-08-20-easy.webp"
+}

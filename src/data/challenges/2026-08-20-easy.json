@@ -1,0 +1,15 @@
+{
+  "title": "Easy — Board Game Library Return Card — 2026-08-20",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"game-card\">\n  <header>\n    <span class=\"game-icon\" aria-hidden=\"true\">🎲</span>\n    <section>\n      <h1>Game night loan</h1>\n      <p>Moonlight Market · 4 players</p>\n    </section>\n  </header>\n  <p class=\"return-date\">Return by Sunday, 6:00 PM</p>\n  <footer>Borrowed by Jamie R. · Library shelf B-12</footer>\n</article>",
+    "css": ":root {\n  --paper: #fffdf7;\n  --ink: #26323d;\n  --accent: #e76f51;\n}\n\n.game-card {\n  box-sizing: border-box;\n  width: 460px;\n  padding: 16px;\n  background: var(--paper);\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n  color: var(--ink);\n}\n\n.game-card header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.game-icon {\n  display: grid;\n  width: 42px;\n  height: 42px;\n  place-items: center;\n  background: var(--accent);\n  border-radius: 10px;\n  font-size: 23px;\n}\n\n.game-card h1 {\n  margin: 0;\n  font-size: 20px;\n  line-height: 1.1;\n}\n\n.game-card p {\n  margin: 4px 0 0;\n  font-size: 14px;\n  opacity: 0.72;\n}\n\n.return-date {\n  margin-top: 14px !important;\n  padding: 9px 11px;\n  background: var(--accent);\n  border-radius: 8px;\n  color: var(--paper);\n  font-weight: 700;\n  opacity: 1 !important;\n}\n\n.game-card footer {\n  margin-top: 12px;\n  padding-top: 10px;\n  border-top: 1px solid var(--ink);\n  font-size: 12px;\n  opacity: 0.72;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"game-card\">\n  <header>\n    <span class=\"game-icon\" aria-hidden=\"true\">🎲</span>\n    <section>\n      <h1>Game night loan</h1>\n      <p>Moonlight Market · 4 players</p>\n    </section>\n  </header>\n  <p class=\"return-date\">Return by Sunday, 6:00 PM</p>\n  <footer>Borrowed by Jamie R. · Library shelf B-12</footer>\n</article>",
+    "css": ":root {\n  --paper: #fffdf7;\n  --ink: #26323d;\n  --accent: #e76f51;\n}\n\n.game-card {\n}\n\n.game-card header {\n}\n\n.game-icon {\n}\n\n.game-card h1 {\n}\n\n.game-card p {\n}\n\n.return-date {\n}\n\n.game-card footer {\n}"
+  },
+  "date": "2026-08-20",
+  "timeLimit": 300,
+  "targetImage": "2026-08-20-easy.webp"
+}
