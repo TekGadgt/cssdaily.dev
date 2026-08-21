@@ -1,0 +1,13 @@
+{
+  "title": "Medium — Community Fridge Restock Board — 2026-08-22",
+  "difficulty": "medium",
+  "date": "2026-08-22",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Community Fridge</h1>\n    <span class=\"  \">SAT · AUG 22</span>\n  </header>\n  <ul class=\"  \">\n    <li class=\"  \">🥬 Greens<br class=\"  \" />12 crates</li>\n    <li class=\"  \">🍞 Bakery<br class=\"  \" />8 loaves</li>\n    <li class=\"  \">🥛 Dairy<br class=\"  \" />6 cartons</li>\n  </ul>\n  <button class=\"  \">View restock list</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-xl border border-slate-200 bg-white\">\n  <header class=\"flex items-center justify-between bg-slate-900 px-4 py-3\">\n    <h1 class=\"text-base font-bold tracking-tight text-white\">Community Fridge</h1>\n    <span class=\"rounded-full bg-emerald-400 px-2.5 py-1 text-xs font-bold text-emerald-950\">SAT · AUG 22</span>\n  </header>\n  <ul class=\"grid grid-cols-3 gap-3 p-4\">\n    <li class=\"rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-sm font-semibold leading-5 text-emerald-900\">🥬 Greens<br class=\"block\" />12 crates</li>\n    <li class=\"rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm font-semibold leading-5 text-amber-900\">🍞 Bakery<br class=\"block\" />8 loaves</li>\n    <li class=\"rounded-lg border border-sky-200 bg-sky-50 p-3 text-sm font-semibold leading-5 text-sky-900\">🥛 Dairy<br class=\"block\" />6 cartons</li>\n  </ul>\n  <button class=\"ml-auto mr-4 mb-4 block rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white\">View restock list</button>\n</article>"
+  },
+  "targetImage": "2026-08-22-medium.webp"
+}

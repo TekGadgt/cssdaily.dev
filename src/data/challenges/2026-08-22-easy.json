@@ -1,0 +1,15 @@
+{
+  "title": "Easy — Street Sketch Walk Pass — 2026-08-22",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"route-card\">\n  <header class=\"pass-top\">\n    <span class=\"mark\">✦</span>\n    <span class=\"status\">OPEN WALK</span>\n  </header>\n  <section class=\"route-body\">\n    <section>\n      <p class=\"eyebrow\">SATURDAY · 10:30 AM</p>\n      <h1>Street Sketch Walk</h1>\n      <p class=\"location\">Meet at Fountain Square · 90 min</p>\n    </section>\n    <button class=\"join-button\">Join</button>\n  </section>\n</article>",
+    "css": ":root {\n  --paper: #fffdf7;\n  --ink: #243238;\n  --accent: #ed6a5a;\n}\n\n.route-card {\n  box-sizing: border-box;\n  width: 480px;\n  overflow: hidden;\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n  background: var(--paper);\n}\n\n.pass-top {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 10px 14px;\n  border-bottom: 2px dashed var(--ink);\n}\n\n.mark {\n  color: var(--accent);\n  font-size: 22px;\n  line-height: 1;\n}\n\n.status {\n  border-radius: 999px;\n  background: var(--accent);\n  color: var(--paper);\n  padding: 5px 9px;\n  font-size: 11px;\n  font-weight: 800;\n  letter-spacing: 0.08em;\n}\n\n.route-body {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 16px;\n  padding: 14px;\n}\n\n.eyebrow,\n.location {\n  margin: 0;\n  color: var(--ink);\n  font-size: 12px;\n  line-height: 1.35;\n}\n\n.eyebrow {\n  font-weight: 800;\n  letter-spacing: 0.06em;\n}\n\n.route-body h1 {\n  margin: 3px 0;\n  color: var(--ink);\n  font-size: 21px;\n  line-height: 1.15;\n}\n\n.join-button {\n  border: 2px solid var(--ink);\n  border-radius: 8px;\n  background: var(--paper);\n  color: var(--ink);\n  padding: 7px 12px;\n  font-size: 14px;\n  font-weight: 800;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"route-card\">\n  <header class=\"pass-top\">\n    <span class=\"mark\">✦</span>\n    <span class=\"status\">OPEN WALK</span>\n  </header>\n  <section class=\"route-body\">\n    <section>\n      <p class=\"eyebrow\">SATURDAY · 10:30 AM</p>\n      <h1>Street Sketch Walk</h1>\n      <p class=\"location\">Meet at Fountain Square · 90 min</p>\n    </section>\n    <button class=\"join-button\">Join</button>\n  </section>\n</article>",
+    "css": ":root {\n  --paper: #fffdf7;\n  --ink: #243238;\n  --accent: #ed6a5a;\n}\n\n.route-card {\n}\n\n.pass-top {\n}\n\n.mark {\n}\n\n.status {\n}\n\n.route-body {\n}\n\n.eyebrow,\n.location {\n}\n\n.eyebrow {\n}\n\n.route-body h1 {\n}\n\n.join-button {\n}\n"
+  },
+  "date": "2026-08-22",
+  "timeLimit": 300,
+  "targetImage": "2026-08-22-easy.webp"
+}
