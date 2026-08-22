@@ -1,0 +1,13 @@
+{
+  "title": "Medium — Cloud Vault Sync Status — 2026-08-23",
+  "difficulty": "medium",
+  "date": "2026-08-23",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<section class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">Cloud Vault Sync</p>\n    <span class=\"  \">All systems live</span>\n  </header>\n  <main class=\"  \">\n    <article class=\"  \">Studio Archive<br class=\"  \">82% uploaded</article>\n    <article class=\"  \">Next transfer<br class=\"  \">38 files queued</article>\n  </main>\n  <footer class=\"  \">Sun, Aug 23 · 08:23 UTC<button class=\"  \">View activity</button></footer>\n</section>"
+  },
+  "target": {
+    "html": "<section class=\"w-full max-w-lg overflow-hidden rounded-2xl border border-slate-200 bg-white\">\n  <header class=\"flex items-center justify-between border-b border-slate-100 px-4 py-3\">\n    <p class=\"text-sm font-semibold tracking-tight text-slate-800\">Cloud Vault Sync</p>\n    <span class=\"rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-700\">All systems live</span>\n  </header>\n  <main class=\"grid grid-cols-2 gap-3 p-4\">\n    <article class=\"rounded-xl bg-indigo-600 p-4 text-sm font-medium leading-6 text-white\">Studio Archive<br>82% uploaded</article>\n    <article class=\"rounded-xl border border-cyan-200 bg-cyan-50 p-4 text-sm font-medium leading-6 text-cyan-900\">Next transfer<br>38 files queued</article>\n  </main>\n  <footer class=\"flex items-center justify-between border-t border-slate-100 px-4 py-3 text-xs font-medium text-slate-500\">Sun, Aug 23 · 08:23 UTC<button class=\"rounded-lg bg-slate-800 px-3 py-2 text-xs font-semibold text-white\">View activity</button></footer>\n</section>"
+  },
+  "targetImage": "2026-08-23-medium.webp"
+}

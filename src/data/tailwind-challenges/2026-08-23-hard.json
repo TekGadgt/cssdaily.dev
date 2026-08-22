@@ -1,0 +1,13 @@
+{
+  "title": "Hard — Reef Drift Dive Brief — 2026-08-23",
+  "difficulty": "hard",
+  "date": "2026-08-23",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <span class=\"  \">◒</span>\n      <div class=\"  \">Monterey Bay<h1 class=\"  \">Reef Drift Brief</h1></div>\n    </section>\n    <span class=\"  \">Sea calm</span>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Next splash</p>\n      <p class=\"  \">08:40</p>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">24°C <span class=\"  \">water</span></p>\n      <p class=\"  \">12 m <span class=\"  \">visibility</span></p>\n    </section>\n  </main>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[500px] overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between border-b border-slate-200 bg-slate-50 px-4 py-3\">\n    <section class=\"flex items-center gap-3\">\n      <span class=\"flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-100 text-lg text-cyan-700\">◒</span>\n      <div class=\"text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400\">Monterey Bay<h1 class=\"mt-0.5 text-base font-bold normal-case tracking-normal text-slate-800\">Reef Drift Brief</h1></div>\n    </section>\n    <span class=\"rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-bold text-emerald-700\">Sea calm</span>\n  </header>\n  <main class=\"grid grid-cols-[1fr_2fr] gap-3 p-4\">\n    <section class=\"rounded-xl border border-amber-200 bg-amber-50 p-3\">\n      <p class=\"text-[10px] font-bold uppercase tracking-wider text-amber-700\">Next splash</p>\n      <p class=\"mt-1 text-2xl font-bold tracking-tight text-amber-950\">08:40</p>\n    </section>\n    <section class=\"grid grid-cols-2 gap-2\">\n      <p class=\"rounded-xl border border-violet-200 bg-violet-50 px-3 py-2 text-sm font-bold text-violet-800\">24°C <span class=\"text-xs font-medium text-violet-500\">water</span></p>\n      <p class=\"rounded-xl border border-indigo-200 bg-indigo-50 px-3 py-2 text-sm font-bold text-indigo-800\">12 m <span class=\"text-xs font-medium text-indigo-500\">visibility</span></p>\n    </section>\n  </main>\n</article>"
+  },
+  "targetImage": "2026-08-23-hard.webp"
+}
