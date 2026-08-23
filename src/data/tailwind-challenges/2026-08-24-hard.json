@@ -1,0 +1,13 @@
+{
+  "title": "Orbital Greenhouse Climate Panel",
+  "difficulty": "hard",
+  "date": "2026-08-24",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <h1 class=\"  \">Canopy Node 04</h1>\n      <p class=\"  \">ORBITAL GREENHOUSE</p>\n    </section>\n    <span class=\"  \">Stable</span>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Humidity</p>\n      <p class=\"  \">68<span class=\"  \">%</span></p>\n    </section>\n    <aside class=\"  \">\n      <p class=\"  \">Cycle log</p>\n      <ul class=\"  \">\n        <li class=\"  \">Mister loop <span class=\"  \">08:40</span></li>\n        <li class=\"  \">Nutrient feed <span class=\"  \">09:15</span></li>\n      </ul>\n    </aside>\n  </main>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[500px] max-w-full overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between border-b border-slate-700 bg-slate-900 px-4 py-3\">\n    <section class=\"flex items-center gap-3\">\n      <h1 class=\"text-lg font-semibold tracking-tight text-white\">Canopy Node 04</h1>\n      <p class=\"text-xs font-medium text-slate-300\">ORBITAL GREENHOUSE</p>\n    </section>\n    <span class=\"rounded-full bg-emerald-400 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-950\">Stable</span>\n  </header>\n  <main class=\"grid grid-cols-[1.05fr_.95fr] gap-3 p-3\">\n    <section class=\"flex min-h-[142px] flex-col justify-between rounded-xl border border-cyan-200 bg-cyan-50 p-3\">\n      <p class=\"text-xs font-bold uppercase tracking-widest text-cyan-700\">Humidity</p>\n      <p class=\"text-3xl font-semibold tracking-tight text-slate-900\">68<span class=\"text-lg text-cyan-700\">%</span></p>\n    </section>\n    <aside class=\"flex min-h-[142px] flex-col rounded-xl border border-violet-200 bg-violet-50 p-3\">\n      <p class=\"mb-2 text-xs font-bold uppercase tracking-widest text-violet-700\">Cycle log</p>\n      <ul class=\"flex flex-1 flex-col justify-between\">\n        <li class=\"flex items-center justify-between border-b border-violet-200 pb-2 text-xs font-medium text-emerald-700\">Mister loop <span class=\"font-bold\">08:40</span></li>\n        <li class=\"flex items-center justify-between pt-2 text-xs font-medium text-amber-700\">Nutrient feed <span class=\"font-bold\">09:15</span></li>\n      </ul>\n    </aside>\n  </main>\n</article>"
+  },
+  "targetImage": "2026-08-24-hard.webp"
+}

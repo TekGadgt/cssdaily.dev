@@ -1,0 +1,15 @@
+{
+  "title": "Tennis Club Guest Court Pass",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"court-pass\">\n  <header class=\"pass-header\">\n    <p class=\"eyebrow\">RALLY CLUB · GUEST</p>\n    <h1>Morning court pass</h1>\n  </header>\n  <section class=\"details\" aria-label=\"Booking details\">\n    <span>Sat · 10:30–11:30</span>\n    <strong>Court 03</strong>\n  </section>\n  <button type=\"button\">Check in</button>\n</article>",
+    "css": ":root {\n  --ink: #17352d;\n  --court: #2f805f;\n  --paper: #fffdf5;\n  --line: #b8d8c7;\n  --ball: #e8ed4a;\n}\n\n.court-pass {\n  width: 440px;\n  box-sizing: border-box;\n  padding: 16px;\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n  background: var(--paper);\n  color: var(--ink);\n}\n\n.pass-header {\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n  gap: 16px;\n  padding-bottom: 12px;\n  border-bottom: 1px solid var(--line);\n}\n\n.eyebrow {\n  margin: 0;\n  color: var(--court);\n  font-size: 11px;\n  font-weight: 800;\n  letter-spacing: 0.08em;\n}\n\nh1 {\n  margin: 5px 0 0;\n  font-size: 21px;\n  line-height: 1.1;\n}\n\n.details {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 13px 0;\n  font-size: 14px;\n}\n\n.details strong {\n  padding: 5px 8px;\n  border-radius: 6px;\n  background: var(--ball);\n  font-size: 12px;\n}\n\nbutton {\n  width: 100%;\n  padding: 9px 12px;\n  border: 0;\n  border-radius: 7px;\n  background: var(--court);\n  color: var(--paper);\n  font-size: 14px;\n  font-weight: 800;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"court-pass\">\n  <header class=\"pass-header\">\n    <p class=\"eyebrow\">RALLY CLUB · GUEST</p>\n    <h1>Morning court pass</h1>\n  </header>\n  <section class=\"details\" aria-label=\"Booking details\">\n    <span>Sat · 10:30–11:30</span>\n    <strong>Court 03</strong>\n  </section>\n  <button type=\"button\">Check in</button>\n</article>",
+    "css": ":root {\n  --ink: #17352d;\n  --court: #2f805f;\n  --paper: #fffdf5;\n  --line: #b8d8c7;\n  --ball: #e8ed4a;\n}\n\n.court-pass {\n}\n\n.pass-header {\n}\n\n.eyebrow {\n}\n\nh1 {\n}\n\n.details {\n}\n\n.details strong {\n}\n\nbutton {\n}\n"
+  },
+  "date": "2026-08-24",
+  "timeLimit": 300,
+  "targetImage": "2026-08-24-easy.webp"
+}
