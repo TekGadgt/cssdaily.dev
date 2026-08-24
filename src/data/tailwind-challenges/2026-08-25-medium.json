@@ -1,0 +1,13 @@
+{
+  "title": "Medium — Skatepark Trick Jam Check-in — 2026-08-25",
+  "difficulty": "medium",
+  "date": "2026-08-25",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">🛹</p>\n    <h1 class=\"  \">Skatepark Trick Jam</h1>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">HEAT 04<br>16:20</p>\n    <p class=\"  \">AUG 25<br>BOWL</p>\n    <p class=\"  \">RUN<br>45 SEC</p>\n  </section>\n  <footer class=\"  \">\n    <button class=\"  \">Rider check-in</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-900\">\n  <header class=\"flex items-center gap-3 border-b border-slate-700 bg-slate-900 px-4 py-3\">\n    <p class=\"flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-fuchsia-500 text-lg\">🛹</p>\n    <h1 class=\"text-lg font-bold tracking-tight text-white\">Skatepark Trick Jam</h1>\n  </header>\n  <section class=\"grid grid-cols-3 gap-2 px-4 py-3\">\n    <p class=\"rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-center text-xs font-semibold leading-5 text-amber-800\">HEAT 04<br>16:20</p>\n    <p class=\"rounded-xl border border-cyan-200 bg-cyan-50 px-3 py-2 text-center text-xs font-semibold leading-5 text-cyan-800\">AUG 25<br>BOWL</p>\n    <p class=\"rounded-xl border border-fuchsia-200 bg-fuchsia-50 px-3 py-2 text-center text-xs font-semibold leading-5 text-fuchsia-800\">RUN<br>45 SEC</p>\n  </section>\n  <footer class=\"flex justify-end border-t border-slate-200 bg-slate-50 px-4 py-3\">\n    <button class=\"rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white\">Rider check-in</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-25-medium.webp"
+}

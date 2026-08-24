@@ -1,0 +1,15 @@
+{
+  "title": "Easy — Apple Tasting Flight Card — 2026-08-25",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"tasting-card\">\n  <header class=\"card-header\">\n    <section>\n      <p class=\"eyebrow\">Orchard counter</p>\n      <h2>Apple Tasting Flight</h2>\n    </section>\n    <span class=\"ticket\">#18</span>\n  </header>\n  <section class=\"details\">\n    <span class=\"apple\" aria-hidden=\"true\">🍎</span>\n    <p><strong>Three crisp pours</strong><br>Honeycrisp · Gala · Pink Lady</p>\n  </section>\n  <footer>\n    <span>Tue, Aug 25 · 3:30 PM</span>\n    <button>Check in</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #27372c;\n  --paper: #fffdf7;\n  --line: #d9dfcf;\n  --leaf: #426b45;\n  --apple-red: #d95645;\n  --cream: #f1f4e9;\n}\n\n.tasting-card {\n  width: 450px;\n  box-sizing: border-box;\n  padding: 16px;\n  border: 1px solid var(--line);\n  border-radius: 16px;\n  background: var(--paper);\n  color: var(--ink);\n}\n\n.card-header,\nfooter,\n.details {\n  display: flex;\n  align-items: center;\n}\n\n.card-header,\nfooter {\n  justify-content: space-between;\n}\n\n.card-header {\n  padding-bottom: 12px;\n  border-bottom: 1px solid var(--line);\n}\n\n.eyebrow {\n  margin: 0 0 3px;\n  color: var(--leaf);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}\n\nh2 {\n  margin: 0;\n  font-size: 20px;\n  line-height: 1.1;\n}\n\n.ticket {\n  padding: 5px 8px;\n  border-radius: 7px;\n  background: var(--apple-red);\n  color: var(--paper);\n  font-size: 12px;\n  font-weight: 700;\n}\n\n.details {\n  gap: 10px;\n  padding: 12px 0;\n}\n\n.apple {\n  display: grid;\n  width: 36px;\n  height: 36px;\n  place-items: center;\n  border-radius: 50%;\n  background: var(--cream);\n  font-size: 21px;\n}\n\n.details p {\n  margin: 0;\n  font-size: 14px;\n  line-height: 1.45;\n}\n\nfooter {\n  color: var(--leaf);\n  font-size: 12px;\n  font-weight: 600;\n}\n\nbutton {\n  border: 0;\n  border-radius: 7px;\n  padding: 7px 11px;\n  background: var(--leaf);\n  color: var(--paper);\n  font: inherit;\n  font-size: 12px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"tasting-card\">\n  <header class=\"card-header\">\n    <section>\n      <p class=\"eyebrow\">Orchard counter</p>\n      <h2>Apple Tasting Flight</h2>\n    </section>\n    <span class=\"ticket\">#18</span>\n  </header>\n  <section class=\"details\">\n    <span class=\"apple\" aria-hidden=\"true\">🍎</span>\n    <p><strong>Three crisp pours</strong><br>Honeycrisp · Gala · Pink Lady</p>\n  </section>\n  <footer>\n    <span>Tue, Aug 25 · 3:30 PM</span>\n    <button>Check in</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #27372c;\n  --paper: #fffdf7;\n  --line: #d9dfcf;\n  --leaf: #426b45;\n  --apple-red: #d95645;\n  --cream: #f1f4e9;\n}\n\n.tasting-card {\n}\n\n.card-header {\n}\n\nfooter {\n}\n\n.details {\n}\n\n.eyebrow {\n}\n\nh2 {\n}\n\n.ticket {\n}\n\n.apple {\n}\n\n.details p {\n}\n\nbutton {\n}"
+  },
+  "date": "2026-08-25",
+  "timeLimit": 300,
+  "targetImage": "2026-08-25-easy.webp"
+}
