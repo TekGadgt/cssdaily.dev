@@ -1,0 +1,15 @@
+{
+  "title": "Easy — Umbrella Share Return Note — 2026-08-26",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"umbrella-card\">\n  <header class=\"card-header\">\n    <span class=\"icon\" aria-hidden=\"true\">☂️</span>\n    <section>\n      <p class=\"eyebrow\">CITY UMBRELLA SHARE</p>\n      <h1>Return confirmed</h1>\n    </section>\n  </header>\n  <p class=\"location\">Dock 14 · Linden Station</p>\n  <footer class=\"status\">Dry and ready for the next walk <strong>✓</strong></footer>\n</article>",
+    "css": ":root {\n  --card: #fffdf7;\n  --ink: #243447;\n  --accent: #2b7a78;\n}\n\n.umbrella-card {\n  width: 460px;\n  box-sizing: border-box;\n  padding: 18px;\n  background-color: var(--card);\n  border: 2px solid var(--ink);\n  border-radius: 18px;\n  color: var(--ink);\n}\n\n.card-header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.icon {\n  font-size: 34px;\n}\n\n.eyebrow {\n  margin: 0 0 3px;\n  color: var(--accent);\n  font-size: 11px;\n  font-weight: 700;\n}\n\n.umbrella-card h1 {\n  margin: 0;\n  font-size: 22px;\n  line-height: 1.1;\n}\n\n.location {\n  margin: 16px 0 0;\n  font-size: 14px;\n}\n\n.status {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 14px;\n  padding-top: 10px;\n  border-top: 1px solid var(--accent);\n  color: var(--accent);\n  font-size: 13px;\n  font-weight: 700;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"umbrella-card\">\n  <header class=\"card-header\">\n    <span class=\"icon\" aria-hidden=\"true\">☂️</span>\n    <section>\n      <p class=\"eyebrow\">CITY UMBRELLA SHARE</p>\n      <h1>Return confirmed</h1>\n    </section>\n  </header>\n  <p class=\"location\">Dock 14 · Linden Station</p>\n  <footer class=\"status\">Dry and ready for the next walk <strong>✓</strong></footer>\n</article>",
+    "css": ":root {\n  --card: #fffdf7;\n  --ink: #243447;\n  --accent: #2b7a78;\n}\n\n.umbrella-card {\n}\n\n.card-header {\n}\n\n.icon {\n}\n\n.eyebrow {\n}\n\n.umbrella-card h1 {\n}\n\n.location {\n}\n\n.status {\n}\n"
+  },
+  "date": "2026-08-26",
+  "timeLimit": 300,
+  "targetImage": "2026-08-26-easy.webp"
+}
