@@ -1,0 +1,15 @@
+{
+  "title": "Paper Crane Fold Kit — Easy",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"fold-card\">\n  <span class=\"fold-mark\" aria-hidden=\"true\">🕊️</span>\n  <header class=\"fold-content\">\n    <h1>Paper Crane Fold Kit</h1>\n    <p>6 square sheets · beginner pattern</p>\n  </header>\n  <footer>\n    <span class=\"status\">Ready to fold</span>\n    <button type=\"button\">Open guide</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #26354a;\n  --paper: #fffdf7;\n  --line: #d9e1eb;\n  --blue: #4d72c9;\n  --blue-soft: #eaf0ff;\n}\n\n* {\n  box-sizing: border-box;\n}\n\n.fold-card {\n  width: 440px;\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 14px;\n  background: var(--paper);\n  border: 1px solid var(--line);\n  border-radius: 14px;\n}\n\n.fold-mark {\n  display: grid;\n  width: 52px;\n  height: 52px;\n  place-items: center;\n  background: var(--blue-soft);\n  border-radius: 12px;\n  font-size: 25px;\n}\n\n.fold-content {\n  flex: 1;\n}\n\n.fold-content h1 {\n  margin: 0 0 3px;\n  color: var(--ink);\n  font-size: 17px;\n  line-height: 1.2;\n}\n\n.fold-content p {\n  margin: 0;\n  color: var(--ink);\n  font-size: 13px;\n  line-height: 1.35;\n}\n\n.fold-card footer {\n  display: flex;\n  align-items: flex-end;\n  flex-direction: column;\n  gap: 6px;\n}\n\n.status {\n  color: var(--blue);\n  font-size: 11px;\n  font-weight: 700;\n}\n\nbutton {\n  padding: 7px 10px;\n  color: var(--paper);\n  background: var(--blue);\n  border: 0;\n  border-radius: 7px;\n  font-size: 12px;\n  font-weight: 700;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"fold-card\">\n  <span class=\"fold-mark\" aria-hidden=\"true\">🕊️</span>\n  <header class=\"fold-content\">\n    <h1>Paper Crane Fold Kit</h1>\n    <p>6 square sheets · beginner pattern</p>\n  </header>\n  <footer>\n    <span class=\"status\">Ready to fold</span>\n    <button type=\"button\">Open guide</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #26354a;\n  --paper: #fffdf7;\n  --line: #d9e1eb;\n  --blue: #4d72c9;\n  --blue-soft: #eaf0ff;\n}\n\n* {\n}\n\n.fold-card {\n}\n\n.fold-mark {\n}\n\n.fold-content {\n}\n\n.fold-content h1 {\n}\n\n.fold-content p {\n}\n\n.fold-card footer {\n}\n\n.status {\n}\n\nbutton {\n}\n"
+  },
+  "date": "2026-08-27",
+  "timeLimit": 300,
+  "targetImage": "2026-08-27-easy.webp"
+}

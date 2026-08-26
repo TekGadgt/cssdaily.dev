@@ -1,0 +1,13 @@
+{
+  "title": "Easy — Puppy Meet & Greet Card — 2026-08-27",
+  "difficulty": "easy",
+  "date": "2026-08-27",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">🐶 Meet a new neighbor</h1>\n  </header>\n  <p class=\"  \">Saturday, Aug 29 · 11:00 AM<br>Riverside Adoption Center</p>\n  <button class=\"  \">Save my spot</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"flex w-[440px] flex-col gap-3 rounded-2xl border border-amber-200 bg-white p-4\">\n  <header class=\"flex items-center gap-2\">\n    <h1 class=\"text-lg font-bold text-slate-800\">🐶 Meet a new neighbor</h1>\n  </header>\n  <p class=\"text-sm leading-6 text-slate-600\">Saturday, Aug 29 · 11:00 AM<br>Riverside Adoption Center</p>\n  <button class=\"rounded-xl bg-amber-400 px-4 py-2 text-sm font-semibold text-amber-950\">Save my spot</button>\n</article>"
+  },
+  "targetImage": "2026-08-27-easy.webp"
+}
