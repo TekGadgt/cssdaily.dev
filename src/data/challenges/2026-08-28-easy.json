@@ -1,0 +1,15 @@
+{
+  "title": "Puzzle Hunt Clue Card",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"clue-card\">\n  <header class=\"card-header\">\n    <span class=\"marker\">🧩</span>\n    <section>\n      <p class=\"eyebrow\">RIVER DISTRICT HUNT</p>\n      <h1>Clue 04</h1>\n    </section>\n  </header>\n  <p class=\"clue\">Find the place where borrowed stories sleep.</p>\n  <footer class=\"card-footer\">\n    <span class=\"code\">TEAM LIME</span>\n    <button class=\"reveal-button\">I found it</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #24312d;\n  --paper: #fffdf5;\n  --line: #d7dfce;\n  --lime: #c9ef62;\n  --muted: #66736d;\n}\n\n.clue-card {\n  width: 440px;\n  box-sizing: border-box;\n  padding: 16px;\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n  background-color: var(--paper);\n  color: var(--ink);\n}\n\n.card-header {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n\n.marker {\n  display: grid;\n  width: 38px;\n  height: 38px;\n  place-items: center;\n  border-radius: 10px;\n  background-color: var(--lime);\n  font-size: 21px;\n}\n\n.eyebrow {\n  margin: 0 0 2px;\n  color: var(--muted);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}\n\n.card-header h1 {\n  margin: 0;\n  font-size: 21px;\n  line-height: 1;\n}\n\n.clue {\n  margin: 16px 0;\n  padding: 10px 12px;\n  border-left: 4px solid var(--lime);\n  background-color: var(--line);\n  font-size: 14px;\n  line-height: 1.35;\n}\n\n.card-footer {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.code {\n  color: var(--muted);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.8px;\n}\n\n.reveal-button {\n  padding: 7px 11px;\n  border: 2px solid var(--ink);\n  border-radius: 7px;\n  background-color: var(--lime);\n  color: var(--ink);\n  font-size: 12px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"clue-card\">\n  <header class=\"card-header\">\n    <span class=\"marker\">🧩</span>\n    <section>\n      <p class=\"eyebrow\">RIVER DISTRICT HUNT</p>\n      <h1>Clue 04</h1>\n    </section>\n  </header>\n  <p class=\"clue\">Find the place where borrowed stories sleep.</p>\n  <footer class=\"card-footer\">\n    <span class=\"code\">TEAM LIME</span>\n    <button class=\"reveal-button\">I found it</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #24312d;\n  --paper: #fffdf5;\n  --line: #d7dfce;\n  --lime: #c9ef62;\n  --muted: #66736d;\n}\n\n.clue-card {\n}\n\n.card-header {\n}\n\n.marker {\n}\n\n.eyebrow {\n}\n\n.card-header h1 {\n}\n\n.clue {\n}\n\n.card-footer {\n}\n\n.code {\n}\n\n.reveal-button {\n}"
+  },
+  "date": "2026-08-28",
+  "timeLimit": 300,
+  "targetImage": "2026-08-28-easy.webp"
+}
