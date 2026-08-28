@@ -1,0 +1,13 @@
+{
+  "title": "Hard — Vinyl Pressing Queue — 2026-08-29",
+  "difficulty": "hard",
+  "date": "2026-08-29",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">29 Aug 2026</p>\n    <h1 class=\"  \">Pressing Queue</h1>\n    <button class=\"  \">Live</button>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Now pressing</p>\n      <p class=\"  \">Side B <span class=\"  \">#042</span></p>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">Cure window</p>\n      <p class=\"  \">18 <span class=\"  \">min</span></p>\n    </section>\n  </main>\n  <footer class=\"  \">CUT 14:20 <span class=\"  \">•</span> 18 discs staged <span class=\"  \">•</span> Dock 2</footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[500px] rounded-2xl border border-slate-800 bg-slate-950 p-4 text-slate-100\">\n  <header class=\"flex items-center justify-between border-b border-slate-800 pb-3\">\n    <p class=\"w-24 text-[10px] font-bold uppercase tracking-[0.18em] text-sky-400\">29 Aug 2026</p>\n    <h1 class=\"flex-1 px-3 text-center text-lg font-bold tracking-tight text-white\">Pressing Queue</h1>\n    <button class=\"rounded-full bg-emerald-400 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-950\">Live</button>\n  </header>\n  <main class=\"mt-3 grid grid-cols-2 gap-3\">\n    <section class=\"flex min-h-[108px] flex-col justify-between rounded-xl border border-violet-700 bg-violet-950 p-3\">\n      <p class=\"text-[10px] font-bold uppercase tracking-[0.16em] text-violet-300\">Now pressing</p>\n      <p class=\"text-xl font-bold tracking-tight text-white\">Side B <span class=\"text-fuchsia-300\">#042</span></p>\n    </section>\n    <section class=\"flex min-h-[108px] flex-col justify-between rounded-xl border border-amber-700 bg-amber-950 p-3\">\n      <p class=\"text-[10px] font-bold uppercase tracking-[0.16em] text-amber-300\">Cure window</p>\n      <p class=\"text-xl font-bold tracking-tight text-white\">18 <span class=\"text-sm font-medium text-amber-200\">min</span></p>\n    </section>\n  </main>\n  <footer class=\"mt-3 rounded-lg border border-slate-800 bg-slate-900 px-3 py-2 text-center text-xs font-medium text-slate-300\">CUT 14:20 <span class=\"px-2 text-slate-600\">•</span> 18 discs staged <span class=\"px-2 text-slate-600\">•</span> Dock 2</footer>\n</article>"
+  },
+  "targetImage": "2026-08-29-hard.webp"
+}

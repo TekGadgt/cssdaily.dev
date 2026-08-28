@@ -1,0 +1,13 @@
+{
+  "title": "Medium — Arcade Score Claim — 2026-08-29",
+  "difficulty": "medium",
+  "date": "2026-08-29",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">🕹️</p>\n    <section class=\"  \">\n      <h1 class=\"  \">Score claim received</h1>\n      <p class=\"  \">Neon Circuit Arcade · Cabinet 07</p>\n    </section>\n  </header>\n  <section class=\"  \" aria-label=\"Score details\">\n    <p class=\"  \">PLAYER<br><span class=\"  \">MIRA-88</span></p>\n    <p class=\"  \">HIGH SCORE<br><span class=\"  \">42,780</span></p>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Submitted Aug 29 · 14:32</p>\n    <button class=\"  \">Verify run</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-lg overflow-hidden rounded-xl border border-indigo-200 bg-white\">\n  <header class=\"flex items-center gap-3 border-b border-indigo-100 bg-indigo-50 p-4\">\n    <p class=\"flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-indigo-600 text-xl text-white\">🕹️</p>\n    <section class=\"min-w-0 flex-1\">\n      <h1 class=\"text-lg font-bold tracking-tight text-indigo-950\">Score claim received</h1>\n      <p class=\"mt-0.5 text-sm text-indigo-700\">Neon Circuit Arcade · Cabinet 07</p>\n    </section>\n  </header>\n  <section class=\"grid grid-cols-2 gap-2 p-4\" aria-label=\"Score details\">\n    <p class=\"rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm leading-5 text-amber-900\">PLAYER<br><span class=\"font-bold text-amber-950\">MIRA-88</span></p>\n    <p class=\"rounded-lg border border-cyan-200 bg-cyan-50 p-3 text-sm leading-5 text-cyan-900\">HIGH SCORE<br><span class=\"font-bold text-cyan-950\">42,780</span></p>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-100 px-4 py-3\">\n    <p class=\"text-sm text-slate-500\">Submitted Aug 29 · 14:32</p>\n    <button class=\"rounded-md bg-rose-600 px-3 py-1.5 text-sm font-semibold text-white\">Verify run</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-29-medium.webp"
+}
