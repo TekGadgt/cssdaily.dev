@@ -1,0 +1,13 @@
+{
+  "title": "Bookbinding Workshop Check-in",
+  "difficulty": "medium",
+  "date": "2026-08-30",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">WORKSHOP PASS</p>\n    <p class=\"  \">SAT · AUG 30<br>2:00–4:00 PM</p>\n  </header>\n  <section class=\"  \">\n    <h1 class=\"  \">Japanese Stab Binding</h1>\n    <p class=\"  \">Learn a four-hole stitch with linen thread and hand-torn paper.</p>\n  </section>\n  <section class=\"  \">\n    <p class=\"  \">Desk 04<br><span class=\"  \">Materials ready</span></p>\n    <p class=\"  \">Print Room B<br><span class=\"  \">Riverside Arts Hall</span></p>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Bring your own bone folder if you have one.</p>\n    <button class=\"  \">Check in</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] max-w-full overflow-hidden rounded-2xl border border-stone-300 bg-stone-50 text-stone-800\">\n  <header class=\"flex items-start justify-between border-b border-stone-300 bg-amber-100 px-4 py-3\">\n    <p class=\"rounded-full border border-amber-400 bg-amber-200 px-2 py-1 text-xs font-bold tracking-wider text-amber-900\">WORKSHOP PASS</p>\n    <p class=\"text-right text-xs font-semibold leading-5 text-stone-600\">SAT · AUG 30<br>2:00–4:00 PM</p>\n  </header>\n  <section class=\"px-4 py-3\">\n    <h1 class=\"text-xl font-bold tracking-tight text-stone-900\">Japanese Stab Binding</h1>\n    <p class=\"mt-1 text-sm text-stone-600\">Learn a four-hole stitch with linen thread and hand-torn paper.</p>\n  </section>\n  <section class=\"grid grid-cols-2 gap-3 border-y border-stone-300 bg-white px-4 py-3\">\n    <p class=\"rounded-lg border border-teal-200 bg-teal-50 px-3 py-2 text-sm font-semibold text-teal-800\">Desk 04<br><span class=\"text-xs font-normal text-teal-700\">Materials ready</span></p>\n    <p class=\"rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-2 text-sm font-semibold text-indigo-800\">Print Room B<br><span class=\"text-xs font-normal text-indigo-700\">Riverside Arts Hall</span></p>\n  </section>\n  <footer class=\"flex items-center justify-between bg-stone-100 px-4 py-3\">\n    <p class=\"text-xs text-stone-500\">Bring your own bone folder if you have one.</p>\n    <button class=\"rounded-lg bg-stone-800 px-3 py-2 text-sm font-semibold text-white\">Check in</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-30-medium.webp"
+}

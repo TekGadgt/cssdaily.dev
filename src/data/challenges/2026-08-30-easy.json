@@ -1,0 +1,15 @@
+{
+  "title": "Flower Market Pickup Tag — 2026-08-30",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"pickup-tag\">\n  <section class=\"mark\" aria-hidden=\"true\">🌼</section>\n  <section class=\"details\">\n    <p class=\"eyebrow\">RIVERSIDE FLOWER MARKET</p>\n    <h1>Bucket pickup</h1>\n    <p class=\"meta\">18 ranunculus stems · Stall 04</p>\n    <p class=\"status\">Ready after 10:30</p>\n  </section>\n</article>",
+    "css": ":root {\n  --ink: #25352e;\n  --paper: #fffdf7;\n  --line: #d9dfd2;\n  --leaf: #37634d;\n  --leaf-soft: #e3eee4;\n  --sun: #f4c953;\n}\n\n.pickup-tag {\n  width: 460px;\n  display: flex;\n  overflow: hidden;\n  background: var(--paper);\n  border: 1px solid var(--line);\n  border-radius: 16px;\n}\n\n.mark {\n  width: 108px;\n  display: grid;\n  place-items: center;\n  background: var(--sun);\n  font-size: 38px;\n}\n\n.details {\n  flex: 1;\n  padding: 16px 18px;\n}\n\n.eyebrow {\n  margin: 0 0 5px;\n  color: var(--leaf);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n}\n\nh1 {\n  margin: 0;\n  color: var(--ink);\n  font-size: 22px;\n  line-height: 1.1;\n}\n\n.meta {\n  margin: 6px 0 11px;\n  color: var(--ink);\n  font-size: 14px;\n}\n\n.status {\n  display: inline-block;\n  margin: 0;\n  padding: 5px 9px;\n  background: var(--leaf-soft);\n  border-radius: 999px;\n  color: var(--leaf);\n  font-size: 12px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"pickup-tag\">\n  <section class=\"mark\" aria-hidden=\"true\">🌼</section>\n  <section class=\"details\">\n    <p class=\"eyebrow\">RIVERSIDE FLOWER MARKET</p>\n    <h1>Bucket pickup</h1>\n    <p class=\"meta\">18 ranunculus stems · Stall 04</p>\n    <p class=\"status\">Ready after 10:30</p>\n  </section>\n</article>",
+    "css": ":root {\n  --ink: #25352e;\n  --paper: #fffdf7;\n  --line: #d9dfd2;\n  --leaf: #37634d;\n  --leaf-soft: #e3eee4;\n  --sun: #f4c953;\n}\n\n.pickup-tag {\n}\n\n.mark {\n}\n\n.details {\n}\n\n.eyebrow {\n}\n\nh1 {\n}\n\n.meta {\n}\n\n.status {\n}"
+  },
+  "date": "2026-08-30",
+  "timeLimit": 300,
+  "targetImage": "2026-08-30-easy.webp"
+}

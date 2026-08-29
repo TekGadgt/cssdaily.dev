@@ -1,0 +1,13 @@
+{
+  "title": "Easy — Laundry Locker Pickup Notice — 2026-08-30",
+  "difficulty": "easy",
+  "date": "2026-08-30",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    Locker 24 · Ready for pickup\n  </header>\n  <p class=\"  \">\n    Your clean laundry is waiting in the lobby locker until 8:00 PM.\n  </p>\n  <footer class=\"  \">\n    <button class=\"  \">View pickup code</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 overflow-hidden rounded-xl border border-sky-200 bg-white text-slate-800\">\n  <header class=\"bg-sky-600 px-4 py-3 text-sm font-semibold tracking-wide text-white\">\n    Locker 24 · Ready for pickup\n  </header>\n  <p class=\"px-4 py-4 text-sm leading-5 text-slate-600\">\n    Your clean laundry is waiting in the lobby locker until 8:00 PM.\n  </p>\n  <footer class=\"flex justify-end border-t border-sky-100 px-4 py-3\">\n    <button class=\"rounded-lg bg-amber-400 px-3 py-2 text-sm font-semibold text-amber-950\">View pickup code</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-30-easy.webp"
+}

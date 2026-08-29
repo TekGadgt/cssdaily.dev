@@ -1,0 +1,13 @@
+{
+  "title": "Hard — Mycelium Culture Batch Review — 2026-08-30",
+  "difficulty": "hard",
+  "date": "2026-08-30",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <h1 class=\"  \">Mycelium Culture Batch 18</h1>\n      <p class=\"  \">North incubator · growth review</p>\n    </section>\n    <span class=\"  \">DAY 06</span>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Colonization</p>\n      82%\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">Humidity</p>\n      94%\n    </section>\n  </main>\n  <footer class=\"  \">\n    Next mist cycle · 14:30\n    <button class=\"  \">View log</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between border-b border-slate-200 bg-sky-50 px-4 py-3\">\n    <section class=\"min-w-0\">\n      <h1 class=\"text-base font-bold tracking-tight text-slate-900\">Mycelium Culture Batch 18</h1>\n      <p class=\"mt-0.5 text-xs text-slate-500\">North incubator · growth review</p>\n    </section>\n    <span class=\"shrink-0 rounded-full bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-800\">DAY 06</span>\n  </header>\n  <main class=\"grid grid-cols-2 gap-3 p-3\">\n    <section class=\"flex min-h-[108px] flex-col justify-between rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-2xl font-bold tracking-tight text-emerald-800\">\n      <p class=\"text-xs font-semibold uppercase tracking-wider text-emerald-700\">Colonization</p>\n      82%\n    </section>\n    <section class=\"flex min-h-[108px] flex-col justify-between rounded-xl border border-violet-200 bg-violet-50 p-3 text-2xl font-bold tracking-tight text-violet-800\">\n      <p class=\"text-xs font-semibold uppercase tracking-wider text-violet-700\">Humidity</p>\n      94%\n    </section>\n  </main>\n  <footer class=\"flex items-center justify-between border-t border-slate-200 bg-slate-50 px-4 py-3 text-xs font-medium text-slate-500\">\n    Next mist cycle · 14:30\n    <button class=\"rounded-lg bg-slate-800 px-3 py-1.5 text-xs font-bold text-white\">View log</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-30-hard.webp"
+}
