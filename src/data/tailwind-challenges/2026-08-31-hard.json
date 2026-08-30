@@ -1,0 +1,13 @@
+{
+  "title": "Hard — River Sweep Dispatch Board",
+  "difficulty": "hard",
+  "date": "2026-08-31",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">River Sweep Dispatch</h1>\n    <span class=\"  \">Zone 04</span>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Collection runs</p>\n      <ul class=\"  \">\n        <li class=\"  \">● North bank · Crew A · 12 bags</li>\n        <li class=\"  \">● Footbridge · Crew C · awaiting cart</li>\n      </ul>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">3 / 4<br class=\"  \" /> crews live</p>\n    </section>\n    <section class=\"  \">Next radio check · 09:15<button class=\"  \">Open route sheet</button></section>\n  </main>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[500px] overflow-hidden rounded-2xl border border-slate-200 bg-white\">\n  <header class=\"flex items-center justify-between bg-slate-900 px-4 py-3\">\n    <h1 class=\"text-sm font-semibold tracking-wide text-white\">River Sweep Dispatch</h1>\n    <span class=\"rounded-full bg-cyan-400 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-950\">Zone 04</span>\n  </header>\n  <main class=\"grid grid-cols-3 gap-3 p-3\">\n    <section class=\"col-span-2 rounded-xl border border-slate-200 bg-slate-50 p-3\">\n      <p class=\"text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500\">Collection runs</p>\n      <ul class=\"mt-2 space-y-2\">\n        <li class=\"flex items-center rounded-lg border border-emerald-200 bg-emerald-50 px-2.5 py-2 text-xs font-medium text-emerald-900\">● North bank · Crew A · 12 bags</li>\n        <li class=\"flex items-center rounded-lg border border-amber-200 bg-amber-50 px-2.5 py-2 text-xs font-medium text-amber-900\">● Footbridge · Crew C · awaiting cart</li>\n      </ul>\n    </section>\n    <section class=\"rounded-xl border border-sky-200 bg-sky-50 p-3\">\n      <p class=\"text-sm font-bold leading-tight text-sky-950\">3 / 4<br class=\"hidden\" /> crews live</p>\n    </section>\n    <section class=\"col-span-3 flex items-center justify-between rounded-xl bg-amber-50 px-3 py-2.5 text-xs font-medium text-amber-900\">Next radio check · 09:15<button class=\"rounded-lg bg-orange-500 px-3 py-1.5 text-xs font-bold text-white\">Open route sheet</button></section>\n  </main>\n</article>"
+  },
+  "targetImage": "2026-08-31-hard.webp"
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Easy — Community Radio On-Air Reminder — 2026-08-31",
+  "difficulty": "easy",
+  "date": "2026-08-31",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">📻</span>\n    <h2 class=\"  \">You’re on air tonight</h2>\n  </header>\n  <p class=\"  \">Monday, Aug 31 · 7:30 PM<br>Studio B · Bring your playlist</p>\n  <button class=\"  \">View rundown</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 rounded-xl border border-indigo-200 bg-white p-4\">\n  <header class=\"flex items-center gap-3\">\n    <span class=\"flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100 text-xl\">📻</span>\n    <h2 class=\"text-lg font-semibold text-slate-800\">You’re on air tonight</h2>\n  </header>\n  <p class=\"mt-3 text-sm leading-5 text-slate-600\">Monday, Aug 31 · 7:30 PM<br>Studio B · Bring your playlist</p>\n  <button class=\"mt-4 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white\">View rundown</button>\n</article>"
+  },
+  "targetImage": "2026-08-31-easy.webp"
+}

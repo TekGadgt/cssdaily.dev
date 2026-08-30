@@ -1,0 +1,13 @@
+{
+  "title": "Tool Library Return Window",
+  "difficulty": "medium",
+  "date": "2026-08-31",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <h2 class=\"  \">Tool return window</h2>\n      <p class=\"  \">Eastside Tool Library · Locker 14</p>\n    </section>\n    <p class=\"  \">Reserved</p>\n  </header>\n  <ul class=\"  \">\n    <li class=\"  \">\n      <p class=\"  \">Return by</p>\n      <p class=\"  \">Mon, Aug 31 · 4:30 PM</p>\n    </li>\n    <li class=\"  \">\n      <p class=\"  \">Items checked out</p>\n      <p class=\"  \">Cordless drill · 2 pcs</p>\n    </li>\n  </ul>\n  <footer class=\"  \">\n    <p class=\"  \">Bring both battery packs</p>\n    <button class=\"  \">View locker code</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-xl border border-slate-200 bg-white\">\n  <header class=\"flex items-start justify-between border-b border-slate-100 bg-sky-50 px-4 py-3\">\n    <section class=\"\">\n      <h2 class=\"text-lg font-bold tracking-tight text-slate-800\">Tool return window</h2>\n      <p class=\"mt-0.5 text-sm text-slate-500\">Eastside Tool Library · Locker 14</p>\n    </section>\n    <p class=\"rounded-full bg-sky-600 px-2.5 py-1 text-xs font-semibold text-white\">Reserved</p>\n  </header>\n  <ul class=\"grid grid-cols-2 gap-3 px-4 py-3\">\n    <li class=\"rounded-lg border border-amber-200 bg-amber-50 p-3\">\n      <p class=\"text-xs font-semibold uppercase tracking-wide text-amber-700\">Return by</p>\n      <p class=\"mt-1 text-sm font-bold text-slate-800\">Mon, Aug 31 · 4:30 PM</p>\n    </li>\n    <li class=\"rounded-lg border border-emerald-200 bg-emerald-50 p-3\">\n      <p class=\"text-xs font-semibold uppercase tracking-wide text-emerald-700\">Items checked out</p>\n      <p class=\"mt-1 text-sm font-bold text-slate-800\">Cordless drill · 2 pcs</p>\n    </li>\n  </ul>\n  <footer class=\"flex items-center justify-between border-t border-slate-100 px-4 py-3\">\n    <p class=\"text-xs text-slate-500\">Bring both battery packs</p>\n    <button class=\"rounded-lg bg-slate-800 px-3 py-2 text-sm font-semibold text-white\">View locker code</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-08-31-medium.webp"
+}
