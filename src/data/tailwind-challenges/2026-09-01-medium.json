@@ -1,0 +1,13 @@
+{
+  "title": "Hemline Studio Alteration Pickup",
+  "difficulty": "medium",
+  "date": "2026-09-01",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">🧵 Hemline Studio</h2>\n    <span class=\"  \">Ready</span>\n  </header>\n  <main class=\"  \">\n    <p class=\"  \">Order <strong class=\"  \">#A-2048</strong> · Navy linen blazer<br class=\"  \" />Shorten sleeves + taper waist</p>\n    <section class=\"  \">Sep 1<br class=\"  \" />4:30 PM</section>\n  </main>\n  <footer class=\"  \">\n    Bring claim code 8H2K\n    <button class=\"  \">View details</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between bg-slate-900 px-4 py-3\">\n    <h2 class=\"flex items-center gap-2 text-base font-semibold tracking-wide text-white\">🧵 Hemline Studio</h2>\n    <span class=\"rounded-full bg-lime-300 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-slate-900\">Ready</span>\n  </header>\n  <main class=\"grid grid-cols-[1fr_auto] items-center gap-3 p-4\">\n    <p class=\"text-sm leading-6 text-slate-600\">Order <strong class=\"font-semibold text-slate-900\">#A-2048</strong> · Navy linen blazer<br class=\"hidden\" />Shorten sleeves + taper waist</p>\n    <section class=\"rounded-xl bg-amber-100 px-3 py-2 text-right text-sm font-semibold leading-5 text-amber-900\">Sep 1<br class=\"hidden\" />4:30 PM</section>\n  </main>\n  <footer class=\"flex items-center justify-between border-t border-slate-200 bg-slate-50 px-4 py-3 text-xs font-medium text-slate-500\">\n    Bring claim code 8H2K\n    <button class=\"rounded-lg bg-indigo-600 px-3 py-2 text-sm font-semibold text-white\">View details</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-09-01-medium.webp"
+}

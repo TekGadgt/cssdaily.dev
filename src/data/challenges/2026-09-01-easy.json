@@ -1,0 +1,15 @@
+{
+  "title": "Chess Club Blitz Marker — 2026-09-01",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"clock-card\">\n  <header class=\"card-top\">\n    <p class=\"label\">TABLE 04 · BLITZ</p>\n    <span class=\"live\">● LIVE</span>\n  </header>\n  <section class=\"time-row\" aria-label=\"Current chess clock\">\n    <span class=\"opponent\">♞ Mira vs Theo ♟</span>\n    <strong class=\"time\">04:32</strong>\n  </section>\n  <footer class=\"card-foot\">\n    <span>5 min · rated game</span>\n    <button type=\"button\">View board →</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #18263d;\n  --paper: #fffdf7;\n  --blue: #2866d8;\n  --mint: #d8f4e5;\n  --line: #bfd0df;\n}\n\n.clock-card {\n  width: 430px;\n  padding: 16px;\n  background: var(--paper);\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n}\n\n.card-top,\n.card-foot,\n.time-row {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.label {\n  margin: 0;\n  color: var(--ink);\n  font-size: 12px;\n  font-weight: 800;\n  letter-spacing: 0.08em;\n}\n\n.live {\n  padding: 4px 8px;\n  background: var(--mint);\n  border-radius: 999px;\n  color: var(--ink);\n  font-size: 11px;\n  font-weight: 800;\n}\n\n.time-row {\n  margin: 16px 0;\n  padding: 14px 0;\n  border-top: 1px solid var(--line);\n  border-bottom: 1px solid var(--line);\n}\n\n.opponent {\n  color: var(--ink);\n  font-size: 14px;\n  font-weight: 600;\n}\n\n.time {\n  color: var(--blue);\n  font-size: 28px;\n  line-height: 1;\n}\n\n.card-foot {\n  color: var(--ink);\n  font-size: 12px;\n  font-weight: 600;\n}\n\nbutton {\n  padding: 7px 10px;\n  border: 0;\n  border-radius: 7px;\n  background: var(--blue);\n  color: var(--paper);\n  font-size: 12px;\n  font-weight: 800;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"clock-card\">\n  <header class=\"card-top\">\n    <p class=\"label\">TABLE 04 · BLITZ</p>\n    <span class=\"live\">● LIVE</span>\n  </header>\n  <section class=\"time-row\" aria-label=\"Current chess clock\">\n    <span class=\"opponent\">♞ Mira vs Theo ♟</span>\n    <strong class=\"time\">04:32</strong>\n  </section>\n  <footer class=\"card-foot\">\n    <span>5 min · rated game</span>\n    <button type=\"button\">View board →</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #18263d;\n  --paper: #fffdf7;\n  --blue: #2866d8;\n  --mint: #d8f4e5;\n  --line: #bfd0df;\n}\n\n.clock-card {\n}\n\n.card-top,\n.card-foot,\n.time-row {\n}\n\n.label {\n}\n\n.live {\n}\n\n.time-row {\n}\n\n.opponent {\n}\n\n.time {\n}\n\n.card-foot {\n}\n\nbutton {\n}"
+  },
+  "date": "2026-09-01",
+  "timeLimit": 300,
+  "targetImage": "2026-09-01-easy.webp"
+}
