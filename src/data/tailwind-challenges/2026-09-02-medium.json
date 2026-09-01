@@ -1,0 +1,13 @@
+{
+  "title": "Watershed Sample Kit",
+  "difficulty": "medium",
+  "date": "2026-09-02",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">💧</span>\n    <h2 class=\"  \">Watershed Sample Kit</h2>\n    <p class=\"  \">SEALED</p>\n  </header>\n  <section class=\"  \">\n    <section class=\"  \">UPSTREAM<br>A-17</section>\n    <section class=\"  \">RETURN BY<br>16:30</section>\n  </section>\n  <button class=\"  \">Log collection</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-md overflow-hidden rounded-2xl border border-cyan-200 bg-white\">\n  <header class=\"flex items-center gap-3 border-b border-cyan-100 bg-cyan-50 px-4 py-3\">\n    <span class=\"flex h-9 w-9 items-center justify-center rounded-xl bg-cyan-600 text-lg text-white\">💧</span>\n    <h2 class=\"flex-1 text-base font-semibold tracking-tight text-slate-800\">Watershed Sample Kit</h2>\n    <p class=\"rounded-full bg-white px-2 py-1 text-xs font-bold text-cyan-700\">SEALED</p>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 p-4\">\n    <section class=\"rounded-xl border border-teal-200 bg-teal-50 p-3 text-sm font-semibold leading-6 text-teal-800\">UPSTREAM<br>A-17</section>\n    <section class=\"rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm font-semibold leading-6 text-amber-800\">RETURN BY<br>16:30</section>\n  </section>\n  <button class=\"mx-4 mb-4 w-[calc(100%-2rem)] rounded-xl bg-slate-800 px-4 py-2.5 text-sm font-semibold text-white\">Log collection</button>\n</article>"
+  },
+  "targetImage": "2026-09-02-medium.webp"
+}

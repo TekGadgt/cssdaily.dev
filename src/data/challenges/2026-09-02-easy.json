@@ -1,0 +1,15 @@
+{
+  "title": "Bottle Refill Credit",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"refill-token\">\n  <span class=\"token-mark\" aria-hidden=\"true\">💧</span>\n  <section class=\"token-details\">\n    <p class=\"eyebrow\">CITY REFILL NETWORK</p>\n    <h1>One bottle credit</h1>\n    <p class=\"location\">Harbor fountain · Tap 04</p>\n  </section>\n  <span class=\"credit-badge\">READY</span>\n</article>",
+    "css": ":root {\n  --ink: #173b46;\n  --paper: #fffdf6;\n  --aqua: #49bfc1;\n  --aqua-pale: #d9f3f1;\n  --line: #a9d9d5;\n}\n\n.refill-token {\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  gap: 14px;\n  width: 460px;\n  padding: 16px 18px;\n  color: var(--ink);\n  background-color: var(--paper);\n  border: 2px solid var(--line);\n  border-radius: 16px;\n}\n\n.token-mark {\n  display: grid;\n  place-items: center;\n  width: 52px;\n  height: 52px;\n  font-size: 27px;\n  background-color: var(--aqua-pale);\n  border-radius: 50%;\n}\n\n.token-details {\n  flex: 1;\n}\n\n.eyebrow {\n  margin: 0 0 3px;\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n  color: var(--aqua);\n}\n\nh1 {\n  margin: 0;\n  font-size: 20px;\n  line-height: 1.15;\n}\n\n.location {\n  margin: 4px 0 0;\n  font-size: 13px;\n}\n\n.credit-badge {\n  padding: 6px 9px;\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.7px;\n  color: var(--paper);\n  background-color: var(--aqua);\n  border-radius: 999px;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"refill-token\">\n  <span class=\"token-mark\" aria-hidden=\"true\">💧</span>\n  <section class=\"token-details\">\n    <p class=\"eyebrow\">CITY REFILL NETWORK</p>\n    <h1>One bottle credit</h1>\n    <p class=\"location\">Harbor fountain · Tap 04</p>\n  </section>\n  <span class=\"credit-badge\">READY</span>\n</article>",
+    "css": ":root {\n  --ink: #173b46;\n  --paper: #fffdf6;\n  --aqua: #49bfc1;\n  --aqua-pale: #d9f3f1;\n  --line: #a9d9d5;\n}\n\n.refill-token {\n}\n\n.token-mark {\n}\n\n.token-details {\n}\n\n.eyebrow {\n}\n\nh1 {\n}\n\n.location {\n}\n\n.credit-badge {\n}\n"
+  },
+  "date": "2026-09-02",
+  "timeLimit": 300,
+  "targetImage": "2026-09-02-easy.webp"
+}
