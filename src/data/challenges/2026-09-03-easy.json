@@ -1,0 +1,15 @@
+{
+  "title": "Neighborhood Soup Swap Flavor Card — 2026-09-03",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"soup-card\">\n  <header>\n    <strong>Soup Swap</strong>\n    <time datetime=\"2026-09-03\">SEP 03</time>\n  </header>\n  <p>Bring one warm pot, leave with three new recipes.</p>\n  <button type=\"button\">I’m bringing lentil</button>\n</article>",
+    "css": ":root {\n  --paper: #fff7e8;\n  --ink: #26352d;\n  --tomato: #d9573e;\n}\n\n.soup-card {\n  box-sizing: border-box;\n  width: 440px;\n  padding: 16px;\n  color: var(--ink);\n  background: var(--paper);\n  border: 2px solid var(--ink);\n  border-radius: 18px;\n}\n\n.soup-card header {\n  display: flex;\n  align-items: baseline;\n  justify-content: space-between;\n}\n\n.soup-card strong {\n  font-size: 20px;\n  font-weight: 800;\n}\n\n.soup-card time {\n  font-size: 13px;\n  font-weight: 700;\n}\n\n.soup-card p {\n  line-height: 1.45;\n}\n\n.soup-card button {\n  padding: 8px 14px;\n  color: var(--paper);\n  font-weight: 700;\n  background: var(--tomato);\n  border: 2px solid var(--ink);\n  border-radius: 999px;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"soup-card\">\n  <header>\n    <strong>Soup Swap</strong>\n    <time datetime=\"2026-09-03\">SEP 03</time>\n  </header>\n  <p>Bring one warm pot, leave with three new recipes.</p>\n  <button type=\"button\">I’m bringing lentil</button>\n</article>",
+    "css": ":root {\n  --paper: #fff7e8;\n  --ink: #26352d;\n  --tomato: #d9573e;\n}\n\n.soup-card {\n}\n\n.soup-card header {\n}\n\n.soup-card strong {\n}\n\n.soup-card time {\n}\n\n.soup-card p {\n}\n\n.soup-card button {\n}"
+  },
+  "date": "2026-09-03",
+  "timeLimit": 300,
+  "targetImage": "2026-09-03-easy.webp"
+}
