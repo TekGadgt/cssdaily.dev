@@ -1,0 +1,13 @@
+{
+  "title": "Easy — Ferry Fare Top-Up Card — 2026-09-05",
+  "difficulty": "easy",
+  "date": "2026-09-05",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">HarborLink Ferry</header>\n  <p class=\"  \">Add credit before your next crossing. Your balance updates instantly at the terminal.</p>\n  <footer class=\"  \">\n    Balance: $8.50\n    <button class=\"  \">Add $10</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[440px] overflow-hidden rounded-xl border border-sky-200 bg-white\">\n  <header class=\"bg-sky-600 px-4 py-3 text-lg font-bold text-white\">HarborLink Ferry</header>\n  <p class=\"px-4 py-3 text-sm leading-6 text-slate-600\">Add credit before your next crossing. Your balance updates instantly at the terminal.</p>\n  <footer class=\"flex items-center justify-between border-t border-slate-200 bg-sky-50 px-4 py-3 text-sm font-medium text-slate-700\">\n    Balance: $8.50\n    <button class=\"rounded-lg bg-sky-600 px-3 py-2 text-sm font-semibold text-white\">Add $10</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-09-05-easy.webp"
+}

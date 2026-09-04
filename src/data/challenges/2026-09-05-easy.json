@@ -1,0 +1,15 @@
+{
+  "title": "Merge Queue Ready",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"merge-note\">\n  <header>\n    <h2>Merge queue</h2>\n    <span class=\"status\">READY</span>\n  </header>\n  <p><strong>orbit-docs</strong> passed all checks and is clear to ship.</p>\n  <footer>\n    <button type=\"button\">Review change</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #202b3a;\n  --paper: #ffffff;\n  --line: #cdd8e6;\n  --soft: #edf4fb;\n  --accent: #1668d8;\n  --accent-ink: #ffffff;\n  --ready-bg: #dff5e8;\n  --ready-ink: #167247;\n}\n\n.merge-note {\n  width: 440px;\n  overflow: hidden;\n  border: 1px solid var(--line);\n  border-radius: 14px;\n  background: var(--paper);\n}\n\n.merge-note header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 12px 14px;\n  border-bottom: 1px solid var(--line);\n  background: var(--soft);\n}\n\n.merge-note h2 {\n  margin: 0;\n  color: var(--ink);\n  font-size: 18px;\n  line-height: 1;\n}\n\n.status {\n  padding: 4px 7px;\n  border-radius: 999px;\n  background: var(--ready-bg);\n  color: var(--ready-ink);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.7px;\n}\n\n.merge-note p {\n  margin: 0;\n  padding: 14px;\n  color: var(--ink);\n  font-size: 14px;\n  line-height: 1.4;\n}\n\n.merge-note footer {\n  padding: 0 14px 14px;\n}\n\n.merge-note button {\n  border: 0;\n  border-radius: 8px;\n  padding: 8px 11px;\n  background: var(--accent);\n  color: var(--accent-ink);\n  font-size: 13px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"merge-note\">\n  <header>\n    <h2>Merge queue</h2>\n    <span class=\"status\">READY</span>\n  </header>\n  <p><strong>orbit-docs</strong> passed all checks and is clear to ship.</p>\n  <footer>\n    <button type=\"button\">Review change</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #202b3a;\n  --paper: #ffffff;\n  --line: #cdd8e6;\n  --soft: #edf4fb;\n  --accent: #1668d8;\n  --accent-ink: #ffffff;\n  --ready-bg: #dff5e8;\n  --ready-ink: #167247;\n}\n\n.merge-note {\n}\n\n.merge-note header {\n}\n\n.merge-note h2 {\n}\n\n.status {\n}\n\n.merge-note p {\n}\n\n.merge-note footer {\n}\n\n.merge-note button {\n}"
+  },
+  "date": "2026-09-05",
+  "timeLimit": 300,
+  "targetImage": "2026-09-05-easy.webp"
+}
