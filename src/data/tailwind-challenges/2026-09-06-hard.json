@@ -1,0 +1,13 @@
+{
+  "title": "Hard — Accessibility Audit Sprint — 2026-09-06",
+  "difficulty": "hard",
+  "date": "2026-09-06",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Accessibility audit sprint</h1>\n    <p class=\"  \">06 SEP · QA</p>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <h2 class=\"  \">Contrast<br>03 blockers</h2>\n      <p class=\"  \">Buttons need 4.5:1</p>\n    </section>\n    <section class=\"  \">\n      <h2 class=\"  \">Keyboard<br>02 traps</h2>\n      <p class=\"  \">Modal exit missing</p>\n    </section>\n    <section class=\"  \">\n      <h2 class=\"  \">Labels<br>18 passed</h2>\n      <p class=\"  \">Forms are mapped</p>\n    </section>\n  </main>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[500px] rounded-2xl border border-slate-200 bg-white p-4 text-slate-800\">\n  <header class=\"flex items-center justify-between border-b border-slate-100 pb-3\">\n    <h1 class=\"text-lg font-bold tracking-tight\">Accessibility audit sprint</h1>\n    <p class=\"rounded-full bg-indigo-100 px-2.5 py-1 text-xs font-semibold text-indigo-700\">06 SEP · QA</p>\n  </header>\n  <main class=\"grid grid-cols-3 gap-3 pt-3\">\n    <section class=\"flex h-36 flex-col justify-between rounded-xl border border-amber-200 bg-amber-50 p-3\">\n      <h2 class=\"text-sm font-bold leading-tight text-amber-900\">Contrast<br>03 blockers</h2>\n      <p class=\"rounded-lg border border-amber-200 bg-white px-2 py-1.5 text-xs font-medium text-amber-800\">Buttons need 4.5:1</p>\n    </section>\n    <section class=\"flex h-36 flex-col justify-between rounded-xl border border-rose-200 bg-rose-50 p-3\">\n      <h2 class=\"text-sm font-bold leading-tight text-rose-900\">Keyboard<br>02 traps</h2>\n      <p class=\"rounded-lg border border-rose-200 bg-white px-2 py-1.5 text-xs font-medium text-rose-800\">Modal exit missing</p>\n    </section>\n    <section class=\"flex h-36 flex-col justify-between rounded-xl border border-emerald-200 bg-emerald-50 p-3\">\n      <h2 class=\"text-sm font-bold leading-tight text-emerald-900\">Labels<br>18 passed</h2>\n      <p class=\"rounded-lg border border-emerald-200 bg-white px-2 py-1.5 text-xs font-medium text-emerald-800\">Forms are mapped</p>\n    </section>\n  </main>\n</article>"
+  },
+  "targetImage": "2026-09-06-hard.webp"
+}
