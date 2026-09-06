@@ -1,0 +1,15 @@
+{
+  "title": "Sunrise Meditation Check-In — 2026-09-07",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"checkin-card\">\n  <header>\n    <span class=\"sun-mark\">☀️</span>\n    <section class=\"session-copy\">\n      <h1>Sunrise Sit</h1>\n      <p>Monday, 7 September · 7:10 AM</p>\n    </section>\n    <span class=\"status\">Booked</span>\n  </header>\n  <section class=\"details\">\n    <p>Quiet Hall · cushions provided</p>\n    <p class=\"location\">Arrive five minutes early</p>\n  </section>\n  <button type=\"button\">Check in</button>\n</article>",
+    "css": ":root {\n  --ink: #243334;\n  --muted: #667778;\n  --card: #fffdf7;\n  --line: #dbe5dd;\n  --sage: #dcebdd;\n  --sage-ink: #356348;\n  --sun: #f4b84a;\n}\n\n.checkin-card {\n  width: 440px;\n  box-sizing: border-box;\n  padding: 18px;\n  border: 1px solid var(--line);\n  border-radius: 18px;\n  background: var(--card);\n  color: var(--ink);\n}\n\n.checkin-card header {\n  display: flex;\n  align-items: center;\n  gap: 11px;\n}\n\n.sun-mark {\n  display: grid;\n  width: 42px;\n  height: 42px;\n  place-items: center;\n  border-radius: 50%;\n  background: var(--sage);\n  font-size: 22px;\n}\n\n.session-copy {\n  flex: 1;\n}\n\n.session-copy h1 {\n  margin: 0 0 2px;\n  font-size: 18px;\n  line-height: 1.15;\n}\n\n.session-copy p,\n.details p {\n  margin: 0;\n  color: var(--muted);\n  font-size: 14px;\n  line-height: 1.4;\n}\n\n.status {\n  padding: 5px 8px;\n  border-radius: 999px;\n  background: var(--sage);\n  color: var(--sage-ink);\n  font-size: 12px;\n  font-weight: 700;\n}\n\n.details {\n  display: flex;\n  justify-content: space-between;\n  margin: 16px 0;\n  padding: 10px 0;\n  border-top: 1px solid var(--line);\n  border-bottom: 1px solid var(--line);\n}\n\n.location {\n  color: var(--sage-ink) !important;\n}\n\n.checkin-card button {\n  width: 100%;\n  padding: 10px;\n  border: 0;\n  border-radius: 9px;\n  background: var(--sun);\n  color: var(--ink);\n  font: inherit;\n  font-size: 14px;\n  font-weight: 700;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"checkin-card\">\n  <header>\n    <span class=\"sun-mark\">☀️</span>\n    <section class=\"session-copy\">\n      <h1>Sunrise Sit</h1>\n      <p>Monday, 7 September · 7:10 AM</p>\n    </section>\n    <span class=\"status\">Booked</span>\n  </header>\n  <section class=\"details\">\n    <p>Quiet Hall · cushions provided</p>\n    <p class=\"location\">Arrive five minutes early</p>\n  </section>\n  <button type=\"button\">Check in</button>\n</article>",
+    "css": ":root {\n  --ink: #243334;\n  --muted: #667778;\n  --card: #fffdf7;\n  --line: #dbe5dd;\n  --sage: #dcebdd;\n  --sage-ink: #356348;\n  --sun: #f4b84a;\n}\n\n.checkin-card {\n}\n\n.checkin-card header {\n}\n\n.sun-mark {\n}\n\n.session-copy {\n}\n\n.session-copy h1 {\n}\n\n.session-copy p,\n.details p {\n}\n\n.status {\n}\n\n.details {\n}\n\n.location {\n}\n\n.checkin-card button {\n}\n"
+  },
+  "date": "2026-09-07",
+  "timeLimit": 300,
+  "targetImage": "2026-09-07-easy.webp"
+}

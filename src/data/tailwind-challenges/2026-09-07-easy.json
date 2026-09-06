@@ -1,0 +1,13 @@
+{
+  "title": "Rooftop Stargazing RSVP — 2026-09-07",
+  "difficulty": "easy",
+  "date": "2026-09-07",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">ROOFTOP STARGAZING</header>\n  <section class=\"  \">\n    <p class=\"  \">Moonrise social<br class=\"  \"><span class=\"  \">Tonight · 8:30 PM</span></p>\n    <button class=\"  \">I’m in ✦</button>\n  </section>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 overflow-hidden rounded-xl border border-indigo-200 bg-white\">\n  <header class=\"bg-indigo-600 px-4 py-3 text-sm font-bold tracking-wide text-white\">ROOFTOP STARGAZING</header>\n  <section class=\"flex items-center justify-between gap-3 p-4\">\n    <p class=\"text-sm leading-5 text-slate-600\">Moonrise social<br><span class=\"font-semibold text-slate-900\">Tonight · 8:30 PM</span></p>\n    <button class=\"rounded-lg bg-amber-400 px-3 py-2 text-sm font-bold text-amber-950\">I’m in ✦</button>\n  </section>\n</article>"
+  },
+  "targetImage": "2026-09-07-easy.webp"
+}

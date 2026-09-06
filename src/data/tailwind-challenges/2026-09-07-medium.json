@@ -1,0 +1,13 @@
+{
+  "title": "Kite Repair Bench Booking",
+  "difficulty": "medium",
+  "date": "2026-09-07",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">Kite repair bench</h2>\n    <span class=\"  \">SEP 07</span>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">BENCH 03<br class=\"  \" />10:30–11:15</p>\n    <p class=\"  \">WIND WINDOW<br class=\"  \" />Light breeze</p>\n  </section>\n  <footer class=\"  \">\n    Bring your own ripstop tape\n    <button class=\"  \">Reserve slot</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-sky-200 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between border-b border-sky-100 bg-sky-50 px-4 py-3\">\n    <h2 class=\"text-lg font-bold tracking-tight text-sky-950\">Kite repair bench</h2>\n    <span class=\"rounded-full bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-800\">SEP 07</span>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 px-4 py-3\">\n    <p class=\"rounded-xl border border-indigo-100 bg-indigo-50 p-3 text-sm font-semibold leading-6 text-indigo-900\">BENCH 03<br class=\"hidden\" />10:30–11:15</p>\n    <p class=\"rounded-xl border border-emerald-100 bg-emerald-50 p-3 text-sm font-semibold leading-6 text-emerald-900\">WIND WINDOW<br class=\"hidden\" />Light breeze</p>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-100 px-4 py-3 text-sm text-slate-500\">\n    Bring your own ripstop tape\n    <button class=\"rounded-lg bg-sky-700 px-3 py-2 text-sm font-bold text-white\">Reserve slot</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-09-07-medium.webp"
+}
