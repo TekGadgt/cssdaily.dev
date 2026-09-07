@@ -1,0 +1,13 @@
+{
+  "title": "Paper Plane Flight Log — Medium",
+  "difficulty": "medium",
+  "date": "2026-09-08",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Runway notebook</p>\n      <h1 class=\"  \">Paper Plane Flight Log</h1>\n    </section>\n    <span class=\"  \">Flight 03</span>\n  </header>\n  <section class=\"  \">\n    <article class=\"  \">\n      <p class=\"  \">Model</p>\n      <p class=\"  \">Sky Dart</p>\n    </article>\n    <article class=\"  \">\n      <p class=\"  \">Distance</p>\n      <p class=\"  \">18.4 m</p>\n    </article>\n    <article class=\"  \">\n      <p class=\"  \">Wind</p>\n      <p class=\"  \">Light NW</p>\n    </article>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Launch from the blue line.</p>\n    <button class=\"  \">Log landing</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] max-w-full overflow-hidden rounded-2xl border border-sky-200 bg-white\">\n  <header class=\"flex items-start justify-between border-b border-sky-100 bg-sky-50 px-4 py-3\">\n    <section class=\"min-w-0\">\n      <p class=\"text-xs font-semibold uppercase tracking-widest text-sky-600\">Runway notebook</p>\n      <h1 class=\"mt-1 text-lg font-bold text-slate-800\">Paper Plane Flight Log</h1>\n    </section>\n    <span class=\"ml-3 shrink-0 rounded-full bg-amber-100 px-2.5 py-1 text-xs font-bold text-amber-700\">Flight 03</span>\n  </header>\n  <section class=\"grid grid-cols-3 gap-2 px-4 py-3\">\n    <article class=\"rounded-xl bg-indigo-50 p-2.5\">\n      <p class=\"text-xs font-medium text-indigo-500\">Model</p>\n      <p class=\"mt-1 text-sm font-bold text-indigo-900\">Sky Dart</p>\n    </article>\n    <article class=\"rounded-xl bg-emerald-50 p-2.5\">\n      <p class=\"text-xs font-medium text-emerald-600\">Distance</p>\n      <p class=\"mt-1 text-sm font-bold text-emerald-900\">18.4 m</p>\n    </article>\n    <article class=\"rounded-xl bg-rose-50 p-2.5\">\n      <p class=\"text-xs font-medium text-rose-500\">Wind</p>\n      <p class=\"mt-1 text-sm font-bold text-rose-900\">Light NW</p>\n    </article>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-100 px-4 py-3\">\n    <p class=\"text-sm text-slate-500\">Launch from the blue line.</p>\n    <button class=\"rounded-lg bg-slate-800 px-3 py-2 text-sm font-semibold text-white\">Log landing</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-09-08-medium.webp"
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Citrus Grove Harvest Token",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"harvest-token\">\n  <span class=\"fruit\" aria-hidden=\"true\">🍊</span>\n  <header class=\"token-header\">\n    <h1>Grove Pick-Up</h1>\n    <p>Tuesday · 08 September · Basket 14</p>\n  </header>\n  <button type=\"button\">Claim</button>\n</article>",
+    "css": ":root {\n  --paper: #fff8df;\n  --orange: #ef8f2f;\n  --ink: #304737;\n}\n\n.harvest-token {\n  box-sizing: border-box;\n  width: 460px;\n  display: flex;\n  align-items: center;\n  gap: 14px;\n  padding: 14px 16px;\n  background: var(--paper);\n  border: 2px solid var(--ink);\n  border-radius: 18px;\n}\n\n.fruit {\n  font-size: 34px;\n  line-height: 1;\n}\n\n.token-header {\n  flex: 1;\n}\n\nh1 {\n  margin: 0 0 3px;\n  color: var(--ink);\n  font-size: 19px;\n  line-height: 1.1;\n}\n\np {\n  margin: 0;\n  color: var(--ink);\n  font-size: 13px;\n}\n\nbutton {\n  padding: 8px 13px;\n  color: var(--paper);\n  background: var(--orange);\n  border: 2px solid var(--orange);\n  border-radius: 9px;\n  font-size: 14px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"harvest-token\">\n  <span class=\"fruit\" aria-hidden=\"true\">🍊</span>\n  <header class=\"token-header\">\n    <h1>Grove Pick-Up</h1>\n    <p>Tuesday · 08 September · Basket 14</p>\n  </header>\n  <button type=\"button\">Claim</button>\n</article>",
+    "css": ":root {\n  --paper: #fff8df;\n  --orange: #ef8f2f;\n  --ink: #304737;\n}\n\n.harvest-token {\n}\n\n.fruit {\n}\n\n.token-header {\n}\n\nh1 {\n}\n\np {\n}\n\nbutton {\n}"
+  },
+  "date": "2026-09-08",
+  "timeLimit": 300,
+  "targetImage": "2026-09-08-easy.webp"
+}
