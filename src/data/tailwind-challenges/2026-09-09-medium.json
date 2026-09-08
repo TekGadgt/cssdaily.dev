@@ -1,0 +1,13 @@
+{
+  "title": "Medium — Hive Inspection Snapshot — 2026-09-09",
+  "difficulty": "medium",
+  "date": "2026-09-09",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <h2 class=\"  \">Hive inspection</h2>\n  <p class=\"  \">North roof apiary · Sep 9, 2026</p>\n  <section class=\"  \">\n    <p class=\"  \">🐝<br/><span class=\"  \">Calm</span><br/><span class=\"  \">Temperament</span></p>\n    <p class=\"  \">🍯<br/><span class=\"  \">18 kg</span><br/><span class=\"  \">Honey store</span></p>\n    <p class=\"  \">🌼<br/><span class=\"  \">7 frames</span><br/><span class=\"  \">Brood</span></p>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Next check: Sep 23</p>\n    <button class=\"  \">View notes</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-md overflow-hidden rounded-2xl border border-amber-200 bg-white\">\n  <h2 class=\"bg-amber-400 px-4 pt-3 text-lg font-bold text-amber-950\">Hive inspection</h2>\n  <p class=\"bg-amber-400 px-4 pb-3 text-sm text-amber-950\">North roof apiary · Sep 9, 2026</p>\n  <section class=\"grid grid-cols-3 gap-2 p-4\">\n    <p class=\"rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-center text-sm font-semibold text-emerald-800\">🐝<br/><span class=\"text-lg\">Calm</span><br/><span class=\"font-normal text-emerald-700\">Temperament</span></p>\n    <p class=\"rounded-xl border border-sky-200 bg-sky-50 p-3 text-center text-sm font-semibold text-sky-800\">🍯<br/><span class=\"text-lg\">18 kg</span><br/><span class=\"font-normal text-sky-700\">Honey store</span></p>\n    <p class=\"rounded-xl border border-violet-200 bg-violet-50 p-3 text-center text-sm font-semibold text-violet-800\">🌼<br/><span class=\"text-lg\">7 frames</span><br/><span class=\"font-normal text-violet-700\">Brood</span></p>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-200 bg-slate-50 px-4 py-3\">\n    <p class=\"text-sm font-medium text-slate-600\">Next check: Sep 23</p>\n    <button class=\"rounded-lg bg-slate-800 px-3 py-2 text-sm font-semibold text-white\">View notes</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-09-09-medium.webp"
+}

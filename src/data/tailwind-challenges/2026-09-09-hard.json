@@ -1,0 +1,13 @@
+{
+  "title": "Madder Root Dye Formula — Hard — 2026-09-09",
+  "difficulty": "hard",
+  "date": "2026-09-09",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">✺</span>\n    <section class=\"  \">\n      <h1 class=\"  \">Madder Root Formula</h1>\n      <p class=\"  \">Autumn test batch · 09 SEP 2026</p>\n    </section>\n    <span class=\"  \">READY</span>\n  </header>\n  <main class=\"  \">\n    <figure class=\"  \">\n      MADDER\n      <figcaption class=\"  \">SWATCH 04 · WARM BLUSH</figcaption>\n    </figure>\n    <section class=\"  \">\n      <p class=\"  \">ROOT · 18g &nbsp; / &nbsp; WATER · 750ml</p>\n      <p class=\"  \">Alum mordant · 68°C bath<br class=\"  \">Steep for 45 minutes</p>\n      <button class=\"  \">Queue dye bath</button>\n    </section>\n  </main>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[500px] overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between bg-slate-900 px-4 py-3\">\n    <span class=\"flex h-9 w-9 items-center justify-center rounded-xl bg-amber-300 text-lg\">✺</span>\n    <section class=\"mr-auto ml-3\">\n      <h1 class=\"text-sm font-bold tracking-wide text-white\">Madder Root Formula</h1>\n      <p class=\"mt-0.5 text-xs text-slate-300\">Autumn test batch · 09 SEP 2026</p>\n    </section>\n    <span class=\"rounded-full bg-emerald-400 px-2.5 py-1 text-xs font-bold text-emerald-950\">READY</span>\n  </header>\n  <main class=\"grid grid-cols-[11rem_1fr] gap-3 p-3\">\n    <figure class=\"flex h-36 flex-col justify-between rounded-xl border border-rose-200 bg-rose-50 p-3 text-rose-700\">\n      MADDER\n      <figcaption class=\"text-xs font-bold tracking-[0.2em]\">SWATCH 04 · WARM BLUSH</figcaption>\n    </figure>\n    <section class=\"flex min-w-0 flex-col justify-between\">\n      <p class=\"rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm font-semibold text-amber-900\">ROOT · 18g &nbsp; / &nbsp; WATER · 750ml</p>\n      <p class=\"text-xs leading-5 text-slate-500\">Alum mordant · 68°C bath<br>Steep for 45 minutes</p>\n      <button class=\"self-start rounded-lg bg-violet-600 px-3 py-1.5 text-xs font-bold text-white\">Queue dye bath</button>\n    </section>\n  </main>\n</article>"
+  },
+  "targetImage": "2026-09-09-hard.webp"
+}

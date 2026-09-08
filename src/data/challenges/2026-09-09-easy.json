@@ -1,0 +1,15 @@
+{
+  "title": "Glass Recycling Receipt — Easy — 2026-09-09",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"receipt\">\n  <header class=\"receipt-header\">\n    <span class=\"recycle-mark\">♻️</span>\n    <section>\n      <p class=\"eyebrow\">NEIGHBORHOOD DEPOT</p>\n      <h1>Glass drop-off</h1>\n    </section>\n  </header>\n  <section class=\"receipt-total\">\n    <span>WEIGHT ACCEPTED</span>\n    <strong>4.8 <small>kg</small></strong>\n  </section>\n  <footer class=\"receipt-footer\">\n    <span>09 SEP 2026 · BAY 03</span>\n    <b>THANK YOU</b>\n  </footer>\n</article>",
+    "css": ":root {\n  --paper: #fffdf5;\n  --ink: #183b3a;\n  --mint: #d9f1df;\n  --line: #9bc8b5;\n}\n\n.receipt {\n  width: 440px;\n  box-sizing: border-box;\n  padding: 18px;\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n  background: var(--paper);\n  color: var(--ink);\n}\n\n.receipt-header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.recycle-mark {\n  display: grid;\n  width: 42px;\n  height: 42px;\n  place-items: center;\n  border-radius: 50%;\n  background: var(--mint);\n  font-size: 24px;\n}\n\n.eyebrow {\n  margin: 0 0 2px;\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1.1px;\n}\n\nh1 {\n  margin: 0;\n  font-size: 21px;\n  line-height: 1;\n}\n\n.receipt-total {\n  display: flex;\n  align-items: baseline;\n  justify-content: space-between;\n  margin: 16px 0 12px;\n  padding: 12px 0;\n  border-top: 1px dashed var(--line);\n  border-bottom: 1px dashed var(--line);\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.7px;\n}\n\n.receipt-total strong {\n  font-size: 27px;\n  letter-spacing: 0;\n}\n\n.receipt-total small {\n  font-size: 13px;\n}\n\n.receipt-footer {\n  display: flex;\n  justify-content: space-between;\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.5px;\n}\n\n.receipt-footer b {\n  color: var(--ink);\n}"
+  },
+  "starter": {
+    "html": "<article class=\"receipt\">\n  <header class=\"receipt-header\">\n    <span class=\"recycle-mark\">♻️</span>\n    <section>\n      <p class=\"eyebrow\">NEIGHBORHOOD DEPOT</p>\n      <h1>Glass drop-off</h1>\n    </section>\n  </header>\n  <section class=\"receipt-total\">\n    <span>WEIGHT ACCEPTED</span>\n    <strong>4.8 <small>kg</small></strong>\n  </section>\n  <footer class=\"receipt-footer\">\n    <span>09 SEP 2026 · BAY 03</span>\n    <b>THANK YOU</b>\n  </footer>\n</article>",
+    "css": ":root {\n  --paper: #fffdf5;\n  --ink: #183b3a;\n  --mint: #d9f1df;\n  --line: #9bc8b5;\n}\n\n.receipt {\n}\n\n.receipt-header {\n}\n\n.recycle-mark {\n}\n\n.eyebrow {\n}\n\nh1 {\n}\n\n.receipt-total {\n}\n\n.receipt-total strong {\n}\n\n.receipt-total small {\n}\n\n.receipt-footer {\n}\n\n.receipt-footer b {\n}"
+  },
+  "date": "2026-09-09",
+  "timeLimit": 300,
+  "targetImage": "2026-09-09-easy.webp"
+}
