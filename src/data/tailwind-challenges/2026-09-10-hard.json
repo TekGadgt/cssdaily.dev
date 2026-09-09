@@ -1,0 +1,13 @@
+{
+  "title": "Polar Vault Core Ledger",
+  "difficulty": "hard",
+  "date": "2026-09-10",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">❄️</p>\n    <section class=\"  \">\n      <h1 class=\"  \">Polar Vault Core Ledger</h1>\n      <p class=\"  \">10 SEP 2026 · Freezer B-12</p>\n    </section>\n    <span class=\"  \">SEALED</span>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">A7</p>\n      <p class=\"  \">Firn layer<br/><span class=\"  \">1,842 m · -28°C</span></p>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">C2</p>\n      <p class=\"  \">Ash horizon<br/><span class=\"  \">1,846 m · tagged</span></p>\n    </section>\n  </main>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[500px] overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800\">\n  <header class=\"flex items-center gap-3 p-4 pb-3\">\n    <p class=\"flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-100 text-xl\">❄️</p>\n    <section class=\"min-w-0 flex-1\">\n      <h1 class=\"text-lg font-bold tracking-tight text-slate-900\">Polar Vault Core Ledger</h1>\n      <p class=\"mt-0.5 text-xs text-slate-500\">10 SEP 2026 · Freezer B-12</p>\n    </section>\n    <span class=\"rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700\">SEALED</span>\n  </header>\n  <main class=\"grid grid-cols-2 gap-3 border-t border-slate-200 bg-slate-50 p-3\">\n    <section class=\"flex items-center gap-3 rounded-xl border border-cyan-200 bg-cyan-50 p-3\">\n      <p class=\"flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cyan-600 text-sm font-bold text-white\">A7</p>\n      <p class=\"min-w-0 text-sm font-semibold leading-tight text-cyan-950\">Firn layer<br/><span class=\"text-xs font-normal text-cyan-700\">1,842 m · -28°C</span></p>\n    </section>\n    <section class=\"flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 p-3\">\n      <p class=\"flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-amber-500 text-sm font-bold text-white\">C2</p>\n      <p class=\"min-w-0 text-sm font-semibold leading-tight text-amber-950\">Ash horizon<br/><span class=\"text-xs font-normal text-amber-700\">1,846 m · tagged</span></p>\n    </section>\n  </main>\n</article>"
+  },
+  "targetImage": "2026-09-10-hard.webp"
+}
