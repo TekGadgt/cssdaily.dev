@@ -1,0 +1,15 @@
+{
+  "title": "Square Dance Social Badge — Easy — 2026-09-11",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"dance-card\">\n  <header class=\"card-head\">\n    <span class=\"emblem\" aria-hidden=\"true\">🪗</span>\n    <section>\n      <p class=\"eyebrow\">Riverside Hall</p>\n      <h1>Square Dance Social</h1>\n    </section>\n  </header>\n  <section class=\"session\" aria-label=\"Session details\">\n    <strong>Beginner two-step</strong>\n    <span>Friday · 18:30</span>\n  </section>\n  <footer class=\"card-foot\">\n    <span>Floor 2</span>\n    <span class=\"admit\">Admit one</span>\n  </footer>\n</article>",
+    "css": ":root {\n  --paper: #fff8e8;\n  --ink: #23323a;\n  --clay: #d85c42;\n}\n\n.dance-card {\n  width: 460px;\n  overflow: hidden;\n  color: var(--ink);\n  background: var(--paper);\n  border: 2px solid var(--ink);\n  border-radius: 18px;\n}\n\n.card-head {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 14px 18px 12px;\n  background: var(--clay);\n}\n\n.emblem {\n  display: grid;\n  width: 40px;\n  height: 40px;\n  place-items: center;\n  background: var(--paper);\n  border-radius: 12px;\n  font-size: 22px;\n}\n\n.card-head section {\n  min-width: 0;\n}\n\n.eyebrow,\n.card-head h1 {\n  margin: 0;\n}\n\n.eyebrow {\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n  text-transform: uppercase;\n}\n\n.card-head h1 {\n  font-size: 21px;\n  line-height: 1.15;\n}\n\n.session {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  padding: 13px 18px;\n  border-top: 2px solid var(--ink);\n  font-size: 14px;\n}\n\n.session span {\n  font-size: 13px;\n}\n\n.card-foot {\n  display: flex;\n  justify-content: space-between;\n  padding: 9px 18px;\n  color: var(--paper);\n  background: var(--ink);\n  font-size: 13px;\n  font-weight: 700;\n}\n\n.admit {\n  color: var(--clay);\n}"
+  },
+  "starter": {
+    "html": "<article class=\"dance-card\">\n  <header class=\"card-head\">\n    <span class=\"emblem\" aria-hidden=\"true\">🪗</span>\n    <section>\n      <p class=\"eyebrow\">Riverside Hall</p>\n      <h1>Square Dance Social</h1>\n    </section>\n  </header>\n  <section class=\"session\" aria-label=\"Session details\">\n    <strong>Beginner two-step</strong>\n    <span>Friday · 18:30</span>\n  </section>\n  <footer class=\"card-foot\">\n    <span>Floor 2</span>\n    <span class=\"admit\">Admit one</span>\n  </footer>\n</article>",
+    "css": ":root {\n  --paper: #fff8e8;\n  --ink: #23323a;\n  --clay: #d85c42;\n}\n\n.dance-card {\n}\n\n.card-head {\n}\n\n.emblem {\n}\n\n.card-head section {\n}\n\n.eyebrow,\n.card-head h1 {\n}\n\n.eyebrow {\n}\n\n.card-head h1 {\n}\n\n.session {\n}\n\n.session span {\n}\n\n.card-foot {\n}\n\n.admit {\n}"
+  },
+  "date": "2026-09-11",
+  "timeLimit": 300,
+  "targetImage": "2026-09-11-easy.webp"
+}
