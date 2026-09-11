@@ -1,0 +1,13 @@
+{
+  "title": "Typewriter Ribbon Calibration Console — Hard",
+  "difficulty": "hard",
+  "date": "2026-09-12",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">TR</p>\n      <h1 class=\"  \">Ribbon Calibration</h1>\n    </section>\n    <span class=\"  \">Ready</span>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">A a 8 8</p>\n      <p class=\"  \">Ink density · 87%</p>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">Test sheet</p>\n      <button class=\"  \">Run sample</button>\n      <button class=\"  \">Reset feed</button>\n    </section>\n  </main>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border-2 border-slate-800 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between border-b-2 border-slate-800 bg-amber-300 px-4 py-3\">\n    <section class=\"flex items-center gap-3\">\n      <p class=\"flex h-8 w-8 items-center justify-center rounded-lg border-2 border-slate-800 bg-slate-800 text-sm font-black text-amber-300\">TR</p>\n      <h1 class=\"text-lg font-black tracking-tight text-slate-900\">Ribbon Calibration</h1>\n    </section>\n    <span class=\"rounded-full border-2 border-slate-800 bg-lime-300 px-2.5 py-1 text-xs font-black uppercase tracking-wider text-slate-900\">Ready</span>\n  </header>\n  <main class=\"grid grid-cols-5 gap-3 bg-slate-100 p-3\">\n    <section class=\"col-span-3 flex h-32 flex-col justify-between rounded-xl border-2 border-slate-800 bg-slate-900 p-4\">\n      <p class=\"font-mono text-2xl font-black tracking-[0.22em] text-cyan-300\">A a 8 8</p>\n      <p class=\"border-t border-slate-600 pt-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-300\">Ink density · 87%</p>\n    </section>\n    <section class=\"col-span-2 flex h-32 flex-col justify-between rounded-xl border-2 border-slate-800 bg-white p-3\">\n      <p class=\"border-b-2 border-slate-800 pb-2 text-xs font-black uppercase tracking-widest text-slate-500\">Test sheet</p>\n      <button class=\"rounded-lg border-2 border-slate-800 bg-cyan-300 px-3 py-2 text-sm font-black text-slate-900\">Run sample</button>\n      <button class=\"rounded-lg border-2 border-slate-800 bg-rose-200 px-3 py-2 text-sm font-black text-slate-900\">Reset feed</button>\n    </section>\n  </main>\n</article>"
+  },
+  "targetImage": "2026-09-12-hard.webp"
+}

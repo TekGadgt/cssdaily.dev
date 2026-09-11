@@ -1,0 +1,15 @@
+{
+  "title": "Neighborhood Bakery Morning Bun Preorder — Easy — 2026-09-12",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"order-card\">\n  <header class=\"order-header\">\n    <p class=\"eyebrow\">SATURDAY PICKUP</p>\n    <span class=\"status\">● Confirmed</span>\n  </header>\n  <section class=\"order-body\">\n    <h1>Morning Bun Box</h1>\n    <p>4 cardamom-citrus buns, boxed warm for 9:15 AM.</p>\n  </section>\n  <footer class=\"order-footer\">\n    <strong>$14.00</strong>\n    <button type=\"button\">View order</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --paper: #fffaf1;\n  --ink: #3d2d22;\n  --muted: #856f5d;\n  --crust: #b85d35;\n  --peach: #f5d5ad;\n}\n\n.order-card {\n  width: 440px;\n  padding: 16px;\n  background: var(--paper);\n  border: 2px solid var(--ink);\n  border-radius: 16px;\n  color: var(--ink);\n}\n\n.order-header,\n.order-footer {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.eyebrow {\n  margin: 0;\n  color: var(--muted);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}\n\n.status {\n  padding: 5px 9px;\n  background: var(--peach);\n  border-radius: 999px;\n  color: var(--crust);\n  font-size: 12px;\n  font-weight: 700;\n}\n\n.order-body {\n  margin: 12px 0;\n  padding: 12px 0;\n  border-top: 1px solid var(--peach);\n  border-bottom: 1px solid var(--peach);\n}\n\n.order-body h1 {\n  margin: 0 0 4px;\n  font-size: 21px;\n  line-height: 1.15;\n}\n\n.order-body p {\n  margin: 0;\n  color: var(--muted);\n  font-size: 14px;\n  line-height: 1.35;\n}\n\n.order-footer strong {\n  font-size: 18px;\n}\n\n.order-footer button {\n  padding: 8px 12px;\n  border: 0;\n  border-radius: 8px;\n  background: var(--crust);\n  color: var(--paper);\n  font-size: 13px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"order-card\">\n  <header class=\"order-header\">\n    <p class=\"eyebrow\">SATURDAY PICKUP</p>\n    <span class=\"status\">● Confirmed</span>\n  </header>\n  <section class=\"order-body\">\n    <h1>Morning Bun Box</h1>\n    <p>4 cardamom-citrus buns, boxed warm for 9:15 AM.</p>\n  </section>\n  <footer class=\"order-footer\">\n    <strong>$14.00</strong>\n    <button type=\"button\">View order</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --paper: #fffaf1;\n  --ink: #3d2d22;\n  --muted: #856f5d;\n  --crust: #b85d35;\n  --peach: #f5d5ad;\n}\n\n.order-card {\n}\n\n.order-header,\n.order-footer {\n}\n\n.eyebrow {\n}\n\n.status {\n}\n\n.order-body {\n}\n\n.order-body h1 {\n}\n\n.order-body p {\n}\n\n.order-footer strong {\n}\n\n.order-footer button {\n}"
+  },
+  "date": "2026-09-12",
+  "timeLimit": 300,
+  "targetImage": "2026-09-12-easy.webp"
+}
