@@ -1,0 +1,13 @@
+{
+  "title": "Aquarium Feeding Log — Medium",
+  "difficulty": "medium",
+  "date": "2026-09-13",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Harbor Aquarium</p>\n      <h1 class=\"  \">Feeding round</h1>\n    </section>\n    <span class=\"  \">Complete</span>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Reef tank</p>\n      <h2 class=\"  \">Coral blend</h2>\n      <p class=\"  \">2 scoops · 09:30</p>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">Moon jellies</p>\n      <h2 class=\"  \">Artemia</h2>\n      <p class=\"  \">1 tray · 09:45</p>\n    </section>\n  </main>\n  <footer class=\"  \">\n    <p class=\"  \">Logged by Mina R.</p>\n    <button class=\"  \">View notes</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-lg overflow-hidden rounded-2xl border border-cyan-200 bg-white text-slate-800\">\n  <header class=\"flex items-start justify-between border-b border-cyan-100 bg-cyan-50 px-4 py-3\">\n    <section class=\"min-w-0\">\n      <p class=\"mb-1 text-xs font-semibold uppercase tracking-widest text-cyan-700\">Harbor Aquarium</p>\n      <h1 class=\"text-lg font-bold leading-tight text-slate-900\">Feeding round</h1>\n    </section>\n    <span class=\"rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-bold text-emerald-700\">Complete</span>\n  </header>\n  <main class=\"grid grid-cols-2 gap-3 p-4\">\n    <section class=\"rounded-xl border border-amber-200 bg-amber-50 p-3\">\n      <p class=\"mb-2 text-xs font-semibold uppercase tracking-wide text-amber-700\">Reef tank</p>\n      <h2 class=\"text-base font-bold text-slate-900\">Coral blend</h2>\n      <p class=\"mt-1 text-sm text-slate-600\">2 scoops · 09:30</p>\n    </section>\n    <section class=\"rounded-xl border border-indigo-200 bg-indigo-50 p-3\">\n      <p class=\"mb-2 text-xs font-semibold uppercase tracking-wide text-indigo-700\">Moon jellies</p>\n      <h2 class=\"text-base font-bold text-slate-900\">Artemia</h2>\n      <p class=\"mt-1 text-sm text-slate-600\">1 tray · 09:45</p>\n    </section>\n  </main>\n  <footer class=\"flex items-center justify-between border-t border-slate-100 px-4 py-3\">\n    <p class=\"text-sm text-slate-500\">Logged by Mina R.</p>\n    <button class=\"rounded-lg bg-slate-800 px-3 py-1.5 text-sm font-semibold text-white\">View notes</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-09-13-medium.webp"
+}

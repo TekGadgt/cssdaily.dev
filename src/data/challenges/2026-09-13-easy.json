@@ -1,0 +1,15 @@
+{
+  "title": "Midnight Mint Scoop Club Stamp",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"passport\">\n  <header class=\"passport-header\">\n    <span class=\"scoop\" aria-hidden=\"true\">🍦</span>\n    <section class=\"identity\">\n      <p>POLAR POP CLUB</p>\n      <h1>Midnight Mint</h1>\n    </section>\n    <strong class=\"stamp\">STAMP 04</strong>\n  </header>\n  <p class=\"note\">One more scoop earns a free sparkle cone.</p>\n  <button type=\"button\">Claim next stamp</button>\n</article>",
+    "css": ":root {\n  --ink: #20343d;\n  --paper: #fffdf7;\n  --accent: #ff6f91;\n}\n\n.passport {\n  width: 450px;\n  padding: 18px;\n  border: 2px solid var(--ink);\n  border-radius: 18px;\n  background: var(--paper);\n  color: var(--ink);\n}\n\n.passport-header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding-bottom: 14px;\n  border-bottom: 2px dashed var(--ink);\n}\n\n.scoop {\n  font-size: 34px;\n}\n\n.identity {\n  flex: 1;\n}\n\n.identity p {\n  margin: 0 0 3px;\n  color: var(--accent);\n  font-size: 11px;\n  font-weight: 800;\n  letter-spacing: 1.4px;\n}\n\n.identity h1 {\n  margin: 0;\n  font-size: 22px;\n  line-height: 1;\n}\n\n.stamp {\n  padding: 6px 8px;\n  border: 2px solid var(--accent);\n  border-radius: 8px;\n  color: var(--accent);\n  font-size: 11px;\n  letter-spacing: 0.6px;\n}\n\n.note {\n  margin: 14px 0 12px;\n  font-size: 14px;\n  line-height: 1.35;\n}\n\n.passport button {\n  border: 0;\n  border-radius: 8px;\n  padding: 9px 13px;\n  background: var(--ink);\n  color: var(--paper);\n  font-size: 13px;\n  font-weight: 800;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"passport\">\n  <header class=\"passport-header\">\n    <span class=\"scoop\" aria-hidden=\"true\">🍦</span>\n    <section class=\"identity\">\n      <p>POLAR POP CLUB</p>\n      <h1>Midnight Mint</h1>\n    </section>\n    <strong class=\"stamp\">STAMP 04</strong>\n  </header>\n  <p class=\"note\">One more scoop earns a free sparkle cone.</p>\n  <button type=\"button\">Claim next stamp</button>\n</article>",
+    "css": ":root {\n  --ink: #20343d;\n  --paper: #fffdf7;\n  --accent: #ff6f91;\n}\n\n.passport {\n}\n\n.passport-header {\n}\n\n.scoop {\n}\n\n.identity {\n}\n\n.identity p {\n}\n\n.identity h1 {\n}\n\n.stamp {\n}\n\n.note {\n}\n\n.passport button {\n}"
+  },
+  "date": "2026-09-13",
+  "timeLimit": 300,
+  "targetImage": "2026-09-13-easy.webp"
+}
