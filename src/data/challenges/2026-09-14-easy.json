@@ -1,0 +1,15 @@
+{
+  "title": "Typewriter Repair Service Tag",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"repair-tag\">\n  <header class=\"tag-header\">\n    <p>RIBBON &amp; KEY SERVICE</p>\n    <time datetime=\"2026-09-14\">SEP 14</time>\n  </header>\n  <section class=\"tag-body\">\n    <figure class=\"keycap\" aria-hidden=\"true\">⌨️</figure>\n    <section class=\"tag-copy\">\n      <h1>Olive No. 5</h1>\n      <p>Clean, align &amp; test carriage</p>\n      <strong>READY THURSDAY</strong>\n    </section>\n  </section>\n</article>",
+    "css": ":root {\n  --paper: #fffdf7;\n  --ink: #24302d;\n  --accent: #d75a45;\n  --mint: #dce9df;\n  --line: #24302d;\n}\n\n.repair-tag {\n  width: 450px;\n  overflow: hidden;\n  background: var(--paper);\n  border: 2px solid var(--line);\n  border-radius: 14px;\n}\n\n.tag-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 10px 14px;\n  background: var(--accent);\n  color: var(--paper);\n}\n\n.tag-header p {\n  margin: 0;\n  font-size: 12px;\n  font-weight: 800;\n  letter-spacing: 0.08em;\n}\n\n.tag-header time {\n  padding: 3px 7px;\n  border: 1px solid var(--paper);\n  border-radius: 5px;\n  font-size: 11px;\n  font-weight: 800;\n}\n\n.tag-body {\n  display: flex;\n  align-items: center;\n  gap: 14px;\n  padding: 16px;\n}\n\n.keycap {\n  display: grid;\n  width: 64px;\n  height: 64px;\n  margin: 0;\n  place-items: center;\n  background: var(--mint);\n  border: 2px solid var(--line);\n  border-radius: 10px;\n  font-size: 28px;\n}\n\n.tag-copy h1 {\n  margin: 0 0 3px;\n  font-size: 20px;\n  line-height: 1.1;\n}\n\n.tag-copy p {\n  margin: 0 0 8px;\n  color: var(--ink);\n  font-size: 14px;\n}\n\n.tag-copy strong {\n  color: var(--accent);\n  font-size: 11px;\n  letter-spacing: 0.07em;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"repair-tag\">\n  <header class=\"tag-header\">\n    <p>RIBBON &amp; KEY SERVICE</p>\n    <time datetime=\"2026-09-14\">SEP 14</time>\n  </header>\n  <section class=\"tag-body\">\n    <figure class=\"keycap\" aria-hidden=\"true\">⌨️</figure>\n    <section class=\"tag-copy\">\n      <h1>Olive No. 5</h1>\n      <p>Clean, align &amp; test carriage</p>\n      <strong>READY THURSDAY</strong>\n    </section>\n  </section>\n</article>",
+    "css": ":root {\n  --paper: #fffdf7;\n  --ink: #24302d;\n  --accent: #d75a45;\n  --mint: #dce9df;\n  --line: #24302d;\n}\n\n.repair-tag {\n}\n\n.tag-header {\n}\n\n.tag-header p {\n}\n\n.tag-header time {\n}\n\n.tag-body {\n}\n\n.keycap {\n}\n\n.tag-copy h1 {\n}\n\n.tag-copy p {\n}\n\n.tag-copy strong {\n}\n"
+  },
+  "date": "2026-09-14",
+  "timeLimit": 300,
+  "targetImage": "2026-09-14-easy.webp"
+}

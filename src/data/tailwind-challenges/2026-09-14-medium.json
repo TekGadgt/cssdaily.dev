@@ -1,0 +1,13 @@
+{
+  "title": "Field Recording Weather Window",
+  "difficulty": "medium",
+  "date": "2026-09-14",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Field Recording Window</h1>\n    <p class=\"  \">Monday, September 14 · Riverside path</p>\n  </header>\n  <section class=\"  \" aria-label=\"Recording conditions\">\n    <p class=\"  \">06:10<br>best light</p>\n    <p class=\"  \">12°C<br>quiet air</p>\n    <p class=\"  \">4 min<br>wind gap</p>\n  </section>\n  <footer class=\"  \">● Clear skies · pack windscreen</footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-md rounded-2xl border border-slate-200 bg-white p-4 text-slate-800\">\n  <header class=\"border-b border-slate-100 pb-3\">\n    <h1 class=\"text-lg font-bold tracking-tight text-slate-900\">Field Recording Window</h1>\n    <p class=\"mt-1 text-sm text-slate-500\">Monday, September 14 · Riverside path</p>\n  </header>\n  <section class=\"grid grid-cols-3 gap-2 py-3\" aria-label=\"Recording conditions\">\n    <p class=\"rounded-xl bg-cyan-50 px-2 py-3 text-center text-sm font-semibold leading-tight text-cyan-800\">06:10<br>best light</p>\n    <p class=\"rounded-xl bg-amber-50 px-2 py-3 text-center text-sm font-semibold leading-tight text-amber-800\">12°C<br>quiet air</p>\n    <p class=\"rounded-xl bg-emerald-50 px-2 py-3 text-center text-sm font-semibold leading-tight text-emerald-800\">4 min<br>wind gap</p>\n  </section>\n  <footer class=\"rounded-lg border border-dashed border-slate-200 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-600\">● Clear skies · pack windscreen</footer>\n</article>"
+  },
+  "targetImage": "2026-09-14-medium.webp"
+}
