@@ -1,0 +1,15 @@
+{
+  "title": "Postcard Writing Station Pass — Easy — 2026-09-15",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"station-pass\">\n  <header class=\"pass-header\">\n    <section>\n      <p class=\"eyebrow\">CITY POST • WALK-IN</p>\n      <h1>Postcard Writing Station</h1>\n    </section>\n    <span class=\"status\">OPEN</span>\n  </header>\n\n  <section class=\"details\" aria-label=\"Reservation details\">\n    <p><span>DESK</span><strong>04</strong></p>\n    <p><span>TIME</span><strong>2:30 PM</strong></p>\n    <p><span>DATE</span><strong>SEP 15</strong></p>\n  </section>\n</article>",
+    "css": ":root {\n  --ink: #253038;\n  --paper: #fffdf7;\n  --line: #d8d1c4;\n  --stamp: #db5a42;\n  --muted: #747a78;\n}\n\n* {\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n  min-height: 100vh;\n  display: grid;\n  place-items: center;\n  color: var(--ink);\n}\n\n.station-pass {\n  width: 460px;\n  padding: 22px 24px;\n  background: var(--paper);\n  border: 1px solid var(--line);\n  border-radius: 14px;\n}\n\n.pass-header {\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n  padding-bottom: 17px;\n  border-bottom: 1px dashed var(--line);\n}\n\n.eyebrow {\n  margin: 0 0 5px;\n  color: var(--muted);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}\n\nh1 {\n  margin: 0;\n  font-size: 21px;\n  line-height: 1.15;\n}\n\n.status {\n  padding: 5px 8px;\n  color: var(--paper);\n  background: var(--stamp);\n  border-radius: 5px;\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.8px;\n}\n\n.details {\n  display: flex;\n  gap: 30px;\n  margin-top: 16px;\n}\n\n.details p {\n  margin: 0;\n}\n\n.details span {\n  display: block;\n  margin-bottom: 3px;\n  color: var(--muted);\n  font-size: 10px;\n  font-weight: 700;\n  letter-spacing: 0.8px;\n}\n\n.details strong {\n  font-size: 15px;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"station-pass\">\n  <header class=\"pass-header\">\n    <section>\n      <p class=\"eyebrow\">CITY POST • WALK-IN</p>\n      <h1>Postcard Writing Station</h1>\n    </section>\n    <span class=\"status\">OPEN</span>\n  </header>\n\n  <section class=\"details\" aria-label=\"Reservation details\">\n    <p><span>DESK</span><strong>04</strong></p>\n    <p><span>TIME</span><strong>2:30 PM</strong></p>\n    <p><span>DATE</span><strong>SEP 15</strong></p>\n  </section>\n</article>",
+    "css": ":root {\n  --ink: #253038;\n  --paper: #fffdf7;\n  --line: #d8d1c4;\n  --stamp: #db5a42;\n  --muted: #747a78;\n}\n\n* {\n}\n\nbody {\n}\n\n.station-pass {\n}\n\n.pass-header {\n}\n\n.eyebrow {\n}\n\nh1 {\n}\n\n.status {\n}\n\n.details {\n}\n\n.details p {\n}\n\n.details span {\n}\n\n.details strong {\n}\n"
+  },
+  "date": "2026-09-15",
+  "timeLimit": 300,
+  "targetImage": "2026-09-15-easy.webp"
+}

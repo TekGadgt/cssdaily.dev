@@ -1,0 +1,13 @@
+{
+  "title": "Solar Oven Cookoff Scorecard — 2026-09-15",
+  "difficulty": "medium",
+  "date": "2026-09-15",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">Solar Oven Cookoff</h2>\n    <span class=\"  \">FINALIST</span>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">86°C</p>\n    <ul class=\"  \">\n      <li class=\"  \">PEAK HEAT<br>86°C</li>\n      <li class=\"  \">TASTE SCORE<br>9.4 / 10</li>\n    </ul>\n  </section>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-[480px] overflow-hidden rounded-2xl border border-slate-200 bg-white\">\n  <header class=\"flex items-center justify-between border-b border-slate-200 bg-slate-50 px-4 py-3\">\n    <h2 class=\"text-lg font-bold tracking-tight text-slate-800\">Solar Oven Cookoff</h2>\n    <span class=\"rounded-full bg-amber-100 px-2.5 py-1 text-xs font-bold tracking-wide text-amber-700\">FINALIST</span>\n  </header>\n  <section class=\"flex items-center gap-4 px-4 py-4\">\n    <p class=\"rounded-xl bg-indigo-600 px-4 py-3 text-2xl font-bold tracking-tight text-white\">86°C</p>\n    <ul class=\"grid flex-1 grid-cols-2 gap-2\">\n      <li class=\"rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-3 text-center text-sm font-semibold text-emerald-700\">PEAK HEAT<br>86°C</li>\n      <li class=\"rounded-xl border border-violet-200 bg-violet-50 px-3 py-3 text-center text-sm font-semibold text-violet-700\">TASTE SCORE<br>9.4 / 10</li>\n    </ul>\n  </section>\n</article>"
+  },
+  "targetImage": "2026-09-15-medium.webp"
+}
