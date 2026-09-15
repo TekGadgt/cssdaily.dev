@@ -1,0 +1,13 @@
+{
+  "title": "Kiln Firing Ready Notice — 2026-09-16",
+  "difficulty": "easy",
+  "date": "2026-09-16",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">Kiln firing ready</h2>\n    <span class=\"  \">CONE 6</span>\n  </header>\n  <p class=\"  \">Your glazed bowl is queued for the evening firing at 6:30 PM.</p>\n  <button class=\"  \">View studio details</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 rounded-xl border border-orange-200 bg-white p-4\">\n  <header class=\"flex items-center justify-between gap-3\">\n    <h2 class=\"text-lg font-bold text-slate-800\">Kiln firing ready</h2>\n    <span class=\"rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-800\">CONE 6</span>\n  </header>\n  <p class=\"mt-3 text-sm leading-5 text-slate-600\">Your glazed bowl is queued for the evening firing at 6:30 PM.</p>\n  <button class=\"mt-4 rounded-lg bg-orange-600 px-3 py-2 text-sm font-semibold text-white\">View studio details</button>\n</article>"
+  },
+  "targetImage": "2026-09-16-easy.webp"
+}

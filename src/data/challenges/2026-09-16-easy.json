@@ -1,0 +1,15 @@
+{
+  "title": "Photo Booth Session Ticket",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"photo-ticket\">\n  <header class=\"ticket-header\">\n    <p class=\"venue\">SNAPSHOT ARCADE</p>\n    <span class=\"serial\">#0842</span>\n  </header>\n  <section class=\"ticket-main\">\n    <figure class=\"camera-mark\" aria-label=\"Camera\">📸</figure>\n    <section class=\"session-copy\">\n      <h1>Photo Booth</h1>\n      <p>One session · 4 prints</p>\n    </section>\n  </section>\n  <footer class=\"ticket-footer\">\n    <span>Today · 3:40 PM</span>\n    <button type=\"button\">Start session</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #20232b;\n  --paper: #fffdf7;\n  --coral: #f06b52;\n  --mint: #ccefe1;\n  --line: #d9d3c7;\n}\n\n.photo-ticket {\n  width: 440px;\n  overflow: hidden;\n  color: var(--ink);\n  background: var(--paper);\n  border: 1px solid var(--line);\n  border-radius: 16px;\n}\n\n.ticket-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 10px 16px;\n  background: var(--mint);\n}\n\n.venue,\n.serial,\n.ticket-footer {\n  margin: 0;\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n}\n\n.ticket-main {\n  display: flex;\n  align-items: center;\n  gap: 14px;\n  padding: 18px 16px;\n}\n\n.camera-mark {\n  display: grid;\n  width: 52px;\n  height: 52px;\n  margin: 0;\n  place-items: center;\n  font-size: 28px;\n  background: var(--coral);\n  border-radius: 12px;\n}\n\n.session-copy h1 {\n  margin: 0 0 3px;\n  font-size: 22px;\n  line-height: 1;\n}\n\n.session-copy p {\n  margin: 0;\n  font-size: 14px;\n}\n\n.ticket-footer {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 10px 16px;\n  border-top: 1px dashed var(--line);\n}\n\n.ticket-footer button {\n  padding: 7px 11px;\n  color: var(--paper);\n  font: inherit;\n  font-size: 12px;\n  font-weight: 700;\n  background: var(--ink);\n  border: 0;\n  border-radius: 7px;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"photo-ticket\">\n  <header class=\"ticket-header\">\n    <p class=\"venue\">SNAPSHOT ARCADE</p>\n    <span class=\"serial\">#0842</span>\n  </header>\n  <section class=\"ticket-main\">\n    <figure class=\"camera-mark\" aria-label=\"Camera\">📸</figure>\n    <section class=\"session-copy\">\n      <h1>Photo Booth</h1>\n      <p>One session · 4 prints</p>\n    </section>\n  </section>\n  <footer class=\"ticket-footer\">\n    <span>Today · 3:40 PM</span>\n    <button type=\"button\">Start session</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #20232b;\n  --paper: #fffdf7;\n  --coral: #f06b52;\n  --mint: #ccefe1;\n  --line: #d9d3c7;\n}\n\n.photo-ticket {\n}\n\n.ticket-header {\n}\n\n.venue,\n.serial,\n.ticket-footer {\n}\n\n.ticket-main {\n}\n\n.camera-mark {\n}\n\n.session-copy h1 {\n}\n\n.session-copy p {\n}\n\n.ticket-footer button {\n}"
+  },
+  "date": "2026-09-16",
+  "timeLimit": 300,
+  "targetImage": "2026-09-16-easy.webp"
+}
