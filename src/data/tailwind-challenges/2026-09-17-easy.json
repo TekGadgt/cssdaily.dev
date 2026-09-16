@@ -1,0 +1,13 @@
+{
+  "title": "Lemonade Stand Permit — 2026-09-17",
+  "difficulty": "easy",
+  "date": "2026-09-17",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">Lemonade Stand Permit</h2>\n    <time class=\"  \">SEP 17</time>\n  </header>\n  <p class=\"  \">Your corner spot is approved for Saturday’s market.</p>\n  <button class=\"  \">View permit</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-md rounded-xl border border-amber-200 bg-white p-4\">\n  <header class=\"flex items-center justify-between gap-3\">\n    <h2 class=\"text-lg font-bold text-slate-800\">Lemonade Stand Permit</h2>\n    <time class=\"rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-800\">SEP 17</time>\n  </header>\n  <p class=\"mt-2 text-sm leading-5 text-slate-600\">Your corner spot is approved for Saturday’s market.</p>\n  <button class=\"mt-4 rounded-lg bg-amber-500 px-4 py-2 text-sm font-semibold text-white\">View permit</button>\n</article>"
+  },
+  "targetImage": "2026-09-17-easy.webp"
+}

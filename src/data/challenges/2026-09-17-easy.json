@@ -1,0 +1,15 @@
+{
+  "title": "Campfire Wood Bundle Tag",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"wood-tag\">\n  <header class=\"tag-header\">\n    <h2>FIREWOOD CO-OP</h2>\n    <p>LOT 17</p>\n  </header>\n  <p>Maple · dry split · ready to burn</p>\n  <footer class=\"tag-footer\">\n    <span class=\"badge\">SEASONED</span>\n    <strong>12 logs</strong>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #24352d;\n  --paper: #fffaf0;\n  --ember: #d96c3d;\n  --line: #c9bfae;\n}\n\n.wood-tag {\n  width: 440px;\n  padding: 16px 18px;\n  color: var(--ink);\n  background: var(--paper);\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n}\n\n.tag-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding-bottom: 10px;\n  border-bottom: 1px solid var(--line);\n}\n\n.tag-header h2 {\n  margin: 0;\n  font-size: 20px;\n  line-height: 1;\n}\n\n.tag-header p {\n  margin: 0;\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}\n\n.wood-tag > p {\n  margin: 12px 0;\n  font-size: 14px;\n}\n\n.tag-footer {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.badge {\n  padding: 4px 8px;\n  color: var(--paper);\n  background: var(--ember);\n  border-radius: 999px;\n  font-size: 11px;\n  font-weight: 700;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"wood-tag\">\n  <header class=\"tag-header\">\n    <h2>FIREWOOD CO-OP</h2>\n    <p>LOT 17</p>\n  </header>\n  <p>Maple · dry split · ready to burn</p>\n  <footer class=\"tag-footer\">\n    <span class=\"badge\">SEASONED</span>\n    <strong>12 logs</strong>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #24352d;\n  --paper: #fffaf0;\n  --ember: #d96c3d;\n  --line: #c9bfae;\n}\n\n.wood-tag {\n}\n\n.tag-header {\n}\n\n.tag-header h2 {\n}\n\n.tag-header p {\n}\n\n.wood-tag > p {\n}\n\n.tag-footer {\n}\n\n.badge {\n}\n"
+  },
+  "date": "2026-09-17",
+  "timeLimit": 300,
+  "targetImage": "2026-09-17-easy.webp"
+}
