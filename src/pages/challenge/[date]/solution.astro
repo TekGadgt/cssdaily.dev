@@ -1,0 +1,37 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import ChallengeSolution from "../../../components/ChallengeSolution.tsx";
+
+export async function getStaticPaths() {
+  const challengeFiles = import.meta.glob("../../../data/challenges/*.json", {
+    eager: true,
+  });
+  const challenges = Object.values(challengeFiles).map(
+    (mod: any) => mod.default || mod,
+  );
+  const allDates = challenges.map((c: any) => c.date).sort();
+
+  return challenges.map((challenge: any) => ({
+    params: { date: challenge.date },
+    props: { challenge, allDates },
+  }));
+}
+
+const { challenge, allDates } = Astro.props;
+---
+
+<Layout title={`${challenge.title} -  Solution`}>
+  <div class="flex flex-col h-screen">
+    <Header currentPath="/challenge" />
+    <div
+      class="rounded-lg overflow-hidden border border-gray-700 flex-1 min-h-0"
+    >
+      <ChallengeSolution
+        client:load
+        challenge={challenge}
+        allDates={allDates}
+      />
+    </div>
+  </div>
+</Layout>
