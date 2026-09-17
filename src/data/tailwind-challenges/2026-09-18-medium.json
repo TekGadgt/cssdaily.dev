@@ -1,0 +1,13 @@
+{
+  "title": "Repair Café Check-In — 2026-09-18",
+  "difficulty": "medium",
+  "date": "2026-09-18",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Repair Café</h1>\n    <p class=\"  \">Confirmed</p>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Friday · Sep 18, 2026<br>Bring one device, its charger, and any notes about the fault.</p>\n    <p class=\"  \">10:40 AM<br>Bench 04<br>Voltage Hall</p>\n  </section>\n  <footer class=\"  \">\n    Arrive 10 minutes early\n    <button class=\"  \">View ticket</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between bg-slate-900 px-4 py-3\">\n    <h1 class=\"text-base font-semibold tracking-tight text-white\">Repair Café</h1>\n    <p class=\"rounded-full bg-emerald-400 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-emerald-950\">Confirmed</p>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 p-4\">\n    <p class=\"rounded-xl border border-orange-200 bg-orange-50 p-3 text-sm leading-5 text-orange-950\">Friday · Sep 18, 2026<br>Bring one device, its charger, and any notes about the fault.</p>\n    <p class=\"rounded-xl bg-sky-100 p-3 text-sm font-medium leading-5 text-sky-950\">10:40 AM<br>Bench 04<br>Voltage Hall</p>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-200 px-4 py-3 text-xs font-medium text-slate-500\">\n    Arrive 10 minutes early\n    <button class=\"rounded-lg bg-orange-500 px-3 py-2 text-sm font-semibold text-white\">View ticket</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-09-18-medium.webp"
+}
