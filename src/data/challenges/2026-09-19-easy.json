@@ -1,0 +1,15 @@
+{
+  "title": "Canal Lock Transit Token — Easy — 2026-09-19",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"transit-token\">\n  <span class=\"lock-mark\">⚓</span>\n  <section class=\"token-details\">\n    <p class=\"eyebrow\">RIVER LOOP · LOCK 3</p>\n    <h1>Canal passage</h1>\n    <p class=\"time\">Boarding at 10:40</p>\n  </section>\n  <button type=\"button\">Valid</button>\n</article>",
+    "css": ":root {\n  --navy: #18324a;\n  --water: #dff3f2;\n  --foam: #ffffff;\n  --teal: #167c80;\n}\n\n.transit-token {\n  display: flex;\n  align-items: center;\n  gap: 14px;\n  width: 440px;\n  padding: 16px;\n  background: var(--foam);\n  border: 2px solid var(--navy);\n  border-radius: 14px;\n}\n\n.lock-mark {\n  display: grid;\n  width: 46px;\n  height: 46px;\n  place-items: center;\n  background: var(--water);\n  border-radius: 50%;\n  font-size: 23px;\n}\n\n.token-details {\n  flex: 1;\n}\n\n.eyebrow {\n  margin: 0;\n  color: var(--teal);\n  font-size: 11px;\n  font-weight: 700;\n}\n\nh1 {\n  margin: 3px 0;\n  color: var(--navy);\n  font-size: 20px;\n}\n\n.time {\n  margin: 0;\n  color: var(--navy);\n  font-size: 14px;\n}\n\nbutton {\n  padding: 7px 10px;\n  color: var(--foam);\n  background: var(--teal);\n  border: 0;\n  border-radius: 6px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"transit-token\">\n  <span class=\"lock-mark\">⚓</span>\n  <section class=\"token-details\">\n    <p class=\"eyebrow\">RIVER LOOP · LOCK 3</p>\n    <h1>Canal passage</h1>\n    <p class=\"time\">Boarding at 10:40</p>\n  </section>\n  <button type=\"button\">Valid</button>\n</article>",
+    "css": ":root {\n  --navy: #18324a;\n  --water: #dff3f2;\n  --foam: #ffffff;\n  --teal: #167c80;\n}\n\n.transit-token {\n}\n\n.lock-mark {\n}\n\n.token-details {\n}\n\n.eyebrow {\n}\n\nh1 {\n}\n\n.time {\n}\n\nbutton {\n}"
+  },
+  "date": "2026-09-19",
+  "timeLimit": 300,
+  "targetImage": "2026-09-19-easy.webp"
+}

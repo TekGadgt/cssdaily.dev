@@ -1,0 +1,13 @@
+{
+  "title": "Lost & Found Claim Slip — Medium — 2026-09-19",
+  "difficulty": "medium",
+  "date": "2026-09-19",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">Lost &amp; Found Claim</h2>\n    <p class=\"  \">Ready to collect</p>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Item<br><span class=\"  \">Blue rain jacket</span></p>\n    <p class=\"  \">Claim code<br><span class=\"  \">LF-7294</span></p>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Central Station · Desk B</p>\n    <button class=\"  \">View details</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-md overflow-hidden rounded-xl border border-slate-200 bg-white\">\n  <header class=\"flex items-center justify-between border-b border-slate-200 bg-sky-50 px-4 py-3\">\n    <h2 class=\"text-base font-bold tracking-tight text-slate-800\">Lost &amp; Found Claim</h2>\n    <p class=\"rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-800\">Ready to collect</p>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 px-4 py-4\">\n    <p class=\"rounded-lg border border-sky-100 bg-sky-50 p-3 text-sm leading-5 text-slate-600\">Item<br><span class=\"font-semibold text-slate-800\">Blue rain jacket</span></p>\n    <p class=\"rounded-lg border border-rose-100 bg-rose-50 p-3 text-sm leading-5 text-slate-600\">Claim code<br><span class=\"font-semibold tracking-wide text-rose-700\">LF-7294</span></p>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-100 px-4 py-3\">\n    <p class=\"text-xs font-medium text-slate-500\">Central Station · Desk B</p>\n    <button class=\"rounded-lg bg-slate-800 px-3 py-2 text-sm font-semibold text-white\">View details</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-09-19-medium.webp"
+}

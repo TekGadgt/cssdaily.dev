@@ -1,0 +1,13 @@
+{
+  "title": "Fountain Pen Refill Token — 2026-09-19",
+  "difficulty": "easy",
+  "date": "2026-09-19",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">Ink Refill Token</h2>\n  </header>\n  <p class=\"  \">Bring one empty fountain pen cartridge for a fresh fill at the ink bar.</p>\n  <footer class=\"  \">\n    <span class=\"  \">Saturday · 19 Sep</span>\n    <button class=\"  \">Claim token</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 overflow-hidden rounded-xl border border-slate-200 bg-white\">\n  <header class=\"bg-violet-600 p-3 text-white\">\n    <h2 class=\"text-lg font-semibold\">Ink Refill Token</h2>\n  </header>\n  <p class=\"p-4 text-sm text-slate-600\">Bring one empty fountain pen cartridge for a fresh fill at the ink bar.</p>\n  <footer class=\"flex items-center justify-between border-t border-slate-200 px-4 py-3\">\n    <span class=\"text-xs font-medium text-violet-700\">Saturday · 19 Sep</span>\n    <button class=\"rounded-md bg-amber-300 px-3 py-1.5 text-sm font-semibold text-amber-950\">Claim token</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-09-19-easy.webp"
+}
