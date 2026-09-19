@@ -1,0 +1,13 @@
+{
+  "title": "Roller Rink Night Pass",
+  "difficulty": "easy",
+  "date": "2026-09-20",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🛼</span>\n    <h2 class=\"  \">Neon Glide Night</h2>\n    ADMIT ONE · 7:30 PM\n  </header>\n  <button class=\"  \">Check in</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"flex w-full max-w-md items-center gap-3 rounded-xl border border-pink-200 bg-white p-4 text-sm font-medium text-slate-500\">\n  <header class=\"min-w-0 flex-1\">\n    <span class=\"mb-1 inline-flex rounded-lg bg-pink-100 px-2 py-1 text-lg leading-none\">🛼</span>\n    <h2 class=\"text-lg font-bold text-slate-800\">Neon Glide Night</h2>\n    ADMIT ONE · 7:30 PM\n  </header>\n  <button class=\"rounded-lg bg-pink-500 px-3 py-2 text-sm font-bold text-white\">Check in</button>\n</article>"
+  },
+  "targetImage": "2026-09-20-easy.webp"
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Rain Garden Volunteer Badge",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"rain-card\">\n  <header class=\"card-mark\" aria-label=\"Rain Garden\">RG</header>\n  <section class=\"card-copy\">\n    <p class=\"eyebrow\">SATURDAY STEWARDS</p>\n    <h1>Rain Garden Crew</h1>\n    <p class=\"details\">10:00–12:00 · Willow Park</p>\n  </section>\n  <span class=\"status\">Checked in</span>\n</article>",
+    "css": ":root {\n  --ink: #183f3d;\n  --leaf: #2f7665;\n  --mist: #e2f1e9;\n  --paper: #fffef8;\n  --line: #bad9cd;\n}\n\n.rain-card {\n  box-sizing: border-box;\n  width: 470px;\n  display: flex;\n  align-items: center;\n  gap: 14px;\n  padding: 15px 16px;\n  background: var(--paper);\n  border: 1px solid var(--line);\n  border-radius: 16px;\n}\n\n.card-mark {\n  display: grid;\n  place-items: center;\n  width: 48px;\n  height: 48px;\n  background: var(--leaf);\n  border-radius: 14px;\n  color: var(--paper);\n  font-size: 15px;\n  font-weight: 800;\n}\n\n.card-copy {\n  flex: 1;\n}\n\n.card-copy p,\n.card-copy h1 {\n  margin: 0;\n}\n\n.eyebrow {\n  color: var(--leaf);\n  font-size: 10px;\n  font-weight: 800;\n  letter-spacing: 0.08em;\n}\n\n.card-copy h1 {\n  color: var(--ink);\n  font-size: 19px;\n  line-height: 1.25;\n}\n\n.details {\n  color: var(--ink);\n  font-size: 13px;\n}\n\n.status {\n  padding: 6px 9px;\n  background: var(--mist);\n  border-radius: 999px;\n  color: var(--leaf);\n  font-size: 12px;\n  font-weight: 700;\n  white-space: nowrap;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"rain-card\">\n  <header class=\"card-mark\" aria-label=\"Rain Garden\">RG</header>\n  <section class=\"card-copy\">\n    <p class=\"eyebrow\">SATURDAY STEWARDS</p>\n    <h1>Rain Garden Crew</h1>\n    <p class=\"details\">10:00–12:00 · Willow Park</p>\n  </section>\n  <span class=\"status\">Checked in</span>\n</article>",
+    "css": ":root {\n  --ink: #183f3d;\n  --leaf: #2f7665;\n  --mist: #e2f1e9;\n  --paper: #fffef8;\n  --line: #bad9cd;\n}\n\n.rain-card {\n}\n\n.card-mark {\n}\n\n.card-copy {\n}\n\n.card-copy p,\n.card-copy h1 {\n}\n\n.eyebrow {\n}\n\n.card-copy h1 {\n}\n\n.details {\n}\n\n.status {\n}"
+  },
+  "date": "2026-09-20",
+  "timeLimit": 300,
+  "targetImage": "2026-09-20-easy.webp"
+}
