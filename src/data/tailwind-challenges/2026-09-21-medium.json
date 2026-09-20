@@ -1,0 +1,13 @@
+{
+  "title": "Chess Club Pairing Board",
+  "difficulty": "medium",
+  "date": "2026-09-21",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <div class=\"  \">\n      <p class=\"  \">Monday ladder</p>\n      <h1 class=\"  \">Chess Club Pairings</h1>\n    </div>\n    <p class=\"  \">Sep 21</p>\n  </header>\n  <section class=\"  \" aria-label=\"Match pairings\">\n    <button class=\"  \">Table 1<br><span class=\"  \">Mira vs. Owen</span></button>\n    <button class=\"  \">Table 2<br><span class=\"  \">Kai vs. Jules</span></button>\n    <button class=\"  \">Table 3<br><span class=\"  \">Nia vs. Sam</span></button>\n  </section>\n  <footer class=\"  \">Round begins at 6:30 PM <span class=\"  \">Boards ready</span></footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] rounded-xl border border-slate-300 bg-white p-4 text-slate-800\">\n  <header class=\"mb-3 flex items-start justify-between border-b border-slate-200 pb-3\">\n    <div class=\"\">\n      <p class=\"mb-1 text-xs font-semibold uppercase tracking-widest text-indigo-600\">Monday ladder</p>\n      <h1 class=\"text-lg font-bold leading-tight\">Chess Club Pairings</h1>\n    </div>\n    <p class=\"rounded-md bg-amber-100 px-2 py-1 text-xs font-bold text-amber-800\">Sep 21</p>\n  </header>\n  <section class=\"grid grid-cols-3 gap-2\" aria-label=\"Match pairings\">\n    <button class=\"rounded-lg border border-indigo-200 bg-indigo-50 p-3 text-left text-sm font-semibold text-indigo-900\">Table 1<br><span class=\"text-xs font-normal text-indigo-600\">Mira vs. Owen</span></button>\n    <button class=\"rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-left text-sm font-semibold text-emerald-900\">Table 2<br><span class=\"text-xs font-normal text-emerald-600\">Kai vs. Jules</span></button>\n    <button class=\"rounded-lg border border-rose-200 bg-rose-50 p-3 text-left text-sm font-semibold text-rose-900\">Table 3<br><span class=\"text-xs font-normal text-rose-600\">Nia vs. Sam</span></button>\n  </section>\n  <footer class=\"mt-3 flex items-center justify-between text-xs text-slate-500\">Round begins at 6:30 PM <span class=\"font-semibold text-slate-700\">Boards ready</span></footer>\n</article>"
+  },
+  "targetImage": "2026-09-21-medium.webp"
+}

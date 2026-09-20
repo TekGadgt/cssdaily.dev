@@ -1,0 +1,15 @@
+{
+  "title": "Rooftop Cinema Check-In",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"cinema-card\">\n  <header>\n    <span class=\"ticket-mark\">🎞️</span>\n    <section>\n      <h1>Rooftop Cinema</h1>\n      <p class=\"screening-meta\">Moonlight screening · 21 Sep</p>\n    </section>\n  </header>\n  <footer>\n    <span>Seat B12 · 7:30 PM</span>\n    <button type=\"button\">Check in</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #27233d;\n  --paper: #fffdf6;\n  --lilac: #e5ddff;\n}\n\n.cinema-card {\n  width: 440px;\n  padding: 16px;\n  border: 2px solid var(--ink);\n  border-radius: 16px;\n  background: var(--paper);\n  color: var(--ink);\n}\n\n.cinema-card header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.ticket-mark {\n  padding: 9px;\n  border-radius: 10px;\n  background: var(--lilac);\n  font-size: 24px;\n}\n\n.cinema-card h1 {\n  margin: 0;\n  font-size: 21px;\n  line-height: 1.1;\n}\n\n.screening-meta {\n  margin: 4px 0 0;\n  font-size: 14px;\n}\n\n.cinema-card footer {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-top: 16px;\n  font-size: 14px;\n  font-weight: 700;\n}\n\n.cinema-card button {\n  padding: 8px 12px;\n  border: 0;\n  border-radius: 8px;\n  background: var(--ink);\n  color: var(--paper);\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"cinema-card\">\n  <header>\n    <span class=\"ticket-mark\">🎞️</span>\n    <section>\n      <h1>Rooftop Cinema</h1>\n      <p class=\"screening-meta\">Moonlight screening · 21 Sep</p>\n    </section>\n  </header>\n  <footer>\n    <span>Seat B12 · 7:30 PM</span>\n    <button type=\"button\">Check in</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #27233d;\n  --paper: #fffdf6;\n  --lilac: #e5ddff;\n}\n\n.cinema-card {\n}\n\n.cinema-card header {\n}\n\n.ticket-mark {\n}\n\n.cinema-card h1 {\n}\n\n.screening-meta {\n}\n\n.cinema-card footer {\n}\n\n.cinema-card button {\n}"
+  },
+  "date": "2026-09-21",
+  "timeLimit": 300,
+  "targetImage": "2026-09-21-easy.webp"
+}
