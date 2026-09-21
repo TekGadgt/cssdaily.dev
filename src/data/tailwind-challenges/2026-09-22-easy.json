@@ -1,0 +1,13 @@
+{
+  "title": "Umbrella Share Return Reminder — Easy — 2026-09-22",
+  "difficulty": "easy",
+  "date": "2026-09-22",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <h2 class=\"  \">Umbrella return</h2>\n  <p class=\"  \">Due today</p>\n  <p class=\"  \">Please return umbrella #18 to the Market Street stand before 8:00 PM.</p>\n  <button class=\"  \">View return details</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"flex w-96 flex-col gap-3 rounded-xl border border-sky-200 bg-white p-4 text-slate-800\">\n  <h2 class=\"text-lg font-bold tracking-tight text-sky-900\">Umbrella return</h2>\n  <p class=\"w-fit rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-800\">Due today</p>\n  <p class=\"text-sm leading-5 text-slate-600\">Please return umbrella #18 to the Market Street stand before 8:00 PM.</p>\n  <button class=\"rounded-lg bg-sky-600 px-3 py-2 text-sm font-semibold text-white\">View return details</button>\n</article>"
+  },
+  "targetImage": "2026-09-22-easy.webp"
+}

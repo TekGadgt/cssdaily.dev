@@ -1,0 +1,15 @@
+{
+  "title": "Tidepool Explorer Tag",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"tidal-pass\">\n  <header class=\"pass-header\">\n    <span class=\"pass-icon\" aria-hidden=\"true\">🦀</span>\n    <section class=\"pass-copy\">\n      <p>Coastal Discovery Club</p>\n      <h2>Tidepool Explorer</h2>\n    </section>\n  </header>\n  <section class=\"pass-details\" aria-label=\"Visit details\">\n    <p class=\"detail\"><strong>ZONE</strong> North Cove</p>\n    <p class=\"detail\"><strong>TIME</strong> 08:40–10:00</p>\n  </section>\n  <footer>\n    <span class=\"status\">LOW TIDE ACTIVE</span>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #173c45;\n  --seafoam: #ccece5;\n  --coral: #ef765e;\n}\n\n.tidal-pass {\n  width: 440px;\n  padding: 16px;\n  border: 2px solid var(--ink);\n  border-radius: 18px;\n  background: var(--seafoam);\n  color: var(--ink);\n}\n\n.pass-header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.pass-icon {\n  display: grid;\n  width: 46px;\n  height: 46px;\n  place-items: center;\n  border-radius: 14px;\n  background: var(--coral);\n  font-size: 26px;\n}\n\n.pass-copy p,\n.pass-copy h2,\n.pass-details p {\n  margin: 0;\n}\n\n.pass-copy p,\n.detail strong {\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}\n\n.pass-copy h2 {\n  font-size: 21px;\n  line-height: 1.2;\n}\n\n.pass-details {\n  display: flex;\n  gap: 10px;\n  margin: 15px 0;\n}\n\n.detail {\n  flex: 1;\n  padding: 9px 10px;\n  border: 1px solid var(--ink);\n  border-radius: 9px;\n  font-size: 14px;\n}\n\n.detail strong {\n  display: block;\n  margin-bottom: 3px;\n}\n\n.status {\n  display: inline-block;\n  padding: 6px 10px;\n  border-radius: 999px;\n  background: var(--ink);\n  color: var(--seafoam);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"tidal-pass\">\n  <header class=\"pass-header\">\n    <span class=\"pass-icon\" aria-hidden=\"true\">🦀</span>\n    <section class=\"pass-copy\">\n      <p>Coastal Discovery Club</p>\n      <h2>Tidepool Explorer</h2>\n    </section>\n  </header>\n  <section class=\"pass-details\" aria-label=\"Visit details\">\n    <p class=\"detail\"><strong>ZONE</strong> North Cove</p>\n    <p class=\"detail\"><strong>TIME</strong> 08:40–10:00</p>\n  </section>\n  <footer>\n    <span class=\"status\">LOW TIDE ACTIVE</span>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #173c45;\n  --seafoam: #ccece5;\n  --coral: #ef765e;\n}\n\n.tidal-pass {\n}\n\n.pass-header {\n}\n\n.pass-icon {\n}\n\n.pass-copy p,\n.pass-copy h2,\n.pass-details p {\n}\n\n.pass-copy p,\n.detail strong {\n}\n\n.pass-copy h2 {\n}\n\n.pass-details {\n}\n\n.detail {\n}\n\n.detail strong {\n}\n\n.status {\n}"
+  },
+  "date": "2026-09-22",
+  "timeLimit": 300,
+  "targetImage": "2026-09-22-easy.webp"
+}

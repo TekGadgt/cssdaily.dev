@@ -1,0 +1,13 @@
+{
+  "title": "Community Garden Watering Roster",
+  "difficulty": "medium",
+  "date": "2026-09-22",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Garden Crew · Tuesday</p>\n      <h2 class=\"  \">Watering Roster</h2>\n    </section>\n    <p class=\"  \">Sept 22</p>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">☀ Morning beds</p>\n      <p class=\"  \">7:30–8:15 · Mina<br>Herbs + seedlings</p>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">☾ Evening beds</p>\n      <p class=\"  \">6:00–6:45 · Jordan<br>Tomatoes + beans</p>\n    </section>\n  </main>\n  <footer class=\"  \">\n    <p class=\"  \">Hoses are stored by the tool shed.</p>\n    <button class=\"  \">View map →</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-emerald-200 bg-white\">\n  <header class=\"flex items-start justify-between border-b border-emerald-100 bg-emerald-50 px-5 py-4\">\n    <section class=\"space-y-1\">\n      <p class=\"text-xs font-bold uppercase tracking-widest text-emerald-700\">Garden Crew · Tuesday</p>\n      <h2 class=\"text-xl font-bold text-slate-800\">Watering Roster</h2>\n    </section>\n    <p class=\"rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-800\">Sept 22</p>\n  </header>\n  <main class=\"grid grid-cols-2 gap-3 px-5 py-4\">\n    <section class=\"rounded-xl border border-sky-200 bg-sky-50 p-3\">\n      <p class=\"text-sm font-bold text-sky-900\">☀ Morning beds</p>\n      <p class=\"mt-1 text-xs leading-5 text-sky-700\">7:30–8:15 · Mina<br>Herbs + seedlings</p>\n    </section>\n    <section class=\"rounded-xl border border-violet-200 bg-violet-50 p-3\">\n      <p class=\"text-sm font-bold text-violet-900\">☾ Evening beds</p>\n      <p class=\"mt-1 text-xs leading-5 text-violet-700\">6:00–6:45 · Jordan<br>Tomatoes + beans</p>\n    </section>\n  </main>\n  <footer class=\"flex items-center justify-between border-t border-slate-100 px-5 py-3\">\n    <p class=\"text-xs text-slate-500\">Hoses are stored by the tool shed.</p>\n    <button class=\"rounded-lg bg-emerald-600 px-3 py-2 text-xs font-bold text-white\">View map →</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-09-22-medium.webp"
+}
