@@ -1,0 +1,13 @@
+{
+  "title": "Lantern Float Assembly Shift",
+  "difficulty": "medium",
+  "date": "2026-09-23",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Riverside lantern walk</p>\n      <h1 class=\"  \">Float Assembly Shift</h1>\n      <p class=\"  \">Wednesday · 23 September · 6:30 PM</p>\n    </section>\n    <p class=\"  \">Confirmed</p>\n  </header>\n  <ul class=\"  \">\n    <li class=\"  \">\n      <p class=\"  \">Station</p>\n      <p class=\"  \">Pier 4</p>\n    </li>\n    <li class=\"  \">\n      <p class=\"  \">Team</p>\n      <p class=\"  \">Willows</p>\n    </li>\n    <li class=\"  \">\n      <p class=\"  \">Kit</p>\n      <p class=\"  \">#18</p>\n    </li>\n  </ul>\n  <footer class=\"  \">\n    <p class=\"  \">Bring scissors &amp; a light jacket.</p>\n    <button class=\"  \">View details</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-amber-200 bg-white\">\n  <header class=\"flex items-start justify-between border-b border-amber-100 bg-amber-50 px-4 py-3\">\n    <section class=\"space-y-1\">\n      <p class=\"text-xs font-bold uppercase tracking-widest text-amber-700\">Riverside lantern walk</p>\n      <h1 class=\"text-lg font-bold text-slate-800\">Float Assembly Shift</h1>\n      <p class=\"text-sm text-slate-500\">Wednesday · 23 September · 6:30 PM</p>\n    </section>\n    <p class=\"rounded-full bg-teal-600 px-3 py-1 text-xs font-bold text-white\">Confirmed</p>\n  </header>\n  <ul class=\"grid grid-cols-3 gap-2 px-4 py-3\">\n    <li class=\"rounded-xl border border-sky-200 bg-sky-50 p-2 text-center\">\n      <p class=\"text-xs font-semibold uppercase tracking-wide text-sky-700\">Station</p>\n      <p class=\"mt-1 text-sm font-bold text-slate-700\">Pier 4</p>\n    </li>\n    <li class=\"rounded-xl border border-violet-200 bg-violet-50 p-2 text-center\">\n      <p class=\"text-xs font-semibold uppercase tracking-wide text-violet-700\">Team</p>\n      <p class=\"mt-1 text-sm font-bold text-slate-700\">Willows</p>\n    </li>\n    <li class=\"rounded-xl border border-rose-200 bg-rose-50 p-2 text-center\">\n      <p class=\"text-xs font-semibold uppercase tracking-wide text-rose-700\">Kit</p>\n      <p class=\"mt-1 text-sm font-bold text-slate-700\">#18</p>\n    </li>\n  </ul>\n  <footer class=\"flex items-center justify-between border-t border-slate-100 px-4 py-3\">\n    <p class=\"text-sm text-slate-500\">Bring scissors &amp; a light jacket.</p>\n    <button class=\"rounded-lg bg-slate-800 px-3 py-2 text-sm font-semibold text-white\">View details</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-09-23-medium.webp"
+}

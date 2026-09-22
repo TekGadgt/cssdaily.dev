@@ -1,0 +1,15 @@
+{
+  "title": "Compost Drop-Off Pass",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"compost-pass\">\n  <span class=\"pass-icon\" aria-hidden=\"true\">♻️</span>\n  <section class=\"pass-content\">\n    <p class=\"eyebrow\">SATURDAY COLLECTION</p>\n    <h1>Compost Drop-Off</h1>\n    <p class=\"details\">Bay 04 · 9:00–11:30 AM</p>\n  </section>\n</article>",
+    "css": ":root {\n  --ink: #26352a;\n  --paper: #fffdf7;\n  --line: #cdd8c8;\n  --moss: #3f7048;\n  --leaf: #e3f0da;\n}\n\n.compost-pass {\n  display: flex;\n  align-items: center;\n  gap: 14px;\n  width: 430px;\n  padding: 14px;\n  background: var(--paper);\n  border: 1px solid var(--line);\n  border-radius: 14px;\n}\n\n.pass-icon {\n  display: grid;\n  place-items: center;\n  width: 58px;\n  height: 58px;\n  background: var(--leaf);\n  border-radius: 50%;\n  font-size: 27px;\n}\n\n.pass-content h1 {\n  margin: 2px 0;\n  color: var(--ink);\n  font-size: 20px;\n}\n\n.eyebrow,\n.details {\n  margin: 0;\n  color: var(--moss);\n  font-size: 12px;\n}\n\n.eyebrow {\n  font-weight: 700;\n  letter-spacing: 0.08em;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"compost-pass\">\n  <span class=\"pass-icon\" aria-hidden=\"true\">♻️</span>\n  <section class=\"pass-content\">\n    <p class=\"eyebrow\">SATURDAY COLLECTION</p>\n    <h1>Compost Drop-Off</h1>\n    <p class=\"details\">Bay 04 · 9:00–11:30 AM</p>\n  </section>\n</article>",
+    "css": ":root {\n  --ink: #26352a;\n  --paper: #fffdf7;\n  --line: #cdd8c8;\n  --moss: #3f7048;\n  --leaf: #e3f0da;\n}\n\n.compost-pass {\n}\n\n.pass-icon {\n}\n\n.pass-content h1 {\n}\n\n.eyebrow,\n.details {\n}\n\n.eyebrow {\n}\n"
+  },
+  "date": "2026-09-23",
+  "timeLimit": 300,
+  "targetImage": "2026-09-23-easy.webp"
+}
