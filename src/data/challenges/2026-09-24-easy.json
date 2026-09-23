@@ -1,0 +1,15 @@
+{
+  "title": "Roller Rink Skate Check",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"skate-tag\">\n  <header class=\"tag-icon\" aria-hidden=\"true\">🛼</header>\n  <section class=\"tag-content\">\n    <p class=\"eyebrow\">MOONLIGHT ROLLER RINK</p>\n    <h1>Skate check complete</h1>\n    <footer class=\"tag-footer\">\n      <span>Sep 24, 2026 · Size 39</span>\n      <strong>R-184</strong>\n    </footer>\n  </section>\n</article>",
+    "css": ":root {\n  --ink: #283044;\n  --paper: #fffaf1;\n  --pink: #f05b93;\n}\n\n.skate-tag {\n  display: flex;\n  width: 460px;\n  overflow: hidden;\n  background: var(--paper);\n  border: 2px solid var(--ink);\n  border-radius: 16px;\n}\n\n.tag-icon {\n  display: grid;\n  width: 88px;\n  place-items: center;\n  background: var(--pink);\n  font-size: 38px;\n}\n\n.tag-content {\n  flex: 1;\n  padding: 15px 18px;\n}\n\n.eyebrow {\n  margin: 0 0 4px;\n  color: var(--pink);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}\n\nh1 {\n  margin: 0;\n  color: var(--ink);\n  font-size: 20px;\n  line-height: 1.2;\n}\n\n.tag-footer {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 14px;\n  color: var(--ink);\n  font-size: 13px;\n}\n\n.tag-footer strong {\n  color: var(--pink);\n  font-size: 14px;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"skate-tag\">\n  <header class=\"tag-icon\" aria-hidden=\"true\">🛼</header>\n  <section class=\"tag-content\">\n    <p class=\"eyebrow\">MOONLIGHT ROLLER RINK</p>\n    <h1>Skate check complete</h1>\n    <footer class=\"tag-footer\">\n      <span>Sep 24, 2026 · Size 39</span>\n      <strong>R-184</strong>\n    </footer>\n  </section>\n</article>",
+    "css": ":root {\n  --ink: #283044;\n  --paper: #fffaf1;\n  --pink: #f05b93;\n}\n\n.skate-tag {\n}\n\n.tag-icon {\n}\n\n.tag-content {\n}\n\n.eyebrow {\n}\n\nh1 {\n}\n\n.tag-footer {\n}\n\n.tag-footer strong {\n}"
+  },
+  "date": "2026-09-24",
+  "timeLimit": 300,
+  "targetImage": "2026-09-24-easy.webp"
+}

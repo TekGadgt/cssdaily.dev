@@ -1,0 +1,13 @@
+{
+  "title": "Shoe Shine Booking — Easy — 2026-09-24",
+  "difficulty": "easy",
+  "date": "2026-09-24",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Shoe Shine Booking</h1>\n    <p class=\"  \">Confirmed</p>\n  </header>\n  <button class=\"  \">Thu, Sep 24 · 4:30 PM</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 overflow-hidden rounded-xl border border-amber-200 bg-white\">\n  <header class=\"flex items-center justify-between border-b border-amber-100 bg-amber-50 px-4 py-3\">\n    <h1 class=\"text-base font-semibold text-amber-950\">Shoe Shine Booking</h1>\n    <p class=\"rounded-full bg-amber-600 px-2 py-1 text-xs font-medium text-white\">Confirmed</p>\n  </header>\n  <button class=\"w-full bg-stone-900 px-4 py-3 text-sm font-semibold text-white\">Thu, Sep 24 · 4:30 PM</button>\n</article>"
+  },
+  "targetImage": "2026-09-24-easy.webp"
+}

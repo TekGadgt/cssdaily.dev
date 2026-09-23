@@ -1,0 +1,13 @@
+{
+  "title": "Urban Bat Count Route Card",
+  "difficulty": "medium",
+  "date": "2026-09-24",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Dusk Bat Count</h1>\n    <span class=\"  \">SEP 24</span>\n  </header>\n  <section class=\"  \">\n    <div class=\"  \">\n      <button class=\"  \">ROUTE 01\nRiverside · 7:10 PM</button>\n      <button class=\"  \">ROUTE 02\nLibrary eaves · 7:20 PM</button>\n    </div>\n  </section>\n  <footer class=\"  \">Meet at East Gate <span class=\"  \">Bring red torch</span></footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-xl border border-slate-200 bg-white\">\n  <header class=\"flex items-center justify-between bg-indigo-950 px-4 py-3 text-white\">\n    <h1 class=\"text-base font-semibold tracking-wide\">Dusk Bat Count</h1>\n    <span class=\"rounded-full bg-lime-300 px-2.5 py-1 text-xs font-bold text-indigo-950\">SEP 24</span>\n  </header>\n  <section class=\"p-4\">\n    <div class=\"grid grid-cols-2 gap-3\">\n      <button class=\"min-h-20 whitespace-pre-line rounded-lg border border-amber-200 bg-amber-50 px-3 text-left text-sm font-semibold leading-5 text-amber-950\">ROUTE 01\nRiverside · 7:10 PM</button>\n      <button class=\"min-h-20 whitespace-pre-line rounded-lg border border-sky-200 bg-sky-50 px-3 text-left text-sm font-semibold leading-5 text-sky-950\">ROUTE 02\nLibrary eaves · 7:20 PM</button>\n    </div>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-200 bg-slate-50 px-4 py-3 text-xs font-medium text-slate-600\">Meet at East Gate <span class=\"rounded-md bg-slate-200 px-2 py-1 text-slate-700\">Bring red torch</span></footer>\n</article>"
+  },
+  "targetImage": "2026-09-24-medium.webp"
+}
