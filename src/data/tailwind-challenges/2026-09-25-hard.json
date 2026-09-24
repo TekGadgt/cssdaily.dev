@@ -1,0 +1,13 @@
+{
+  "title": "Cloud Chamber Particle Log",
+  "difficulty": "hard",
+  "date": "2026-09-25",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Cloud Chamber Log</h1>\n    <span class=\"  \">LIVE</span>\n  </header>\n  <section class=\"  \">\n    <article class=\"  \">\n      Tracks\n      <strong class=\"  \">184</strong>\n    </article>\n    <article class=\"  \">\n      Stable\n      <strong class=\"  \">96%</strong>\n    </article>\n    <article class=\"  \">\n      Events\n      <strong class=\"  \">07</strong>\n    </article>\n  </section>\n  <footer class=\"  \">\n    <span class=\"  \">25 SEP 2026 · RUN 04</span>\n    <button class=\"  \">Archive run</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-lg overflow-hidden rounded-xl border border-slate-300 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between bg-slate-900 px-4 py-3\">\n    <h1 class=\"text-base font-bold tracking-wide text-white\">Cloud Chamber Log</h1>\n    <span class=\"rounded-full bg-cyan-400 px-2 py-1 text-xs font-bold text-slate-950\">LIVE</span>\n  </header>\n  <section class=\"grid grid-cols-3 gap-2 bg-slate-100 p-3\">\n    <article class=\"flex min-h-24 flex-col justify-between rounded-lg border border-cyan-200 bg-cyan-50 p-3 text-xs font-semibold uppercase tracking-wider text-cyan-800\">\n      Tracks\n      <strong class=\"text-lg font-bold leading-none text-cyan-950\">184</strong>\n    </article>\n    <article class=\"flex min-h-24 flex-col justify-between rounded-lg border border-lime-200 bg-lime-50 p-3 text-xs font-semibold uppercase tracking-wider text-lime-800\">\n      Stable\n      <strong class=\"text-lg font-bold leading-none text-lime-950\">96%</strong>\n    </article>\n    <article class=\"flex min-h-24 flex-col justify-between rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs font-semibold uppercase tracking-wider text-amber-800\">\n      Events\n      <strong class=\"text-lg font-bold leading-none text-amber-950\">07</strong>\n    </article>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-200 px-4 py-3\">\n    <span class=\"text-xs font-medium text-slate-500\">25 SEP 2026 · RUN 04</span>\n    <button class=\"rounded-md bg-violet-600 px-3 py-2 text-xs font-bold text-white\">Archive run</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-09-25-hard.webp"
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Bluebird Nest Watch",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"nest-card\">\n  <header class=\"card-header\">\n    <span class=\"bird\">🐦</span>\n    <section>\n      <p class=\"eyebrow\">NEST WATCH</p>\n      <h1>Bluebird House 04</h1>\n    </section>\n  </header>\n  <p class=\"status\">● Active nesting</p>\n  <button>Log observation</button>\n</article>",
+    "css": ":root {\n  --ink: #24352d;\n  --leaf: #4f7b5b;\n  --mint: #dfeee0;\n  --cream: #fffdf4;\n  --coral: #dd765d;\n}\n\n.nest-card {\n  width: 360px;\n  padding: 18px;\n  border: 2px solid var(--leaf);\n  border-radius: 18px;\n  background: var(--cream);\n}\n\n.card-header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.bird {\n  display: grid;\n  width: 46px;\n  height: 46px;\n  place-items: center;\n  border-radius: 14px;\n  background: var(--mint);\n  font-size: 26px;\n}\n\n.eyebrow {\n  margin: 0 0 3px;\n  color: var(--leaf);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1.2px;\n}\n\nh1 {\n  margin: 0;\n  color: var(--ink);\n  font-size: 20px;\n  line-height: 1.1;\n}\n\n.status {\n  margin: 16px 0 12px;\n  color: var(--leaf);\n  font-size: 14px;\n  font-weight: 600;\n}\n\nbutton {\n  width: 100%;\n  padding: 9px 12px;\n  border: 0;\n  border-radius: 9px;\n  background: var(--coral);\n  color: var(--cream);\n  font-size: 14px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"nest-card\">\n  <header class=\"card-header\">\n    <span class=\"bird\">🐦</span>\n    <section>\n      <p class=\"eyebrow\">NEST WATCH</p>\n      <h1>Bluebird House 04</h1>\n    </section>\n  </header>\n  <p class=\"status\">● Active nesting</p>\n  <button>Log observation</button>\n</article>",
+    "css": ":root {\n  --ink: #24352d;\n  --leaf: #4f7b5b;\n  --mint: #dfeee0;\n  --cream: #fffdf4;\n  --coral: #dd765d;\n}\n\n.nest-card {\n}\n\n.card-header {\n}\n\n.bird {\n}\n\n.eyebrow {\n}\n\nh1 {\n}\n\n.status {\n}\n\nbutton {\n}"
+  },
+  "date": "2026-09-25",
+  "timeLimit": 300,
+  "targetImage": "2026-09-25-easy.webp"
+}
