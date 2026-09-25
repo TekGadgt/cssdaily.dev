@@ -1,0 +1,13 @@
+{
+  "title": "Espresso Dial-In Board — 2026-09-26",
+  "difficulty": "hard",
+  "date": "2026-09-26",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Espresso Dial-In</h1>\n    <span class=\"  \">26 Sep</span>\n  </header>\n  <section class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Grind setting</p>\n      <p class=\"  \">4.2</p>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">Recipe locked</p>\n      <p class=\"  \">18 g → 36 g</p>\n    </section>\n  </section>\n  <footer class=\"  \">\n    <button class=\"  \">Log retry</button>\n    <button class=\"  \">Lock recipe</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-xl border border-stone-300 bg-white text-stone-800\">\n  <header class=\"flex items-center justify-between border-b border-stone-200 bg-stone-50 px-3 py-2\">\n    <h1 class=\"text-base font-bold tracking-tight text-stone-900\">Espresso Dial-In</h1>\n    <span class=\"rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-800\">26 Sep</span>\n  </header>\n  <section class=\"grid grid-cols-2 gap-2 p-2\">\n    <section class=\"flex min-h-[82px] flex-col justify-between rounded-lg border border-orange-200 bg-orange-50 p-2.5\">\n      <p class=\"text-[10px] font-bold uppercase tracking-wider text-orange-700\">Grind setting</p>\n      <p class=\"text-2xl font-black leading-none text-orange-950\">4.2</p>\n    </section>\n    <section class=\"flex min-h-[82px] flex-col justify-between rounded-lg border border-cyan-200 bg-cyan-50 p-2.5\">\n      <p class=\"text-[10px] font-bold uppercase tracking-wider text-cyan-700\">Recipe locked</p>\n      <p class=\"text-lg font-black leading-none text-cyan-950\">18 g → 36 g</p>\n    </section>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-stone-200 bg-stone-50 px-3 py-2\">\n    <button class=\"rounded-md border border-stone-300 bg-white px-2.5 py-1.5 text-xs font-semibold text-stone-700\">Log retry</button>\n    <button class=\"rounded-md bg-emerald-700 px-2.5 py-1.5 text-xs font-bold text-white\">Lock recipe</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-09-26-hard.webp"
+}

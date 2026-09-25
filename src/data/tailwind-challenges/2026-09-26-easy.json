@@ -1,0 +1,13 @@
+{
+  "title": "Orchard Owl Walk Pass",
+  "difficulty": "easy",
+  "date": "2026-09-26",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Orchard Owl Walk</h1>\n  </header>\n  <p class=\"  \">Saturday, Sep 26 · 7:15 PM<br>Meet at the old cider gate</p>\n  <button class=\"  \">Reserve my lantern</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"flex w-[440px] flex-col gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-slate-800\">\n  <header class=\"flex items-center justify-between\">\n    <h1 class=\"text-lg font-bold tracking-tight\">Orchard Owl Walk</h1>\n  </header>\n  <p class=\"text-sm leading-5 text-slate-600\">Saturday, Sep 26 · 7:15 PM<br>Meet at the old cider gate</p>\n  <button class=\"rounded-xl bg-slate-800 px-4 py-2 text-sm font-semibold text-amber-50\">Reserve my lantern</button>\n</article>"
+  },
+  "targetImage": "2026-09-26-easy.webp"
+}

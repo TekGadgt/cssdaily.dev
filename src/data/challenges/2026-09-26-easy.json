@@ -1,0 +1,15 @@
+{
+  "title": "Table Tennis Ladder Marker",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"ladder-card\">\n  <header class=\"card-header\">\n    <span class=\"paddle\" aria-hidden=\"true\">🏓</span>\n    <h1>Table Tennis Ladder</h1>\n  </header>\n  <p class=\"match-date\">26 Sep 2026 · Table 4 · First to 11</p>\n  <button type=\"button\">Claim challenger spot</button>\n</article>",
+    "css": ":root {\n  --paper: #fffdf8;\n  --ink: #24313a;\n  --line: #d9e1e3;\n  --coral: #e85d55;\n  --muted: #61717a;\n}\n\n.ladder-card {\n  width: 460px;\n  box-sizing: border-box;\n  background: var(--paper);\n  border: 1px solid var(--line);\n  border-radius: 14px;\n  padding: 16px;\n}\n\n.card-header {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  border-bottom: 1px solid var(--line);\n  padding-bottom: 12px;\n}\n\n.paddle {\n  font-size: 28px;\n  line-height: 1;\n}\n\nh1 {\n  margin: 0;\n  color: var(--ink);\n  font-size: 20px;\n  line-height: 1.2;\n}\n\n.match-date {\n  margin: 12px 0;\n  color: var(--muted);\n  font-size: 14px;\n}\n\nbutton {\n  background: var(--coral);\n  color: var(--paper);\n  border: 0;\n  border-radius: 8px;\n  padding: 9px 14px;\n  font-size: 14px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"ladder-card\">\n  <header class=\"card-header\">\n    <span class=\"paddle\" aria-hidden=\"true\">🏓</span>\n    <h1>Table Tennis Ladder</h1>\n  </header>\n  <p class=\"match-date\">26 Sep 2026 · Table 4 · First to 11</p>\n  <button type=\"button\">Claim challenger spot</button>\n</article>",
+    "css": ":root {\n  --paper: #fffdf8;\n  --ink: #24313a;\n  --line: #d9e1e3;\n  --coral: #e85d55;\n  --muted: #61717a;\n}\n\n.ladder-card {\n}\n\n.card-header {\n}\n\n.paddle {\n}\n\nh1 {\n}\n\n.match-date {\n}\n\nbutton {\n}"
+  },
+  "date": "2026-09-26",
+  "timeLimit": 300,
+  "targetImage": "2026-09-26-easy.webp"
+}
