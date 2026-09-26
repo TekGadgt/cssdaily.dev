@@ -1,0 +1,15 @@
+{
+  "title": "Parcel Locker Pickup Code",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"parcel-card\">\n  <span class=\"parcel-icon\">📦</span>\n  <section class=\"parcel-copy\">\n    <p class=\"eyebrow\">LOCKER B-14</p>\n    <h2>Pickup ready</h2>\n  </section>\n  <strong class=\"pickup-code\">482 901</strong>\n</article>",
+    "css": ":root {\n  --navy: #203743;\n  --mint: #d8efe7;\n  --coral: #ef8166;\n}\n\n.parcel-card {\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  width: 460px;\n  padding: 14px 16px;\n  background: var(--mint);\n  border: 2px solid var(--navy);\n  border-radius: 14px;\n}\n\n.parcel-icon {\n  display: grid;\n  place-items: center;\n  width: 42px;\n  height: 42px;\n  background: var(--coral);\n  border-radius: 10px;\n  font-size: 20px;\n}\n\n.parcel-copy {\n  flex: 1;\n}\n\n.eyebrow {\n  margin: 0 0 2px;\n  color: var(--navy);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n}\n\n.parcel-copy h2 {\n  margin: 0;\n  color: var(--navy);\n  font-size: 18px;\n  line-height: 1.1;\n}\n\n.pickup-code {\n  padding: 8px 10px;\n  background: var(--navy);\n  border-radius: 8px;\n  color: var(--mint);\n  font-size: 14px;\n  letter-spacing: 0.06em;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"parcel-card\">\n  <span class=\"parcel-icon\">📦</span>\n  <section class=\"parcel-copy\">\n    <p class=\"eyebrow\">LOCKER B-14</p>\n    <h2>Pickup ready</h2>\n  </section>\n  <strong class=\"pickup-code\">482 901</strong>\n</article>",
+    "css": ":root {\n  --navy: #203743;\n  --mint: #d8efe7;\n  --coral: #ef8166;\n}\n\n.parcel-card {\n}\n\n.parcel-icon {\n}\n\n.parcel-copy {\n}\n\n.eyebrow {\n}\n\n.parcel-copy h2 {\n}\n\n.pickup-code {\n}"
+  },
+  "date": "2026-09-27",
+  "timeLimit": 300,
+  "targetImage": "2026-09-27-easy.webp"
+}

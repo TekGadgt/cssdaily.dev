@@ -1,0 +1,13 @@
+{
+  "title": "Shortwave Beacon Monitor — Hard — 2026-09-27",
+  "difficulty": "hard",
+  "date": "2026-09-27",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Beacon Monitor</h1>\n    <p class=\"  \">Locked</p>\n  </header>\n  <section class=\"  \">\n    <section class=\"  \">\n      Uplink\n      <p class=\"  \">98.4%</p>\n    </section>\n    <section class=\"  \">\n      Frequency\n      <p class=\"  \">7.042</p>\n    </section>\n    <section class=\"  \">\n      Drift\n      <p class=\"  \">+0.3 Hz</p>\n    </section>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Next window · 27 SEP 2026, 21:40 UTC</p>\n    <button class=\"  \">Tune</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-lg overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 text-slate-100\">\n  <header class=\"flex items-center justify-between border-b border-slate-800 bg-slate-900 px-4 py-3\">\n    <h1 class=\"text-base font-bold tracking-tight text-white\">Beacon Monitor</h1>\n    <p class=\"rounded-full border border-cyan-800 bg-cyan-950 px-2 py-1 text-xs font-semibold uppercase tracking-wide text-cyan-300\">Locked</p>\n  </header>\n  <section class=\"grid grid-cols-3 gap-2 bg-slate-950 p-3\">\n    <section class=\"flex min-h-24 flex-col justify-between rounded-xl border border-emerald-800 bg-emerald-950 p-3 text-xs font-semibold uppercase tracking-wider text-emerald-300\">\n      Uplink\n      <p class=\"text-xl font-bold normal-case tracking-tight text-emerald-100\">98.4%</p>\n    </section>\n    <section class=\"flex min-h-24 flex-col justify-between rounded-xl border border-cyan-800 bg-cyan-950 p-3 text-xs font-semibold uppercase tracking-wider text-cyan-300\">\n      Frequency\n      <p class=\"text-xl font-bold normal-case tracking-tight text-cyan-100\">7.042</p>\n    </section>\n    <section class=\"flex min-h-24 flex-col justify-between rounded-xl border border-amber-800 bg-amber-950 p-3 text-xs font-semibold uppercase tracking-wider text-amber-300\">\n      Drift\n      <p class=\"text-xl font-bold normal-case tracking-tight text-amber-100\">+0.3 Hz</p>\n    </section>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-800 bg-slate-900 px-4 py-3\">\n    <p class=\"text-xs font-medium text-rose-300\">Next window · 27 SEP 2026, 21:40 UTC</p>\n    <button class=\"rounded-lg bg-amber-400 px-3 py-2 text-xs font-bold uppercase tracking-wide text-amber-950\">Tune</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-09-27-hard.webp"
+}

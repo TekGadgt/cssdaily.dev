@@ -1,0 +1,13 @@
+{
+  "title": "Analog Synth Patch Recall",
+  "difficulty": "medium",
+  "date": "2026-09-27",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Patch Recall Session</h1>\n    <span class=\"  \">27 SEP 2026</span>\n  </header>\n  <section class=\"  \">\n    <section class=\"  \">A-17 · Warm Pad<br class=\"  \">Five voices ready</section>\n    <section class=\"  \">B-04 · Glass Pulse<br class=\"  \">Clock synced</section>\n  </section>\n  <footer class=\"  \">2 saved patches <button class=\"  \">Load set</button></footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-lg overflow-hidden rounded-xl border border-slate-300 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between border-b border-slate-200 bg-slate-50 px-4 py-3\">\n    <h1 class=\"text-base font-semibold tracking-tight\">Patch Recall Session</h1>\n    <span class=\"rounded-full bg-slate-800 px-2.5 py-1 text-xs font-semibold tracking-wide text-white\">27 SEP 2026</span>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 p-4\">\n    <section class=\"rounded-lg border border-violet-200 bg-violet-50 p-3 text-sm font-medium leading-5 text-violet-950\">A-17 · Warm Pad<br>Five voices ready</section>\n    <section class=\"rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm font-medium leading-5 text-amber-950\">B-04 · Glass Pulse<br>Clock synced</section>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-200 px-4 py-3 text-sm text-slate-600\">2 saved patches <button class=\"rounded-md bg-emerald-600 px-3 py-1.5 text-sm font-semibold text-white\">Load set</button></footer>\n</article>"
+  },
+  "targetImage": "2026-09-27-medium.webp"
+}
