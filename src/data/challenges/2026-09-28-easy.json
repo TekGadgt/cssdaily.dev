@@ -1,0 +1,15 @@
+{
+  "title": "Bouldering Route Ready",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"route-ready\">\n  <span class=\"route-icon\" aria-hidden=\"true\">▲</span>\n  <section class=\"route-copy\">\n    <h2>Route reset complete</h2>\n    <p>South wall · start holds marked</p>\n  </section>\n  <span class=\"grade\">V3</span>\n</article>",
+    "css": ":root {\n  --surface: #ffffff;\n  --ink: #26332d;\n  --accent: #e66a4e;\n}\n\n.route-ready {\n  width: 440px;\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 14px 16px;\n  background: var(--surface);\n  border: 1px solid var(--ink);\n  border-left: 6px solid var(--accent);\n  border-radius: 12px;\n  color: var(--ink);\n}\n\n.route-icon {\n  color: var(--accent);\n  font-size: 24px;\n  line-height: 1;\n}\n\n.route-copy h2 {\n  margin: 0;\n  font-size: 18px;\n  line-height: 1.1;\n}\n\n.route-copy p {\n  margin: 4px 0 0;\n  font-size: 14px;\n}\n\n.grade {\n  margin-left: auto;\n  padding: 5px 9px;\n  background: var(--accent);\n  border-radius: 999px;\n  color: var(--surface);\n  font-size: 13px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"route-ready\">\n  <span class=\"route-icon\" aria-hidden=\"true\">▲</span>\n  <section class=\"route-copy\">\n    <h2>Route reset complete</h2>\n    <p>South wall · start holds marked</p>\n  </section>\n  <span class=\"grade\">V3</span>\n</article>",
+    "css": ":root {\n  --surface: #ffffff;\n  --ink: #26332d;\n  --accent: #e66a4e;\n}\n\n.route-ready {\n}\n\n.route-icon {\n}\n\n.route-copy h2 {\n}\n\n.route-copy p {\n}\n\n.grade {\n}"
+  },
+  "date": "2026-09-28",
+  "timeLimit": 300,
+  "targetImage": "2026-09-28-easy.webp"
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Sea Glass Sorting Slot — Medium",
+  "difficulty": "medium",
+  "date": "2026-09-28",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">◈</span>\n    <section class=\"  \">\n      <h1 class=\"  \">Sea Glass Sorting Slot</h1>\n      <p class=\"  \">Harbor Lab · Batch 08</p>\n    </section>\n  </header>\n  <ul class=\"  \">\n    <li class=\"  \">MON · SEP 28<br>14:30 — 15:15</li>\n    <li class=\"  \">BENCH 04<br>Blue tray ready</li>\n  </ul>\n  <button class=\"  \">Confirm sorting slot</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 text-slate-800\">\n  <header class=\"flex items-center gap-3 border-b border-slate-100 pb-3\">\n    <span class=\"flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-100 text-lg text-teal-700\">◈</span>\n    <section class=\"min-w-0 flex-1\">\n      <h1 class=\"text-lg font-bold tracking-tight text-slate-900\">Sea Glass Sorting Slot</h1>\n      <p class=\"mt-0.5 text-sm text-slate-500\">Harbor Lab · Batch 08</p>\n    </section>\n  </header>\n  <ul class=\"mt-3 grid grid-cols-2 gap-2\">\n    <li class=\"rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-sm font-semibold leading-5 text-amber-800\">MON · SEP 28<br>14:30 — 15:15</li>\n    <li class=\"rounded-xl border border-sky-200 bg-sky-50 px-3 py-2 text-sm font-semibold leading-5 text-sky-800\">BENCH 04<br>Blue tray ready</li>\n  </ul>\n  <button class=\"mt-3 w-full rounded-xl bg-teal-600 px-4 py-2.5 text-sm font-semibold text-white\">Confirm sorting slot</button>\n</article>"
+  },
+  "targetImage": "2026-09-28-medium.webp"
+}

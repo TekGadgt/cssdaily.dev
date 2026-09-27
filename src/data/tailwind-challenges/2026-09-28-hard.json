@@ -1,0 +1,13 @@
+{
+  "title": "Bridge Load Test Console",
+  "difficulty": "hard",
+  "date": "2026-09-28",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Span 04 · 28 Sep 2026</p>\n      Bridge load test\n    </section>\n    <aside class=\"  \">Live run</aside>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Deck deflection <span class=\"  \">Stable</span></p>\n      <strong class=\"  \">12.4 <span class=\"  \">mm</span></strong>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">Load applied</p>\n      <strong class=\"  \">68 <span class=\"  \">%</span></strong>\n    </section>\n  </main>\n  <footer class=\"  \">\n    Next reading in 00:18\n    <button class=\"  \">Hold test</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-lg overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 text-slate-100\">\n  <header class=\"flex items-center justify-between border-b border-slate-700 px-4 py-3\">\n    <section class=\"flex flex-col gap-1\">\n      <p class=\"text-xs font-bold uppercase tracking-[0.18em] text-cyan-300\">Span 04 · 28 Sep 2026</p>\n      Bridge load test\n    </section>\n    <aside class=\"rounded-full bg-amber-400 px-3 py-1 text-xs font-bold uppercase tracking-wide text-amber-950\">Live run</aside>\n  </header>\n  <main class=\"grid grid-cols-5 gap-3 p-4\">\n    <section class=\"col-span-3 flex flex-col justify-between rounded-xl border border-cyan-800 bg-slate-800 p-3\">\n      <p class=\"flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate-400\">Deck deflection <span class=\"rounded bg-cyan-950 px-2 py-1 text-cyan-300\">Stable</span></p>\n      <strong class=\"text-2xl tracking-tight text-cyan-300\">12.4 <span class=\"text-sm font-medium text-slate-400\">mm</span></strong>\n    </section>\n    <section class=\"col-span-2 flex flex-col justify-between rounded-xl border border-lime-300 bg-lime-100 p-3 text-lime-950\">\n      <p class=\"text-xs font-bold uppercase tracking-wider text-lime-700\">Load applied</p>\n      <strong class=\"text-2xl tracking-tight\">68 <span class=\"text-sm font-medium\">%</span></strong>\n    </section>\n  </main>\n  <footer class=\"flex items-center justify-between border-t border-slate-700 bg-slate-800 px-4 py-3 text-xs text-slate-400\">\n    Next reading in 00:18\n    <button class=\"rounded-lg bg-rose-500 px-3 py-2 text-xs font-bold text-white\">Hold test</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-09-28-hard.webp"
+}
