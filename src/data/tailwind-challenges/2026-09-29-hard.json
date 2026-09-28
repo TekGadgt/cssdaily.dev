@@ -1,0 +1,13 @@
+{
+  "title": "Risograph Print Run",
+  "difficulty": "hard",
+  "date": "2026-09-29",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <h1 class=\"  \">RISO LAB · RUN 041</h1>\n      <p class=\"  \">Autumn newsletter · A3 master</p>\n    </section>\n    <span class=\"  \">PRINTING</span>\n  </header>\n  <section class=\"  \">\n    <figure class=\"  \">\n      <section class=\"  \">\n        <span class=\"  \"></span>\n        <span class=\"  \"></span>\n        <span class=\"  \"></span>\n      </section>\n    </figure>\n    <aside class=\"  \">218 sheets · ready 82%</aside>\n  </section>\n  <footer class=\"  \">Next check: drum alignment in 41 min</footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-indigo-200 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between border-b border-indigo-100 bg-indigo-50 px-4 py-3\">\n    <section class=\"flex flex-col gap-0.5\">\n      <h1 class=\"text-base font-bold tracking-tight text-indigo-950\">RISO LAB · RUN 041</h1>\n      <p class=\"text-xs font-medium text-indigo-500\">Autumn newsletter · A3 master</p>\n    </section>\n    <span class=\"rounded-full bg-emerald-500 px-2.5 py-1 text-[10px] font-bold tracking-wider text-white\">PRINTING</span>\n  </header>\n  <section class=\"grid grid-cols-[3fr_2fr] gap-3 p-4\">\n    <figure class=\"rounded-xl border border-slate-200 bg-slate-50 p-3\">\n      <section class=\"flex h-14 overflow-hidden rounded-lg border border-slate-300 bg-white\">\n        <span class=\"flex-1 bg-cyan-400\"></span>\n        <span class=\"flex-1 bg-fuchsia-500\"></span>\n        <span class=\"flex-1 bg-yellow-300\"></span>\n      </section>\n    </figure>\n    <aside class=\"flex items-center rounded-xl border border-amber-200 bg-amber-50 px-3 text-sm font-bold leading-tight text-amber-800\">218 sheets · ready 82%</aside>\n  </section>\n  <footer class=\"border-t border-slate-100 bg-slate-50 px-4 py-2 text-xs font-medium text-slate-500\">Next check: drum alignment in 41 min</footer>\n</article>"
+  },
+  "targetImage": "2026-09-29-hard.webp"
+}

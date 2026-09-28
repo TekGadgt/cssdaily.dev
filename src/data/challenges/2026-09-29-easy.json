@@ -1,0 +1,15 @@
+{
+  "title": "Mosswood Acorn Cache — Easy — 2026-09-29",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"cache-card\">\n  <header class=\"top-line\">\n    <span class=\"acorn\">🌰</span>\n    <span class=\"state\">FOUND</span>\n  </header>\n  <h1>Acorn cache</h1>\n  <p>East trail · under the old cedar</p>\n  <footer><button>Mark explored</button></footer>\n</article>",
+    "css": ":root {\n  --ink: #24352a;\n  --moss: #547449;\n  --cream: #fffdf6;\n  --sand: #e7ddbd;\n  --leaf: #dbe8ce;\n}\n\n.cache-card {\n  width: 440px;\n  padding: 16px;\n  border: 2px solid var(--moss);\n  border-radius: 16px;\n  background: var(--cream);\n  color: var(--ink);\n}\n\n.top-line {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.acorn {\n  font-size: 25px;\n}\n\n.state {\n  padding: 4px 8px;\n  border-radius: 999px;\n  background: var(--leaf);\n  color: var(--moss);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.8px;\n}\n\nh1 {\n  margin: 10px 0 3px;\n  font-size: 21px;\n  line-height: 1.1;\n}\n\np {\n  margin: 0 0 14px;\n  color: var(--moss);\n  font-size: 14px;\n}\n\nfooter {\n  border-top: 1px solid var(--sand);\n  padding-top: 12px;\n}\n\nbutton {\n  border: 0;\n  border-radius: 8px;\n  padding: 8px 12px;\n  background: var(--moss);\n  color: var(--cream);\n  font-size: 13px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"cache-card\">\n  <header class=\"top-line\">\n    <span class=\"acorn\">🌰</span>\n    <span class=\"state\">FOUND</span>\n  </header>\n  <h1>Acorn cache</h1>\n  <p>East trail · under the old cedar</p>\n  <footer><button>Mark explored</button></footer>\n</article>",
+    "css": ":root {\n  --ink: #24352a;\n  --moss: #547449;\n  --cream: #fffdf6;\n  --sand: #e7ddbd;\n  --leaf: #dbe8ce;\n}\n\n.cache-card {\n}\n\n.top-line {\n}\n\n.acorn {\n}\n\n.state {\n}\n\nh1 {\n}\n\np {\n}\n\nfooter {\n}\n\nbutton {\n}"
+  },
+  "date": "2026-09-29",
+  "timeLimit": 300,
+  "targetImage": "2026-09-29-easy.webp"
+}
