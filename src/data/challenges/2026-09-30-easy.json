@@ -1,0 +1,15 @@
+{
+  "title": "Model Railway Open House Pass — Easy",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"pass\">\n  <header class=\"pass__header\">\n    <section>\n      <p class=\"pass__eyebrow\">RIVET & RAIL SOCIETY</p>\n      <h1 class=\"pass__title\">Open House Pass</h1>\n    </section>\n    <span class=\"pass__badge\">TRACK 04</span>\n  </header>\n  <section class=\"pass__body\">\n    <p class=\"pass__note\">Saturday · 10:00–14:00<br>West Hall miniature railway</p>\n  </section>\n  <footer class=\"pass__footer\">\n    <button class=\"pass__button\">Admit one guest</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #25323a;\n  --paper: #fffdf6;\n  --rail-red: #d95d46;\n  --line: #d8d0c1;\n}\n\n.pass {\n  box-sizing: border-box;\n  width: 470px;\n  background: var(--paper);\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n  padding: 14px;\n}\n\n.pass__header {\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n  gap: 12px;\n}\n\n.pass__eyebrow {\n  margin: 0 0 3px;\n  color: var(--rail-red);\n  font-size: 11px;\n  font-weight: 800;\n  letter-spacing: 1px;\n}\n\n.pass__title {\n  margin: 0;\n  color: var(--ink);\n  font-size: 23px;\n  line-height: 1.1;\n}\n\n.pass__badge {\n  background: var(--rail-red);\n  border-radius: 999px;\n  color: var(--paper);\n  padding: 6px 9px;\n  font-size: 11px;\n  font-weight: 800;\n  letter-spacing: 0.5px;\n}\n\n.pass__body {\n  border-top: 1px dashed var(--line);\n  margin-top: 12px;\n  padding-top: 10px;\n}\n\n.pass__note {\n  margin: 0;\n  color: var(--ink);\n  font-size: 14px;\n  line-height: 1.45;\n}\n\n.pass__footer {\n  margin-top: 12px;\n}\n\n.pass__button {\n  width: 100%;\n  background: var(--ink);\n  border: 0;\n  border-radius: 7px;\n  color: var(--paper);\n  padding: 9px 12px;\n  font-size: 13px;\n  font-weight: 700;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"pass\">\n  <header class=\"pass__header\">\n    <section>\n      <p class=\"pass__eyebrow\">RIVET & RAIL SOCIETY</p>\n      <h1 class=\"pass__title\">Open House Pass</h1>\n    </section>\n    <span class=\"pass__badge\">TRACK 04</span>\n  </header>\n  <section class=\"pass__body\">\n    <p class=\"pass__note\">Saturday · 10:00–14:00<br>West Hall miniature railway</p>\n  </section>\n  <footer class=\"pass__footer\">\n    <button class=\"pass__button\">Admit one guest</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #25323a;\n  --paper: #fffdf6;\n  --rail-red: #d95d46;\n  --line: #d8d0c1;\n}\n\n.pass {\n}\n\n.pass__header {\n}\n\n.pass__eyebrow {\n}\n\n.pass__title {\n}\n\n.pass__badge {\n}\n\n.pass__body {\n}\n\n.pass__note {\n}\n\n.pass__footer {\n}\n\n.pass__button {\n}\n"
+  },
+  "date": "2026-09-30",
+  "timeLimit": 300,
+  "targetImage": "2026-09-30-easy.webp"
+}
