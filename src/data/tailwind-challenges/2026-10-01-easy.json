@@ -1,0 +1,13 @@
+{
+  "title": "Fire Drill Assembly Reminder",
+  "difficulty": "easy",
+  "date": "2026-10-01",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">🔥 Fire drill reminder</h1>\n  </header>\n  <p class=\"  \">Thursday, October 1 · Meet at the north courtyard at 10:15 AM.</p>\n  <button class=\"  \">I know where to go</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 overflow-hidden rounded-xl border border-red-200 bg-white\">\n  <header class=\"bg-red-600 px-4 py-3 text-white\">\n    <h1 class=\"text-lg font-bold\">🔥 Fire drill reminder</h1>\n  </header>\n  <p class=\"px-4 py-3 text-sm leading-6 text-slate-600\">Thursday, October 1 · Meet at the north courtyard at 10:15 AM.</p>\n  <button class=\"mx-4 mb-4 rounded-lg bg-amber-400 px-4 py-2 text-sm font-semibold text-amber-950\">I know where to go</button>\n</article>"
+  },
+  "targetImage": "2026-10-01-easy.webp"
+}

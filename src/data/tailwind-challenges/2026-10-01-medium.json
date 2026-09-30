@@ -1,0 +1,13 @@
+{
+  "title": "Stained Glass Studio Pickup",
+  "difficulty": "medium",
+  "date": "2026-10-01",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">◈ STUDIO QUEUE</p>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Ready for collection</p>\n    <h1 class=\"  \">Stained Glass Pickup</h1>\n    <p class=\"  \">Your amber sun-catcher has been foiled, soldered, and wrapped for a safe journey home.</p>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Thu, Oct 1 · 3:30 PM</p>\n    <button class=\"  \">View slip</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-sky-200 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between bg-sky-700 px-4 py-3 text-sky-50\">\n    <p class=\"rounded-full bg-sky-600 px-3 py-1 text-xs font-semibold tracking-wide\">◈ STUDIO QUEUE</p>\n  </header>\n  <section class=\"p-4\">\n    <p class=\"text-xs font-bold uppercase tracking-[0.18em] text-amber-600\">Ready for collection</p>\n    <h1 class=\"mt-1 text-xl font-bold tracking-tight text-slate-900\">Stained Glass Pickup</h1>\n    <p class=\"mt-2 text-sm leading-5 text-slate-600\">Your amber sun-catcher has been foiled, soldered, and wrapped for a safe journey home.</p>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-sky-100 bg-sky-50 px-4 py-3\">\n    <p class=\"text-sm font-semibold text-sky-900\">Thu, Oct 1 · 3:30 PM</p>\n    <button class=\"rounded-lg bg-amber-500 px-3 py-2 text-sm font-bold text-amber-950\">View slip</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-10-01-medium.webp"
+}
