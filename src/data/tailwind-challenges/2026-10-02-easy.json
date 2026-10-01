@@ -1,0 +1,13 @@
+{
+  "title": "Sourdough Starter Feed Reminder — Easy — 2026-10-02",
+  "difficulty": "easy",
+  "date": "2026-10-02",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">KITCHEN TASK</p>\n    <h2 class=\"  \">Feed your starter</h2>\n  </header>\n  <button class=\"  \">Mark as fed · 8:00 AM</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 rounded-xl border border-amber-200 bg-amber-50 p-4\">\n  <header class=\"flex items-center justify-between gap-3\">\n    <p class=\"rounded-full bg-amber-200 px-3 py-1 text-xs font-bold text-amber-900\">KITCHEN TASK</p>\n    <h2 class=\"text-lg font-bold text-stone-800\">Feed your starter</h2>\n  </header>\n  <button class=\"mt-3 w-full rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white\">Mark as fed · 8:00 AM</button>\n</article>"
+  },
+  "targetImage": "2026-10-02-easy.webp"
+}

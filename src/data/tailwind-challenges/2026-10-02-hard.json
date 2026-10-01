@@ -1,0 +1,13 @@
+{
+  "title": "Hard — Urban Compost Heat Monitor",
+  "difficulty": "hard",
+  "date": "2026-10-02",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">North Yard · Bay 04</p>\n    <h1 class=\"  \">Compost Heat Monitor</h1>\n    <span class=\"  \">ACTIVE</span>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Core temperature</p>\n      <p class=\"  \">62<span class=\"  \">°C</span></p>\n    </section>\n    <section class=\"  \">\n      <h2 class=\"  \">Today’s cycle</h2>\n      <ul class=\"  \">\n        <li class=\"  \">09:10 · Moisture check</li>\n        <li class=\"  \">13:20 · Turn pile</li>\n      </ul>\n    </section>\n  </main>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[500px] overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 text-slate-100\">\n  <header class=\"flex items-center justify-between gap-3 border-b border-slate-800 px-4 py-3\">\n    <p class=\"text-xs font-semibold uppercase tracking-widest text-emerald-400\">North Yard · Bay 04</p>\n    <h1 class=\"text-lg font-bold leading-none tracking-tight text-white\">Compost Heat Monitor</h1>\n    <span class=\"rounded-full border border-amber-400/40 bg-amber-400/10 px-2.5 py-1 text-xs font-bold text-amber-300\">ACTIVE</span>\n  </header>\n  <main class=\"grid grid-cols-2 gap-3 p-3\">\n    <section class=\"rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4\">\n      <p class=\"text-xs font-semibold uppercase tracking-wider text-emerald-300\">Core temperature</p>\n      <p class=\"mt-3 text-4xl font-bold leading-none tracking-tight text-white\">62<span class=\"ml-1 text-lg font-semibold text-emerald-300\">°C</span></p>\n    </section>\n    <section class=\"rounded-xl border border-slate-700 bg-slate-800 p-3\">\n      <h2 class=\"text-xs font-semibold uppercase tracking-wider text-slate-400\">Today’s cycle</h2>\n      <ul class=\"mt-3 space-y-2\">\n        <li class=\"flex items-center rounded-lg bg-slate-700/70 px-3 py-2 text-xs font-semibold text-sky-300\">09:10 · Moisture check</li>\n        <li class=\"flex items-center rounded-lg bg-slate-700/70 px-3 py-2 text-xs font-semibold text-orange-300\">13:20 · Turn pile</li>\n      </ul>\n    </section>\n  </main>\n</article>"
+  },
+  "targetImage": "2026-10-02-hard.webp"
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Origami Club Folding Kit",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"fold-kit\">\n  <header class=\"kit-header\">\n    <span class=\"mark\">🕊️</span>\n    <section>\n      <p class=\"eyebrow\">FRIDAY FOLD</p>\n      <h1>Crane Kit</h1>\n    </section>\n    <span class=\"level\">01</span>\n  </header>\n  <section class=\"instructions\">\n    <p>Start with the coral side facing down.</p>\n    <p class=\"step\"><strong>Next:</strong> Fold both corners to the center line.</p>\n  </section>\n  <button type=\"button\">Mark step complete</button>\n</article>",
+    "css": ":root {\n  --paper: #fffdf8;\n  --ink: #243044;\n  --muted: #697386;\n  --coral: #ee806b;\n  --coral-pale: #ffe4dc;\n  --line: #eaded4;\n}\n\n.fold-kit {\n  box-sizing: border-box;\n  width: 440px;\n  padding: 14px;\n  border: 1px solid var(--line);\n  border-radius: 18px;\n  background: var(--paper);\n  color: var(--ink);\n}\n\n.kit-header {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n\n.mark {\n  display: grid;\n  width: 42px;\n  height: 42px;\n  place-items: center;\n  border-radius: 13px;\n  background: var(--coral-pale);\n  font-size: 23px;\n}\n\n.eyebrow {\n  margin: 0 0 2px;\n  color: var(--coral);\n  font-size: 10px;\n  font-weight: 800;\n  letter-spacing: 1px;\n}\n\nh1 {\n  margin: 0;\n  font-size: 21px;\n  line-height: 1;\n}\n\n.level {\n  margin-left: auto;\n  color: var(--muted);\n  font-size: 13px;\n  font-weight: 700;\n}\n\n.instructions {\n  margin: 13px 0 12px;\n  padding: 10px 12px;\n  border-radius: 10px;\n  background: var(--coral-pale);\n  font-size: 14px;\n  line-height: 1.35;\n}\n\n.instructions p {\n  margin: 0;\n}\n\n.step {\n  margin-top: 5px !important;\n  color: var(--muted);\n}\n\n.step strong {\n  color: var(--ink);\n}\n\nbutton {\n  width: 100%;\n  padding: 9px 12px;\n  border: 0;\n  border-radius: 9px;\n  background: var(--coral);\n  color: var(--paper);\n  font-size: 14px;\n  font-weight: 700;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"fold-kit\">\n  <header class=\"kit-header\">\n    <span class=\"mark\">🕊️</span>\n    <section>\n      <p class=\"eyebrow\">FRIDAY FOLD</p>\n      <h1>Crane Kit</h1>\n    </section>\n    <span class=\"level\">01</span>\n  </header>\n  <section class=\"instructions\">\n    <p>Start with the coral side facing down.</p>\n    <p class=\"step\"><strong>Next:</strong> Fold both corners to the center line.</p>\n  </section>\n  <button type=\"button\">Mark step complete</button>\n</article>",
+    "css": ":root {\n  --paper: #fffdf8;\n  --ink: #243044;\n  --muted: #697386;\n  --coral: #ee806b;\n  --coral-pale: #ffe4dc;\n  --line: #eaded4;\n}\n\n.fold-kit {\n}\n\n.kit-header {\n}\n\n.mark {\n}\n\n.eyebrow {\n}\n\nh1 {\n}\n\n.level {\n}\n\n.instructions {\n}\n\n.instructions p {\n}\n\n.step {\n}\n\n.step strong {\n}\n\nbutton {\n}\n"
+  },
+  "date": "2026-10-02",
+  "timeLimit": 300,
+  "targetImage": "2026-10-02-easy.webp"
+}
