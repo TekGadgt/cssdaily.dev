@@ -1,0 +1,15 @@
+{
+  "title": "Sourdough Starter Feed Card",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"feed-card\">\n  <header class=\"card-header\">\n    <span class=\"mark\">🍞</span>\n    <section>\n      <p class=\"eyebrow\">Kitchen counter</p>\n      <h1>Juniper Starter</h1>\n    </section>\n    <span class=\"badge\">Due today</span>\n  </header>\n  <p class=\"note\">Last fed yesterday at 8:00 PM · 1:2:2 ratio</p>\n  <footer class=\"card-footer\">\n    <span>Next check: 8:00 AM</span>\n    <button type=\"button\">Log feed</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #3d3028;\n  --paper: #fffaf0;\n  --crust: #c8753d;\n  --cream: #f6e5bd;\n  --sage: #55745d;\n}\n\n.feed-card {\n  width: 440px;\n  padding: 18px;\n  border: 2px solid var(--ink);\n  border-radius: 18px;\n  background: var(--paper);\n  color: var(--ink);\n}\n\n.card-header,\n.card-footer {\n  display: flex;\n  align-items: center;\n}\n\n.card-header {\n  gap: 10px;\n}\n\n.mark {\n  display: grid;\n  width: 42px;\n  height: 42px;\n  place-items: center;\n  border-radius: 12px;\n  background: var(--cream);\n  font-size: 22px;\n}\n\n.eyebrow {\n  margin: 0 0 2px;\n  color: var(--sage);\n  font-size: 12px;\n  font-weight: 700;\n  text-transform: uppercase;\n  letter-spacing: 0.08em;\n}\n\nh1 {\n  margin: 0;\n  font-size: 20px;\n  line-height: 1.1;\n}\n\n.badge {\n  margin-left: auto;\n  padding: 5px 9px;\n  border-radius: 999px;\n  background: var(--crust);\n  color: var(--paper);\n  font-size: 12px;\n  font-weight: 700;\n}\n\n.note {\n  margin: 16px 0;\n  padding: 10px 12px;\n  border-radius: 10px;\n  background: var(--cream);\n  font-size: 14px;\n}\n\n.card-footer {\n  justify-content: space-between;\n  color: var(--sage);\n  font-size: 13px;\n  font-weight: 700;\n}\n\n.card-footer button {\n  border: 0;\n  border-radius: 9px;\n  padding: 9px 13px;\n  background: var(--sage);\n  color: var(--paper);\n  font: inherit;\n  cursor: pointer;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"feed-card\">\n  <header class=\"card-header\">\n    <span class=\"mark\">🍞</span>\n    <section>\n      <p class=\"eyebrow\">Kitchen counter</p>\n      <h1>Juniper Starter</h1>\n    </section>\n    <span class=\"badge\">Due today</span>\n  </header>\n  <p class=\"note\">Last fed yesterday at 8:00 PM · 1:2:2 ratio</p>\n  <footer class=\"card-footer\">\n    <span>Next check: 8:00 AM</span>\n    <button type=\"button\">Log feed</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #3d3028;\n  --paper: #fffaf0;\n  --crust: #c8753d;\n  --cream: #f6e5bd;\n  --sage: #55745d;\n}\n\n.feed-card {\n}\n\n.card-header,\n.card-footer {\n}\n\n.card-header {\n}\n\n.mark {\n}\n\n.eyebrow {\n}\n\nh1 {\n}\n\n.badge {\n}\n\n.note {\n}\n\n.card-footer {\n}\n\n.card-footer button {\n}"
+  },
+  "date": "2026-10-03",
+  "timeLimit": 300,
+  "targetImage": "2026-10-03-easy.webp"
+}
