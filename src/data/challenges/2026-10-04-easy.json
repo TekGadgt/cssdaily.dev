@@ -1,0 +1,15 @@
+{
+  "title": "Kumo Sushi Counter Reservation",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"reservation\">\n  <header class=\"reservation-header\">\n    <p class=\"kicker\">KUMO SUSHI BAR</p>\n    <p class=\"mark\">🍣</p>\n  </header>\n  <section class=\"reservation-body\">\n    <h1>Counter seat reserved</h1>\n    <p class=\"meta\">Sunday · Oct 04 · 7:15 PM</p>\n  </section>\n  <footer class=\"reservation-footer\">\n    <span>Seat 04 · 1 guest</span>\n    <button>View menu</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #243132;\n  --paper: #fffdf7;\n  --coral: #d9584f;\n  --line: #eadfd2;\n  --muted: #697575;\n}\n\n.reservation {\n  width: 460px;\n  box-sizing: border-box;\n  overflow: hidden;\n  background: var(--paper);\n  border: 1px solid var(--line);\n  border-radius: 16px;\n}\n\n.reservation-header {\n  position: relative;\n  padding: 14px 18px;\n  background: var(--coral);\n  color: var(--paper);\n}\n\n.kicker {\n  margin: 0;\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 1.4px;\n}\n\n.mark {\n  position: absolute;\n  top: 8px;\n  right: 16px;\n  margin: 0;\n  font-size: 27px;\n}\n\n.reservation-body {\n  padding: 20px 18px 18px;\n}\n\n.reservation-body h1 {\n  margin: 0 0 7px;\n  color: var(--ink);\n  font-size: 22px;\n  line-height: 1.15;\n}\n\n.meta {\n  margin: 0;\n  color: var(--muted);\n  font-size: 14px;\n}\n\n.reservation-footer {\n  padding: 11px 18px;\n  border-top: 1px solid var(--line);\n  color: var(--muted);\n  font-size: 13px;\n}\n\n.reservation-footer button {\n  margin-left: 18px;\n  padding: 6px 10px;\n  border: 1px solid var(--coral);\n  border-radius: 7px;\n  background: var(--paper);\n  color: var(--coral);\n  font-size: 12px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"reservation\">\n  <header class=\"reservation-header\">\n    <p class=\"kicker\">KUMO SUSHI BAR</p>\n    <p class=\"mark\">🍣</p>\n  </header>\n  <section class=\"reservation-body\">\n    <h1>Counter seat reserved</h1>\n    <p class=\"meta\">Sunday · Oct 04 · 7:15 PM</p>\n  </section>\n  <footer class=\"reservation-footer\">\n    <span>Seat 04 · 1 guest</span>\n    <button>View menu</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #243132;\n  --paper: #fffdf7;\n  --coral: #d9584f;\n  --line: #eadfd2;\n  --muted: #697575;\n}\n\n.reservation {\n}\n\n.reservation-header {\n}\n\n.kicker {\n}\n\n.mark {\n}\n\n.reservation-body {\n}\n\n.reservation-body h1 {\n}\n\n.meta {\n}\n\n.reservation-footer {\n}\n\n.reservation-footer button {\n}"
+  },
+  "date": "2026-10-04",
+  "timeLimit": 300,
+  "targetImage": "2026-10-04-easy.webp"
+}

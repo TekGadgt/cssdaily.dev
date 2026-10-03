@@ -1,0 +1,13 @@
+{
+  "title": "Tidal Research Dive Brief — Hard",
+  "difficulty": "hard",
+  "date": "2026-10-04",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Tidal Research Dive Brief</h1>\n    <p class=\"  \">04 OCT 2026</p>\n    <span class=\"  \">Cleared</span>\n  </header>\n  <section class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Site</p>\n      <p class=\"  \">Plover Reef<br><span class=\"  \">Marker 17-B</span></p>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">Dive window</p>\n      <p class=\"  \">08:40–09:25<br><span class=\"  \">Slack tide</span></p>\n    </section>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Buddy: N. Ibarra · 14 m max</p>\n    <button class=\"  \">View checklist</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-cyan-200 bg-white text-slate-800\">\n  <header class=\"flex items-start justify-between border-b border-cyan-100 bg-cyan-50 px-4 py-3\">\n    <h1 class=\"text-lg font-bold tracking-tight text-cyan-950\">Tidal Research Dive Brief</h1>\n    <p class=\"mt-1 text-xs font-medium text-cyan-700\">04 OCT 2026</p>\n    <span class=\"rounded-full bg-emerald-100 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-emerald-700\">Cleared</span>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 p-4\">\n    <section class=\"flex flex-col rounded-xl border border-blue-200 bg-blue-50 p-3\">\n      <p class=\"text-[10px] font-bold uppercase tracking-widest text-blue-600\">Site</p>\n      <p class=\"mt-2 text-sm font-semibold text-blue-950\">Plover Reef<br><span class=\"font-normal text-blue-700\">Marker 17-B</span></p>\n    </section>\n    <section class=\"flex flex-col rounded-xl border border-amber-200 bg-amber-50 p-3\">\n      <p class=\"text-[10px] font-bold uppercase tracking-widest text-amber-600\">Dive window</p>\n      <p class=\"mt-2 text-sm font-semibold text-amber-950\">08:40–09:25<br><span class=\"font-normal text-amber-700\">Slack tide</span></p>\n    </section>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-100 bg-slate-50 px-4 py-3\">\n    <p class=\"text-xs text-slate-500\">Buddy: N. Ibarra · 14 m max</p>\n    <button class=\"rounded-lg bg-cyan-700 px-3 py-2 text-xs font-bold text-white\">View checklist</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-10-04-hard.webp"
+}

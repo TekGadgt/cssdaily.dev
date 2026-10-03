@@ -1,0 +1,13 @@
+{
+  "title": "Riverside Cleanup Check-In",
+  "difficulty": "easy",
+  "date": "2026-10-04",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">Riverside Cleanup</h2>\n  </header>\n  <p class=\"  \">Sunday, Oct 4 · 9:00 AM<br>Meet at Willow Footbridge</p>\n  <button class=\"  \">I’ll be there</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[460px] rounded-xl border border-emerald-200 bg-white p-4 text-slate-700\">\n  <header class=\"flex items-center justify-between border-b border-emerald-100 pb-3\">\n    <h2 class=\"text-lg font-bold text-emerald-800\">Riverside Cleanup</h2>\n  </header>\n  <p class=\"py-3 text-sm leading-5\">Sunday, Oct 4 · 9:00 AM<br>Meet at Willow Footbridge</p>\n  <button class=\"rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white\">I’ll be there</button>\n</article>"
+  },
+  "targetImage": "2026-10-04-easy.webp"
+}
