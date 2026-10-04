@@ -1,0 +1,13 @@
+{
+  "title": "Public Pool Lane Pass — Easy",
+  "difficulty": "easy",
+  "date": "2026-10-05",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<section class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">Lane Pass</span>\n    <span class=\"  \">CONFIRMED</span>\n  </header>\n  <p class=\"  \">Monday, Oct 5 · 7:15 AM · Harbor Pool</p>\n  <footer class=\"  \">\n    <span class=\"  \">Lane 3 · 45 min</span>\n    <button class=\"  \">View pass</button>\n  </footer>\n</section>"
+  },
+  "target": {
+    "html": "<section class=\"w-[460px] overflow-hidden rounded-xl border border-sky-200 bg-white\">\n  <header class=\"flex items-center justify-between bg-sky-600 px-4 py-3 text-white\">\n    <span class=\"text-lg font-semibold\">Lane Pass</span>\n    <span class=\"rounded-full bg-sky-500 px-2 py-1 text-xs font-medium\">CONFIRMED</span>\n  </header>\n  <p class=\"px-4 py-3 text-sm text-slate-600\">Monday, Oct 5 · 7:15 AM · Harbor Pool</p>\n  <footer class=\"flex items-center justify-between border-t border-slate-100 px-4 py-3\">\n    <span class=\"text-sm font-medium text-slate-800\">Lane 3 · 45 min</span>\n    <button class=\"rounded-lg bg-amber-400 px-3 py-2 text-sm font-semibold text-amber-950\">View pass</button>\n  </footer>\n</section>"
+  },
+  "targetImage": "2026-10-05-easy.webp"
+}

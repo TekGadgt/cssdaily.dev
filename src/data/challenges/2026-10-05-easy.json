@@ -1,0 +1,15 @@
+{
+  "title": "Listening Booth Pass",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"ticket\">\n  <header class=\"ticket-header\">\n    <span>🎧 LISTENING BOOTH</span>\n    <span>PASS 014</span>\n  </header>\n  <section class=\"details\">\n    <h1>After Hours</h1>\n    <p>One album · 30 minute session</p>\n  </section>\n  <footer class=\"ticket-footer\">\n    <span>Side B Records</span>\n    <span>18:30</span>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #202744;\n  --paper: #fffdf7;\n  --lavender: #dcd6ff;\n  --muted: #68708e;\n}\n\n.ticket {\n  width: 460px;\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n  background: var(--paper);\n}\n\n.ticket-header {\n  display: flex;\n  justify-content: space-between;\n  padding: 10px 16px;\n}\n\n.details {\n  padding: 18px 16px;\n}\n\n.details h1 {\n  margin: 0;\n  font-size: 23px;\n}\n\n.details p {\n  margin: 5px 0 0;\n  color: var(--muted);\n}\n\n.ticket-footer {\n  display: flex;\n  justify-content: space-between;\n  padding: 9px 16px;\n  background: var(--lavender);\n}"
+  },
+  "starter": {
+    "html": "<article class=\"ticket\">\n  <header class=\"ticket-header\">\n    <span>🎧 LISTENING BOOTH</span>\n    <span>PASS 014</span>\n  </header>\n  <section class=\"details\">\n    <h1>After Hours</h1>\n    <p>One album · 30 minute session</p>\n  </section>\n  <footer class=\"ticket-footer\">\n    <span>Side B Records</span>\n    <span>18:30</span>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #202744;\n  --paper: #fffdf7;\n  --lavender: #dcd6ff;\n  --muted: #68708e;\n}\n\n.ticket {\n}\n\n.ticket-header {\n}\n\n.details {\n}\n\n.details h1 {\n}\n\n.details p {\n}\n\n.ticket-footer {\n}"
+  },
+  "date": "2026-10-05",
+  "timeLimit": 300,
+  "targetImage": "2026-10-05-easy.webp"
+}
