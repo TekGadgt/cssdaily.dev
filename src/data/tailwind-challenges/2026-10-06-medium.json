@@ -1,0 +1,13 @@
+{
+  "title": "Weather Balloon Payload Brief",
+  "difficulty": "medium",
+  "date": "2026-10-06",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Weather Balloon Payload</h1>\n    <p class=\"  \">READY</p>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \"><span class=\"  \">Launch window</span>06 Oct · 07:40</p>\n    <p class=\"  \"><span class=\"  \">Ceiling</span>28,000 m</p>\n  </section>\n  <section class=\"  \">\n    <span class=\"  \">🛰️ Sensor pack · 1.4 kg</span>\n    <button class=\"  \">Review checklist</button>\n  </section>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-sky-200 bg-white text-slate-800\">\n  <header class=\"flex items-start justify-between border-b border-sky-100 bg-sky-50 px-4 py-3\">\n    <h1 class=\"text-lg font-bold tracking-tight text-sky-950\">Weather Balloon Payload</h1>\n    <p class=\"rounded-full bg-indigo-600 px-2.5 py-1 text-xs font-semibold text-white\">READY</p>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 px-4 py-3\">\n    <p class=\"rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-sm leading-5 text-amber-950\"><span class=\"block text-xs font-semibold uppercase tracking-wide text-amber-700\">Launch window</span>06 Oct · 07:40</p>\n    <p class=\"rounded-xl border border-indigo-100 bg-indigo-50 px-3 py-2 text-sm leading-5 text-indigo-950\"><span class=\"block text-xs font-semibold uppercase tracking-wide text-indigo-700\">Ceiling</span>28,000 m</p>\n  </section>\n  <section class=\"flex items-center justify-between border-t border-slate-100 px-4 py-3 text-sm\">\n    <span class=\"font-medium text-slate-600\">🛰️ Sensor pack · 1.4 kg</span>\n    <button class=\"rounded-lg bg-sky-600 px-3 py-2 text-sm font-semibold text-white\">Review checklist</button>\n  </section>\n</article>"
+  },
+  "targetImage": "2026-10-06-medium.webp"
+}
