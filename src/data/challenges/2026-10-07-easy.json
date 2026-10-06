@@ -1,0 +1,15 @@
+{
+  "title": "Trail Mix Blend Label",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"blend-card\">\n  <header>\n    <span class=\"stamp\">BATCH 07</span>\n    <span class=\"weight\">180 g</span>\n  </header>\n  <h1>Alpine Trail Mix</h1>\n  <section class=\"details\" aria-label=\"Blend details\">\n    <span>🥜 Roasted almonds</span>\n    <span>🍒 Tart cherries</span>\n    <span>🍫 Dark cocoa nibs</span>\n  </section>\n  <footer>\n    <span>Packed · 07 OCT 2026</span>\n    <button>Fresh seal</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #29352b;\n  --paper: #fffdf5;\n  --line: #d8d0ba;\n  --leaf: #557348;\n  --cream: #f3ead2;\n  --berry: #a84b42;\n}\n\n.blend-card {\n  box-sizing: border-box;\n  width: 470px;\n  padding: 14px 16px;\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n  background: var(--paper);\n  color: var(--ink);\n}\n\n.blend-card header,\n.blend-card footer {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\n.stamp {\n  padding: 4px 8px;\n  border-radius: 5px;\n  background: var(--leaf);\n  color: var(--paper);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}\n\n.weight {\n  color: var(--leaf);\n  font-size: 13px;\n  font-weight: 700;\n}\n\n.blend-card h1 {\n  margin: 10px 0;\n  font-size: 23px;\n  line-height: 1;\n}\n\n.details {\n  display: flex;\n  gap: 8px;\n  padding: 9px 0;\n  border-top: 1px solid var(--line);\n  border-bottom: 1px solid var(--line);\n}\n\n.details span {\n  flex: 1;\n  color: var(--leaf);\n  font-size: 12px;\n  line-height: 1.25;\n}\n\n.blend-card footer {\n  padding-top: 10px;\n  color: var(--berry);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.4px;\n}\n\n.blend-card button {\n  padding: 5px 9px;\n  border: 1px solid var(--berry);\n  border-radius: 999px;\n  background: var(--cream);\n  color: var(--berry);\n  font-size: 11px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"blend-card\">\n  <header>\n    <span class=\"stamp\">BATCH 07</span>\n    <span class=\"weight\">180 g</span>\n  </header>\n  <h1>Alpine Trail Mix</h1>\n  <section class=\"details\" aria-label=\"Blend details\">\n    <span>🥜 Roasted almonds</span>\n    <span>🍒 Tart cherries</span>\n    <span>🍫 Dark cocoa nibs</span>\n  </section>\n  <footer>\n    <span>Packed · 07 OCT 2026</span>\n    <button>Fresh seal</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #29352b;\n  --paper: #fffdf5;\n  --line: #d8d0ba;\n  --leaf: #557348;\n  --cream: #f3ead2;\n  --berry: #a84b42;\n}\n\n.blend-card {\n}\n\n.blend-card header,\n.blend-card footer {\n}\n\n.stamp {\n}\n\n.weight {\n}\n\n.blend-card h1 {\n}\n\n.details {\n}\n\n.details span {\n}\n\n.blend-card footer {\n}\n\n.blend-card button {\n}"
+  },
+  "date": "2026-10-07",
+  "timeLimit": 300,
+  "targetImage": "2026-10-07-easy.webp"
+}

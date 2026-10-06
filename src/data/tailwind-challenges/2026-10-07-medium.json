@@ -1,0 +1,13 @@
+{
+  "title": "Braille Embosser Reservation",
+  "difficulty": "medium",
+  "date": "2026-10-07",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">⠿</span>\n    <h1 class=\"  \">Braille Embosser Slot</h1>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Wed, Oct 7<br>2:30–3:15 PM</p>\n    <p class=\"  \">Station 03<br>12 label sheets</p>\n  </section>\n  <footer class=\"  \">\n    <button class=\"  \">Confirm reservation</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-slate-200 bg-white\">\n  <header class=\"flex items-center gap-3 border-b border-slate-100 p-4\">\n    <span class=\"flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-100 text-xl text-indigo-700\">⠿</span>\n    <h1 class=\"text-lg font-semibold tracking-tight text-slate-900\">Braille Embosser Slot</h1>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 p-4\">\n    <p class=\"rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm font-medium leading-5 text-amber-900\">Wed, Oct 7<br>2:30–3:15 PM</p>\n    <p class=\"rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm font-medium leading-5 text-slate-700\">Station 03<br>12 label sheets</p>\n  </section>\n  <footer class=\"flex items-center justify-end border-t border-slate-100 px-4 py-3\">\n    <button class=\"rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white\">Confirm reservation</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-10-07-medium.webp"
+}
