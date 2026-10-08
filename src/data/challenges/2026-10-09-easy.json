@@ -1,0 +1,15 @@
+{
+  "title": "Streetcar Transfer Ticket",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"transfer\">\n  <section class=\"ticket-main\">\n    <header class=\"ticket-head\">\n      <p class=\"kicker\">CITY STREETCAR</p>\n      <p class=\"date\">09 OCT 2026</p>\n    </header>\n    <h1>One Ride Transfer</h1>\n    <section class=\"route\" aria-label=\"Route\">\n      <span class=\"stop\">Market Hall</span>\n      <span class=\"line\"></span>\n      <span class=\"stop\">River Gate</span>\n    </section>\n  </section>\n  <aside class=\"route-code\" aria-label=\"Route M2\">M2</aside>\n</article>",
+    "css": ":root {\n  --ink: #263343;\n  --paper: #fffdf6;\n  --coral: #ef725b;\n  --mist: #dbe8e6;\n  --muted: #68757b;\n}\n\n.transfer {\n  width: 460px;\n  display: flex;\n  overflow: hidden;\n  background: var(--paper);\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n}\n\n.ticket-main {\n  flex: 1;\n  padding: 16px 18px;\n}\n\n.ticket-head {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 9px;\n}\n\n.kicker,\n.date {\n  margin: 0;\n  color: var(--muted);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n}\n\n.transfer h1 {\n  margin: 0 0 14px;\n  color: var(--ink);\n  font-size: 22px;\n  line-height: 1;\n}\n\n.route {\n  display: flex;\n  align-items: center;\n  gap: 9px;\n  color: var(--ink);\n  font-size: 13px;\n  font-weight: 700;\n}\n\n.line {\n  flex: 1;\n  height: 2px;\n  background: var(--coral);\n}\n\n.route-code {\n  width: 92px;\n  display: grid;\n  place-items: center;\n  background: var(--mist);\n  border-left: 2px dashed var(--ink);\n  color: var(--coral);\n  font-size: 30px;\n  font-weight: 800;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"transfer\">\n  <section class=\"ticket-main\">\n    <header class=\"ticket-head\">\n      <p class=\"kicker\">CITY STREETCAR</p>\n      <p class=\"date\">09 OCT 2026</p>\n    </header>\n    <h1>One Ride Transfer</h1>\n    <section class=\"route\" aria-label=\"Route\">\n      <span class=\"stop\">Market Hall</span>\n      <span class=\"line\"></span>\n      <span class=\"stop\">River Gate</span>\n    </section>\n  </section>\n  <aside class=\"route-code\" aria-label=\"Route M2\">M2</aside>\n</article>",
+    "css": ":root {\n  --ink: #263343;\n  --paper: #fffdf6;\n  --coral: #ef725b;\n  --mist: #dbe8e6;\n  --muted: #68757b;\n}\n\n.transfer {\n}\n\n.ticket-main {\n}\n\n.ticket-head {\n}\n\n.kicker,\n.date {\n}\n\n.transfer h1 {\n}\n\n.route {\n}\n\n.line {\n}\n\n.route-code {\n}\n"
+  },
+  "date": "2026-10-09",
+  "timeLimit": 300,
+  "targetImage": "2026-10-09-easy.webp"
+}
