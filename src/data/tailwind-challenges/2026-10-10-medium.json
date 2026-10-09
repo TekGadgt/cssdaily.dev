@@ -1,0 +1,13 @@
+{
+  "title": "Rooftop Apiary Inspection Card",
+  "difficulty": "medium",
+  "date": "2026-10-10",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <figure class=\"  \">🐝</figure>\n    <section class=\"  \">\n      <h2 class=\"  \">Rooftop Apiary</h2>\n      <p class=\"  \">Inspection window · Saturday morning</p>\n    </section>\n    <p class=\"  \">CLEAR</p>\n  </header>\n  <ul class=\"  \">\n    <li class=\"  \"><span class=\"  \">Hive status</span><strong class=\"  \">Calm activity</strong></li>\n    <li class=\"  \"><span class=\"  \">Bring along</span><strong class=\"  \">Veil + notebook</strong></li>\n  </ul>\n  <button class=\"  \">Confirm inspection</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-amber-200 bg-white text-slate-800\">\n  <header class=\"flex items-center gap-3 border-b border-amber-100 bg-amber-50 px-4 py-3\">\n    <figure class=\"flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-400 text-xl\">🐝</figure>\n    <section class=\"min-w-0 flex-1\">\n      <h2 class=\"text-lg font-bold tracking-tight text-slate-800\">Rooftop Apiary</h2>\n      <p class=\"text-sm text-amber-800\">Inspection window · Saturday morning</p>\n    </section>\n    <p class=\"rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-bold text-emerald-700\">CLEAR</p>\n  </header>\n  <ul class=\"grid grid-cols-2 gap-2 p-3\">\n    <li class=\"rounded-xl border border-slate-200 bg-slate-50 p-3\"><span class=\"block text-xs font-semibold uppercase tracking-wide text-slate-500\">Hive status</span><strong class=\"mt-1 block text-sm text-slate-800\">Calm activity</strong></li>\n    <li class=\"rounded-xl border border-slate-200 bg-slate-50 p-3\"><span class=\"block text-xs font-semibold uppercase tracking-wide text-slate-500\">Bring along</span><strong class=\"mt-1 block text-sm text-slate-800\">Veil + notebook</strong></li>\n  </ul>\n  <button class=\"mx-3 mb-3 w-[calc(100%-1.5rem)] rounded-xl bg-slate-800 px-4 py-2.5 text-sm font-semibold text-white\">Confirm inspection</button>\n</article>"
+  },
+  "targetImage": "2026-10-10-medium.webp"
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Microfilm Reader Pass — Easy — 2026-10-10",
+  "difficulty": "easy",
+  "date": "2026-10-10",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">Microfilm Reader</h2>\n    <span class=\"  \">PASS</span>\n  </header>\n  <p class=\"  \">Station 04 is reserved for your archive viewing session.</p>\n  <button class=\"  \">View reservation</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 overflow-hidden rounded-xl border border-slate-300 bg-white\">\n  <header class=\"flex items-center justify-between border-b border-slate-200 bg-slate-800 px-4 py-3\">\n    <h2 class=\"text-base font-semibold text-white\">Microfilm Reader</h2>\n    <span class=\"rounded-full bg-amber-300 px-2 py-0.5 text-xs font-bold text-slate-900\">PASS</span>\n  </header>\n  <p class=\"px-4 py-3 text-sm text-slate-600\">Station 04 is reserved for your archive viewing session.</p>\n  <button class=\"mx-4 mb-4 w-[calc(100%-2rem)] rounded-lg bg-amber-400 px-3 py-2 text-sm font-semibold text-slate-900\">View reservation</button>\n</article>"
+  },
+  "targetImage": "2026-10-10-easy.webp"
+}
