@@ -1,0 +1,13 @@
+{
+  "title": "Cocoa Tempering Check — Medium",
+  "difficulty": "medium",
+  "date": "2026-10-11",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🍫</span>\n    <h2 class=\"  \">Cocoa Tempering Check</h2>\n    <p class=\"  \">Sunday, Oct 11 · Batch 07</p>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">24.8°C<br>Target reached</p>\n    <p class=\"  \">72% dark<br>14 min elapsed</p>\n  </section>\n  <button class=\"  \">Log crystal test</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-[480px] overflow-hidden rounded-xl border border-stone-300 bg-white\">\n  <header class=\"grid grid-cols-[auto_1fr] items-center gap-x-3 gap-y-1 border-b border-stone-200 bg-amber-50 p-4\">\n    <span class=\"row-span-2 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-200 text-xl\">🍫</span>\n    <h2 class=\"text-base font-bold tracking-tight text-stone-800\">Cocoa Tempering Check</h2>\n    <p class=\"text-sm text-stone-500\">Sunday, Oct 11 · Batch 07</p>\n  </header>\n  <section class=\"flex gap-3 bg-stone-50 p-3\">\n    <p class=\"flex-1 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-800\">24.8°C<br>Target reached</p>\n    <p class=\"flex-1 rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm font-semibold text-stone-700\">72% dark<br>14 min elapsed</p>\n  </section>\n  <button class=\"m-3 w-[calc(100%-1.5rem)] rounded-lg bg-stone-800 px-4 py-2.5 text-sm font-semibold text-white\">Log crystal test</button>\n</article>"
+  },
+  "targetImage": "2026-10-11-medium.webp"
+}

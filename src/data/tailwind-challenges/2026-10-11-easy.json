@@ -1,0 +1,13 @@
+{
+  "title": "Soup Social RSVP — Easy — 2026-10-11",
+  "difficulty": "easy",
+  "date": "2026-10-11",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🥣</span>\n    <h1 class=\"  \">Autumn Soup Social</h1>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Sunday · Oct 11 · 5:30 PM</p>\n    <button class=\"  \">I’m in</button>\n  </section>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 overflow-hidden rounded-xl border border-orange-200 bg-white\">\n  <header class=\"flex items-center gap-3 border-b border-orange-100 bg-orange-50 p-4\">\n    <span class=\"flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-lg text-white\">🥣</span>\n    <h1 class=\"text-lg font-bold text-orange-950\">Autumn Soup Social</h1>\n  </header>\n  <section class=\"flex items-center justify-between p-4\">\n    <p class=\"text-sm font-medium text-slate-600\">Sunday · Oct 11 · 5:30 PM</p>\n    <button class=\"rounded-lg bg-orange-500 px-3 py-2 text-sm font-semibold text-white\">I’m in</button>\n  </section>\n</article>"
+  },
+  "targetImage": "2026-10-11-easy.webp"
+}

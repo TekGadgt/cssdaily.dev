@@ -1,0 +1,15 @@
+{
+  "title": "Paper Marbling Workshop Token — 2026-10-11",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"token\">\n  <header class=\"token-head\">\n    <span class=\"token-mark\">✦</span>\n    <span>RIVER INK STUDIO</span>\n  </header>\n  <section class=\"admission\">\n    <p>Paper Marbling</p>\n    <strong>ADMIT ONE</strong>\n  </section>\n  <footer class=\"token-foot\">\n    <span>Sunday · 11 Oct</span>\n    <span>10:30 AM</span>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #243449;\n  --paper: #fffdf6;\n  --coral: #e8755b;\n}\n\n.token {\n  width: 440px;\n  overflow: hidden;\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n  background-color: var(--paper);\n  color: var(--ink);\n}\n\n.token-head {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 10px 16px;\n  background-color: var(--ink);\n  color: var(--paper);\n  font-size: 12px;\n  font-weight: 700;\n  letter-spacing: 1.4px;\n}\n\n.token-mark {\n  color: var(--coral);\n  font-size: 18px;\n}\n\n.admission {\n  padding: 18px 16px;\n}\n\n.admission p {\n  margin: 0 0 5px;\n  color: var(--coral);\n  font-size: 14px;\n  font-weight: 700;\n}\n\n.admission strong {\n  font-size: 24px;\n  letter-spacing: 0.4px;\n}\n\n.token-foot {\n  display: flex;\n  justify-content: space-between;\n  padding: 10px 16px;\n  border-top: 2px dashed var(--coral);\n  font-size: 13px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"token\">\n  <header class=\"token-head\">\n    <span class=\"token-mark\">✦</span>\n    <span>RIVER INK STUDIO</span>\n  </header>\n  <section class=\"admission\">\n    <p>Paper Marbling</p>\n    <strong>ADMIT ONE</strong>\n  </section>\n  <footer class=\"token-foot\">\n    <span>Sunday · 11 Oct</span>\n    <span>10:30 AM</span>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #243449;\n  --paper: #fffdf6;\n  --coral: #e8755b;\n}\n\n.token {\n}\n\n.token-head {\n}\n\n.token-mark {\n}\n\n.admission {\n}\n\n.admission p {\n}\n\n.admission strong {\n}\n\n.token-foot {\n}"
+  },
+  "date": "2026-10-11",
+  "timeLimit": 300,
+  "targetImage": "2026-10-11-easy.webp"
+}

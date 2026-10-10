@@ -1,0 +1,13 @@
+{
+  "title": "Proofing Rack Monitor — Hard",
+  "difficulty": "hard",
+  "date": "2026-10-11",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">♨️</p>\n      <h2 class=\"  \">Proofing Rack <span class=\"  \">Batch 08 · 11 OCT 2026</span></h2>\n    </section>\n    <span class=\"  \">LIVE</span>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Setpoint</p>\n      <p class=\"  \">27°C</p>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">Humidity</p>\n      <p class=\"  \">76%</p>\n    </section>\n  </main>\n  <button class=\"  \">OPEN BATCH LOG →</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-md overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 text-slate-100\">\n  <header class=\"flex items-center justify-between border-b border-slate-800 bg-slate-900 px-4 py-3\">\n    <section class=\"flex items-center gap-3\">\n      <p class=\"flex h-9 w-9 items-center justify-center rounded-xl bg-orange-500 text-lg\">♨️</p>\n      <h2 class=\"text-sm font-bold tracking-wide text-white\">Proofing Rack <span class=\"block text-xs font-medium text-slate-400\">Batch 08 · 11 OCT 2026</span></h2>\n    </section>\n    <span class=\"rounded-full border border-emerald-400/40 bg-emerald-500/10 px-2.5 py-1 text-xs font-bold tracking-wider text-emerald-300\">LIVE</span>\n  </header>\n  <main class=\"grid grid-cols-2 gap-3 p-4\">\n    <section class=\"rounded-xl border border-amber-400/30 bg-amber-400/10 p-3\">\n      <p class=\"mb-2 text-xs font-semibold uppercase tracking-widest text-amber-300\">Setpoint</p>\n      <p class=\"text-2xl font-bold tabular-nums text-amber-100\">27°C</p>\n    </section>\n    <section class=\"rounded-xl border border-sky-400/30 bg-sky-400/10 p-3\">\n      <p class=\"mb-2 text-xs font-semibold uppercase tracking-widest text-sky-300\">Humidity</p>\n      <p class=\"text-2xl font-bold tabular-nums text-sky-100\">76%</p>\n    </section>\n  </main>\n  <button class=\"mx-4 mb-4 w-[calc(100%-2rem)] rounded-lg bg-orange-500 px-4 py-2.5 text-sm font-bold tracking-wide text-white\">OPEN BATCH LOG →</button>\n</article>"
+  },
+  "targetImage": "2026-10-11-hard.webp"
+}
