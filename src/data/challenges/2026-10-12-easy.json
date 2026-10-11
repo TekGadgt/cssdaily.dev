@@ -1,0 +1,15 @@
+{
+  "title": "Kite Flight Wind Note",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"wind-note\">\n  <header>\n    <span class=\"glyph\">🪁</span>\n    <h2>North Field Flight</h2>\n  </header>\n  <section class=\"wind-data\" aria-label=\"Wind conditions\">\n    <span>Wind <strong>11 km/h</strong></span>\n    <span>Direction <strong>NW</strong></span>\n  </section>\n</article>",
+    "css": ":root {\n  --ink: #243842;\n  --paper: #fffdf5;\n  --sky: #dff3f5;\n  --line: #8dbfc4;\n}\n\n.wind-note {\n  box-sizing: border-box;\n  width: 420px;\n  padding: 16px;\n  background: var(--paper);\n  border: 2px solid var(--line);\n  border-radius: 14px;\n}\n\n.wind-note header {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin-bottom: 12px;\n}\n\n.glyph {\n  font-size: 28px;\n  line-height: 1;\n}\n\n.wind-note h2 {\n  margin: 0;\n  color: var(--ink);\n  font-size: 19px;\n  line-height: 1.2;\n}\n\n.wind-data {\n  display: flex;\n  justify-content: space-between;\n  padding: 10px 12px;\n  background: var(--sky);\n  border-radius: 8px;\n  color: var(--ink);\n  font-size: 14px;\n}\n\n.wind-data strong {\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"wind-note\">\n  <header>\n    <span class=\"glyph\">🪁</span>\n    <h2>North Field Flight</h2>\n  </header>\n  <section class=\"wind-data\" aria-label=\"Wind conditions\">\n    <span>Wind <strong>11 km/h</strong></span>\n    <span>Direction <strong>NW</strong></span>\n  </section>\n</article>",
+    "css": ":root {\n  --ink: #243842;\n  --paper: #fffdf5;\n  --sky: #dff3f5;\n  --line: #8dbfc4;\n}\n\n.wind-note {\n}\n\n.wind-note header {\n}\n\n.glyph {\n}\n\n.wind-note h2 {\n}\n\n.wind-data {\n}\n\n.wind-data strong {\n}"
+  },
+  "date": "2026-10-12",
+  "timeLimit": 300,
+  "targetImage": "2026-10-12-easy.webp"
+}
