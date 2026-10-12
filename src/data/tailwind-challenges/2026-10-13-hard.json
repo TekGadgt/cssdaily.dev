@@ -1,0 +1,13 @@
+{
+  "title": "Jacquard Loom Thread Console",
+  "difficulty": "hard",
+  "date": "2026-10-13",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">Jacquard Loom</h2>\n    <p class=\"  \">Bay 04 · Pattern queue</p>\n    <span class=\"  \">Running</span>\n  </header>\n  <section class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Warp tension</p>\n      <p class=\"  \">38.4 <span class=\"  \">N</span></p>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">Weft queue</p>\n      <p class=\"  \">07 <span class=\"  \">reeds</span></p>\n    </section>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">● <span class=\"  \">2 alerts</span> · bobbin low</p>\n    <button class=\"  \">Open console</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-lg overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800\">\n  <header class=\"relative flex flex-col gap-1 border-b border-slate-200 bg-slate-900 px-4 py-3 text-white\">\n    <h2 class=\"pr-24 text-lg font-bold tracking-tight text-white\">Jacquard Loom</h2>\n    <p class=\"text-xs font-medium tracking-wide text-slate-300\">Bay 04 · Pattern queue</p>\n    <span class=\"absolute right-4 top-4 rounded-full bg-emerald-400 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-950\">Running</span>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 bg-slate-50 p-4\">\n    <section class=\"flex flex-col gap-2 rounded-xl border border-indigo-200 bg-indigo-50 p-3\">\n      <p class=\"text-[10px] font-bold uppercase tracking-widest text-indigo-600\">Warp tension</p>\n      <p class=\"text-2xl font-bold leading-none text-indigo-950\">38.4 <span class=\"text-sm font-semibold text-indigo-600\">N</span></p>\n    </section>\n    <section class=\"flex flex-col gap-2 rounded-xl border border-amber-200 bg-amber-50 p-3\">\n      <p class=\"text-[10px] font-bold uppercase tracking-widest text-amber-700\">Weft queue</p>\n      <p class=\"text-2xl font-bold leading-none text-amber-950\">07 <span class=\"text-sm font-semibold text-amber-700\">reeds</span></p>\n    </section>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-200 bg-white px-4 py-3\">\n    <p class=\"text-xs font-medium text-slate-500\">● <span class=\"font-semibold text-rose-600\">2 alerts</span> · bobbin low</p>\n    <button class=\"rounded-lg bg-indigo-600 px-3 py-2 text-xs font-bold text-white\">Open console</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-10-13-hard.webp"
+}

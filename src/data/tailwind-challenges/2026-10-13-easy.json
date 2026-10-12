@@ -1,0 +1,13 @@
+{
+  "title": "Canal Lock Viewing Pin — Easy",
+  "difficulty": "easy",
+  "date": "2026-10-13",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">Canal Lock Viewing</h2>\n    <button class=\"  \">Save pin</button>\n  </header>\n  <p class=\"  \">Best view: Lock 7 overlook · Tuesday, 6:15 PM</p>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 rounded-xl border border-teal-200 bg-white p-4\">\n  <header class=\"flex items-center justify-between gap-3\">\n    <h2 class=\"text-lg font-semibold text-slate-800\">Canal Lock Viewing</h2>\n    <button class=\"rounded-lg bg-teal-700 px-3 py-2 text-sm font-medium text-white\">Save pin</button>\n  </header>\n  <p class=\"mt-3 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-900\">Best view: Lock 7 overlook · Tuesday, 6:15 PM</p>\n</article>"
+  },
+  "targetImage": "2026-10-13-easy.webp"
+}
