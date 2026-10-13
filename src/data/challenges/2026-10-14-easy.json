@@ -1,0 +1,15 @@
+{
+  "title": "Board Game Café Table Marker",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"table-marker\">\n  <header class=\"marker-head\">\n    <h1>Maple Meeple Café</h1>\n    <span class=\"status\">OPEN PLAY</span>\n  </header>\n  <section class=\"marker-body\">\n    <strong class=\"table-number\">07</strong>\n    <p><b>Your table is ready</b><br><span>Choose a game from the blue shelf.</span></p>\n  </section>\n</article>",
+    "css": ":root {\n  --ink: #263238;\n  --paper: #fffdf4;\n  --coral: #ef765f;\n  --mint: #cbe9d9;\n  --line: #263238;\n}\n\n.table-marker {\n  width: 380px;\n  overflow: hidden;\n  background: var(--paper);\n  border: 2px solid var(--line);\n  border-radius: 16px;\n}\n\n.marker-head {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 10px 14px;\n  background: var(--mint);\n  border-bottom: 2px solid var(--line);\n}\n\n.marker-head h1 {\n  margin: 0;\n  color: var(--ink);\n  font-size: 15px;\n  font-weight: 800;\n}\n\n.status {\n  padding: 4px 7px;\n  color: var(--paper);\n  background: var(--coral);\n  border-radius: 999px;\n  font-size: 10px;\n  font-weight: 800;\n}\n\n.marker-body {\n  display: flex;\n  align-items: center;\n  gap: 14px;\n  padding: 16px;\n}\n\n.table-number {\n  display: grid;\n  width: 64px;\n  height: 64px;\n  place-items: center;\n  color: var(--paper);\n  background: var(--ink);\n  border-radius: 50%;\n  font-size: 27px;\n}\n\n.marker-body p {\n  margin: 0;\n  color: var(--ink);\n  font-size: 14px;\n  line-height: 1.45;\n}\n\n.marker-body b {\n  font-size: 16px;\n}\n\n.marker-body span {\n  color: var(--coral);\n}"
+  },
+  "starter": {
+    "html": "<article class=\"table-marker\">\n  <header class=\"marker-head\">\n    <h1>Maple Meeple Café</h1>\n    <span class=\"status\">OPEN PLAY</span>\n  </header>\n  <section class=\"marker-body\">\n    <strong class=\"table-number\">07</strong>\n    <p><b>Your table is ready</b><br><span>Choose a game from the blue shelf.</span></p>\n  </section>\n</article>",
+    "css": ":root {\n  --ink: #263238;\n  --paper: #fffdf4;\n  --coral: #ef765f;\n  --mint: #cbe9d9;\n  --line: #263238;\n}\n\n.table-marker {\n}\n\n.marker-head {\n}\n\n.marker-head h1 {\n}\n\n.status {\n}\n\n.marker-body {\n}\n\n.table-number {\n}\n\n.marker-body p {\n}\n\n.marker-body b {\n}\n\n.marker-body span {\n}"
+  },
+  "date": "2026-10-14",
+  "timeLimit": 300,
+  "targetImage": "2026-10-14-easy.webp"
+}
