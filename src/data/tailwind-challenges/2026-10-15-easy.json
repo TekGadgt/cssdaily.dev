@@ -1,0 +1,13 @@
+{
+  "title": "Autumn Market Token — Easy",
+  "difficulty": "easy",
+  "date": "2026-10-15",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Autumn Market Token</h1>\n    <span class=\"  \">VALID</span>\n  </header>\n  <p class=\"  \">One hot cider • Saturday, Oct 17 • 9:00 AM</p>\n  <button class=\"  \">Show at stall</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] rounded-xl border border-orange-200 bg-white p-4 text-slate-800\">\n  <header class=\"flex items-center justify-between\">\n    <h1 class=\"text-lg font-bold tracking-tight text-orange-950\">Autumn Market Token</h1>\n    <span class=\"rounded-full bg-orange-100 px-2.5 py-1 text-xs font-semibold text-orange-700\">VALID</span>\n  </header>\n  <p class=\"mt-3 text-sm text-slate-600\">One hot cider • Saturday, Oct 17 • 9:00 AM</p>\n  <button class=\"mt-4 rounded-lg bg-orange-600 px-4 py-2 text-sm font-semibold text-white\">Show at stall</button>\n</article>"
+  },
+  "targetImage": "2026-10-15-easy.webp"
+}

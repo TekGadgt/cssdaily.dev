@@ -1,0 +1,15 @@
+{
+  "title": "Bakery Proofing Timer — Easy",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"proof-card\">\n  <header class=\"proof-header\">\n    <span class=\"loaf\">🥖</span>\n    <section>\n      <p class=\"eyebrow\">DOUGH STATION 04</p>\n      <h1>Rosemary Focaccia</h1>\n    </section>\n  </header>\n  <section class=\"proof-body\">\n    <p class=\"timer\">00:42</p>\n    <p class=\"status\">Minutes remaining<br><strong>Second rise</strong></p>\n  </section>\n  <footer class=\"proof-footer\">\n    <span>Ready at 10:15</span>\n    <button>Check dough</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #30251f;\n  --paper: #fffaf0;\n  --crust: #d78949;\n  --sage: #476f57;\n  --line: #e7cda9;\n}\n\n.proof-card {\n  box-sizing: border-box;\n  width: 440px;\n  overflow: hidden;\n  border: 1px solid var(--line);\n  border-radius: 16px;\n  background: var(--paper);\n  color: var(--ink);\n}\n\n.proof-header {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 12px 16px;\n  background: var(--crust);\n}\n\n.loaf {\n  font-size: 28px;\n}\n\n.eyebrow {\n  margin: 0 0 2px;\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}\n\n.proof-header h1 {\n  margin: 0;\n  font-size: 19px;\n  line-height: 1.1;\n}\n\n.proof-body {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  padding: 14px 16px;\n}\n\n.timer {\n  margin: 0;\n  font-size: 30px;\n  font-weight: 700;\n  color: var(--sage);\n}\n\n.status {\n  margin: 0;\n  font-size: 13px;\n  line-height: 1.45;\n}\n\n.proof-footer {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 10px 16px;\n  border-top: 1px solid var(--line);\n  font-size: 12px;\n}\n\n.proof-footer button {\n  border: 0;\n  border-radius: 7px;\n  padding: 7px 10px;\n  background: var(--sage);\n  color: var(--paper);\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"proof-card\">\n  <header class=\"proof-header\">\n    <span class=\"loaf\">🥖</span>\n    <section>\n      <p class=\"eyebrow\">DOUGH STATION 04</p>\n      <h1>Rosemary Focaccia</h1>\n    </section>\n  </header>\n  <section class=\"proof-body\">\n    <p class=\"timer\">00:42</p>\n    <p class=\"status\">Minutes remaining<br><strong>Second rise</strong></p>\n  </section>\n  <footer class=\"proof-footer\">\n    <span>Ready at 10:15</span>\n    <button>Check dough</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #30251f;\n  --paper: #fffaf0;\n  --crust: #d78949;\n  --sage: #476f57;\n  --line: #e7cda9;\n}\n\n.proof-card {\n}\n\n.proof-header {\n}\n\n.loaf {\n}\n\n.eyebrow {\n}\n\n.proof-header h1 {\n}\n\n.proof-body {\n}\n\n.timer {\n}\n\n.status {\n}\n\n.proof-footer {\n}\n\n.proof-footer button {\n}"
+  },
+  "date": "2026-10-15",
+  "timeLimit": 300,
+  "targetImage": "2026-10-15-easy.webp"
+}

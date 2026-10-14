@@ -1,0 +1,13 @@
+{
+  "title": "Foley Studio Take Slate — Hard — 2026-10-15",
+  "difficulty": "hard",
+  "date": "2026-10-15",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <h1 class=\"  \">Foley Studio · Take Slate</h1>\n      <p class=\"  \">Thursday, 15 October 2026 · Stage B</p>\n    </section>\n    <span class=\"  \">LIVE</span>\n  </header>\n  <section class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Cue loaded</p>\n      <strong class=\"  \">Raincoat walk</strong>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">Timecode</p>\n      <button class=\"  \">00:18:42 · RECORD</button>\n    </section>\n  </section>\n  <footer class=\"  \">Stage 2 of 5 <span class=\"  \">Room tone linked</span></footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-slate-700 bg-slate-900 text-slate-100\">\n  <header class=\"flex items-start justify-between border-b border-slate-700 px-4 py-3\">\n    <section class=\"min-w-0\">\n      <h1 class=\"text-lg font-bold tracking-tight text-white\">Foley Studio · Take Slate</h1>\n      <p class=\"mt-1 text-xs font-medium text-slate-400\">Thursday, 15 October 2026 · Stage B</p>\n    </section>\n    <span class=\"ml-3 shrink-0 rounded-full bg-violet-500 px-2.5 py-1 text-xs font-bold text-white\">LIVE</span>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 p-4\">\n    <section class=\"flex min-h-[118px] flex-col justify-between rounded-xl border border-emerald-400/40 bg-emerald-500/10 p-3\">\n      <p class=\"text-xs font-bold uppercase tracking-widest text-emerald-300\">Cue loaded</p>\n      <strong class=\"text-xl font-bold tracking-tight text-white\">Raincoat walk</strong>\n    </section>\n    <section class=\"flex min-h-[118px] flex-col justify-between rounded-xl border border-amber-400/40 bg-amber-400/10 p-3\">\n      <p class=\"text-xs font-bold uppercase tracking-widest text-amber-300\">Timecode</p>\n      <button class=\"w-full rounded-lg bg-rose-500 px-3 py-2 text-sm font-bold text-white\">00:18:42 · RECORD</button>\n    </section>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-700 bg-slate-800 px-4 py-2.5 text-xs font-medium text-slate-300\">Stage 2 of 5 <span class=\"rounded-md bg-slate-700 px-2 py-1 text-slate-200\">Room tone linked</span></footer>\n</article>"
+  },
+  "targetImage": "2026-10-15-hard.webp"
+}
