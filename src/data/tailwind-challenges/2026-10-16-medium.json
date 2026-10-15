@@ -1,0 +1,13 @@
+{
+  "title": "Pinball League Scorecard",
+  "difficulty": "medium",
+  "date": "2026-10-16",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">Orbit Arcade League</h2>\n    <span class=\"  \">Round 04</span>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">High score<br><span class=\"  \">842,600</span></p>\n    <p class=\"  \">Current rank<br><span class=\"  \">#02</span></p>\n    <button class=\"  \">Submit final score</button>\n  </section>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-slate-200 bg-white\">\n  <header class=\"flex items-center justify-between bg-indigo-600 px-4 py-3 text-white\">\n    <h2 class=\"text-lg font-bold tracking-tight\">Orbit Arcade League</h2>\n    <span class=\"rounded-full bg-indigo-500 px-2.5 py-1 text-xs font-semibold\">Round 04</span>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 p-4\">\n    <p class=\"rounded-xl bg-amber-50 p-3 text-sm font-medium text-amber-900\">High score<br><span class=\"text-xl font-bold\">842,600</span></p>\n    <p class=\"rounded-xl bg-emerald-50 p-3 text-sm font-medium text-emerald-900\">Current rank<br><span class=\"text-xl font-bold\">#02</span></p>\n    <button class=\"col-span-2 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white\">Submit final score</button>\n  </section>\n</article>"
+  },
+  "targetImage": "2026-10-16-medium.webp"
+}

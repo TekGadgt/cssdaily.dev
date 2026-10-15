@@ -1,0 +1,15 @@
+{
+  "title": "Firefly Survey Tag",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"survey-tag\">\n  <header>\n    <span class=\"eyebrow\">NIGHT WALK</span>\n    <span class=\"date\">16 OCT 2026</span>\n  </header>\n  <section>\n    <p class=\"icon\" aria-hidden=\"true\">✨</p>\n    <h1>Firefly Survey</h1>\n    <p class=\"details\">Willow Creek · Plot 07<br>Meet at 7:40 PM</p>\n  </section>\n  <footer>\n    <span class=\"status\">CLEAR SKIES</span>\n    <button>Check in</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #26352c;\n  --moss: #52715b;\n  --mint: #dcebd8;\n  --paper: #fffdf5;\n  --sun: #f4c858;\n}\n\n.survey-tag {\n  width: 440px;\n  box-sizing: border-box;\n  padding: 16px;\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n  background: var(--paper);\n  color: var(--ink);\n}\n\nheader,\nfooter {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\nheader {\n  padding-bottom: 10px;\n  border-bottom: 1px solid var(--moss);\n  color: var(--moss);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}\n\nsection {\n  padding: 12px 0;\n}\n\n.icon {\n  margin: 0 0 3px;\n  font-size: 22px;\n  line-height: 1;\n}\n\nh1 {\n  margin: 0;\n  font-size: 22px;\n  line-height: 1.15;\n}\n\n.details {\n  margin: 5px 0 0;\n  color: var(--moss);\n  font-size: 14px;\n  line-height: 1.45;\n}\n\nfooter {\n  padding-top: 10px;\n  border-top: 1px solid var(--moss);\n}\n\n.status {\n  padding: 4px 8px;\n  border-radius: 999px;\n  background: var(--mint);\n  color: var(--moss);\n  font-size: 10px;\n  font-weight: 700;\n  letter-spacing: 0.7px;\n}\n\nbutton {\n  padding: 7px 11px;\n  border: 0;\n  border-radius: 7px;\n  background: var(--sun);\n  color: var(--ink);\n  font-size: 13px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"survey-tag\">\n  <header>\n    <span class=\"eyebrow\">NIGHT WALK</span>\n    <span class=\"date\">16 OCT 2026</span>\n  </header>\n  <section>\n    <p class=\"icon\" aria-hidden=\"true\">✨</p>\n    <h1>Firefly Survey</h1>\n    <p class=\"details\">Willow Creek · Plot 07<br>Meet at 7:40 PM</p>\n  </section>\n  <footer>\n    <span class=\"status\">CLEAR SKIES</span>\n    <button>Check in</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #26352c;\n  --moss: #52715b;\n  --mint: #dcebd8;\n  --paper: #fffdf5;\n  --sun: #f4c858;\n}\n\n.survey-tag {\n}\n\nheader,\nfooter {\n}\n\nheader {\n}\n\nsection {\n}\n\n.icon {\n}\n\nh1 {\n}\n\n.details {\n}\n\nfooter {\n}\n\n.status {\n}\n\nbutton {\n}"
+  },
+  "date": "2026-10-16",
+  "timeLimit": 300,
+  "targetImage": "2026-10-16-easy.webp"
+}
