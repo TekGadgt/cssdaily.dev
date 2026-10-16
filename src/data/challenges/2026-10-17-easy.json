@@ -1,0 +1,15 @@
+{
+  "title": "Piano Tuning Appointment Card — Easy",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"tuning-card\" aria-label=\"Piano tuning appointment\">\n  <header class=\"card-header\">\n    <span class=\"note-icon\" aria-hidden=\"true\">♫</span>\n    <section>\n      <p class=\"eyebrow\">PIANO CARE</p>\n      <h1>Grand Piano Tune</h1>\n    </section>\n  </header>\n  <section class=\"appointment\">\n    <strong>Saturday, Oct 17</strong>\n    <span>10:30 AM · Studio B</span>\n  </section>\n  <footer class=\"card-footer\">\n    <span>Technician: M. Rivera</span>\n    <b>CONFIRMED</b>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #26384a;\n  --paper: #fffdf7;\n  --mist: #e5f1ef;\n  --teal: #24766e;\n  --line: #b9d5d0;\n}\n\n.tuning-card {\n  box-sizing: border-box;\n  width: 460px;\n  overflow: hidden;\n  color: var(--ink);\n  background: var(--paper);\n  border: 1px solid var(--line);\n  border-radius: 14px;\n}\n\n.card-header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 16px 18px;\n  background: var(--mist);\n}\n\n.note-icon {\n  display: inline-block;\n  width: 38px;\n  height: 38px;\n  box-sizing: border-box;\n  padding-top: 6px;\n  color: var(--paper);\n  background: var(--teal);\n  border-radius: 50%;\n  text-align: center;\n  font-size: 22px;\n  line-height: 26px;\n}\n\n.eyebrow {\n  margin: 0 0 2px;\n  color: var(--teal);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1.2px;\n}\n\nh1 {\n  margin: 0;\n  font-size: 20px;\n  line-height: 1.1;\n}\n\n.appointment {\n  display: flex;\n  justify-content: space-between;\n  padding: 14px 18px;\n  font-size: 14px;\n}\n\n.card-footer {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10px 18px;\n  border-top: 1px solid var(--line);\n  font-size: 12px;\n}\n\n.card-footer b {\n  color: var(--teal);\n  font-size: 11px;\n  letter-spacing: 0.7px;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"tuning-card\" aria-label=\"Piano tuning appointment\">\n  <header class=\"card-header\">\n    <span class=\"note-icon\" aria-hidden=\"true\">♫</span>\n    <section>\n      <p class=\"eyebrow\">PIANO CARE</p>\n      <h1>Grand Piano Tune</h1>\n    </section>\n  </header>\n  <section class=\"appointment\">\n    <strong>Saturday, Oct 17</strong>\n    <span>10:30 AM · Studio B</span>\n  </section>\n  <footer class=\"card-footer\">\n    <span>Technician: M. Rivera</span>\n    <b>CONFIRMED</b>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #26384a;\n  --paper: #fffdf7;\n  --mist: #e5f1ef;\n  --teal: #24766e;\n  --line: #b9d5d0;\n}\n\n.tuning-card {\n}\n\n.card-header {\n}\n\n.note-icon {\n}\n\n.eyebrow {\n}\n\nh1 {\n}\n\n.appointment {\n}\n\n.card-footer {\n}\n\n.card-footer b {\n}"
+  },
+  "date": "2026-10-17",
+  "timeLimit": 300,
+  "targetImage": "2026-10-17-easy.webp"
+}
