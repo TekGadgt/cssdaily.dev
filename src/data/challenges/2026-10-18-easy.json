@@ -1,0 +1,15 @@
+{
+  "title": "Butterfly Conservatory Entry Card",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"conservatory-pass\">\n  <header class=\"pass-header\">\n    <span aria-hidden=\"true\">🦋</span>\n    <section>\n      <p>GREENHOUSE 02</p>\n      <h1>Butterfly Conservatory</h1>\n    </section>\n  </header>\n  <section class=\"pass-details\" aria-label=\"Visit details\">\n    <span>Sunday · 18 October</span>\n    <strong>11:30 AM</strong>\n  </section>\n  <footer class=\"pass-footer\">\n    <span>1 guest · timed entry</span>\n    <button type=\"button\">Admit</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --paper: #fffdf5;\n  --ink: #254238;\n  --leaf: #4f8a63;\n  --mist: #e4f0df;\n  --line: #b9d2ba;\n}\n\n.conservatory-pass {\n  width: 460px;\n  box-sizing: border-box;\n  padding: 16px;\n  color: var(--ink);\n  background: var(--paper);\n  border: 2px solid var(--leaf);\n  border-radius: 18px;\n}\n\n.pass-header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.pass-header > span {\n  display: grid;\n  width: 42px;\n  height: 42px;\n  place-items: center;\n  font-size: 25px;\n  background: var(--mist);\n  border-radius: 50%;\n}\n\n.pass-header p {\n  margin: 0 0 2px;\n  color: var(--leaf);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}\n\n.pass-header h1 {\n  margin: 0;\n  font-size: 20px;\n  line-height: 1.15;\n}\n\n.pass-details {\n  display: flex;\n  justify-content: space-between;\n  margin: 14px 0 10px;\n  padding: 10px 0;\n  font-size: 14px;\n  border-top: 1px solid var(--line);\n  border-bottom: 1px solid var(--line);\n}\n\n.pass-footer {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  font-size: 13px;\n}\n\n.pass-footer button {\n  padding: 7px 14px;\n  color: var(--paper);\n  background: var(--leaf);\n  border: 0;\n  border-radius: 8px;\n  font-weight: 700;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"conservatory-pass\">\n  <header class=\"pass-header\">\n    <span aria-hidden=\"true\">🦋</span>\n    <section>\n      <p>GREENHOUSE 02</p>\n      <h1>Butterfly Conservatory</h1>\n    </section>\n  </header>\n  <section class=\"pass-details\" aria-label=\"Visit details\">\n    <span>Sunday · 18 October</span>\n    <strong>11:30 AM</strong>\n  </section>\n  <footer class=\"pass-footer\">\n    <span>1 guest · timed entry</span>\n    <button type=\"button\">Admit</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --paper: #fffdf5;\n  --ink: #254238;\n  --leaf: #4f8a63;\n  --mist: #e4f0df;\n  --line: #b9d2ba;\n}\n\n.conservatory-pass {\n}\n\n.pass-header {\n}\n\n.pass-header > span {\n}\n\n.pass-header p {\n}\n\n.pass-header h1 {\n}\n\n.pass-details {\n}\n\n.pass-footer {\n}\n\n.pass-footer button {\n}\n"
+  },
+  "date": "2026-10-18",
+  "timeLimit": 300,
+  "targetImage": "2026-10-18-easy.webp"
+}
