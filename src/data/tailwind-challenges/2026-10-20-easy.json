@@ -1,0 +1,13 @@
+{
+  "title": "Canyon Trail Day Pass — Easy — 2026-10-20",
+  "difficulty": "easy",
+  "date": "2026-10-20",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">🥾 Canyon Trail Pass</h2>\n  </header>\n  <p class=\"  \">One scenic loop, marked overlooks, and fresh air included.</p>\n  <button class=\"  \">Start your walk</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"flex w-96 flex-col overflow-hidden rounded-xl border border-emerald-200 bg-white\">\n  <header class=\"border-b border-emerald-100 bg-emerald-50 px-4 py-3\">\n    <h2 class=\"text-lg font-bold text-emerald-900\">🥾 Canyon Trail Pass</h2>\n  </header>\n  <p class=\"px-4 py-3 text-sm leading-6 text-slate-600\">One scenic loop, marked overlooks, and fresh air included.</p>\n  <button class=\"m-4 mt-0 rounded-lg bg-amber-400 px-4 py-2 text-sm font-semibold text-amber-950\">Start your walk</button>\n</article>"
+  },
+  "targetImage": "2026-10-20-easy.webp"
+}

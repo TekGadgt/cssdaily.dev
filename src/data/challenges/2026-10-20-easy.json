@@ -1,0 +1,15 @@
+{
+  "title": "Museum Audio Guide Dock — Easy",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"guide-card\">\n  <header>\n    <span class=\"guide-icon\">🎧</span>\n    <section class=\"guide-copy\">\n      <p class=\"eyebrow\">GALLERY 04</p>\n      <h1>Audio guide ready</h1>\n    </section>\n    <span class=\"duration\">12 min</span>\n  </header>\n  <footer>\n    <p>“Glass &amp; Light”</p>\n    <button>Begin tour <span>→</span></button>\n  </footer>\n</article>",
+    "css": ":root {\n  --paper: #fffdf8;\n  --ink: #25323d;\n  --coral: #e76951;\n}\n\n.guide-card {\n  width: 460px;\n  box-sizing: border-box;\n  overflow: hidden;\n  background: var(--paper);\n  border: 2px solid var(--ink);\n  border-radius: 16px;\n}\n\n.guide-card header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 14px 16px;\n}\n\n.guide-icon {\n  display: grid;\n  width: 42px;\n  height: 42px;\n  place-items: center;\n  background: var(--coral);\n  border-radius: 12px;\n  font-size: 21px;\n}\n\n.guide-copy {\n  flex: 1;\n}\n\n.eyebrow {\n  margin: 0 0 2px;\n  color: var(--coral);\n  font-size: 11px;\n  font-weight: 800;\n  letter-spacing: 1px;\n}\n\n.guide-copy h1 {\n  margin: 0;\n  color: var(--ink);\n  font-size: 20px;\n  line-height: 1.1;\n}\n\n.duration {\n  padding: 5px 8px;\n  color: var(--ink);\n  border: 1px solid var(--ink);\n  border-radius: 999px;\n  font-size: 12px;\n  font-weight: 700;\n}\n\n.guide-card footer {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 10px 16px;\n  background: var(--ink);\n}\n\n.guide-card footer p {\n  margin: 0;\n  color: var(--paper);\n  font-size: 14px;\n  font-weight: 600;\n}\n\n.guide-card button {\n  padding: 7px 10px;\n  color: var(--ink);\n  background: var(--coral);\n  border: 0;\n  border-radius: 8px;\n  font-size: 13px;\n  font-weight: 800;\n}\n\n.guide-card button span {\n  margin-left: 4px;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"guide-card\">\n  <header>\n    <span class=\"guide-icon\">🎧</span>\n    <section class=\"guide-copy\">\n      <p class=\"eyebrow\">GALLERY 04</p>\n      <h1>Audio guide ready</h1>\n    </section>\n    <span class=\"duration\">12 min</span>\n  </header>\n  <footer>\n    <p>“Glass &amp; Light”</p>\n    <button>Begin tour <span>→</span></button>\n  </footer>\n</article>",
+    "css": ":root {\n  --paper: #fffdf8;\n  --ink: #25323d;\n  --coral: #e76951;\n}\n\n.guide-card {\n}\n\n.guide-card header {\n}\n\n.guide-icon {\n}\n\n.guide-copy {\n}\n\n.eyebrow {\n}\n\n.guide-copy h1 {\n}\n\n.duration {\n}\n\n.guide-card footer {\n}\n\n.guide-card footer p {\n}\n\n.guide-card button {\n}\n\n.guide-card button span {\n}"
+  },
+  "date": "2026-10-20",
+  "timeLimit": 300,
+  "targetImage": "2026-10-20-easy.webp"
+}
