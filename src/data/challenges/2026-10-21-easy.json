@@ -1,0 +1,15 @@
+{
+  "title": "Canoe Launch Permit",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"launch-pass\">\n  <header class=\"pass-header\">\n    <h1>Morning Launch</h1>\n    <span class=\"status\">CLEARED</span>\n  </header>\n  <section class=\"trip-details\" aria-label=\"Launch details\">\n    <p class=\"detail\"><span class=\"label\">RAMP</span><strong>Willow Bend</strong></p>\n    <p class=\"detail\"><span class=\"label\">TIME</span><strong>07:30</strong></p>\n    <p class=\"detail\"><span class=\"label\">CRAFT</span><strong>Canoe 14</strong></p>\n  </section>\n  <footer class=\"pass-footer\"><span>Permit WL-218</span><span>21 OCT 2026</span></footer>\n</article>",
+    "css": ":root {\n  --ink: #173b47;\n  --water: #dceff1;\n  --paper: #fffdf7;\n  --line: #9cc9cd;\n  --green: #24776d;\n}\n\n.launch-pass {\n  box-sizing: border-box;\n  width: 460px;\n  padding: 16px;\n  background: var(--paper);\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n}\n\n.pass-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 12px;\n}\n\n.launch-pass h1 {\n  margin: 0;\n  color: var(--ink);\n  font-size: 22px;\n  line-height: 1;\n}\n\n.status {\n  padding: 5px 8px;\n  color: var(--paper);\n  background: var(--green);\n  border-radius: 999px;\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.8px;\n}\n\n.trip-details {\n  display: flex;\n  gap: 10px;\n  padding: 11px 0;\n  border-top: 1px solid var(--line);\n  border-bottom: 1px solid var(--line);\n}\n\n.detail {\n  flex: 1;\n  margin: 0;\n  color: var(--ink);\n}\n\n.label {\n  display: block;\n  margin-bottom: 3px;\n  color: var(--green);\n  font-size: 10px;\n  font-weight: 700;\n  letter-spacing: 0.8px;\n}\n\n.detail strong {\n  font-size: 14px;\n}\n\n.pass-footer {\n  display: flex;\n  justify-content: space-between;\n  padding-top: 10px;\n  color: var(--ink);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.4px;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"launch-pass\">\n  <header class=\"pass-header\">\n    <h1>Morning Launch</h1>\n    <span class=\"status\">CLEARED</span>\n  </header>\n  <section class=\"trip-details\" aria-label=\"Launch details\">\n    <p class=\"detail\"><span class=\"label\">RAMP</span><strong>Willow Bend</strong></p>\n    <p class=\"detail\"><span class=\"label\">TIME</span><strong>07:30</strong></p>\n    <p class=\"detail\"><span class=\"label\">CRAFT</span><strong>Canoe 14</strong></p>\n  </section>\n  <footer class=\"pass-footer\"><span>Permit WL-218</span><span>21 OCT 2026</span></footer>\n</article>",
+    "css": ":root {\n  --ink: #173b47;\n  --water: #dceff1;\n  --paper: #fffdf7;\n  --line: #9cc9cd;\n  --green: #24776d;\n}\n\n.launch-pass {\n}\n\n.pass-header {\n}\n\n.launch-pass h1 {\n}\n\n.status {\n}\n\n.trip-details {\n}\n\n.detail {\n}\n\n.label {\n}\n\n.detail strong {\n}\n\n.pass-footer {\n}"
+  },
+  "date": "2026-10-21",
+  "timeLimit": 300,
+  "targetImage": "2026-10-21-easy.webp"
+}

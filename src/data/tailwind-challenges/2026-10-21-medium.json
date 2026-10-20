@@ -1,0 +1,13 @@
+{
+  "title": "Exhibit Mounting Slot — Medium",
+  "difficulty": "medium",
+  "date": "2026-10-21",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">North Gallery · Frame 24</h2>\n    <span class=\"  \">Booked</span>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Window<br class=\"  \" /><strong class=\"  \">14:00–15:30</strong></p>\n    <p class=\"  \">Wall location<br class=\"  \" /><strong class=\"  \">B-12 · Level 2</strong></p>\n  </section>\n  <footer class=\"  \">\n    <button class=\"  \">Mount confirmed ✓</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-stone-300 bg-white text-stone-800\">\n  <header class=\"flex items-start justify-between border-b border-stone-200 bg-amber-50 p-4\">\n    <h2 class=\"text-lg font-semibold tracking-tight text-stone-900\">North Gallery · Frame 24</h2>\n    <span class=\"rounded-full bg-amber-200 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-amber-900\">Booked</span>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 bg-stone-50 p-4\">\n    <p class=\"rounded-xl border border-stone-200 bg-white px-3 py-2 text-sm leading-5 text-stone-600\">Window<br class=\"hidden\" /><strong class=\"font-semibold text-stone-900\">14:00–15:30</strong></p>\n    <p class=\"rounded-xl border border-stone-200 bg-white px-3 py-2 text-sm leading-5 text-stone-600\">Wall location<br class=\"hidden\" /><strong class=\"font-semibold text-stone-900\">B-12 · Level 2</strong></p>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-stone-200 bg-white p-3\">\n    <button class=\"rounded-lg bg-teal-700 px-4 py-2 text-sm font-semibold text-white\">Mount confirmed ✓</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-10-21-medium.webp"
+}
