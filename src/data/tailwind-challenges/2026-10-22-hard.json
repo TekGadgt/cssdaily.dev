@@ -1,0 +1,13 @@
+{
+  "title": "Whale Song Listening Lab — Hard",
+  "difficulty": "hard",
+  "date": "2026-10-22",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <h1 class=\"  \">Whale Song Lab</h1>\n      <p class=\"  \">Hydrophone 04 · Pacific Shelf</p>\n    </section>\n    <span class=\"  \">Live</span>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Current call</p>\n      <strong class=\"  \">Humpback</strong>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">Frequency</p>\n      <strong class=\"  \">18.4 Hz</strong>\n    </section>\n  </main>\n  <footer class=\"  \">\n    <p class=\"  \">▲ Migration pattern detected</p>\n    <button class=\"  \">Open log</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between border-b border-slate-200 bg-slate-900 px-4 py-3 text-white\">\n    <section class=\"flex items-center gap-3\">\n      <h1 class=\"text-base font-bold tracking-tight\">Whale Song Lab</h1>\n      <p class=\"text-xs text-slate-300\">Hydrophone 04 · Pacific Shelf</p>\n    </section>\n    <span class=\"rounded-full bg-emerald-400 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-950\">Live</span>\n  </header>\n  <main class=\"grid grid-cols-2 gap-3 p-4\">\n    <section class=\"rounded-xl border border-cyan-200 bg-cyan-50 p-3\">\n      <p class=\"text-[11px] font-bold uppercase tracking-widest text-cyan-700\">Current call</p>\n      <strong class=\"mt-2 block text-lg font-bold text-cyan-950\">Humpback</strong>\n    </section>\n    <section class=\"rounded-xl border border-violet-200 bg-violet-50 p-3\">\n      <p class=\"text-[11px] font-bold uppercase tracking-widest text-violet-700\">Frequency</p>\n      <strong class=\"mt-2 block text-lg font-bold text-violet-950\">18.4 Hz</strong>\n    </section>\n  </main>\n  <footer class=\"flex items-center justify-between border-t border-slate-200 bg-amber-50 px-4 py-3\">\n    <p class=\"text-xs font-medium text-amber-900\">▲ Migration pattern detected</p>\n    <button class=\"rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-bold text-white\">Open log</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-10-22-hard.webp"
+}

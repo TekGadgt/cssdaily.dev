@@ -1,0 +1,13 @@
+{
+  "title": "Chess Club Table Card",
+  "difficulty": "easy",
+  "date": "2026-10-22",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">♟ Chess Club</h2>\n    <p class=\"  \">Table 04</p>\n  </header>\n  <p class=\"  \">Your board is ready for the 6:30 PM casual round.</p>\n  <button class=\"  \">Claim seat</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 rounded-xl border border-slate-300 bg-white p-4 text-slate-800\">\n  <header class=\"flex items-center justify-between border-b border-slate-200 pb-3\">\n    <h2 class=\"text-lg font-bold tracking-tight\">♟ Chess Club</h2>\n    <p class=\"rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-800\">Table 04</p>\n  </header>\n  <p class=\"py-4 text-sm leading-6 text-slate-600\">Your board is ready for the 6:30 PM casual round.</p>\n  <button class=\"rounded-lg bg-slate-800 px-4 py-2 text-sm font-semibold text-white\">Claim seat</button>\n</article>"
+  },
+  "targetImage": "2026-10-22-easy.webp"
+}
