@@ -1,0 +1,13 @@
+{
+  "title": "Bug Hotel Build Slot — 2026-10-23",
+  "difficulty": "medium",
+  "date": "2026-10-23",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🐞</span>\n    <h2 class=\"  \">Bug Hotel Build Slot</h2>\n    <p class=\"  \">Friday, Oct 23 · 3:30 PM</p>\n  </header>\n  <ul class=\"  \">\n    <li class=\"  \">🌿 Bring dry stems</li>\n    <li class=\"  \">⏱ 45 minutes</li>\n  </ul>\n  <button class=\"  \">Reserve workbench</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] rounded-xl border border-amber-200 bg-white p-4 text-slate-700\">\n  <header class=\"grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 border-b border-amber-100 pb-3\">\n    <span class=\"row-span-2 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-100 text-xl\">🐞</span>\n    <h2 class=\"self-end text-lg font-semibold tracking-tight text-slate-800\">Bug Hotel Build Slot</h2>\n    <p class=\"text-sm text-slate-500\">Friday, Oct 23 · 3:30 PM</p>\n  </header>\n  <ul class=\"grid grid-cols-2 gap-2 py-3\">\n    <li class=\"flex items-center gap-2 rounded-lg bg-emerald-50 px-3 py-2 text-sm font-medium text-emerald-800\">🌿 Bring dry stems</li>\n    <li class=\"flex items-center gap-2 rounded-lg bg-sky-50 px-3 py-2 text-sm font-medium text-sky-800\">⏱ 45 minutes</li>\n  </ul>\n  <button class=\"w-full rounded-lg bg-amber-500 px-4 py-2 text-sm font-semibold text-white\">Reserve workbench</button>\n</article>"
+  },
+  "targetImage": "2026-10-23-medium.webp"
+}

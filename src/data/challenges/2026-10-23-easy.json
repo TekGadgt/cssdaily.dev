@@ -1,0 +1,15 @@
+{
+  "title": "Rain Barrel Workshop Pass",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"workshop-pass\">\n  <header class=\"pass-top\">\n    <span class=\"pass-type\">HANDSON WORKSHOP</span>\n    <span class=\"pass-status\">3 spots left</span>\n  </header>\n  <section class=\"pass-copy\">\n    <h2>Rain Barrel Basics</h2>\n    <p>Friday, Oct 23 · 4:30 PM<br>Maple Street Tool Shed</p>\n  </section>\n  <footer class=\"pass-footer\">\n    <button type=\"button\">Reserve a spot</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #243631;\n  --paper: #fffdf5;\n  --line: #bdd4c7;\n  --mint: #dff0e5;\n  --green: #28765a;\n}\n\n.workshop-pass {\n  width: 460px;\n  box-sizing: border-box;\n  overflow: hidden;\n  background: var(--paper);\n  border: 1px solid var(--line);\n  border-radius: 14px;\n}\n\n.pass-top {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 10px 14px;\n  background: var(--mint);\n  border-bottom: 1px solid var(--line);\n}\n\n.pass-type {\n  color: var(--green);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n}\n\n.pass-status {\n  color: var(--ink);\n  font-size: 12px;\n  font-weight: 600;\n}\n\n.pass-copy {\n  padding: 15px 14px 13px;\n}\n\n.pass-copy h2 {\n  margin: 0 0 5px;\n  color: var(--ink);\n  font-size: 21px;\n  line-height: 1.1;\n}\n\n.pass-copy p {\n  margin: 0;\n  color: var(--ink);\n  font-size: 14px;\n  line-height: 1.45;\n}\n\n.pass-footer {\n  padding: 0 14px 14px;\n}\n\n.pass-footer button {\n  padding: 9px 13px;\n  color: var(--paper);\n  background: var(--green);\n  border: 0;\n  border-radius: 7px;\n  font-size: 14px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"workshop-pass\">\n  <header class=\"pass-top\">\n    <span class=\"pass-type\">HANDSON WORKSHOP</span>\n    <span class=\"pass-status\">3 spots left</span>\n  </header>\n  <section class=\"pass-copy\">\n    <h2>Rain Barrel Basics</h2>\n    <p>Friday, Oct 23 · 4:30 PM<br>Maple Street Tool Shed</p>\n  </section>\n  <footer class=\"pass-footer\">\n    <button type=\"button\">Reserve a spot</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #243631;\n  --paper: #fffdf5;\n  --line: #bdd4c7;\n  --mint: #dff0e5;\n  --green: #28765a;\n}\n\n.workshop-pass {\n}\n\n.pass-top {\n}\n\n.pass-type {\n}\n\n.pass-status {\n}\n\n.pass-copy {\n}\n\n.pass-copy h2 {\n}\n\n.pass-copy p {\n}\n\n.pass-footer {\n}\n\n.pass-footer button {\n}"
+  },
+  "date": "2026-10-23",
+  "timeLimit": 300,
+  "targetImage": "2026-10-23-easy.webp"
+}

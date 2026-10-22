@@ -1,0 +1,13 @@
+{
+  "title": "Umbrella Repair Drop-off — Easy — 2026-10-23",
+  "difficulty": "easy",
+  "date": "2026-10-23",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">Umbrella Repair</h2>\n    <span class=\"  \">DROP-OFF</span>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Friday, Oct 23 · 10:00–16:00</p>\n    <button class=\"  \">Reserve slot</button>\n  </section>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[460px] overflow-hidden rounded-xl border border-sky-200 bg-white\">\n  <header class=\"flex items-center justify-between bg-sky-600 px-4 py-3 text-white\">\n    <h2 class=\"text-lg font-bold\">Umbrella Repair</h2>\n    <span class=\"rounded-full bg-sky-500 px-2 py-1 text-xs font-semibold\">DROP-OFF</span>\n  </header>\n  <section class=\"flex items-center justify-between px-4 py-4\">\n    <p class=\"text-sm text-slate-600\">Friday, Oct 23 · 10:00–16:00</p>\n    <button class=\"rounded-lg bg-amber-400 px-3 py-2 text-sm font-bold text-amber-950\">Reserve slot</button>\n  </section>\n</article>"
+  },
+  "targetImage": "2026-10-23-easy.webp"
+}
