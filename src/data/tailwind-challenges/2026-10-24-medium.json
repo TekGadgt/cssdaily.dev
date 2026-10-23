@@ -1,0 +1,13 @@
+{
+  "title": "Curling Sheet Reservation",
+  "difficulty": "medium",
+  "date": "2026-10-24",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">🥌 Curling Sheet 2</h2>\n    <span class=\"  \">Confirmed</span>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Saturday · Oct 24, 2026</p>\n    <p class=\"  \">18:30–20:00</p>\n  </section>\n  <ul class=\"  \" aria-label=\"Reservation details\">\n    <li class=\"  \"><span class=\"  \">Team</span><span class=\"  \">Stone Foxes</span></li>\n    <li class=\"  \"><span class=\"  \">Players</span><span class=\"  \">4 of 6 checked in</span></li>\n  </ul>\n  <button class=\"  \">View rink notes</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-lg rounded-2xl border border-slate-200 bg-white p-4 text-slate-800\">\n  <header class=\"flex items-center justify-between border-b border-slate-100 pb-3\">\n    <h2 class=\"text-lg font-bold tracking-tight\">🥌 Curling Sheet 2</h2>\n    <span class=\"rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-700\">Confirmed</span>\n  </header>\n  <section class=\"flex items-center justify-between py-3\">\n    <p class=\"text-sm font-medium text-slate-600\">Saturday · Oct 24, 2026</p>\n    <p class=\"rounded-lg bg-sky-50 px-2 py-1 text-sm font-bold text-sky-700\">18:30–20:00</p>\n  </section>\n  <ul class=\"grid grid-cols-2 gap-2\" aria-label=\"Reservation details\">\n    <li class=\"rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm\"><span class=\"block text-xs font-semibold uppercase tracking-wide text-amber-700\">Team</span><span class=\"mt-1 block font-bold text-amber-950\">Stone Foxes</span></li>\n    <li class=\"rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm\"><span class=\"block text-xs font-semibold uppercase tracking-wide text-slate-500\">Players</span><span class=\"mt-1 block font-bold text-slate-800\">4 of 6 checked in</span></li>\n  </ul>\n  <button class=\"mt-3 w-full rounded-xl bg-slate-800 py-2.5 text-sm font-semibold text-white\">View rink notes</button>\n</article>"
+  },
+  "targetImage": "2026-10-24-medium.webp"
+}

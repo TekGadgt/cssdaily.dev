@@ -1,0 +1,15 @@
+{
+  "title": "Geocache Find Badge",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"cache-card\">\n  <header>\n    <span class=\"icon\" aria-hidden=\"true\">🧭</span>\n    <section>\n      <p class=\"eyebrow\">FIELD NOTE · 24 OCT 2026</p>\n      <h1>North Loop Cache</h1>\n    </section>\n  </header>\n  <footer>\n    <span>Waypoint NL-17</span>\n    <strong>FOUND</strong>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #17383a;\n  --paper: #fffdf4;\n  --signal: #d9ed58;\n}\n\n.cache-card {\n  box-sizing: border-box;\n  width: 460px;\n  padding: 16px;\n  background: var(--paper);\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n  color: var(--ink);\n}\n\nheader {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.icon {\n  display: grid;\n  width: 46px;\n  height: 46px;\n  place-items: center;\n  background: var(--signal);\n  border-radius: 50%;\n  font-size: 24px;\n}\n\n.eyebrow {\n  margin: 0 0 3px;\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}\n\nh1 {\n  margin: 0;\n  font-size: 21px;\n  line-height: 1.1;\n}\n\nfooter {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-top: 14px;\n  padding-top: 10px;\n  border-top: 1px solid var(--ink);\n  font-size: 13px;\n}\n\nstrong {\n  padding: 4px 9px;\n  background: var(--signal);\n  border-radius: 999px;\n  font-size: 11px;\n  letter-spacing: 0.8px;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"cache-card\">\n  <header>\n    <span class=\"icon\" aria-hidden=\"true\">🧭</span>\n    <section>\n      <p class=\"eyebrow\">FIELD NOTE · 24 OCT 2026</p>\n      <h1>North Loop Cache</h1>\n    </section>\n  </header>\n  <footer>\n    <span>Waypoint NL-17</span>\n    <strong>FOUND</strong>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #17383a;\n  --paper: #fffdf4;\n  --signal: #d9ed58;\n}\n\n.cache-card {\n}\n\nheader {\n}\n\n.icon {\n}\n\n.eyebrow {\n}\n\nh1 {\n}\n\nfooter {\n}\n\nstrong {\n}\n"
+  },
+  "date": "2026-10-24",
+  "timeLimit": 300,
+  "targetImage": "2026-10-24-easy.webp"
+}
