@@ -1,0 +1,13 @@
+{
+  "title": "Archery Lane Confirmation — Medium — 2026-10-25",
+  "difficulty": "medium",
+  "date": "2026-10-25",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">Arrowline Range</h2>\n    <span class=\"  \">Confirmed</span>\n    <p class=\"  \">Lane 04 · Sunday, Oct 25 · 6:30–7:15 PM</p>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \"><span class=\"  \">Equipment</span>Recurve set included</p>\n    <p class=\"  \"><span class=\"  \">Level</span>Open practice</p>\n  </section>\n  <button class=\"  \">Add to range pass</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-lg overflow-hidden rounded-xl border border-slate-200 bg-white text-slate-800\">\n  <header class=\"flex flex-wrap items-center gap-x-3 gap-y-1 border-b border-slate-100 bg-amber-50 px-4 py-3\">\n    <h2 class=\"text-lg font-bold tracking-tight text-slate-900\">Arrowline Range</h2>\n    <span class=\"rounded-full bg-emerald-600 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-white\">Confirmed</span>\n    <p class=\"w-full text-sm font-medium text-slate-600\">Lane 04 · Sunday, Oct 25 · 6:30–7:15 PM</p>\n  </header>\n  <section class=\"grid grid-cols-2 gap-2 px-4 py-3\">\n    <p class=\"rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm leading-5 text-amber-900\"><span class=\"block text-xs font-bold uppercase tracking-wider text-amber-700\">Equipment</span>Recurve set included</p>\n    <p class=\"rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm leading-5 text-slate-700\"><span class=\"block text-xs font-bold uppercase tracking-wider text-slate-500\">Level</span>Open practice</p>\n  </section>\n  <button class=\"mx-4 mb-4 w-[calc(100%-2rem)] rounded-lg bg-slate-800 px-4 py-2.5 text-sm font-semibold text-white\">Add to range pass</button>\n</article>"
+  },
+  "targetImage": "2026-10-25-medium.webp"
+}

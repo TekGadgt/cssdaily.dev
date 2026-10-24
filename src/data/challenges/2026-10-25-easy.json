@@ -1,0 +1,15 @@
+{
+  "title": "Laundromat Cycle Ready",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"laundry-card\">\n  <header class=\"card-head\">\n    <span class=\"machine-icon\" aria-hidden=\"true\">🫧</span>\n    <section>\n      <p class=\"eyebrow\">SPIN &amp; FOLD</p>\n      <h1>Washer 12</h1>\n    </section>\n    <span class=\"status\">Ready</span>\n  </header>\n  <section class=\"cycle-row\" aria-label=\"Cycle details\">\n    <span>Quick wash</span>\n    <strong>28 min</strong>\n    <span>25 Oct</span>\n  </section>\n  <button class=\"start-button\">Start cycle <span>→</span></button>\n</article>",
+    "css": ":root {\n  --ink: #24313d;\n  --paper: #fffdf8;\n  --line: #d8e2e5;\n  --aqua: #bdeee8;\n  --aqua-dark: #167d78;\n}\n\n* {\n  box-sizing: border-box;\n}\n\n.laundry-card {\n  width: 440px;\n  padding: 16px;\n  display: flex;\n  flex-direction: column;\n  gap: 14px;\n  color: var(--ink);\n  background: var(--paper);\n  border: 1px solid var(--line);\n  border-radius: 18px;\n}\n\n.card-head {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n\n.machine-icon {\n  width: 42px;\n  height: 42px;\n  display: grid;\n  place-items: center;\n  font-size: 23px;\n  background: var(--aqua);\n  border-radius: 13px;\n}\n\n.eyebrow {\n  margin: 0 0 2px;\n  color: var(--aqua-dark);\n  font-size: 10px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}\n\n.card-head h1 {\n  margin: 0;\n  font-size: 20px;\n  line-height: 1.1;\n}\n\n.status {\n  margin-left: auto;\n  padding: 5px 9px;\n  color: var(--aqua-dark);\n  background: var(--aqua);\n  border-radius: 999px;\n  font-size: 12px;\n  font-weight: 700;\n}\n\n.cycle-row {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 10px 12px;\n  border: 1px solid var(--line);\n  border-radius: 10px;\n  font-size: 13px;\n}\n\n.cycle-row strong {\n  font-size: 15px;\n}\n\n.start-button {\n  padding: 10px 14px;\n  display: flex;\n  justify-content: space-between;\n  color: var(--paper);\n  background: var(--aqua-dark);\n  border: 0;\n  border-radius: 10px;\n  font-size: 14px;\n  font-weight: 700;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"laundry-card\">\n  <header class=\"card-head\">\n    <span class=\"machine-icon\" aria-hidden=\"true\">🫧</span>\n    <section>\n      <p class=\"eyebrow\">SPIN &amp; FOLD</p>\n      <h1>Washer 12</h1>\n    </section>\n    <span class=\"status\">Ready</span>\n  </header>\n  <section class=\"cycle-row\" aria-label=\"Cycle details\">\n    <span>Quick wash</span>\n    <strong>28 min</strong>\n    <span>25 Oct</span>\n  </section>\n  <button class=\"start-button\">Start cycle <span>→</span></button>\n</article>",
+    "css": ":root {\n  --ink: #24313d;\n  --paper: #fffdf8;\n  --line: #d8e2e5;\n  --aqua: #bdeee8;\n  --aqua-dark: #167d78;\n}\n\n* {\n}\n\n.laundry-card {\n}\n\n.card-head {\n}\n\n.machine-icon {\n}\n\n.eyebrow {\n}\n\n.card-head h1 {\n}\n\n.status {\n}\n\n.cycle-row {\n}\n\n.cycle-row strong {\n}\n\n.start-button {\n}\n"
+  },
+  "date": "2026-10-25",
+  "timeLimit": 300,
+  "targetImage": "2026-10-25-easy.webp"
+}
