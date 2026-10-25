@@ -1,0 +1,15 @@
+{
+  "title": "Roller Rink Check-In",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"rink-pass\">\n  <header>\n    <span class=\"skate\" aria-hidden=\"true\">🛼</span>\n    <section>\n      <p class=\"eyebrow\">SATURDAY SESSION</p>\n      <h1>Neon Glide</h1>\n    </section>\n  </header>\n  <p class=\"time\">7:30 PM · Maple Rink</p>\n  <button type=\"button\">Checked in ✓</button>\n</article>",
+    "css": ":root {\n  --ink: #29243d;\n  --violet: #7657d8;\n  --lilac: #eee9ff;\n  --line: #d9d0f5;\n  --paper: #ffffff;\n}\n\n.rink-pass {\n  width: 420px;\n  padding: 16px;\n  border: 1px solid var(--line);\n  border-radius: 16px;\n  background: var(--paper);\n  color: var(--ink);\n}\n\nheader {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.skate {\n  display: grid;\n  width: 48px;\n  height: 48px;\n  place-items: center;\n  border-radius: 14px;\n  background: var(--lilac);\n  font-size: 26px;\n}\n\n.eyebrow {\n  margin: 0 0 2px;\n  color: var(--violet);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}\n\nh1 {\n  margin: 0;\n  font-size: 21px;\n  line-height: 1.1;\n}\n\n.time {\n  margin: 14px 0 12px;\n  font-size: 14px;\n}\n\nbutton {\n  width: 100%;\n  padding: 9px;\n  border: 0;\n  border-radius: 9px;\n  background: var(--violet);\n  color: var(--paper);\n  font-size: 14px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"rink-pass\">\n  <header>\n    <span class=\"skate\" aria-hidden=\"true\">🛼</span>\n    <section>\n      <p class=\"eyebrow\">SATURDAY SESSION</p>\n      <h1>Neon Glide</h1>\n    </section>\n  </header>\n  <p class=\"time\">7:30 PM · Maple Rink</p>\n  <button type=\"button\">Checked in ✓</button>\n</article>",
+    "css": ":root {\n  --ink: #29243d;\n  --violet: #7657d8;\n  --lilac: #eee9ff;\n  --line: #d9d0f5;\n  --paper: #ffffff;\n}\n\n.rink-pass {\n}\n\nheader {\n}\n\n.skate {\n}\n\n.eyebrow {\n}\n\nh1 {\n}\n\n.time {\n}\n\nbutton {\n}"
+  },
+  "date": "2026-10-26",
+  "timeLimit": 300,
+  "targetImage": "2026-10-26-easy.webp"
+}
