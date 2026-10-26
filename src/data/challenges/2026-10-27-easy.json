@@ -1,0 +1,15 @@
+{
+  "title": "Neighborhood Soup Swap Card",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"soup-card\">\n  <header class=\"card-header\">\n    <span class=\"bowl\" aria-hidden=\"true\">🥣</span>\n    <section>\n      <p class=\"eyebrow\">SUNDAY SOCIAL</p>\n      <h1>Soup Swap</h1>\n    </section>\n  </header>\n  <section class=\"details\">\n    <p><strong>Bring</strong> 2 jars of homemade soup</p>\n    <span class=\"badge\">VEGETARIAN</span>\n  </section>\n  <footer>\n    <span>Oct 27 · 4:30 PM</span>\n    <span>Maple Hall</span>\n  </footer>\n</article>",
+    "css": ":root {\n  --card: #fffaf0;\n  --ink: #26352e;\n  --tomato: #c94e3b;\n  --sage: #dce8d6;\n  --line: #26352e;\n}\n\n.soup-card {\n  width: 440px;\n  padding: 18px;\n  border: 2px solid var(--line);\n  border-radius: 18px;\n  background: var(--card);\n  color: var(--ink);\n}\n\n.card-header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.bowl {\n  display: grid;\n  width: 48px;\n  height: 48px;\n  place-items: center;\n  border-radius: 14px;\n  background: var(--tomato);\n  font-size: 25px;\n}\n\n.eyebrow {\n  margin: 0 0 2px;\n  color: var(--tomato);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}\n\nh1 {\n  margin: 0;\n  font-size: 24px;\n  line-height: 1;\n}\n\n.details {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-top: 16px;\n  padding: 10px 12px;\n  border-radius: 10px;\n  background: var(--sage);\n  font-size: 14px;\n}\n\n.details p {\n  margin: 0;\n}\n\n.badge {\n  padding: 4px 7px;\n  border: 1px solid var(--line);\n  border-radius: 999px;\n  font-size: 10px;\n  font-weight: 700;\n}\n\nfooter {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 14px;\n  font-size: 13px;\n  font-weight: 700;\n}\n"
+  },
+  "starter": {
+    "html": "<article class=\"soup-card\">\n  <header class=\"card-header\">\n    <span class=\"bowl\" aria-hidden=\"true\">🥣</span>\n    <section>\n      <p class=\"eyebrow\">SUNDAY SOCIAL</p>\n      <h1>Soup Swap</h1>\n    </section>\n  </header>\n  <section class=\"details\">\n    <p><strong>Bring</strong> 2 jars of homemade soup</p>\n    <span class=\"badge\">VEGETARIAN</span>\n  </section>\n  <footer>\n    <span>Oct 27 · 4:30 PM</span>\n    <span>Maple Hall</span>\n  </footer>\n</article>",
+    "css": ":root {\n  --card: #fffaf0;\n  --ink: #26352e;\n  --tomato: #c94e3b;\n  --sage: #dce8d6;\n  --line: #26352e;\n}\n\n.soup-card {\n}\n\n.card-header {\n}\n\n.bowl {\n}\n\n.eyebrow {\n}\n\nh1 {\n}\n\n.details {\n}\n\n.details p {\n}\n\n.badge {\n}\n\nfooter {\n}\n"
+  },
+  "date": "2026-10-27",
+  "timeLimit": 300,
+  "targetImage": "2026-10-27-easy.webp"
+}

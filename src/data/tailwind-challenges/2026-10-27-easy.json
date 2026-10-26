@@ -1,0 +1,13 @@
+{
+  "title": "Community Fridge Drop",
+  "difficulty": "easy",
+  "date": "2026-10-27",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <h2 class=\"  \">Community Fridge</h2>\n  <p class=\"  \">OPEN</p>\n  <button class=\"  \">Drop off</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"flex w-96 items-center justify-between rounded-xl border border-emerald-200 bg-white p-4\">\n  <h2 class=\"text-lg font-semibold text-slate-800\">Community Fridge</h2>\n  <p class=\"rounded-full bg-emerald-100 px-2 py-1 text-xs font-medium text-emerald-700\">OPEN</p>\n  <button class=\"rounded-lg bg-orange-500 px-3 py-2 text-sm font-semibold text-white\">Drop off</button>\n</article>"
+  },
+  "targetImage": "2026-10-27-easy.webp"
+}
