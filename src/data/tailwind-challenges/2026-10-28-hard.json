@@ -1,0 +1,13 @@
+{
+  "title": "Firefly Census Field Console — Hard — 2026-10-28",
+  "difficulty": "hard",
+  "date": "2026-10-28",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <h1 class=\"  \">✦ Firefly Census</h1>\n      <span class=\"  \">Live sweep</span>\n    </section>\n  </header>\n  <section class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Glow count</p>\n      <strong class=\"  \">128</strong>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">Sector</p>\n      <strong class=\"  \">B-04</strong>\n    </section>\n  </section>\n  <footer class=\"  \">\n    <button class=\"  \">Record sweep →</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[500px] overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 text-slate-100\">\n  <header class=\"border-b border-slate-800 bg-slate-900 p-4\">\n    <section class=\"flex items-center justify-between gap-3\">\n      <h1 class=\"text-lg font-bold tracking-tight text-amber-300\">✦ Firefly Census</h1>\n      <span class=\"rounded-full border border-emerald-400/40 bg-emerald-400/10 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-emerald-300\">Live sweep</span>\n    </section>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 p-4\">\n    <section class=\"rounded-xl border border-amber-400/30 bg-amber-400/10 p-3\">\n      <p class=\"mb-2 text-xs font-semibold uppercase tracking-widest text-amber-200/70\">Glow count</p>\n      <strong class=\"block text-3xl font-bold leading-none text-amber-300\">128</strong>\n    </section>\n    <section class=\"rounded-xl border border-sky-400/30 bg-sky-400/10 p-3\">\n      <p class=\"mb-2 text-xs font-semibold uppercase tracking-widest text-sky-200/70\">Sector</p>\n      <strong class=\"block text-3xl font-bold leading-none text-sky-300\">B-04</strong>\n    </section>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-800 bg-slate-900 px-4 py-3\">\n    <button class=\"rounded-lg bg-violet-500 px-3 py-2 text-sm font-bold text-white\">Record sweep →</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-10-28-hard.webp"
+}

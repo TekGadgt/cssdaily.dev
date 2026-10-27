@@ -1,0 +1,15 @@
+{
+  "title": "Agility Ring Slot Confirmation",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"slot-card\">\n  <header class=\"slot-header\">\n    <span class=\"paw-mark\">🐾</span>\n    <section>\n      <p class=\"eyebrow\">Riverside Dog Club</p>\n      <h1>Agility Ring Slot</h1>\n    </section>\n  </header>\n  <section class=\"slot-details\">\n    <strong>Wed, Oct 28 · 6:30 PM</strong>\n    <span>Ring B · 45 minutes</span>\n  </section>\n  <footer class=\"slot-footer\">\n    <span class=\"status\">Confirmed</span>\n    <button>View pass</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #26313a;\n  --muted: #66747b;\n  --paper: #ffffff;\n  --line: #d9e2df;\n  --mint: #dff3e9;\n  --mint-ink: #24704f;\n  --coral: #ef765f;\n}\n\n.slot-card {\n  width: 460px;\n  overflow: hidden;\n  background: var(--paper);\n  border: 1px solid var(--line);\n  border-radius: 16px;\n}\n\n.slot-header {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 14px 16px;\n  border-bottom: 1px solid var(--line);\n}\n\n.paw-mark {\n  display: grid;\n  width: 38px;\n  height: 38px;\n  place-items: center;\n  background: var(--mint);\n  border-radius: 10px;\n  font-size: 20px;\n}\n\n.eyebrow,\n.slot-header h1 {\n  margin: 0;\n}\n\n.eyebrow {\n  color: var(--muted);\n  font-size: 12px;\n  font-weight: 700;\n}\n\n.slot-header h1 {\n  color: var(--ink);\n  font-size: 19px;\n  line-height: 1.2;\n}\n\n.slot-details,\n.slot-footer {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 13px 16px;\n  color: var(--muted);\n  font-size: 14px;\n}\n\n.slot-details strong {\n  color: var(--ink);\n}\n\n.slot-footer {\n  background: var(--mint);\n}\n\n.status {\n  color: var(--mint-ink);\n  font-weight: 700;\n}\n\nbutton {\n  padding: 7px 12px;\n  color: var(--paper);\n  background: var(--coral);\n  border: 0;\n  border-radius: 8px;\n  font: inherit;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"slot-card\">\n  <header class=\"slot-header\">\n    <span class=\"paw-mark\">🐾</span>\n    <section>\n      <p class=\"eyebrow\">Riverside Dog Club</p>\n      <h1>Agility Ring Slot</h1>\n    </section>\n  </header>\n  <section class=\"slot-details\">\n    <strong>Wed, Oct 28 · 6:30 PM</strong>\n    <span>Ring B · 45 minutes</span>\n  </section>\n  <footer class=\"slot-footer\">\n    <span class=\"status\">Confirmed</span>\n    <button>View pass</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #26313a;\n  --muted: #66747b;\n  --paper: #ffffff;\n  --line: #d9e2df;\n  --mint: #dff3e9;\n  --mint-ink: #24704f;\n  --coral: #ef765f;\n}\n\n.slot-card {\n}\n\n.slot-header {\n}\n\n.paw-mark {\n}\n\n.eyebrow,\n.slot-header h1 {\n}\n\n.eyebrow {\n}\n\n.slot-header h1 {\n}\n\n.slot-details,\n.slot-footer {\n}\n\n.slot-details strong {\n}\n\n.slot-footer {\n}\n\n.status {\n}\n\nbutton {\n}"
+  },
+  "date": "2026-10-28",
+  "timeLimit": 300,
+  "targetImage": "2026-10-28-easy.webp"
+}
