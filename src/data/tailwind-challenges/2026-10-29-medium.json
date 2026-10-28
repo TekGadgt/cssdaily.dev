@@ -1,0 +1,13 @@
+{
+  "title": "Bicycle Valet Claim Card — Medium — 2026-10-29",
+  "difficulty": "medium",
+  "date": "2026-10-29",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <p class=\"  \">CITY BIKE VALET</p>\n    <h1 class=\"  \">Claim slip</h1>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Rack <span class=\"  \">B-14</span></p>\n    <p class=\"  \">Return by <span class=\"  \">18:30</span></p>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Parkside Plaza · Oct 29</p>\n    <button class=\"  \">#0847</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-slate-200 bg-white\">\n  <header class=\"flex items-center justify-between bg-emerald-700 px-4 py-3 text-white\">\n    <p class=\"rounded-full bg-emerald-600 px-2.5 py-1 text-xs font-semibold tracking-wide\">CITY BIKE VALET</p>\n    <h1 class=\"text-lg font-bold tracking-tight\">Claim slip</h1>\n  </header>\n  <section class=\"grid grid-cols-2 gap-px bg-slate-200\">\n    <p class=\"bg-slate-50 px-4 py-3 text-sm text-slate-600\">Rack <span class=\"block text-xl font-bold text-slate-900\">B-14</span></p>\n    <p class=\"bg-slate-50 px-4 py-3 text-sm text-slate-600\">Return by <span class=\"block text-xl font-bold text-slate-900\">18:30</span></p>\n  </section>\n  <footer class=\"flex items-center justify-between p-3\">\n    <p class=\"text-sm font-medium text-slate-600\">Parkside Plaza · Oct 29</p>\n    <button class=\"rounded-lg bg-amber-400 px-4 py-2 text-sm font-bold text-amber-950\">#0847</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-10-29-medium.webp"
+}

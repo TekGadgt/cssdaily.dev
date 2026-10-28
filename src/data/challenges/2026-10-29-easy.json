@@ -1,0 +1,15 @@
+{
+  "title": "Bookmobile Stop Notice",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"route-card\">\n  <header class=\"route-head\">\n    <span class=\"route-icon\" aria-hidden=\"true\">📚</span>\n    <span class=\"status-badge\">ON ROUTE</span>\n  </header>\n  <h2>Maple Street Bookmobile</h2>\n  <p class=\"route-time\">Thursday · 3:30–4:15 PM</p>\n  <footer class=\"route-footer\">\n    <span>Maple &amp; 8th Avenue</span>\n    <button type=\"button\">Save stop</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --card: #fffdf7;\n  --ink: #263448;\n  --muted: #68778a;\n  --line: #d7e1e8;\n  --blue: #2774a8;\n  --blue-soft: #e4f2fb;\n  --gold: #f3ba43;\n}\n\n.route-card {\n  box-sizing: border-box;\n  width: 460px;\n  padding: 16px;\n  border: 1px solid var(--line);\n  border-radius: 14px;\n  background: var(--card);\n  color: var(--ink);\n}\n\n.route-head {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 10px;\n}\n\n.route-icon {\n  display: grid;\n  place-items: center;\n  width: 34px;\n  height: 34px;\n  border-radius: 10px;\n  background: var(--gold);\n  font-size: 18px;\n}\n\n.status-badge {\n  padding: 4px 8px;\n  border-radius: 999px;\n  background: var(--blue-soft);\n  color: var(--blue);\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.5px;\n}\n\n.route-card h2 {\n  margin: 0 0 3px;\n  font-size: 19px;\n  line-height: 1.2;\n}\n\n.route-time {\n  margin: 0;\n  color: var(--muted);\n  font-size: 14px;\n}\n\n.route-footer {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-top: 14px;\n  padding-top: 12px;\n  border-top: 1px solid var(--line);\n  color: var(--muted);\n  font-size: 13px;\n}\n\n.route-footer button {\n  padding: 7px 10px;\n  border: 0;\n  border-radius: 7px;\n  background: var(--blue);\n  color: var(--card);\n  font-size: 13px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"route-card\">\n  <header class=\"route-head\">\n    <span class=\"route-icon\" aria-hidden=\"true\">📚</span>\n    <span class=\"status-badge\">ON ROUTE</span>\n  </header>\n  <h2>Maple Street Bookmobile</h2>\n  <p class=\"route-time\">Thursday · 3:30–4:15 PM</p>\n  <footer class=\"route-footer\">\n    <span>Maple &amp; 8th Avenue</span>\n    <button type=\"button\">Save stop</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --card: #fffdf7;\n  --ink: #263448;\n  --muted: #68778a;\n  --line: #d7e1e8;\n  --blue: #2774a8;\n  --blue-soft: #e4f2fb;\n  --gold: #f3ba43;\n}\n\n.route-card {\n}\n\n.route-head {\n}\n\n.route-icon {\n}\n\n.status-badge {\n}\n\n.route-card h2 {\n}\n\n.route-time {\n}\n\n.route-footer {\n}\n\n.route-footer button {\n}"
+  },
+  "date": "2026-10-29",
+  "timeLimit": 300,
+  "targetImage": "2026-10-29-easy.webp"
+}
