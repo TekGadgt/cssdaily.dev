@@ -1,0 +1,15 @@
+{
+  "title": "Pumpkin Carving Bench Pass — Easy — 2026-10-30",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"pass\">\n  <header class=\"pass-header\">\n    <span class=\"pass-icon\" aria-hidden=\"true\">🎃</span>\n    <section>\n      <p class=\"eyebrow\">HARVEST YARD</p>\n      <h1>Pumpkin Carving Bench</h1>\n    </section>\n    <strong class=\"bench\">B-04</strong>\n  </header>\n  <footer class=\"pass-footer\">\n    <span>Friday · 4:30 PM</span>\n    <button>Checked in</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #3d251d;\n  --paper: #fff9ed;\n  --orange: #e86e2d;\n  --gold: #f8c45a;\n  --line: #e6c89d;\n}\n\n* {\n  box-sizing: border-box;\n}\n\n.pass {\n  width: 460px;\n  overflow: hidden;\n  background: var(--paper);\n  border: 2px solid var(--ink);\n  border-radius: 16px;\n}\n\n.pass-header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 14px 16px;\n  background: var(--orange);\n  color: var(--paper);\n}\n\n.pass-icon {\n  display: grid;\n  width: 42px;\n  height: 42px;\n  place-items: center;\n  background: var(--gold);\n  border: 2px solid var(--ink);\n  border-radius: 50%;\n  font-size: 24px;\n}\n\n.eyebrow {\n  margin: 0 0 2px;\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 1px;\n}\n\nh1 {\n  margin: 0;\n  font-size: 19px;\n  line-height: 1.1;\n}\n\n.bench {\n  margin-left: auto;\n  padding: 6px 8px;\n  background: var(--ink);\n  border-radius: 7px;\n  font-size: 13px;\n}\n\n.pass-footer {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 10px 16px;\n  color: var(--ink);\n  font-size: 14px;\n  font-weight: 600;\n}\n\nbutton {\n  padding: 6px 10px;\n  background: var(--gold);\n  border: 1px solid var(--ink);\n  border-radius: 7px;\n  color: var(--ink);\n  font-size: 12px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"pass\">\n  <header class=\"pass-header\">\n    <span class=\"pass-icon\" aria-hidden=\"true\">🎃</span>\n    <section>\n      <p class=\"eyebrow\">HARVEST YARD</p>\n      <h1>Pumpkin Carving Bench</h1>\n    </section>\n    <strong class=\"bench\">B-04</strong>\n  </header>\n  <footer class=\"pass-footer\">\n    <span>Friday · 4:30 PM</span>\n    <button>Checked in</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #3d251d;\n  --paper: #fff9ed;\n  --orange: #e86e2d;\n  --gold: #f8c45a;\n  --line: #e6c89d;\n}\n\n* {\n}\n\n.pass {\n}\n\n.pass-header {\n}\n\n.pass-icon {\n}\n\n.eyebrow {\n}\n\nh1 {\n}\n\n.bench {\n}\n\n.pass-footer {\n}\n\nbutton {\n}"
+  },
+  "date": "2026-10-30",
+  "timeLimit": 300,
+  "targetImage": "2026-10-30-easy.webp"
+}

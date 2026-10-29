@@ -1,0 +1,13 @@
+{
+  "title": "Cobbler Repair Pickup Status — Medium",
+  "difficulty": "medium",
+  "date": "2026-10-30",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">MAPLE &amp; SOLE</span>\n    <h2 class=\"  \">Repair status</h2>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">Your suede ankle boots are ready for collection on Oct 30.</p>\n    <ul class=\"  \">\n      <li class=\"  \">1 · Brushed</li>\n      <li class=\"  \">2 · Resoled</li>\n      <li class=\"  \">3 · Ready</li>\n    </ul>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Ticket #MS-184 · 4:30 PM</p>\n    <button class=\"  \">View receipt</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-full max-w-lg overflow-hidden rounded-xl border border-slate-200 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between border-b border-slate-200 px-4 py-3\">\n    <span class=\"rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-800\">MAPLE &amp; SOLE</span>\n    <h2 class=\"text-sm font-semibold tracking-tight text-slate-900\">Repair status</h2>\n  </header>\n  <section class=\"p-4\">\n    <p class=\"mb-3 text-sm leading-5 text-slate-600\">Your suede ankle boots are ready for collection on Oct 30.</p>\n    <ul class=\"grid grid-cols-3 gap-2\">\n      <li class=\"rounded-lg border border-sky-200 bg-sky-50 p-3 text-xs font-semibold text-sky-800\">1 · Brushed</li>\n      <li class=\"rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-xs font-semibold text-emerald-800\">2 · Resoled</li>\n      <li class=\"rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs font-semibold text-amber-800\">3 · Ready</li>\n    </ul>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-200 bg-slate-50 px-4 py-3\">\n    <p class=\"text-xs font-medium text-slate-500\">Ticket #MS-184 · 4:30 PM</p>\n    <button class=\"rounded-lg bg-slate-800 px-3 py-2 text-xs font-semibold text-white\">View receipt</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-10-30-medium.webp"
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Vinyl Pressing Run Board — Hard",
+  "difficulty": "hard",
+  "date": "2026-10-30",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Pressing Run 18</h1>\n    <span class=\"  \">ON PRESS</span>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Side A · 12 inch</p>\n      <p class=\"  \">Midnight<br>Marigold</p>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">Cycle</p>\n      <strong class=\"  \">04:28</strong>\n    </section>\n  </main>\n  <footer class=\"  \">\n    <p class=\"  \">180g smoke vinyl · 32 / 80</p>\n    <button class=\"  \">Inspect</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 text-slate-100\">\n  <header class=\"flex items-center justify-between border-b border-slate-800 px-4 py-3\">\n    <h1 class=\"text-lg font-bold tracking-tight text-white\">Pressing Run 18</h1>\n    <span class=\"rounded-full border border-emerald-400/40 bg-emerald-400/10 px-2.5 py-1 text-xs font-bold tracking-wide text-emerald-300\">ON PRESS</span>\n  </header>\n  <main class=\"grid grid-cols-3 gap-3 p-4\">\n    <section class=\"col-span-2 flex min-h-28 flex-col justify-between rounded-xl border border-violet-400/30 bg-violet-500/10 p-3\">\n      <p class=\"text-xs font-semibold uppercase tracking-[0.18em] text-violet-300\">Side A · 12 inch</p>\n      <p class=\"text-xl font-bold leading-tight text-white\">Midnight<br>Marigold</p>\n    </section>\n    <section class=\"flex min-h-28 flex-col justify-between rounded-xl border border-slate-700 bg-slate-900 p-3\">\n      <p class=\"text-xs font-semibold uppercase tracking-wider text-slate-400\">Cycle</p>\n      <strong class=\"text-2xl font-bold tabular-nums text-amber-300\">04:28</strong>\n    </section>\n  </main>\n  <footer class=\"flex items-center justify-between border-t border-slate-800 bg-slate-900/70 px-4 py-3\">\n    <p class=\"text-sm font-medium text-sky-300\">180g smoke vinyl · 32 / 80</p>\n    <button class=\"rounded-lg bg-amber-300 px-3 py-1.5 text-sm font-bold text-slate-950\">Inspect</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-10-30-hard.webp"
+}
