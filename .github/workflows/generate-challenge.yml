@@ -11,7 +11,7 @@ on:
 
 jobs:
   generate:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       AI_PROVIDER: ${{ vars.AI_PROVIDER || 'openai' }}
       AI_MODEL: ${{ vars.AI_MODEL || 'gpt-5.6-terra' }}
