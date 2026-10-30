@@ -1,0 +1,13 @@
+{
+  "title": "Catacomb Cartography Dispatch",
+  "difficulty": "hard",
+  "date": "2026-10-31",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">✦</span>\n    <section class=\"  \">\n      <p class=\"  \">31 Oct 2026 · level B2</p>\n      <h2 class=\"  \">Catacomb Map Desk</h2>\n    </section>\n    <span class=\"  \">OPEN</span>\n  </header>\n  <section class=\"  \">\n    <ul class=\"  \">\n      <li class=\"  \">14 MAPS</li>\n      <li class=\"  \">03 MARKED</li>\n      <li class=\"  \">07 SEALS</li>\n    </ul>\n  </section>\n  <footer class=\"  \">\n    Next runner: East stairwell\n    <button class=\"  \">Release folio</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] rounded-2xl border border-slate-800 bg-slate-950 p-4 text-slate-100\">\n  <header class=\"flex items-center justify-between border-b border-slate-800 pb-3\">\n    <span class=\"flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-400 text-lg text-slate-950\">✦</span>\n    <section class=\"min-w-0 flex-1 px-3\">\n      <p class=\"text-xs font-semibold uppercase tracking-[0.18em] text-amber-400\">31 Oct 2026 · level B2</p>\n      <h2 class=\"truncate text-lg font-bold tracking-tight text-white\">Catacomb Map Desk</h2>\n    </section>\n    <span class=\"shrink-0 rounded-full border border-emerald-700 bg-emerald-950 px-2 py-1 text-xs font-bold text-emerald-300\">OPEN</span>\n  </header>\n  <section class=\"mt-3 rounded-xl border border-slate-800 bg-slate-900 p-3\">\n    <ul class=\"grid grid-cols-3 gap-2\">\n      <li class=\"flex h-16 items-end rounded-lg border border-cyan-800 bg-cyan-950 p-2 text-sm font-bold text-cyan-200\">14 MAPS</li>\n      <li class=\"flex h-16 items-end rounded-lg border border-fuchsia-800 bg-fuchsia-950 p-2 text-sm font-bold text-fuchsia-200\">03 MARKED</li>\n      <li class=\"flex h-16 items-end rounded-lg border border-amber-700 bg-amber-950 p-2 text-sm font-bold text-amber-200\">07 SEALS</li>\n    </ul>\n  </section>\n  <footer class=\"mt-3 flex items-center justify-between text-xs font-medium text-slate-400\">\n    Next runner: East stairwell\n    <button class=\"rounded-lg bg-amber-400 px-3 py-2 text-xs font-bold text-slate-950\">Release folio</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-10-31-hard.webp"
+}

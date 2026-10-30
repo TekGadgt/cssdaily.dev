@@ -1,0 +1,15 @@
+{
+  "title": "Porch Light Status",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"porch-card\">\n  <header>\n    <span class=\"glow\" aria-hidden=\"true\">●</span>\n    <section class=\"heading\">\n      <p>OCT 31 · 6:00 PM</p>\n      <h1>Porch light is on</h1>\n    </section>\n    <span class=\"open\">WELCOME</span>\n  </header>\n  <p class=\"message\">One ring is plenty — treats are waiting by the blue door.</p>\n</article>",
+    "css": ":root {\n  --night: #302542;\n  --paper: #fff9ed;\n  --orange: #f47b32;\n  --mint: #b8dfc6;\n  --plum: #6b466f;\n}\n\n.porch-card {\n  box-sizing: border-box;\n  width: 460px;\n  padding: 16px;\n  background: var(--paper);\n  border: 2px solid var(--night);\n  border-radius: 18px;\n  color: var(--night);\n}\n\n.porch-card header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.glow {\n  width: 34px;\n  height: 34px;\n  border-radius: 50%;\n  background: var(--orange);\n  color: var(--paper);\n  display: grid;\n  place-items: center;\n  font-size: 20px;\n}\n\n.heading {\n  flex: 1;\n}\n\n.heading p {\n  margin: 0 0 2px;\n  color: var(--plum);\n  font-size: 11px;\n  font-weight: 700;\n}\n\nh1 {\n  margin: 0;\n  font-size: 20px;\n  line-height: 1.1;\n}\n\n.open {\n  padding: 5px 8px;\n  border-radius: 999px;\n  background: var(--mint);\n  color: var(--night);\n  font-size: 10px;\n  font-weight: 700;\n}\n\n.message {\n  margin: 14px 0 0;\n  padding-top: 12px;\n  border-top: 1px solid var(--plum);\n  font-size: 14px;\n  line-height: 1.35;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"porch-card\">\n  <header>\n    <span class=\"glow\" aria-hidden=\"true\">●</span>\n    <section class=\"heading\">\n      <p>OCT 31 · 6:00 PM</p>\n      <h1>Porch light is on</h1>\n    </section>\n    <span class=\"open\">WELCOME</span>\n  </header>\n  <p class=\"message\">One ring is plenty — treats are waiting by the blue door.</p>\n</article>",
+    "css": ":root {\n  --night: #302542;\n  --paper: #fff9ed;\n  --orange: #f47b32;\n  --mint: #b8dfc6;\n  --plum: #6b466f;\n}\n\n.porch-card {\n}\n\n.porch-card header {\n}\n\n.glow {\n}\n\n.heading {\n}\n\n.heading p {\n}\n\nh1 {\n}\n\n.open {\n}\n\n.message {\n}"
+  },
+  "date": "2026-10-31",
+  "timeLimit": 300,
+  "targetImage": "2026-10-31-easy.webp"
+}

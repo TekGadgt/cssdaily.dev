@@ -1,0 +1,13 @@
+{
+  "title": "Halloween Porch Light Signal",
+  "difficulty": "easy",
+  "date": "2026-10-31",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <h2 class=\"  \">🎃 Porch Light Signal</h2>\n  <p class=\"  \">Saturday, Oct 31 · The porch light is on. Treats are ready from 6–8 PM.</p>\n  <button class=\"  \">Mark as seen</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-96 overflow-hidden rounded-xl border border-orange-200 bg-white\">\n  <h2 class=\"bg-orange-500 px-4 py-3 text-lg font-bold text-white\">🎃 Porch Light Signal</h2>\n  <p class=\"px-4 py-3 text-sm leading-5 text-slate-600\">Saturday, Oct 31 · The porch light is on. Treats are ready from 6–8 PM.</p>\n  <button class=\"mx-4 mb-4 rounded-lg bg-slate-800 px-4 py-2 text-sm font-semibold text-white\">Mark as seen</button>\n</article>"
+  },
+  "targetImage": "2026-10-31-easy.webp"
+}
