@@ -1,0 +1,13 @@
+{
+  "title": "Riverbend Bookmobile Stop — Medium",
+  "difficulty": "medium",
+  "date": "2026-11-01",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🚐</span>\n    <h1 class=\"  \">Riverbend Bookmobile</h1>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \">SUNDAY, NOV 1<br><strong class=\"  \">10:30 AM</strong></p>\n    <p class=\"  \">NEXT STOP<br><strong class=\"  \">Willow Court</strong></p>\n  </section>\n  <footer class=\"  \">\n    Bring your library card\n    <button class=\"  \">Add stop</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[30rem] overflow-hidden rounded-2xl border border-indigo-200 bg-white\">\n  <header class=\"flex items-center gap-3 border-b border-indigo-100 bg-indigo-50 px-4 py-3\">\n    <span class=\"flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-xl\">🚐</span>\n    <h1 class=\"text-lg font-bold tracking-tight text-slate-800\">Riverbend Bookmobile</h1>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 px-4 py-3\">\n    <p class=\"rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm leading-5 text-amber-900\">SUNDAY, NOV 1<br><strong class=\"font-bold\">10:30 AM</strong></p>\n    <p class=\"rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-sm leading-5 text-emerald-900\">NEXT STOP<br><strong class=\"font-bold\">Willow Court</strong></p>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-100 px-4 py-3 text-sm font-medium text-slate-500\">\n    Bring your library card\n    <button class=\"rounded-lg bg-indigo-600 px-3 py-2 text-sm font-semibold text-white\">Add stop</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-11-01-medium.webp"
+}

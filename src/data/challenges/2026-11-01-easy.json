@@ -1,0 +1,15 @@
+{
+  "title": "Coat Drive Drop-Off Badge",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"dropoff-badge\">\n  <header>\n    <span class=\"hanger\" aria-hidden=\"true\">🧥</span>\n    <section>\n      <h1>Warmth Drive</h1>\n      <p>North Hall · Nov 1</p>\n    </section>\n    <strong class=\"token\">B-14</strong>\n  </header>\n</article>",
+    "css": ":root {\n  --paper: #fffdf8;\n  --ink: #263238;\n  --line: #d7d0c4;\n  --plum: #75445d;\n}\n\n.dropoff-badge {\n  width: 440px;\n  box-sizing: border-box;\n  padding: 18px 20px;\n  background: var(--paper);\n  border: 2px solid var(--line);\n  border-radius: 18px;\n}\n\n.dropoff-badge header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n\n.hanger {\n  font-size: 30px;\n}\n\n.dropoff-badge h1 {\n  margin: 0;\n  font-size: 20px;\n  line-height: 1.1;\n}\n\n.dropoff-badge p {\n  margin: 4px 0 0;\n  color: var(--plum);\n}\n\n.token {\n  color: var(--plum);\n  font-size: 18px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"dropoff-badge\">\n  <header>\n    <span class=\"hanger\" aria-hidden=\"true\">🧥</span>\n    <section>\n      <h1>Warmth Drive</h1>\n      <p>North Hall · Nov 1</p>\n    </section>\n    <strong class=\"token\">B-14</strong>\n  </header>\n</article>",
+    "css": ":root {\n  --paper: #fffdf8;\n  --ink: #263238;\n  --line: #d7d0c4;\n  --plum: #75445d;\n}\n\n.dropoff-badge {\n}\n\n.dropoff-badge header {\n}\n\n.hanger {\n}\n\n.dropoff-badge h1 {\n}\n\n.dropoff-badge p {\n}\n\n.token {\n}"
+  },
+  "date": "2026-11-01",
+  "timeLimit": 300,
+  "targetImage": "2026-11-01-easy.webp"
+}
