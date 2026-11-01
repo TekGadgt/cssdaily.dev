@@ -1,0 +1,15 @@
+{
+  "title": "Seed Library Return Slip",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"seed-slip\">\n  <header class=\"slip-header\">\n    <span class=\"seed-mark\">✦</span>\n    <p class=\"eyebrow\">COMMON GROUND SEED LIBRARY</p>\n    <span class=\"status\">RETURNED</span>\n  </header>\n  <section class=\"slip-body\">\n    <h1>Blue Lake Bean</h1>\n    <p class=\"detail\">Jar 14 · 18 seeds remaining</p>\n  </section>\n  <footer class=\"slip-footer\">\n    <time datetime=\"2026-11-02\">Logged 02 Nov 2026</time>\n    <button type=\"button\">File slip</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --paper: #fffdf5;\n  --ink: #24342c;\n  --leaf: #4d7656;\n  --sprout: #dce8c8;\n  --clay: #c96846;\n}\n\n.seed-slip {\n  box-sizing: border-box;\n  width: 476px;\n  padding: 16px;\n  border: 2px solid var(--ink);\n  border-radius: 14px;\n  background: var(--paper);\n  color: var(--ink);\n}\n\n.slip-header {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding-bottom: 12px;\n  border-bottom: 1px solid var(--sprout);\n}\n\n.seed-mark {\n  display: grid;\n  width: 28px;\n  height: 28px;\n  place-items: center;\n  border-radius: 50%;\n  background: var(--leaf);\n  color: var(--paper);\n}\n\n.eyebrow {\n  margin: 0;\n  flex: 1;\n  font-size: 11px;\n  font-weight: 700;\n  letter-spacing: 0.08em;\n}\n\n.status {\n  padding: 4px 7px;\n  border-radius: 5px;\n  background: var(--sprout);\n  color: var(--leaf);\n  font-size: 10px;\n  font-weight: 700;\n}\n\n.slip-body {\n  padding: 16px 0;\n}\n\n.slip-body h1 {\n  margin: 0 0 4px;\n  font-size: 22px;\n  line-height: 1.1;\n}\n\n.detail {\n  margin: 0;\n  color: var(--leaf);\n  font-size: 14px;\n}\n\n.slip-footer {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding-top: 10px;\n  border-top: 1px solid var(--sprout);\n  color: var(--leaf);\n  font-size: 12px;\n}\n\n.slip-footer button {\n  border: 0;\n  border-radius: 6px;\n  padding: 7px 11px;\n  background: var(--clay);\n  color: var(--paper);\n  font-size: 12px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"seed-slip\">\n  <header class=\"slip-header\">\n    <span class=\"seed-mark\">✦</span>\n    <p class=\"eyebrow\">COMMON GROUND SEED LIBRARY</p>\n    <span class=\"status\">RETURNED</span>\n  </header>\n  <section class=\"slip-body\">\n    <h1>Blue Lake Bean</h1>\n    <p class=\"detail\">Jar 14 · 18 seeds remaining</p>\n  </section>\n  <footer class=\"slip-footer\">\n    <time datetime=\"2026-11-02\">Logged 02 Nov 2026</time>\n    <button type=\"button\">File slip</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --paper: #fffdf5;\n  --ink: #24342c;\n  --leaf: #4d7656;\n  --sprout: #dce8c8;\n  --clay: #c96846;\n}\n\n.seed-slip {\n}\n\n.slip-header {\n}\n\n.seed-mark {\n}\n\n.eyebrow {\n}\n\n.status {\n}\n\n.slip-body {\n}\n\n.slip-body h1 {\n}\n\n.detail {\n}\n\n.slip-footer {\n}\n\n.slip-footer button {\n}\n"
+  },
+  "date": "2026-11-02",
+  "timeLimit": 300,
+  "targetImage": "2026-11-02-easy.webp"
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Analog Synth Patch Session",
+  "difficulty": "medium",
+  "date": "2026-11-02",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">〰️</span>\n    <section class=\"  \">\n      <h1 class=\"  \">Patch Bay Session</h1>\n      <p class=\"  \">Studio B · Monday, Nov 2</p>\n    </section>\n    <span class=\"  \">LIVE</span>\n  </header>\n  <section class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Start time</p>\n      <p class=\"  \">7:30 PM</p>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">Open cables</p>\n      <p class=\"  \">12 available</p>\n    </section>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Bring 3.5 mm adapters</p>\n    <button class=\"  \">Reserve spot</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800\">\n  <header class=\"flex items-center gap-3 bg-indigo-600 px-4 py-3 text-white\">\n    <span class=\"flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500 text-xl\">〰️</span>\n    <section class=\"flex-1\">\n      <h1 class=\"text-lg font-bold tracking-tight\">Patch Bay Session</h1>\n      <p class=\"text-sm text-indigo-100\">Studio B · Monday, Nov 2</p>\n    </section>\n    <span class=\"rounded-full bg-amber-300 px-2.5 py-1 text-xs font-bold text-amber-950\">LIVE</span>\n  </header>\n  <section class=\"grid grid-cols-2 gap-3 px-4 py-4\">\n    <section class=\"rounded-xl bg-slate-100 p-3\">\n      <p class=\"text-xs font-semibold uppercase tracking-wider text-slate-500\">Start time</p>\n      <p class=\"mt-1 text-base font-bold text-slate-800\">7:30 PM</p>\n    </section>\n    <section class=\"rounded-xl bg-teal-50 p-3\">\n      <p class=\"text-xs font-semibold uppercase tracking-wider text-teal-700\">Open cables</p>\n      <p class=\"mt-1 text-base font-bold text-teal-900\">12 available</p>\n    </section>\n  </section>\n  <footer class=\"flex items-center justify-between border-t border-slate-200 bg-slate-50 px-4 py-3\">\n    <p class=\"text-sm text-slate-600\">Bring 3.5 mm adapters</p>\n    <button class=\"rounded-lg bg-indigo-600 px-3 py-2 text-sm font-semibold text-white\">Reserve spot</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-11-02-medium.webp"
+}
