@@ -1,0 +1,15 @@
+{
+  "title": "Apiary Hive Check Card",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"hive-card\">\n  <header>\n    <span class=\"seal\" aria-hidden=\"true\">🐝</span>\n    <section>\n      <h1>Hive 04</h1>\n      <p>Morning inspection complete</p>\n    </section>\n  </header>\n  <footer>\n    <span>Queen spotted · 8 frames</span>\n    <button type=\"button\">Logged</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #263526;\n  --leaf: #416a46;\n  --pollen: #f4bc3e;\n  --cream: #fff9e8;\n  --line: #d8c98e;\n}\n\n.hive-card {\n  width: 440px;\n  overflow: hidden;\n  border: 1px solid var(--line);\n  border-radius: 14px;\n  background: var(--cream);\n  color: var(--ink);\n}\n\n.hive-card header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 16px;\n}\n\n.seal {\n  display: grid;\n  width: 42px;\n  height: 42px;\n  place-items: center;\n  border-radius: 50%;\n  background: var(--pollen);\n  font-size: 22px;\n}\n\n.hive-card h1 {\n  margin: 0 0 2px;\n  font-size: 19px;\n  line-height: 1.1;\n}\n\n.hive-card p {\n  margin: 0;\n  color: var(--leaf);\n  font-size: 14px;\n}\n\n.hive-card footer {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 10px 16px;\n  border-top: 1px solid var(--line);\n  font-size: 13px;\n}\n\n.hive-card button {\n  border: 0;\n  border-radius: 999px;\n  padding: 6px 11px;\n  background: var(--leaf);\n  color: var(--cream);\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"hive-card\">\n  <header>\n    <span class=\"seal\" aria-hidden=\"true\">🐝</span>\n    <section>\n      <h1>Hive 04</h1>\n      <p>Morning inspection complete</p>\n    </section>\n  </header>\n  <footer>\n    <span>Queen spotted · 8 frames</span>\n    <button type=\"button\">Logged</button>\n  </footer>\n</article>",
+    "css": ":root {\n  --ink: #263526;\n  --leaf: #416a46;\n  --pollen: #f4bc3e;\n  --cream: #fff9e8;\n  --line: #d8c98e;\n}\n\n.hive-card {\n}\n\n.hive-card header {\n}\n\n.seal {\n}\n\n.hive-card h1 {\n}\n\n.hive-card p {\n}\n\n.hive-card footer {\n}\n\n.hive-card button {\n}"
+  },
+  "date": "2026-11-03",
+  "timeLimit": 300,
+  "targetImage": "2026-11-03-easy.webp"
+}
