@@ -1,0 +1,15 @@
+{
+  "title": "Origami Fold Club RSVP",
+  "difficulty": "easy",
+  "target": {
+    "html": "<article class=\"ticket\">\n  <header class=\"ticket-header\">\n    <h1>Origami Fold Club</h1>\n    <span class=\"badge\">RSVP</span>\n  </header>\n  <section class=\"details\" aria-label=\"Event details\">\n    <p><strong>Sat, Nov 7</strong> · 2:00 PM</p>\n    <p>Paper crane basics · Table 4</p>\n  </section>\n  <button type=\"button\">Save my seat</button>\n</article>",
+    "css": ":root {\n  --ink: #26333b;\n  --paper: #fffdf7;\n  --line: #d9d4c8;\n  --coral: #e66f5c;\n  --coral-dark: #bd4e42;\n}\n\n.ticket {\n  width: 440px;\n  box-sizing: border-box;\n  padding: 16px;\n  background: var(--paper);\n  border: 1px solid var(--line);\n  border-radius: 14px;\n}\n\n.ticket-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding-bottom: 10px;\n  border-bottom: 1px solid var(--line);\n}\n\n.ticket h1 {\n  margin: 0;\n  color: var(--ink);\n  font-size: 20px;\n  line-height: 1.2;\n}\n\n.badge {\n  padding: 4px 8px;\n  color: var(--coral-dark);\n  background: var(--coral);\n  border-radius: 999px;\n  font-size: 12px;\n  font-weight: 700;\n}\n\n.details {\n  padding: 10px 0 14px;\n  color: var(--ink);\n  font-size: 14px;\n  line-height: 1.5;\n}\n\n.details p {\n  margin: 0;\n}\n\n.ticket button {\n  width: 100%;\n  padding: 9px 12px;\n  color: var(--paper);\n  background: var(--coral-dark);\n  border: 0;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 700;\n}"
+  },
+  "starter": {
+    "html": "<article class=\"ticket\">\n  <header class=\"ticket-header\">\n    <h1>Origami Fold Club</h1>\n    <span class=\"badge\">RSVP</span>\n  </header>\n  <section class=\"details\" aria-label=\"Event details\">\n    <p><strong>Sat, Nov 7</strong> · 2:00 PM</p>\n    <p>Paper crane basics · Table 4</p>\n  </section>\n  <button type=\"button\">Save my seat</button>\n</article>",
+    "css": ":root {\n  --ink: #26333b;\n  --paper: #fffdf7;\n  --line: #d9d4c8;\n  --coral: #e66f5c;\n  --coral-dark: #bd4e42;\n}\n\n.ticket {\n}\n\n.ticket-header {\n}\n\n.ticket h1 {\n}\n\n.badge {\n}\n\n.details {\n}\n\n.details p {\n}\n\n.ticket button {\n}"
+  },
+  "date": "2026-11-07",
+  "timeLimit": 300,
+  "targetImage": "2026-11-07-easy.webp"
+}
