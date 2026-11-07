@@ -1,0 +1,13 @@
+{
+  "title": "Satellite Downlink Window",
+  "difficulty": "easy",
+  "date": "2026-11-08",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h2 class=\"  \">Satellite Downlink</h2>\n    <p class=\"  \">● LINKED</p>\n  </header>\n  <button class=\"  \">Open 18:40–19:05 UTC</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[440px] overflow-hidden rounded-xl border border-sky-200 bg-white\">\n  <header class=\"flex items-center justify-between border-b border-sky-100 bg-sky-50 px-4 py-3\">\n    <h2 class=\"text-lg font-semibold text-slate-800\">Satellite Downlink</h2>\n    <p class=\"rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-700\">● LINKED</p>\n  </header>\n  <button class=\"m-4 w-[calc(100%-2rem)] rounded-lg bg-indigo-600 px-4 py-3 text-sm font-semibold text-white\">Open 18:40–19:05 UTC</button>\n</article>"
+  },
+  "targetImage": "2026-11-08-easy.webp"
+}

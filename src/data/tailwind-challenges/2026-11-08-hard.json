@@ -1,0 +1,13 @@
+{
+  "title": "Seed Vault Climate Ledger — Hard",
+  "difficulty": "hard",
+  "date": "2026-11-08",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <section class=\"  \">\n      <h1 class=\"  \">🌱 Seed Vault Climate Ledger</h1>\n      <span class=\"  \">Preservation cycle · 08 NOV 2026</span>\n    </section>\n    <span class=\"  \">Stable</span>\n  </header>\n  <main class=\"  \">\n    <section class=\"  \">\n      <p class=\"  \">Cold Room</p>\n      <p class=\"  \">04.2°C</p>\n    </section>\n    <section class=\"  \">\n      <p class=\"  \">Humidity</p>\n      <p class=\"  \">38<span class=\"  \">%</span></p>\n    </section>\n  </main>\n  <footer class=\"  \">\n    <span class=\"  \">126 accession trays monitored</span>\n    <button class=\"  \">Log inspection</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between border-b border-emerald-100 bg-emerald-50 px-4 py-3\">\n    <section class=\"flex flex-col gap-1\">\n      <h1 class=\"text-base font-bold tracking-tight text-emerald-950\">🌱 Seed Vault Climate Ledger</h1>\n      <span class=\"text-xs font-medium text-emerald-700\">Preservation cycle · 08 NOV 2026</span>\n    </section>\n    <span class=\"rounded-full border border-amber-200 bg-amber-100 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-amber-800\">Stable</span>\n  </header>\n  <main class=\"grid grid-cols-2 gap-3 p-4\">\n    <section class=\"flex min-h-[116px] flex-col justify-between rounded-xl border border-sky-200 bg-sky-50 p-3\">\n      <p class=\"text-xs font-bold uppercase tracking-widest text-sky-700\">Cold Room</p>\n      <p class=\"text-2xl font-bold tracking-tight text-sky-950\">04.2°C</p>\n    </section>\n    <section class=\"flex min-h-[116px] flex-col justify-between rounded-xl border border-violet-200 bg-violet-50 p-3\">\n      <p class=\"text-xs font-bold uppercase tracking-widest text-violet-700\">Humidity</p>\n      <p class=\"text-2xl font-bold tracking-tight text-violet-950\">38<span class=\"text-base\">%</span></p>\n    </section>\n  </main>\n  <footer class=\"flex items-center justify-between border-t border-slate-100 bg-slate-50 px-4 py-3\">\n    <span class=\"text-xs font-medium text-slate-500\">126 accession trays monitored</span>\n    <button class=\"rounded-lg bg-rose-600 px-3 py-2 text-xs font-bold text-white\">Log inspection</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-11-08-hard.webp"
+}
