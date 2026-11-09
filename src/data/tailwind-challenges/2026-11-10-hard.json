@@ -1,0 +1,13 @@
+{
+  "title": "Orchard Grafting Bench — Calibration Panel",
+  "difficulty": "hard",
+  "date": "2026-11-10",
+  "timeLimit": 900,
+  "starter": {
+    "html": "<section class=\"  \">\n  <header class=\"  \">\n    <div class=\"  \">\n      <h1 class=\"  \">Graft Bench</h1>\n      <span class=\"  \">Row 07</span>\n    </div>\n    <span class=\"  \">10 Nov · 08:40</span>\n  </header>\n  <main class=\"  \">\n    <article class=\"  \">\n      <p class=\"  \">Scion map</p>\n      <strong class=\"  \">C-12 · Pear</strong>\n    </article>\n    <article class=\"  \">\n      <p class=\"  \">Rootstock</p>\n      <strong class=\"  \">OHxF 87</strong>\n    </article>\n  </main>\n  <footer class=\"  \">\n    <span class=\"  \">Cambium alignment verified</span>\n    <button class=\"  \">Seal record</button>\n  </footer>\n</section>"
+  },
+  "target": {
+    "html": "<section class=\"w-[480px] overflow-hidden rounded-2xl border border-emerald-200 bg-white text-slate-800\">\n  <header class=\"flex items-center justify-between border-b border-emerald-100 bg-emerald-50 px-4 py-3\">\n    <div class=\"flex items-center gap-3\">\n      <h1 class=\"text-base font-bold tracking-tight text-emerald-950\">Graft Bench</h1>\n      <span class=\"rounded-full bg-emerald-700 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white\">Row 07</span>\n    </div>\n    <span class=\"text-xs font-medium text-emerald-700\">10 Nov · 08:40</span>\n  </header>\n  <main class=\"grid grid-cols-2 gap-3 p-4\">\n    <article class=\"rounded-xl border border-amber-200 bg-amber-50 p-3\">\n      <p class=\"text-[10px] font-bold uppercase tracking-[0.16em] text-amber-700\">Scion map</p>\n      <strong class=\"mt-2 block text-lg font-bold leading-none text-amber-950\">C-12 · Pear</strong>\n    </article>\n    <article class=\"rounded-xl border border-sky-200 bg-sky-50 p-3\">\n      <p class=\"text-[10px] font-bold uppercase tracking-[0.16em] text-sky-700\">Rootstock</p>\n      <strong class=\"mt-2 block text-lg font-bold leading-none text-sky-950\">OHxF 87</strong>\n    </article>\n  </main>\n  <footer class=\"flex items-center justify-between border-t border-slate-100 bg-slate-50 px-4 py-3\">\n    <span class=\"text-xs font-medium text-slate-500\">Cambium alignment verified</span>\n    <button class=\"rounded-lg bg-violet-600 px-3 py-1.5 text-xs font-bold text-white\">Seal record</button>\n  </footer>\n</section>"
+  },
+  "targetImage": "2026-11-10-hard.webp"
+}
