@@ -1,0 +1,13 @@
+{
+  "title": "Kite Mend Workshop Pass — Medium",
+  "difficulty": "medium",
+  "date": "2026-11-11",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <span class=\"  \">🪁</span>\n    <section class=\"  \">\n      <p class=\"  \">Patch &amp; tail bar</p>\n      <h1 class=\"  \">Kite Mend Workshop</h1>\n    </section>\n    <span class=\"  \">Booked</span>\n  </header>\n  <section class=\"  \">\n    <p class=\"  \"><span class=\"  \">When</span><strong class=\"  \">Wed · 11 Nov</strong><br>10:30–11:15</p>\n    <p class=\"  \"><span class=\"  \">Bench</span><strong class=\"  \">No. 04</strong><br>Riverside shed</p>\n  </section>\n  <footer class=\"  \">\n    <p class=\"  \">Bring your torn flyer.</p>\n    <button class=\"  \">View pass</button>\n  </footer>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border-2 border-slate-800 bg-amber-50 text-slate-800\">\n  <header class=\"flex items-center gap-3 border-b-2 border-slate-800 bg-sky-200 px-4 py-3\">\n    <span class=\"flex h-11 w-11 items-center justify-center rounded-xl border-2 border-slate-800 bg-amber-300 text-2xl\">🪁</span>\n    <section class=\"min-w-0 flex-1\">\n      <p class=\"text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600\">Patch &amp; tail bar</p>\n      <h1 class=\"text-lg font-extrabold leading-tight\">Kite Mend Workshop</h1>\n    </section>\n    <span class=\"rounded-full border-2 border-slate-800 bg-lime-300 px-2 py-1 text-[10px] font-extrabold uppercase tracking-wide\">Booked</span>\n  </header>\n  <section class=\"grid grid-cols-2 gap-2 border-b-2 border-slate-800 px-4 py-3\">\n    <p class=\"rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs leading-5 text-slate-600\"><span class=\"block text-[10px] font-bold uppercase tracking-wider text-slate-500\">When</span><strong class=\"text-sm text-slate-800\">Wed · 11 Nov</strong><br>10:30–11:15</p>\n    <p class=\"rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs leading-5 text-slate-600\"><span class=\"block text-[10px] font-bold uppercase tracking-wider text-slate-500\">Bench</span><strong class=\"text-sm text-slate-800\">No. 04</strong><br>Riverside shed</p>\n  </section>\n  <footer class=\"flex items-center justify-between gap-3 bg-rose-100 px-4 py-3\">\n    <p class=\"text-xs font-semibold text-slate-700\">Bring your torn flyer.</p>\n    <button class=\"rounded-lg border-2 border-slate-800 bg-slate-800 px-3 py-2 text-xs font-bold text-white\">View pass</button>\n  </footer>\n</article>"
+  },
+  "targetImage": "2026-11-11-medium.webp"
+}
