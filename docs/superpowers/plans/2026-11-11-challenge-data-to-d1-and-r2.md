@@ -237,7 +237,7 @@ The primary key already covers `(mode, date)` lookups, so no extra index is need
    - **No extra rows** exist that lack a source file.
    - For **every** image: `head` size equals the local size, and the ETag equals the local MD5.
 5. **Report.** Write `import-report-<sha7>.json` with the source SHA, counts per mode, and every failure. Exit 1 if there's any failure.
-6. The first public snapshot is published by the first Deploy run after PR D. Until then `data:pull` without a token has nothing to read, which matters only to contributors and only for that window.
+6. **First snapshot.** Once verification passes with zero failures, publish the public snapshot from exactly the verified rows, with the import SHA as its `sourceSha`. Every Deploy after PR D replaces it. This means `data:pull` without credentials works as soon as the first import succeeds, so Task 6's snapshot-path check doesn't have to wait for PR D. (Added during implementation.)
 
 - [ ] **Step 1: Implement**, then run `--dry-run` locally.
 - [ ] **Step 2: Commit** — `Add verified challenge import`

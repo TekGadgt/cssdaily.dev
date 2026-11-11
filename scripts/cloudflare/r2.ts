@@ -79,7 +79,8 @@ export function r2Client(
       const res = await aws.fetch(url(key), {
         method: 'PUT',
         headers: { 'Content-Type': contentType, 'Cache-Control': cacheControl, 'If-None-Match': '*' },
-        body,
+        // TS 5.7+ types Uint8Array<ArrayBufferLike> as not BodyInit; it is at runtime
+        body: body as BodyInit,
       });
       if (res.ok) return 'created';
       if (res.status !== 412) throw fail('PUT', key, res);
@@ -95,7 +96,8 @@ export function r2Client(
       const res = await aws.fetch(url(key), {
         method: 'PUT',
         headers: { 'Content-Type': contentType, 'Cache-Control': cacheControl },
-        body,
+        // TS 5.7+ types Uint8Array<ArrayBufferLike> as not BodyInit; it is at runtime
+        body: body as BodyInit,
       });
       if (!res.ok) throw fail('PUT', key, res);
     },
