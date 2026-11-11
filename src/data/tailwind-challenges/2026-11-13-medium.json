@@ -1,0 +1,13 @@
+{
+  "title": "Wildflower Press Folio Pickup — Medium",
+  "difficulty": "medium",
+  "date": "2026-11-13",
+  "timeLimit": 600,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Wildflower Press Folio</h1>\n    <span class=\"  \">READY</span>\n    <p class=\"  \">Friday, Nov 13 · Preservation Desk B</p>\n  </header>\n  <section class=\"  \">\n    <figure class=\"  \">🌿</figure>\n    <p class=\"  \">Folio 08 is packed with fern, aster, and clover specimens. Keep flat on your ride home.</p>\n  </section>\n  <button class=\"  \">Confirm collection</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-[480px] overflow-hidden rounded-2xl border border-emerald-200 bg-white text-stone-800\">\n  <header class=\"grid grid-cols-[1fr_auto] items-start gap-x-3 gap-y-1 border-b border-emerald-100 bg-emerald-50 px-4 py-3\">\n    <h1 class=\"text-lg font-bold tracking-tight text-emerald-950\">Wildflower Press Folio</h1>\n    <span class=\"rounded-full bg-amber-100 px-2.5 py-1 text-xs font-bold tracking-wide text-amber-800\">READY</span>\n    <p class=\"col-span-2 text-sm text-emerald-700\">Friday, Nov 13 · Preservation Desk B</p>\n  </header>\n  <section class=\"flex items-center gap-4 px-4 py-4\">\n    <figure class=\"flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-rose-200 bg-rose-50 text-3xl\">🌿</figure>\n    <p class=\"text-sm leading-6 text-stone-600\">Folio 08 is packed with fern, aster, and clover specimens. Keep flat on your ride home.</p>\n  </section>\n  <button class=\"mx-4 mb-4 w-[calc(100%-2rem)] rounded-xl bg-emerald-700 px-4 py-2.5 text-sm font-semibold text-white\">Confirm collection</button>\n</article>"
+  },
+  "targetImage": "2026-11-13-medium.webp"
+}

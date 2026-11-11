@@ -1,0 +1,13 @@
+{
+  "title": "Volcano Observatory Visitor Badge — 2026-11-13",
+  "difficulty": "easy",
+  "date": "2026-11-13",
+  "timeLimit": 300,
+  "starter": {
+    "html": "<article class=\"  \">\n  <header class=\"  \">\n    <h1 class=\"  \">Crater Rim Access</h1>\n    <span class=\"  \">VISITOR</span>\n  </header>\n  <p class=\"  \">Friday, November 13 · 06:40</p>\n  <button class=\"  \">Show entry badge</button>\n</article>"
+  },
+  "target": {
+    "html": "<article class=\"w-80 overflow-hidden rounded-xl border border-orange-200 bg-white\">\n  <header class=\"flex items-center justify-between bg-orange-500 px-4 py-3 text-white\">\n    <h1 class=\"text-base font-bold\">Crater Rim Access</h1>\n    <span class=\"rounded-full bg-orange-700 px-2 py-1 text-xs font-semibold\">VISITOR</span>\n  </header>\n  <p class=\"px-4 pt-4 text-sm font-medium text-slate-700\">Friday, November 13 · 06:40</p>\n  <button class=\"m-4 w-[calc(100%-2rem)] rounded-lg bg-slate-800 py-2 text-sm font-semibold text-white\">Show entry badge</button>\n</article>"
+  },
+  "targetImage": "2026-11-13-easy.webp"
+}
