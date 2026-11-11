@@ -11,7 +11,9 @@
     "generate": "tsx scripts/generate-challenge.ts",
     "migrate-targets": "tsx scripts/migrate-targets-to-webp.ts",
     "worker:dev": "wrangler dev --port 8787",
-    "smoke": "tsx scripts/smoke-hosting.ts"
+    "smoke": "tsx scripts/smoke-hosting.ts",
+    "data:pull": "tsx scripts/data-pull.ts",
+    "data:import": "tsx scripts/import-challenges.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.106.0",
@@ -25,6 +27,7 @@
     "@codemirror/theme-one-dark": "^6.1.3",
     "@zumer/snapdom": "^2.0.2",
     "astro": "^5.17.1",
+    "aws4fetch": "^1.0.20",
     "codemirror": "^6.0.1",
     "openai": "^7.4.0",
     "react": "^19.0.0",
