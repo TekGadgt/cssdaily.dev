@@ -23,5 +23,16 @@
     { "pattern": "cssdaily.dev/*", "zone_name": "cssdaily.dev" }
   ],
   "workers_dev": false,
-  "preview_urls": false
+  "preview_urls": false,
+  // Challenge data (Phase 2). Not read by the Worker yet: the site is
+  // prerendered from a build-time pull. Listed so `wrangler d1` commands
+  // (migrations, export) resolve the database.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cssdaily",
+      "database_id": "52a5542b-2852-4250-890a-d4e1dc691005",
+      "migrations_dir": "migrations"
+    }
+  ]
 }
