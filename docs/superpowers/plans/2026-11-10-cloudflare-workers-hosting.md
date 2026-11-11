@@ -289,6 +289,9 @@ Then add a job alongside the existing Pages `deploy` job:
 - [ ] **Step 5: Commit** — `Deploy to Cloudflare Workers alongside GitHub Pages`, then hand the PR to Ryan (he pushes and merges, per the PR workflow).
 
 - [ ] **Step 6 (owner, after merge): verify `workers.dev`.**
+  - **No dashboard setup is needed.** The first `wrangler deploy` creates the `cssdaily` Worker. It only requires the account's `workers.dev` subdomain to exist (Workers & Pages → set it once) and the token's Workers Scripts: Edit permission. Don't create the Worker through the dashboard's *Import a repository*: that turns on Workers Builds, and every push would deploy twice.
+  - A brand-new `workers.dev` hostname can take a minute or two to resolve. If the first smoke run fails on DNS or TLS, wait and rerun before investigating.
+  - *Optional, before merging:* `npx wrangler login`, then `npm run build && npx wrangler deploy` creates the Worker from your machine (it only touches `workers.dev`), so the smoke check can run first. This uses your own login, not the API token, so the first CI deploy still proves the token works.
   - Get the URL from the deploy log or dashboard: `https://cssdaily.<subdomain>.workers.dev`.
   - Run `npm run smoke -- https://cssdaily.<subdomain>.workers.dev --expect-origin=worker`. Checks 1–8, 9′, 11 and B1–B6 must pass.
   - Open a challenge in a browser: play a few edits, confirm the score updates, then submit and confirm the results modal shows. `localStorage` is per origin, so `workers.dev` starts with empty history; that's expected.
