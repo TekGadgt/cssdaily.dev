@@ -76,6 +76,11 @@
 
 ### Task 0 (owner): Create Cloudflare resources and credentials
 
+> **Read first — what you'll need locally.** The import (Task 5) runs on your machine and needs `.env` values for `CLOUDFLARE_ACCOUNT_ID`, `D1_DATABASE_ID`, `D1_WRITE_TOKEN`, `R2_ASSETS_ACCESS_KEY_ID` and `R2_ASSETS_SECRET_ACCESS_KEY`.
+> - Create **separate local credentials** for the last three, as Step 7 below. Don't reuse the CI ones: then nothing has to be copied out of GitHub, and either set can be revoked on its own.
+> - Tokens and R2 secret keys are **shown only once**. Paste each one into its destination (GitHub or `.env`) as soon as you create it.
+> - Use **Account API tokens**, not User tokens, so automation doesn't depend on a personal login.
+
 - [ ] **Step 1: D1 database.** `npx wrangler d1 create cssdaily` (Wrangler login on your machine). Location hint **ENAM** if asked. Copy the `database_id`.
 - [ ] **Step 2: Assets bucket.** R2 → *Create bucket* `cssdaily-assets` (automatic location, Standard).
   - Settings → **Custom Domains → Connect `assets.cssdaily.dev`**.
@@ -90,7 +95,10 @@
 - [ ] **Step 6: GitHub.**
   - Secrets: `D1_READ_TOKEN`, `D1_WRITE_TOKEN`, `R2_ASSETS_ACCESS_KEY_ID`, `R2_ASSETS_SECRET_ACCESS_KEY`, `R2_BACKUP_ACCESS_KEY_ID`, `R2_BACKUP_SECRET_ACCESS_KEY`. Set each with `gh secret set <name>`, which prompts for the value.
   - Variable: `gh variable set D1_DATABASE_ID --body <id>`.
-- [ ] **Step 7: Local `.env`:** `CLOUDFLARE_ACCOUNT_ID`, `D1_DATABASE_ID`, `D1_WRITE_TOKEN`, `R2_ASSETS_ACCESS_KEY_ID`, `R2_ASSETS_SECRET_ACCESS_KEY`. The import runs from your machine.
+- [ ] **Step 7: Local credentials → `.env`.**
+  - Create a **local** D1 Edit account token and a **local** `cssdaily-assets` Object Read & Write R2 key, separate from the CI ones.
+  - Add them to `.env` as `D1_WRITE_TOKEN`, `R2_ASSETS_ACCESS_KEY_ID` and `R2_ASSETS_SECRET_ACCESS_KEY`, along with `CLOUDFLARE_ACCOUNT_ID` (from any dashboard URL) and `D1_DATABASE_ID` (from `npx wrangler d1 list`).
+  - Revoke the local pair once Phase 2 is done.
 - [ ] **Step 8: Note the Workers plan** (Free or Paid). D1 Time Travel keeps **7 days** of point-in-time restore on Free and **30 days** on Paid. Task 10's retention is set from this.
 
 ---
