@@ -319,6 +319,22 @@ The generator runs this through the D1 REST API (`scripts/exemplars.ts`, a plain
 
 Phase 6 can ship straight after 2b using only the recent fallback. Rated exemplars start appearing automatically once votes cross `MIN_VOTES`.
 
+## Later (owner, 2026-11-11) — not yet specced
+
+In order, after Phases 2–6:
+
+1. **Visual theming + UX re-evaluation.** The owner considers both currently weak. The UX focus is:
+   - the **alternative layout**: the `columns` mode of the layout toggle (`LayoutToggle.tsx`, `LayoutMode` in `src/utils/types.ts`);
+   - the **mobile** experience.
+
+   This needs its own spec. Scope is open: theming, layout, and mobile may end up as separate specs or one.
+2. **Move generation from GitHub Actions to Cloudflare** — probably Cloudflare Workflows with a Cron Trigger, not the Agents SDK. That would mean:
+   - rendering moves to Browser Rendering;
+   - the `sharp` WebP encode gets a WASM replacement;
+   - screenshots must be compared against the current CI renders before switching.
+
+   This may come after the theming/UX work, or before it.
+
 ## Remaining open questions
 
 None. Resolved 2026-11-10: there's no email on `cssdaily.dev` (no MX or forwarding records to carry over in 1a), and the 30-day fallback window stands.
