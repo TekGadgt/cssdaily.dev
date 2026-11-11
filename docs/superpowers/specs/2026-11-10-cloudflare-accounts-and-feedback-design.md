@@ -56,7 +56,7 @@ Today the registrar is **Porkbun**, the nameservers are **DigitalOcean DNS**, an
 4. In Porkbun, replace the DigitalOcean nameservers (`ns1/2/3.digitalocean.com`) with the two that Cloudflare assigns. Wait for the zone to show **Active**. `.dev` is HSTS-preloaded, so it's HTTPS-only and a certificate gap is an outage. Keeping the records grey-clouded avoids that, because GitHub Pages' certificate keeps serving throughout.
 5. Confirm the site still works, then delete the zone from DigitalOcean so there aren't two stale sources of truth.
 
-This step is a pure DNS move with no hosting change, so problems with it are easy to tell apart from problems with step 1b. Step 1b then replaces the GitHub Pages records with the Worker custom domain, which is proxied and has a Cloudflare certificate.
+This step is a pure DNS move with no hosting change, so problems with it are easy to tell apart from problems with step 1b. Step 1b then proxies those records and puts a Worker route in front of them.
 
 ### 1b. Hosting on Workers Static Assets
 
@@ -66,9 +66,9 @@ This step is a pure DNS move with no hosting change, so problems with it are eas
   - `assets.directory: "./dist"`
   - `assets.not_found_handling: "404-page"`: serves `404.html` at the requested URL, which is the contract `ChallengeRedirect` depends on. The redirect logic stays as is.
   - `assets.html_handling: "auto-trailing-slash"` (the default).
-- Delete `public/CNAME`. Attach `cssdaily.dev` as the Worker's custom domain.
+- Delete `public/CNAME`. Serve `cssdaily.dev/*` through a **Worker route** on proxied records rather than a Worker custom domain (revised 2026-11-10 in the 1b plan). While GitHub Pages is still published, deleting the route falls straight back to GitHub, and nothing new is provisioned at cutover. Once GitHub is retired, the records become proxied `100::` placeholders.
 - **Deploys stay in GitHub Actions.** `cloudflare/wrangler-action` uses secrets `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`. In both workflows, `wrangler deploy` replaces `upload-pages-artifact`/`deploy-pages`. Drop `pages: write` / `id-token: write`.
-- **Cutover:** deploy to `*.workers.dev` and smoke-test there: redirects from `/` and `/tailwind/`, a future-date URL (must clamp), a nonexistent path, the about page, and images. Then attach the custom domain, and only after that disable GitHub Pages.
+- **Cutover:** deploy to `*.workers.dev` and smoke-test there: redirects from `/` and `/tailwind/`, a future-date URL (must clamp), a nonexistent path, the about page, and images. Then add the route, and only after that disable GitHub Pages. Full steps: `docs/superpowers/plans/2026-11-10-cloudflare-workers-hosting.md`.
 - **Keep the exact origin `https://cssdaily.dev`.** `localStorage` is scoped per origin, so a `www` or subdomain switch would silently wipe every player's history and streak.
 
 ---
