@@ -14,7 +14,7 @@ The work ships as **two PRs** with owner steps between them:
 - **PR A:** dual-deploy. GitHub Pages keeps serving production, and every build *also* deploys to the Worker on `*.workers.dev` for verification.
 - **PR B:** cutover. Adds the route, removes the GitHub Pages deploy, and disables `workers.dev`.
 
-**Tech Stack:** Astro 5 (static, `directory` build format), Wrangler 4 (pinned devDependency), `cloudflare/wrangler-action@v3`, GitHub Actions, tsx, vitest.
+**Tech Stack:** Astro 5 (static, `directory` build format), Wrangler 4 (lockfile-pinned devDependency, run directly with `npx wrangler deploy`), GitHub Actions, tsx, vitest.
 
 **Spec:** `docs/superpowers/specs/2026-11-10-cloudflare-accounts-and-feedback-design.md`, Phase 1b.
 
@@ -33,7 +33,7 @@ The work ships as **two PRs** with owner steps between them:
 - **The origin is exactly `https://cssdaily.dev`.** `localStorage` is scoped per origin, so serving the site on `www` or any other host would split player history. `www` must 301 to the apex and never serve content.
 - **Never interpolate `${{ ... }}` into a `run:` line.** Pass values through `env:`. Same rule as the existing workflows.
 - **The Cloudflare API token is scoped:** account = Ryan's account, zone = `cssdaily.dev` only. Even scoped like this, the *Edit Cloudflare Workers* template can write **any** Worker script in the account. Zone scoping only limits routes. That's acceptable while `cssdaily` is the only Worker; revisit if the account gains others. Secrets are only referenced in `with:`/`env:`, never echoed.
-- **Wrangler is lockfile-pinned:** `wrangler@^4.160.0` (the latest on 2026-11-10) in `devDependencies`, with `package-lock.json` committed and `npm ci` everywhere. `wrangler-action@v3` reuses the installed Wrangler when `wranglerVersion` is omitted, so CI and local use the same version.
+- **Wrangler is lockfile-pinned:** `wrangler@^4.160.0` (the latest on 2026-11-10) in `devDependencies`, with `package-lock.json` committed and `npm ci` everywhere. CI runs that installed Wrangler directly (`npx wrangler deploy`), so CI and local use the same version, and no third-party action ever handles the API token. This replaced `cloudflare/wrangler-action@v3` after a security review flagged it as an unpinned third-party action receiving the token.
 - **Every deploy ships the commit it built, with that commit's own config.** The deploy job checks out the exact SHA the artifact was built from. It deploys only if that SHA is still the tip of `main`; otherwise a newer run owns the deploy (Task 3).
 - **Absolute machine paths never appear** in committed files (see the repo memory on relative paths). Use `grep -rn "/Users/"` before every commit.
 
@@ -262,11 +262,10 @@ Then add a job alongside the existing Pages `deploy` job:
           path: dist
       - name: Deploy to Cloudflare Workers
         if: steps.tip.outputs.deploy == 'true'
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler deploy
 ```
 
 **Why both the job-level lock and the tip check:**
