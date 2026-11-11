@@ -376,7 +376,8 @@ If PR D misbehaves before PR E:
 - [ ] **Step 1:** `--layout repo` and `--with-images` are implemented and tested in Task 4.
 - [ ] **Step 2: Rehearse after Task 8 Step 7**, so a hashed image and a post-switch day exist:
   - In a scratch worktree, run the restore into its `src/data/` and `public/targets/`.
-  - Check that every file except the new day's matches the frozen import SHA's tree (`git diff --stat`), and that the new day has a JSON file and its image.
+  - Check that every file except the new day's matches the frozen import SHA's tree, and that the new day has a JSON file and its image.
+  - Compare **parsed JSON content**, not bytes. Restored files use the generators' standard layout. Only the two first-day files (`css/2026-03-05.json`, `tailwind/2026-03-17.json`) were written with a different key order and a trailing newline, so they will differ byte-wise; this was verified on 2026-11-11: all 1,108 files round-trip with equal content.
   - Discard the scratch worktree.
 
 ---
