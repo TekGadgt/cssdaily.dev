@@ -1,0 +1,73 @@
+name: Deploy to Cloudflare Workers
+
+# Reusable: called by deploy.yml (pushes to main) and generate-challenge.yml
+# (the daily generator, whose GITHUB_TOKEN push doesn't trigger deploy.yml).
+# The caller must upload the built site as artifact "dist".
+on:
+  workflow_call:
+    inputs:
+      sha:
+        description: Commit the dist artifact was built from
+        required: true
+        type: string
+    secrets:
+      CLOUDFLARE_API_TOKEN:
+        required: true
+      CLOUDFLARE_ACCOUNT_ID:
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    # Job-level, not workflow-level: a workflow-level group shared by both
+    # callers would let a queued push run cancel a pending generate run.
+    # Here only a queued deploy job can be cancelled.
+    concurrency:
+      group: cloudflare-deploy
+      cancel-in-progress: false
+    steps:
+      # Exactly the commit dist/ was built from, so wrangler.jsonc and the
+      # lockfile-pinned wrangler always match the artifact.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.sha }}
+
+      # The lock orders jobs by queue time, not commit order: a slow build
+      # of an older commit could otherwise overwrite a newer deploy. Only
+      # main's current tip deploys; the tip's own run owns its deploy.
+      - name: Skip if main has moved on
+        id: tip
+        env:
+          BUILT_SHA: ${{ inputs.sha }}
+        run: |
+          TIP="$(git ls-remote origin refs/heads/main | cut -f1)"
+          if [ "$TIP" = "$BUILT_SHA" ]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::Skipping deploy of $BUILT_SHA: main is now $TIP, and that commit's run owns the deploy"
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - if: steps.tip.outputs.deploy == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - if: steps.tip.outputs.deploy == 'true'
+        run: npm ci
+
+      - if: steps.tip.outputs.deploy == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Deploy to Cloudflare Workers
+        if: steps.tip.outputs.deploy == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy

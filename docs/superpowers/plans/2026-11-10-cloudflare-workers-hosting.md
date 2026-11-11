@@ -284,6 +284,8 @@ Then add a job alongside the existing Pages `deploy` job:
   - Add a `deploy-cloudflare` job with `needs: generate`, identical to Step 2's except that it reads `needs.generate.outputs.sha`.
   - Leave the Pages `deploy` job as it is.
 
+> **As implemented:** the deploy job lives in one reusable workflow, `.github/workflows/deploy-cloudflare.yml` (`on: workflow_call`, input `sha`). It doesn't change how the deploy behaves; it just stops the identical job from drifting between the two workflows. Each caller adds a `deploy-cloudflare` job that `uses:` it with `permissions: contents: read` and passes **only** `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID`, rather than `secrets: inherit`, so the deploy never receives the model API keys.
+
 - [ ] **Step 4: Lint workflows.** If `actionlint` is available, run it. Either way, review the YAML diff by eye for indentation and `needs` names.
 - [ ] **Step 5: Commit** — `Deploy to Cloudflare Workers alongside GitHub Pages`, then hand the PR to Ryan (he pushes and merges, per the PR workflow).
 
@@ -344,11 +346,11 @@ All checks pass. The site is now served *through* Cloudflare from GitHub, and `w
   - Delete the Pages `deploy` job and the *Upload artifact* (`upload-pages-artifact`) step.
   - Drop the workflow-level `pages: write` / `id-token: write` permissions and the `concurrency: group: pages` block.
   - Rename the workflow to `Deploy`.
-  - Rename `deploy-cloudflare` → `deploy`.
+  - Rename the `deploy-cloudflare` caller job → `deploy`. `deploy-cloudflare.yml` itself stays.
 - [ ] **Step 3: `generate-challenge.yml`.**
   - Delete the Pages `deploy` job and the `upload-pages-artifact` step.
   - Drop `pages: write` / `id-token: write` from the `generate` job; it keeps `contents: write` for the commit.
-  - Rename `deploy-cloudflare` → `deploy`.
+  - Rename the `deploy-cloudflare` caller job → `deploy`.
 - [ ] **Step 4: Delete `public/CNAME`.** It only mattered to GitHub Pages; Workers ignores it, and with it gone a stale custom-domain claim can't be re-published.
 - [ ] **Step 5: README.**
   - Line 39 `**GitHub Pages** — Hosting` → `**Cloudflare Workers** — Hosting (static assets)`.
