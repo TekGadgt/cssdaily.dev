@@ -11,7 +11,9 @@
     "generate": "tsx scripts/generate-challenge.ts",
     "migrate-targets": "tsx scripts/migrate-targets-to-webp.ts",
     "worker:dev": "wrangler dev --port 8787",
-    "smoke": "tsx scripts/smoke-hosting.ts"
+    "smoke": "tsx scripts/smoke-hosting.ts",
+    "data:pull": "tsx scripts/data-pull.ts",
+    "data:import": "tsx scripts/import-challenges.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.106.0",
