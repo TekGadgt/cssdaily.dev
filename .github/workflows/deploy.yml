@@ -17,8 +17,13 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      sha: ${{ steps.sha.outputs.value }}
     steps:
       - uses: actions/checkout@v4
+
+      - id: sha
+        run: echo "value=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-node@v4
         with:
@@ -36,6 +41,13 @@ jobs:
         with:
           path: dist
 
+      - name: Upload dist for Cloudflare
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 1
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -46,3 +58,15 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  deploy-cloudflare:
+    needs: build
+    permissions:
+      contents: read
+    uses: ./.github/workflows/deploy-cloudflare.yml
+    with:
+      sha: ${{ needs.build.outputs.sha }}
+    # Only the Cloudflare credentials, not every repo secret (e.g. the model API keys)
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

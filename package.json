@@ -9,7 +9,9 @@
     "test": "vitest run",
     "astro": "astro",
     "generate": "tsx scripts/generate-challenge.ts",
-    "migrate-targets": "tsx scripts/migrate-targets-to-webp.ts"
+    "migrate-targets": "tsx scripts/migrate-targets-to-webp.ts",
+    "worker:dev": "wrangler dev --port 8787",
+    "smoke": "tsx scripts/smoke-hosting.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.106.0",
@@ -39,6 +41,7 @@
     "playwright": "^1.49.0",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.10",
+    "wrangler": "^4.160.0"
   }
 }
