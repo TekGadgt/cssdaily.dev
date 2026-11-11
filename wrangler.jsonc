@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "cssdaily",
+  "compatibility_date": "2026-11-10",
+  // Assets-only Worker: no "main" script. Requests are served straight
+  // from dist/ and never invoke Worker code (static requests are free).
+  "assets": {
+    "directory": "./dist",
+    // Serves the nearest 404.html AT THE REQUESTED URL with status 404,
+    // the same contract GitHub Pages had. ChallengeRedirect.astro reads
+    // location.pathname on the 404 page to clamp and redirect dates.
+    "not_found_handling": "404-page",
+    // /challenge/<date> → /challenge/<date>/ (the build emits
+    // <route>/index.html)
+    "html_handling": "auto-trailing-slash"
+  },
+  // Stage A: reachable only at cssdaily.<subdomain>.workers.dev for
+  // verification. The cutover PR adds the production route and turns
+  // this off.
+  "workers_dev": true,
+  "preview_urls": false
+}
