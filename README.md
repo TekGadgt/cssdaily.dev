@@ -36,7 +36,7 @@ Add Tailwind utility classes to pre-structured HTML. The editor locks everything
 - **[@zumer/snapdom](https://github.com/zumerlab/snapdom)** — DOM-to-image capture for visual diffing
 - **[Playwright](https://playwright.dev/)** — Target screenshot generation
 - **[OpenAI API](https://developers.openai.com/api/)** / **[Claude API](https://docs.anthropic.com/)** — Configurable daily challenge generation
-- **GitHub Pages** — Hosting
+- **Cloudflare Workers** — Hosting (static assets)
 - **GitHub Actions** — CI/CD and daily challenge cron
 
 ## Visual Diff Engine
@@ -56,7 +56,7 @@ For Tailwind challenges, the diff engine uses iframes with `allow-scripts` sandb
 2. The configured AI provider generates a new CSS challenge and a new Tailwind challenge (independently, with `continue-on-error`)
 3. Playwright renders the target to a screenshot PNG for each challenge
 4. The challenge JSONs and target images are committed to the repo
-5. The site automatically rebuilds and deploys to GitHub Pages
+5. The site automatically rebuilds and deploys to Cloudflare Workers
 
 ## Local Development
 

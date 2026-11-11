@@ -14,9 +14,14 @@
     // <route>/index.html)
     "html_handling": "auto-trailing-slash"
   },
-  // Stage A: reachable only at cssdaily.<subdomain>.workers.dev for
-  // verification. The cutover PR adds the production route and turns
-  // this off.
-  "workers_dev": true,
+  // Production: a route on the proxied cssdaily.dev zone, not a custom
+  // domain. While GitHub Pages is still published, deleting this route
+  // falls straight back to GitHub; see the 1b plan for the rollback.
+  // www needs no route: a zone Redirect Rule 301s it to the apex at the
+  // edge, before routes apply.
+  "routes": [
+    { "pattern": "cssdaily.dev/*", "zone_name": "cssdaily.dev" }
+  ],
+  "workers_dev": false,
   "preview_urls": false
 }
