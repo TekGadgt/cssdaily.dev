@@ -1,3 +1,5 @@
+// Must stay the first import: wraps fetch before Better Auth loads
+import './github-user-agent';
 import { betterAuth } from 'better-auth';
 import type { Env } from './env';
 import { authOptions } from './auth-options';

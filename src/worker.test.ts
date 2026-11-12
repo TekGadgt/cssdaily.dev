@@ -64,4 +64,12 @@ describe('worker routing', () => {
     expect(res.status).toBe(404);
     expect(raw.ASSETS.fetch).toHaveBeenCalledTimes(1);
   });
+
+  it('answers get-session for signed-out visitors without loading Better Auth', async () => {
+    const { env } = fakeEnv();
+    const res = await fetchWith(new Request('https://cssdaily.dev/api/auth/get-session', { headers: { cookie: 'theme=dark' } }), env);
+    expect(res.status).toBe(200);
+    expect(await res.json()).toBeNull();
+    expect(res.headers.get('cache-control')).toBe('no-store');
+  });
 });
