@@ -33,9 +33,10 @@
     "SITE_URL": "https://cssdaily.dev"
   },
   // Cloudflare crons dispatch the GitHub workflows (src/lib/dispatch.ts):
-  // daily generation, weekly backup. UTC.
+  // daily generation, weekly backup. UTC. Day-of-week as a name (SUN):
+  // Cloudflare numbers days 1–7 from Sunday and rejects 0.
   "triggers": {
-    "crons": ["0 6 * * *", "0 3 * * 0"]
+    "crons": ["0 6 * * *", "0 3 * * SUN"]
   },
   // Approximate, per-location limiter for POST /api/plays
   "ratelimits": [

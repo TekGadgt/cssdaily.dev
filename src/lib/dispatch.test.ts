@@ -8,7 +8,7 @@ describe('cron dispatch', () => {
   it('maps each cron to its workflow and rejects unknown expressions', async () => {
     const fetchFn = vi.fn(async () => noContent());
     await dispatchForCron('0 6 * * *', 'tok', fetchFn);
-    await dispatchForCron('0 3 * * 0', 'tok', fetchFn);
+    await dispatchForCron('0 3 * * SUN', 'tok', fetchFn);
     expect(fetchFn.mock.calls.map((c) => (c as unknown as [string])[0])).toEqual([
       'https://api.github.com/repos/TekGadgt/cssdaily.dev/actions/workflows/generate-challenge.yml/dispatches',
       'https://api.github.com/repos/TekGadgt/cssdaily.dev/actions/workflows/backup.yml/dispatches',
@@ -46,5 +46,20 @@ describe('cron dispatch', () => {
   it.each(Object.values(CRON_WORKFLOWS))('%s has no schedule trigger', (file) => {
     const yml = fs.readFileSync(`.github/workflows/${file}`, 'utf8');
     expect(yml).not.toMatch(/^\s*schedule:/m);
+  });
+});
+
+describe('wrangler cron triggers', () => {
+  // Deploys failed with "invalid cron string: 0 3 * * 0" (2026-11-12):
+  // Cloudflare's day-of-week is 1–7 (Sunday = 1) or a name, never 0.
+  const crons = JSON.parse(/"crons":\s*(\[[^\]]*\])/.exec(fs.readFileSync('wrangler.jsonc', 'utf8'))![1]) as string[];
+
+  it('every configured cron dispatches a mapped workflow, and every mapping is configured', () => {
+    expect([...crons].sort()).toEqual(Object.keys(CRON_WORKFLOWS).sort());
+  });
+
+  it.each(crons)('"%s" uses a day-of-week Cloudflare accepts', (cron) => {
+    const dow = cron.trim().split(/\s+/)[4];
+    expect(dow).toMatch(/^(\*|[1-7]([-,][1-7])*|(SUN|MON|TUE|WED|THU|FRI|SAT)([-,](SUN|MON|TUE|WED|THU|FRI|SAT))*)$/);
   });
 });
