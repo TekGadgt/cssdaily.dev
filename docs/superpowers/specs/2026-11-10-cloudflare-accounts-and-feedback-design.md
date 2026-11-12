@@ -180,6 +180,31 @@ Store only what's needed: GitHub id, display name and avatar URL, plus email if 
 
 There's currently no way to know how many people actually *play*. `POST /api/plays` is sent on submit by **every** player, signed in or not. It stores `(mode, date, difficulty, day_bucket)` counts and nothing else: no IP, no user id. It's cheap, it's private, and Phase 5 needs it to tell whether the rating volume can support the feature.
 
+### Scheduling: a Cloudflare Cron Trigger dispatches generation (added 2026-11-11)
+
+**Why.** GitHub disables scheduled workflows in public repos after **60 days without repository activity**. Until Phase 2 the generator's daily commits counted as that activity. After Phase 2's PR D the generator no longer commits, so the daily cron would silently stop after 60 quiet days, and PR E's weekly backup would stop with it. Cloudflare Cron Triggers have no inactivity rule.
+
+**Deadline:** within 60 days of PR D merging, about 2027-01-10 if PR D merges 2026-11-12. GitHub emails a warning before it disables a workflow; if this slips, a push to the repo resets the clock.
+
+**Design.**
+- **Trigger.** `wrangler.jsonc` gains `"triggers": { "crons": ["0 6 * * *", "0 3 * * 0"] }`: daily generation, and the weekly backup (Sunday 03:00 UTC).
+- **Handler.** The Worker's `scheduled(event, env, ctx)` handler maps each cron expression to a workflow file (`generate-challenge.yml`, `backup.yml`). It then calls `POST https://api.github.com/repos/TekGadgt/cssdaily.dev/actions/workflows/<file>/dispatches` with `{ "ref": "main" }`.
+  - Headers: `Authorization: Bearer <token>`, `Accept: application/vnd.github+json`, `X-GitHub-Api-Version: 2022-11-28`, and a `User-Agent`. GitHub rejects requests without a User-Agent.
+  - Anything other than **204** throws, so the failure shows up in the Worker's logs (enable `observability` in `wrangler.jsonc` for this).
+  - The dispatch logic is a pure function with a stubbed `fetch` in tests.
+- **Handler plumbing.** Phase 3 gives the Worker a script for the first time, via the Astro Cloudflare adapter. The `scheduled` export has to live alongside Astro's `fetch` handler. *Verify during planning:* the adapter's supported way to add extra exports. A custom worker entrypoint is expected to be the answer.
+- **Token.** A **fine-grained personal access token** limited to **only this repository**, with permission **Actions: Read and write** and nothing else. It's stored as a Worker secret (`npx wrangler secret put GITHUB_DISPATCH_TOKEN`), never in the repo or in GitHub Actions.
+  - Fine-grained tokens expire. Pick the longest expiry offered, and set a calendar reminder a week before it.
+  - An expired token makes every dispatch fail with 401, and that shows up in the Worker logs. A GitHub App installation token would avoid expiry, but it's more setup than one dispatch call justifies.
+- **GitHub's own cron stays, as a fallback**, moved later to `0 9 * * *` (three hours after Cloudflare's).
+  - If the Cloudflare dispatch worked, the fallback run finds every difficulty already in D1. It skips them with no model spend, just as a rerun does today, and harmlessly triggers one more Deploy.
+  - If the dispatch failed, the fallback generates the day. GitHub may still disable the fallback after 60 days, which is fine: Cloudflare is the primary.
+  - `generate-challenge.yml` gets workflow-level `concurrency: { group: generate, cancel-in-progress: false }`. A fallback run that overlaps a slow primary run waits, then skips, instead of generating the same difficulty twice.
+- **Testing.** Unit tests cover mapping the cron expression to a workflow, the request shape, and that non-204 responses throw. Locally, `npx wrangler dev --test-scheduled` plus `curl "http://localhost:8787/__scheduled?cron=0+6+*+*+*"` fires the handler. Point it at a no-op `workflow_dispatch` test workflow, or use a dry-run flag, so testing never triggers real generation.
+- **Acceptance.**
+  - One scheduled day where the generator run's event is `workflow_dispatch` with the token's owner as the actor, and Cloudflare's Worker logs show the 204.
+  - The 09:00 fallback run that day skips everything.
+
 ---
 
 ## Phase 4 — Results saved to accounts
@@ -311,7 +336,7 @@ The generator runs this through the D1 REST API (`scripts/exemplars.ts`, a plain
 | 1b | Workers Static Assets hosting + deploy workflows | 1a |
 | 2a | D1 + R2 import script; site build reads D1, images from `assets.cssdaily.dev` | 1a, 1b |
 | 2b | Generator writes D1/R2, stops committing (+ later PR deleting repo data) | 2a |
-| 3 | Astro adapter + Better Auth (GitHub) + AccountMenu + plays counter | 2a |
+| 3 | Astro adapter + Better Auth (GitHub) + AccountMenu + plays counter + Cloudflare cron dispatch (**before ~2027-01-10**) | 2a |
 | — | keep-tweaking D1 fix (existing spec) | — |
 | 4 | Results sync | 3, keep-tweaking D1 |
 | 5 | Ratings | 4 |
