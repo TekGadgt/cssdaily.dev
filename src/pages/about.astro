@@ -65,9 +65,9 @@ import Header from "../components/Header.astro";
         >
         uses OpenAI by default, with Anthropic available through configuration, to
         generate the HTML structure, target CSS, and starter CSS stubs. Playwright
-        automatically renders the target to a screenshot, and GitHub
-        Actions handles the full pipeline: generate, screenshot, commit, and deploy.
-        No manual intervention needed.
+        automatically renders the target to a screenshot. Every morning a
+        Cloudflare cron starts the pipeline: generate, screenshot, publish to
+        Cloudflare D1 and R2, rebuild, and deploy. No manual intervention needed.
       </p>
       <p class="mt-3">
         This project demonstrates what's possible when you combine AI-augmented
@@ -83,8 +83,34 @@ import Header from "../components/Header.astro";
         CSS Daily is built with Astro, React, CodeMirror 6, and Tailwind CSS.
         The scoring engine uses real-time pixel-level visual diffing with
         Euclidean RGB distance scoring, adapted from SynHax with modifications.
-        No backend, no database — just a static site, a cron job, an AI, and a
-        dream.
+        Every page is a static file on Cloudflare Workers; challenges live in a
+        Cloudflare D1 database and their target images in R2. A small Worker
+        handles the few things a static site can't: optional sign-in and an
+        anonymous play counter. Scoring happens entirely in your browser.
+      </p>
+    </section>
+
+    <!-- Accounts & data -->
+    <section class="mb-12" id="accounts-and-data">
+      <h2 class="text-2xl font-bold text-white mb-4">Accounts &amp; Data</h2>
+      <p>
+        Signing in is optional; every challenge works without an account, and
+        your results are saved in your browser either way. If you sign in with
+        GitHub, CSS Daily stores your GitHub account ID, display name, avatar
+        URL and email address (the sign-in library requires one), plus a
+        session record so you stay signed in. Your IP address and browser user
+        agent are not stored, and neither are GitHub's access tokens: CSS Daily
+        never acts on GitHub on your behalf.
+      </p>
+      <p class="mt-3">
+        Deleting your account (avatar menu → Delete account) removes it from
+        the live database immediately. Weekly backups may keep a copy for up to
+        12 weeks; if one is ever restored, every deletion is applied again.
+      </p>
+      <p class="mt-3">
+        Separately, whenever anyone submits a challenge, an anonymous counter
+        records approximately how many submissions each challenge gets per day.
+        It stores nothing about you.
       </p>
     </section>
 
