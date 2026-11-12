@@ -1,6 +1,7 @@
 import { createHash } from 'crypto';
 import { AwsClient } from 'aws4fetch';
 import { requireEnv } from './env';
+import { withNetworkRetry } from './errors';
 
 export type Bucket = 'cssdaily-assets' | 'cssdaily-backups';
 
@@ -30,6 +31,18 @@ export interface R2Client {
   /** null only for 404; any other failure throws. */
   head(key: string): Promise<{ size: number; etag: string } | null>;
   get(key: string): Promise<Uint8Array>;
+  /** Every key under `prefix` (follows pagination). */
+  list(prefix: string): Promise<string[]>;
+  delete(key: string): Promise<void>;
+}
+
+/** Keys and continuation token from a ListObjectsV2 XML response. Pure, for testing. */
+export function parseListResponse(xml: string): { keys: string[]; next: string | null } {
+  const unescape = (v: string) => v.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
+  const keys = [...xml.matchAll(/<Key>([^<]*)<\/Key>/g)].map((m) => unescape(m[1]));
+  const truncated = /<IsTruncated>true<\/IsTruncated>/.test(xml);
+  const token = /<NextContinuationToken>([^<]*)<\/NextContinuationToken>/.exec(xml)?.[1];
+  return { keys, next: truncated && token ? unescape(token) : null };
 }
 
 export const md5Hex = (bytes: Uint8Array) => createHash('md5').update(bytes).digest('hex');
@@ -52,6 +65,11 @@ export function r2Client(
     initRetryMs: opts.retryDelayMs ?? 200,
   });
   const base = `https://${accountId}.r2.cloudflarestorage.com/${bucket}`;
+  // aws4fetch retries HTTP 429/5xx but not transport failures (e.g. a reused
+  // keep-alive socket the server already closed). Every operation here is
+  // safe to resend: putIfAbsent never overwrites, put targets mutable keys.
+  const send = (u: string, init: RequestInit) =>
+    withNetworkRetry(() => aws.fetch(u, init), opts.retries ?? 3, opts.retryDelayMs ?? 200);
 
   const url = (key: string) => {
     if (!KEY_RE.test(key) || key.split('/').some((seg) => seg === '.' || seg === '..')) {
@@ -65,7 +83,7 @@ export function r2Client(
   const head: R2Client['head'] = async (key) => {
     // Explicit method everywhere: aws4fetch defaults to POST when a body is
     // present and GET otherwise.
-    const res = await aws.fetch(url(key), { method: 'HEAD' });
+    const res = await send(url(key), { method: 'HEAD' });
     if (res.status === 404) return null;
     if (!res.ok) throw fail('HEAD', key, res);
     return {
@@ -76,7 +94,7 @@ export function r2Client(
 
   return {
     async putIfAbsent(key, body, { contentType, cacheControl }) {
-      const res = await aws.fetch(url(key), {
+      const res = await send(url(key), {
         method: 'PUT',
         headers: { 'Content-Type': contentType, 'Cache-Control': cacheControl, 'If-None-Match': '*' },
         // TS 5.7+ types Uint8Array<ArrayBufferLike> as not BodyInit; it is at runtime
@@ -93,7 +111,7 @@ export function r2Client(
     },
 
     async put(key, body, { contentType, cacheControl }) {
-      const res = await aws.fetch(url(key), {
+      const res = await send(url(key), {
         method: 'PUT',
         headers: { 'Content-Type': contentType, 'Cache-Control': cacheControl },
         // TS 5.7+ types Uint8Array<ArrayBufferLike> as not BodyInit; it is at runtime
@@ -105,9 +123,29 @@ export function r2Client(
     head,
 
     async get(key) {
-      const res = await aws.fetch(url(key), { method: 'GET' });
+      const res = await send(url(key), { method: 'GET' });
       if (!res.ok) throw fail('GET', key, res);
       return new Uint8Array(await res.arrayBuffer());
+    },
+
+    async list(prefix) {
+      const keys: string[] = [];
+      let token: string | null = null;
+      do {
+        const query = new URLSearchParams({ 'list-type': '2', prefix });
+        if (token) query.set('continuation-token', token);
+        const res = await send(`${base}?${query}`, { method: 'GET' });
+        if (!res.ok) throw fail('LIST', prefix, res);
+        const page = parseListResponse(await res.text());
+        keys.push(...page.keys);
+        token = page.next;
+      } while (token);
+      return keys;
+    },
+
+    async delete(key) {
+      const res = await send(url(key), { method: 'DELETE' });
+      if (!res.ok && res.status !== 404) throw fail('DELETE', key, res);
     },
   };
 }

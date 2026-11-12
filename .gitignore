@@ -4,4 +4,3 @@ dist/
 .env
 .wrangler/
 .data/
-import-report*.json

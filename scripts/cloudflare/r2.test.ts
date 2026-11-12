@@ -66,6 +66,18 @@ describe('r2Client', () => {
     await expect(client().putIfAbsent('targets/css/a.webp', BYTES, IMMUTABLE)).rejects.toThrow(/PUT .* failed: HTTP/);
   });
 
+  it('retries a dropped connection and still never overwrites', async () => {
+    // The PUT may have landed before the connection dropped: the retry then
+    // sees 412, compares checksums, and reports 'identical'.
+    stubFetch(
+      new TypeError('fetch failed', { cause: new Error('other side closed') }),
+      new Response(null, { status: 412 }),
+      new Response(null, { status: 200, headers: { etag: `"${md5Hex(BYTES)}"`, 'content-length': String(BYTES.length) } })
+    );
+    const retrying = r2Client('cssdaily-assets', { env: ENV, retries: 2, retryDelayMs: 0 });
+    await expect(retrying.putIfAbsent('targets/css/a.webp', BYTES, IMMUTABLE)).resolves.toBe('identical');
+  });
+
   it('putIfAbsent propagates network failures', async () => {
     stubFetch(new TypeError('fetch failed'));
     await expect(client().putIfAbsent('targets/css/a.webp', BYTES, IMMUTABLE)).rejects.toThrow(/fetch failed/);
@@ -99,5 +111,24 @@ describe('r2Client', () => {
 
   it('fails fast when the bucket credentials are missing', () => {
     expect(() => r2Client('cssdaily-backups', { env: { ...ENV, R2_BACKUP_SECRET_ACCESS_KEY: '' } })).toThrow(/R2_BACKUP_SECRET_ACCESS_KEY/);
+  });
+});
+
+describe('list and delete', () => {
+  it('parses ListObjectsV2 pages and follows continuation tokens', async () => {
+    const page1 = '<ListBucketResult><Key>d1/2026-11-01.sql</Key><Key>d1/a&amp;b.sql</Key><IsTruncated>true</IsTruncated><NextContinuationToken>tok/1</NextContinuationToken></ListBucketResult>';
+    const page2 = '<ListBucketResult><Key>d1/2026-11-08.sql</Key><IsTruncated>false</IsTruncated></ListBucketResult>';
+    const calls = stubFetch(new Response(page1), new Response(page2));
+    const keys = await r2Client('cssdaily-backups', { env: ENV, retries: 0 }).list('d1/');
+    expect(keys).toEqual(['d1/2026-11-01.sql', 'd1/a&b.sql', 'd1/2026-11-08.sql']);
+    expect(new URL(calls[0].url).searchParams.get('prefix')).toBe('d1/');
+    expect(new URL(calls[1].url).searchParams.get('continuation-token')).toBe('tok/1');
+  });
+
+  it('delete tolerates an already-missing key and throws on other failures', async () => {
+    stubFetch(new Response(null, { status: 404 }));
+    await expect(r2Client('cssdaily-backups', { env: ENV, retries: 0 }).delete('d1/x.sql')).resolves.toBeUndefined();
+    stubFetch(new Response(null, { status: 403 }));
+    await expect(r2Client('cssdaily-backups', { env: ENV, retries: 0 }).delete('d1/x.sql')).rejects.toThrow(/DELETE .* HTTP 403/);
   });
 });

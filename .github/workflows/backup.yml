@@ -1,0 +1,39 @@
+name: Backup
+
+# Weekly D1 export + target images → the private cssdaily-backups bucket,
+# with a restore rehearsal each run (scripts/backup.ts). Sunday 03:00 UTC,
+# well clear of generation; the export briefly locks the database.
+on:
+  schedule:
+    - cron: '0 3 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: backup
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm ci
+
+      # Only the backup bucket's key and the D1 token (export needs D1
+      # write); never the assets key or the model API keys
+      - name: Back up D1 and target images
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_DATABASE_ID: ${{ vars.D1_DATABASE_ID }}
+          D1_WRITE_TOKEN: ${{ secrets.D1_WRITE_TOKEN }}
+          R2_BACKUP_ACCESS_KEY_ID: ${{ secrets.R2_BACKUP_ACCESS_KEY_ID }}
+          R2_BACKUP_SECRET_ACCESS_KEY: ${{ secrets.R2_BACKUP_SECRET_ACCESS_KEY }}
+        run: npx tsx scripts/backup.ts
