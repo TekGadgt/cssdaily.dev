@@ -31,6 +31,18 @@ export interface R2Client {
   /** null only for 404; any other failure throws. */
   head(key: string): Promise<{ size: number; etag: string } | null>;
   get(key: string): Promise<Uint8Array>;
+  /** Every key under `prefix` (follows pagination). */
+  list(prefix: string): Promise<string[]>;
+  delete(key: string): Promise<void>;
+}
+
+/** Keys and continuation token from a ListObjectsV2 XML response. Pure, for testing. */
+export function parseListResponse(xml: string): { keys: string[]; next: string | null } {
+  const unescape = (v: string) => v.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
+  const keys = [...xml.matchAll(/<Key>([^<]*)<\/Key>/g)].map((m) => unescape(m[1]));
+  const truncated = /<IsTruncated>true<\/IsTruncated>/.test(xml);
+  const token = /<NextContinuationToken>([^<]*)<\/NextContinuationToken>/.exec(xml)?.[1];
+  return { keys, next: truncated && token ? unescape(token) : null };
 }
 
 export const md5Hex = (bytes: Uint8Array) => createHash('md5').update(bytes).digest('hex');
@@ -114,6 +126,26 @@ export function r2Client(
       const res = await send(url(key), { method: 'GET' });
       if (!res.ok) throw fail('GET', key, res);
       return new Uint8Array(await res.arrayBuffer());
+    },
+
+    async list(prefix) {
+      const keys: string[] = [];
+      let token: string | null = null;
+      do {
+        const query = new URLSearchParams({ 'list-type': '2', prefix });
+        if (token) query.set('continuation-token', token);
+        const res = await send(`${base}?${query}`, { method: 'GET' });
+        if (!res.ok) throw fail('LIST', prefix, res);
+        const page = parseListResponse(await res.text());
+        keys.push(...page.keys);
+        token = page.next;
+      } while (token);
+      return keys;
+    },
+
+    async delete(key) {
+      const res = await send(url(key), { method: 'DELETE' });
+      if (!res.ok && res.status !== 404) throw fail('DELETE', key, res);
     },
   };
 }
