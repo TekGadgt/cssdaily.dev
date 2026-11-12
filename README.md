@@ -78,7 +78,7 @@ OPENAI_API_KEY=your_openai_api_key_here
 
 To use Anthropic without changing code, set `AI_PROVIDER=anthropic`, choose an Anthropic model in `AI_MODEL`, and provide `ANTHROPIC_API_KEY`. Only the selected provider is called; failures never fall back to the other provider.
 
-Generate challenges locally with:
+Generating publishes straight to production: each challenge's target image goes to R2 and its row to D1, the same as the daily run. A date that already exists is skipped without calling the model. Running it locally needs the Cloudflare variables from `.env.example` (`CLOUDFLARE_ACCOUNT_ID`, `D1_DATABASE_ID`, `D1_WRITE_TOKEN`, and the `R2_ASSETS_*` key pair). Generate challenges with:
 
 ```bash
 # CSS challenges
@@ -90,11 +90,9 @@ npx tsx scripts/generate-tailwind-challenge.ts           # generates for tomorro
 npx tsx scripts/generate-tailwind-challenge.ts 2026-03-15 # generates for a specific date
 ```
 
-To regenerate target PNGs from existing challenge JSONs:
+## Backups
 
-```bash
-npx tsx scripts/generate-targets.ts
-```
+A weekly workflow (`.github/workflows/backup.yml`) exports D1 and copies every target image into a private R2 bucket, along with a checksum manifest. Each run also restores the export into a throwaway local database and checks the row count, so a broken backup fails when it's made, not when it's needed. Restore steps are in [`docs/operations/restore.md`](docs/operations/restore.md).
 
 ## Acknowledgments
 
