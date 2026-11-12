@@ -16,6 +16,7 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.106.0",
     "@astrojs/check": "^0.9.8",
+    "@astrojs/cloudflare": "^12.6.13",
     "@astrojs/react": "^4.2.1",
     "@astrojs/tailwind": "^6.0.2",
     "@codemirror/commands": "^6.10.2",
@@ -35,6 +36,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261112.1",
     "@types/node": "^26.2.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",

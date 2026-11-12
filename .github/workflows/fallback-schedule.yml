@@ -1,0 +1,35 @@
+name: Fallback schedule
+
+# Backup trigger for the dispatch-only workflows, in case the Cloudflare
+# cron dispatch (src/lib/dispatch.ts) fails. A re-run after a successful
+# primary run is free: generation skips every published difficulty, and a
+# second same-day backup overwrites that day's export and manifest.
+#
+# This is the ONLY scheduled workflow, so it's the only one GitHub can
+# disable after 60 days without repo activity — harmless, since Cloudflare
+# remains the primary scheduler.
+on:
+  schedule:
+    - cron: '0 9 * * *' # daily, three hours after the Cloudflare dispatch
+    - cron: '0 5 * * 0' # Sundays, two hours after the Cloudflare backup dispatch
+
+permissions:
+  actions: write
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch generation
+        if: github.event.schedule == '0 9 * * *'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh workflow run generate-challenge.yml --ref main
+
+      - name: Dispatch backup
+        if: github.event.schedule == '0 5 * * 0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh workflow run backup.yml --ref main
