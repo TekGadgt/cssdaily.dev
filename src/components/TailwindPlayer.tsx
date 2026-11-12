@@ -14,6 +14,7 @@ import LayoutToggle from './LayoutToggle';
 import DifficultySwitcher from './DifficultySwitcher';
 import { SET_VISIBILITY } from '../utils/difficulty';
 import { targetImageUrl } from '../utils/assets';
+import { recordPlay } from '../utils/plays';
 
 type Phase = 'idle' | 'playing' | 'finished';
 type TargetTab = 'target' | 'overlay' | 'diff';
@@ -125,6 +126,7 @@ export default function TailwindPlayer({ challenge, allDates, availableDifficult
       timeSpent: timeSpentRef.current,
       submittedHtml: userHtmlRef.current,
     });
+    recordPlay('tailwind', challenge.date, challenge.difficulty);
     setShowResults(true);
   }, [challenge.date, challenge.difficulty]);
 
