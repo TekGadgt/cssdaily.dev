@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { ROW_COLUMNS, type ChallengeRow } from './challenge-rows';
-import { insertBatches, insertStatement } from './import-challenges';
+import { ROW_COLUMNS, insertStatement, type ChallengeRow } from './challenge-rows';
+import { insertBatches } from './import-challenges';
 
 const row = (i: number, bodyBytes = 100): ChallengeRow => ({
   mode: 'css', date: `2026-01-${String(i).padStart(2, '0')}`, difficulty: 'easy', title: `t${i}`,
