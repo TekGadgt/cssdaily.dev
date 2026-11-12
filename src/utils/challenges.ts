@@ -16,14 +16,23 @@ function groupByDate(modules: Record<string, unknown>): Record<string, Challenge
   return byDate;
 }
 
-// import.meta.glob must be called with literal arguments to stay statically
-// analyzable — only the result is passed to groupByDate.
+// Challenge data lives in D1; `npm run data:pull` writes it to the
+// gitignored .data/ directory (CI pulls straight from D1, local dev can use
+// the public snapshot). import.meta.glob must be called with literal
+// arguments to stay statically analyzable — only the result is passed to
+// groupByDate.
 export const cssChallengesByDate = groupByDate(
-  import.meta.glob('../data/challenges/*.json', { eager: true })
+  import.meta.glob('../../.data/challenges/css/*.json', { eager: true })
 );
 export const tailwindChallengesByDate = groupByDate(
-  import.meta.glob('../data/tailwind-challenges/*.json', { eager: true })
+  import.meta.glob('../../.data/challenges/tailwind/*.json', { eager: true })
 );
+
+// An empty build would deploy a site that redirects every visitor to
+// /about/ — fail loudly instead.
+if (Object.keys(cssChallengesByDate).length === 0 || Object.keys(tailwindChallengesByDate).length === 0) {
+  throw new Error('No challenge data in .data/ — run "npm run data:pull" first');
+}
 
 export const cssDates = Object.keys(cssChallengesByDate).sort();
 export const tailwindDates = Object.keys(tailwindChallengesByDate).sort();
