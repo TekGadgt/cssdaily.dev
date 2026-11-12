@@ -11,6 +11,8 @@ Players who never sign in see no change, apart from a "Sign in with GitHub" butt
 
 **Spec:** `docs/superpowers/specs/2026-11-10-cloudflare-accounts-and-feedback-design.md`, Phase 3, including "Scheduling: a Cloudflare Cron Trigger dispatches generation".
 
+**Review:** revised 2026-11-12 after a Codex review that returned 2 blockers (hidden `.assetsignore` lost from the CI artifact; dispatch targets disabled for inactivity) and 8 should-fix findings. All of them are addressed below. Codex confirmed the prerender decision, the adapter's entrypoint API, the dispatch request, D1 enforcing foreign keys, and running migrations before deploy.
+
 **Two PRs:**
 - **PR F:** the adapter and Worker entrypoint, the cron dispatch, the plays counter, and CI-applied D1 migrations. This covers the deadline-bound work first.
 - **PR G:** Better Auth with GitHub sign-in, the AccountMenu, account deletion, and the about-page privacy section.
@@ -29,9 +31,15 @@ The site keeps `output: 'static'`. Every challenge page, the redirect stubs and 
 
 - **The redirect and 404 behavior must not change.** Unmatched paths must still serve `404.html` *at the requested URL* with status 404, because `ChallengeRedirect.astro` depends on it. `/challenge/<date>` must still redirect to `/challenge/<date>/`. Once the Worker has code, any request that doesn't match a static asset reaches the Worker, so this has to be verified again (Task F3), not assumed. The smoke check's HTTP checks 5–7 and browser checks B3–B5 are the gate.
 - **Static requests must not start the Worker.** Keep the default asset-first routing (`run_worker_first` unset).
-- **Don't hit the free plan's 10 ms CPU limit.** Every on-demand route gets measured with `wrangler tail`, which reports per-invocation CPU time, before merge. A route consistently over about 5 ms gets reworked, or escalated to a Workers Paid decision (owner).
+- **Don't hit the free plan's 10 ms CPU limit.**
+  - **Where to measure:** per-invocation CPU time is in **Workers Logs** (dashboard → Workers → `cssdaily` → Logs, which needs `observability.enabled`). `wrangler tail` doesn't report it, and local `wrangler dev` doesn't enforce the limit, so local profiling only finds hotspots.
+  - **When:** there's no staging environment, so CPU is measured in production **right after each merge**, with `npx wrangler rollback` as the immediate fallback. That's acceptable because a CPU overrun only fails the on-demand route involved (error 1102); static pages never reach the Worker.
+  - **What to measure:** the plays POST, the scheduled dispatch, and in PR G a fresh sign-in, a returning sign-in, a session refresh, sign-out and deletion. Record several invocations per route, not one.
+  - **Threshold:** a route consistently over about 5 ms gets reworked, or becomes an owner decision on Workers Paid.
 - **D1 migrations only add, and they run before the code that uses them.** CI applies them in the Deploy workflow *before* `wrangler deploy`, so each migration must also work with the currently deployed code: new tables and columns only, nothing destructive.
-- **Secrets live only where they're used.** Worker secrets (`wrangler secret put`) hold everything the Worker needs at runtime. GitHub secrets hold what CI needs. Nothing goes in the repo. For local `wrangler dev`, put them in a gitignored `.dev.vars`.
+- **Secrets live only where they're used.** Worker secrets (`wrangler secret put`) hold everything the Worker needs at runtime. GitHub secrets hold what CI needs. Nothing goes in the repo. For local `wrangler dev`, put them in `.dev.vars`; F1 adds it to `.gitignore` **before** any step creates it. Non-secret config (`BETTER_AUTH_URL`) goes in `wrangler.jsonc` `vars`.
+- **Only the dispatch targets are triggered by Cloudflare, and they carry no `schedule:`.** GitHub disables a scheduled *workflow* after 60 days without repo activity, and a disabled workflow can't be dispatched either. So `generate-challenge.yml` and `backup.yml` become `workflow_dispatch`-only, which makes them immune to the rule. GitHub-side fallback scheduling lives in a separate workflow that is allowed to be disabled (F4).
+- **Artifacts keep hidden files.** The `dist` artifact needs `include-hidden-files: true`, as `.data` already has, so the adapter's `dist/.assetsignore` survives into the deploy job. The deploy job asserts it before deploying (F1).
 - **No personal data in the plays counter:** no IP address, user ID or user agent is stored.
 - **No absolute machine paths in committed files**, and no `${{ }}` inside `run:`.
 
@@ -53,6 +61,8 @@ The site keeps `output: 'static'`. Every challenge page, the redirect stubs and 
 
 ### F1: Adapter + Worker entrypoint
 
+> **Ordering:** implement F1 together with F3's endpoint. The adapter warns that an all-static project doesn't need it, and the runtime build and routing checks below only mean something once there's at least one real `prerender = false` route. Day to day, `astro dev` is fine, but the custom entrypoint, asset routing and `scheduled` can only be checked with `npm run build` + `npx wrangler dev`.
+
 **Files:**
 - Modify: `package.json` (`@astrojs/cloudflare`, plus `@cloudflare/workers-types` as a dev dependency), `astro.config.mjs`, `wrangler.jsonc`, `tsconfig.json` (types)
 - Create: `src/worker.ts`
@@ -72,7 +82,15 @@ The site keeps `output: 'static'`. Every challenge page, the redirect stubs and 
   - `"observability": { "enabled": true }`, so cron failures and CPU times show up in Workers Logs.
 
   Keep the route, `workers_dev: false`, and the D1 binding.
-- [ ] **Keep the Worker's own files out of the public assets.** Confirm the build writes `dist/.assetsignore` excluding `_worker.js` (and `_routes.json`). If it doesn't, add `public/.assetsignore` with those entries. Then check that `/_worker.js/index.js` returns 404 in production.
+- [ ] **Keep the Worker's own files out of the public assets.**
+  - **Local:** confirm the build writes `dist/.assetsignore` excluding `_worker.js` (and `_routes.json`). If it doesn't, add `public/.assetsignore` with those entries.
+  - **CI (review blocker):** in `deploy.yml`, add `include-hidden-files: true` to the `dist` upload. In `deploy-cloudflare.yml`, right after downloading `dist`, assert the file exists and lists `_worker.js`, and **fail the deploy if it doesn't**:
+    ```bash
+    grep -qx '_worker.js' dist/.assetsignore || { echo "::error::dist/.assetsignore missing or incomplete — refusing to publish Worker code as assets"; exit 1; }
+    ```
+  - **Production, after merge:** `/_worker.js/index.js` and one server chunk under `/_worker.js/` must both return 404.
+- [ ] **`.gitignore`:** add `.dev.vars` now, before any later step creates the file.
+- [ ] **Astro sessions:** adapter 12.6 sets up Astro's KV session driver automatically, but only creates storage on first use, and nothing here uses `Astro.session`. Better Auth's sessions are separate and live in D1. So **don't** add a `SESSION` KV binding. Verify that signed-out API requests set no Astro session cookie and don't error about KV.
 - [ ] **Verify** with the smoke check against `npm run build && npx wrangler dev`, especially:
   - checks 5–7 and B3–B5: the redirects, and 404 pages served at the requested URL;
   - that a request for a static file doesn't reach the Worker: `wrangler dev` logs Worker invocations, and fetching `/about/` should log none.
@@ -112,10 +130,23 @@ The site keeps `output: 'static'`. Every challenge page, the redirect stubs and 
   - Rejects bodies over 512 bytes.
   - Gets D1 from `locals.runtime.env.DB`.
   - Always returns **204**. A failure is logged, never exposed. The client doesn't wait for or react to the response.
-  - *Abuse:* the counter is informational and holds no personal data. A **Rate Limiting binding** keyed by `cf-connecting-ip`, used only as an in-memory limiter key and never stored, caps writes at 10 per minute per client. *Verify the binding is available on the Free plan.* If it isn't, ship without it and note the accepted risk.
+  - **Order of checks, before any D1 write:**
+    1. `Origin` must be `BETTER_AUTH_URL`'s origin (`https://cssdaily.dev`; `http://localhost:8787` locally). A `sendBeacon` string body is sent as `text/plain`, which is a CORS-safelisted type, so third-party pages could otherwise post blind cross-origin requests.
+    2. Read the body as a stream and stop after 512 bytes, before parsing. Parse with `request.json()`; don't require `application/json`, because a beacon sends `text/plain`.
+    3. Rate limit.
+    4. Upsert.
+  - **Rate Limiting binding**, in `wrangler.jsonc`: `"ratelimits": [{ "name": "PLAYS_LIMITER", "namespace_id": "1001", "simple": { "limit": 10, "period": 60 } }]`.
+    - Keyed by `cf-connecting-ip`, used only as an in-memory key and never stored.
+    - Cloudflare's limiter is **approximate and per location**, and one IP can be several players. So the counter is documented as *approximate submissions*, not exact plays.
+    - It must provision on the Free plan before PR F merges. If it can't, stop and decide with the owner; shipping without protection isn't automatic.
 - [ ] **Client:** in both players' submit handler, fire `navigator.sendBeacon('/api/plays', JSON.stringify({ mode, date, difficulty }))`, wrapped in try/catch, with no await. Fire it once per recorded submission, never during keep-tweaking practice.
-- [ ] **Tests:** `parsePlay` (valid input, bad mode, bad date, extra fields, oversize body) and the SQL shape. Then, against local D1 (`wrangler d1 migrations apply cssdaily --local`, then `wrangler dev`), a manual curl: two submits for the same challenge → `count = 2`; a submit for a non-existent challenge → 204 and no row.
-- [ ] **CPU:** watch `wrangler tail` during a submit and record the `cpuTime`.
+- [ ] **Tests:**
+  - **Unit:** `parsePlay` (valid input, bad mode, bad date, extra fields, oversize body), the SQL shape, and the origin check (a foreign or missing `Origin` → 204 with no write).
+  - **Local, against a seeded D1:** `wrangler d1 migrations apply cssdaily --local` creates *empty* tables, so first seed one fixture challenge with `npx wrangler d1 execute cssdaily --local --command "INSERT INTO challenges (…) VALUES ('css','2026-01-01','easy',…)"`, which is fixture data only. Then, against `npm run build && npx wrangler dev`, use curl with `Origin: http://localhost:8787`:
+    - two submits → `count = 2`;
+    - an unknown challenge → 204 and no row;
+    - a foreign `Origin` → 204 and no row.
+- [ ] **CPU:** measured in Workers Logs after merge (see Global Constraints).
 - [ ] **Commit** — `Add anonymous plays counter`
 
 ### F4: Cron dispatch
@@ -131,15 +162,18 @@ The site keeps `output: 'static'`. Every challenge page, the redirect stubs and 
   - An unknown cron expression also throws.
 - [ ] **`scheduled(controller, env, ctx)`** in `src/worker.ts`: `ctx.waitUntil(dispatchWorkflow(CRON_WORKFLOWS[controller.cron], env.GITHUB_DISPATCH_TOKEN))`.
 - [ ] **`wrangler.jsonc`:** `"triggers": { "crons": ["0 6 * * *", "0 3 * * 0"] }`.
-- [ ] **GitHub's crons become fallbacks:**
-  - `generate-challenge.yml` → `'0 9 * * *'`, plus workflow-level `concurrency: { group: generate, cancel-in-progress: false }`.
-  - `backup.yml` → `'0 5 * * 0'`.
-
-  A fallback run after a successful primary run skips generation for free (every difficulty is already present) and harmlessly triggers one more Deploy. A second backup on the same day overwrites that day's export and manifest, also harmless.
+- [ ] **The dispatch targets become dispatch-only (review blocker).** Remove `schedule:` from `generate-challenge.yml` and `backup.yml`. A workflow without a schedule is never disabled for inactivity, so Cloudflare's dispatch always reaches it. `generate-challenge.yml` also gets workflow-level `concurrency: { group: generate, cancel-in-progress: false }`, so a fallback dispatch overlapping a slow primary run waits, then skips.
+- [ ] **GitHub-side fallback: a new `.github/workflows/fallback-schedule.yml`.**
+  - Schedules `'0 9 * * *'` (generate) and `'0 5 * * 0'` (backup). Permission `actions: write`.
+  - Runs `gh workflow run generate-challenge.yml --ref main`, plus `backup.yml` on the Sunday schedule (branch on `github.event.schedule`).
+  - **This is the only workflow GitHub can disable for inactivity, and that's harmless:** Cloudflare remains the primary, and losing the fallback only removes redundancy.
+  - A fallback dispatch after a successful primary run skips generation for free (every difficulty is already present) and triggers one more Deploy. A second same-day backup overwrites that day's export and manifest.
+- [ ] **Dispatch failures are loud.** Any non-204 response throws, which shows up as a failed scheduled invocation in Workers Logs. A disabled target workflow, if one were ever disabled by hand, shows up there as GitHub's 4xx.
 - [ ] **Tests:**
   - The cron → workflow mapping, including that an unknown expression throws.
   - The request: exact URL, headers and body.
-  - 204 resolves; 401, 404 and 422 throw with the status, without leaking the token.
+  - 204 resolves; 401, 403, 404 and 422 throw with the status, without leaking the token.
+  - Neither target workflow file contains `schedule:`, which is a cheap guard against regressing the blocker. A test reads the YAML and checks.
 - [ ] **Local check without triggering real generation:**
   - `npx wrangler dev --test-scheduled`, with a *throwaway* `GITHUB_DISPATCH_TOKEN` in `.dev.vars` (e.g. `invalid`).
   - `curl "http://localhost:8787/__scheduled?cron=0+6+*+*+*"`.
@@ -154,8 +188,8 @@ The site keeps `output: 'static'`. Every challenge page, the redirect stubs and 
   - Confirm `https://cssdaily.dev/_worker.js/index.js` returns 404.
 - [ ] **(owner) Acceptance on the next 06:00 UTC run:**
   - A Generate run with event `workflow_dispatch`, by the token's owner, at about 06:00.
-  - Workers Logs shows the scheduled invocation, with no error logged.
-  - The 09:00 fallback run skips everything.
+  - Workers Logs shows the scheduled invocation, with no error logged, and its CPU time.
+  - The 09:00 fallback-schedule run dispatches a generate run that skips everything.
   - The new day is live.
 
 ---
@@ -164,7 +198,7 @@ The site keeps `output: 'static'`. Every challenge page, the redirect stubs and 
 
 ### G0 (owner): Credentials
 
-> **Keep for local use:** the **dev** OAuth app's Client ID and Client Secret, and a local `BETTER_AUTH_SECRET`. All three go into a gitignored `.dev.vars` for `wrangler dev`. The **production** values go straight into Worker secrets and never need keeping.
+> **Keep for local use:** the **dev** OAuth app's Client ID and Client Secret, and a local `BETTER_AUTH_SECRET`. All three go into `.dev.vars` (gitignored since F1) for `wrangler dev`, along with `BETTER_AUTH_URL=http://localhost:8787`. The **production** values go straight into Worker secrets and never need keeping. Production `BETTER_AUTH_URL` isn't secret: G1 puts it in `wrangler.jsonc` `vars`.
 
 - [ ] **Two GitHub OAuth Apps.** GitHub → Settings → Developer settings → OAuth Apps → *New*:
   - **Production:** homepage `https://cssdaily.dev`, callback `https://cssdaily.dev/api/auth/callback/github`. Copy the Client ID, generate a Client Secret, then run:
@@ -184,9 +218,10 @@ The site keeps `output: 'static'`. Every challenge page, the redirect stubs and 
 - Create: `src/lib/auth.ts`, `src/pages/api/auth/[...all].ts`, `migrations/0003_auth.sql`
 - Modify: `package.json`, `.gitignore` (`.dev.vars`)
 
-- [ ] **Install** `better-auth`, `kysely` and `kysely-d1`. Better Auth has no built-in D1 adapter, and Kysely is its native query layer, which avoids pulling in Drizzle. *Verify against current Better Auth docs* whether a first-party D1 path now exists; if it does, use it instead.
+- [ ] **Install `better-auth`, pinned exactly** (1.7.x or later). It supports a native D1 binding: passing `database: env.DB` makes it detect D1, use its own D1 dialect, and turn off interactive transactions. So there are **no** direct `kysely` or `kysely-d1` dependencies (review finding, verified in the published adapter source).
+- [ ] **`wrangler.jsonc` `vars`:** `"BETTER_AUTH_URL": "https://cssdaily.dev"`. `createAuth` checks every required binding and secret (`DB`, `BETTER_AUTH_URL`, `BETTER_AUTH_SECRET`, `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`) and throws a clear configuration error naming whichever is missing.
 - [ ] **`src/lib/auth.ts`:** `createAuth(env)` is called **per request**, since bindings only exist inside a request. It sets:
-  - `database: { dialect: new D1Dialect({ database: env.DB }), type: 'sqlite' }`;
+  - `database: env.DB` (native D1);
   - `baseURL: env.BETTER_AUTH_URL` (`https://cssdaily.dev`, or `http://localhost:8787` in `.dev.vars`);
   - `secret: env.BETTER_AUTH_SECRET`;
   - `socialProviders: { github: { clientId, clientSecret } }`;
@@ -196,14 +231,25 @@ The site keeps `output: 'static'`. Every challenge page, the redirect stubs and 
 
   Request only what's needed: GitHub's default scope plus `user:email`. Better Auth needs an email address, and GitHub may hide it on the profile.
 - [ ] **`src/pages/api/auth/[...all].ts`** (`prerender = false`): `ALL = ({ request, locals }) => createAuth(locals.runtime.env).handler(request)`.
-- [ ] **Migration `0003_auth.sql`:** generate it with the Better Auth CLI against this config (`npx @better-auth/cli generate`). Review it by hand: tables `user`, `session`, `account`, `verification`, with only additions, then commit it. Phase 4's `results` table will reference `user(id) ON DELETE CASCADE`.
+- [ ] **Migration `0003_auth.sql`:** the runtime factory needs a Workers binding, so the CLI can't load it directly.
+  - Add `src/lib/auth-options.ts`, the shared options with everything except `database`, used by both the runtime and the CLI.
+  - Add `auth.cli.ts`, which builds the auth instance from those options against an **empty local SQLite database**. Prefer Node 22's built-in `node:sqlite` if Better Auth accepts it; otherwise use `better-sqlite3` as a dev-only dependency.
+  - Generate the SQL with the CLI at the **same version** as the runtime package (current docs call the CLI package `auth`; follow the docs for the pinned version).
+  - Review the SQL by hand (`user`, `session`, `account`, `verification`; additions only), then check it applies cleanly with `wrangler d1 migrations apply cssdaily --local`. CI applies it to production (F2).
+  - Phase 4's `results` table will reference `user(id) ON DELETE CASCADE`.
+- [ ] **Store less (privacy):**
+  - **Session metadata:** turn off session IP and user-agent recording if Better Auth exposes an option for it. Check the pinned version's `advanced.ipAddress` and session settings, and record in the plan what can and can't be turned off.
+  - **OAuth tokens:** GitHub access and refresh tokens are never needed after sign-in, since there are no GitHub API calls on the user's behalf. Strip them with a `databaseHooks.account.create.before` / `update.before` hook that nulls the token fields. If the pinned version requires them, enable encrypted token storage instead and document that.
+- [ ] **Deletion tombstones:** add an `account_deletions(user_id TEXT PRIMARY KEY, deleted_at INTEGER)` table, in the same migration. The `user_id` is Better Auth's random internal ID, which is not personal data. A `databaseHooks.user.delete.after` hook records each deletion. The restore runbook gains a step that re-deletes every tombstoned ID after any restore, so restoring a backup can't silently bring back a deleted account.
 - [ ] **Tests:**
   - `createAuth` builds without touching the network.
   - In local `wrangler dev`, with local D1 migrated and `.dev.vars` filled in: `GET /api/auth/get-session` returns `200 null` when signed out.
   - The full sign-in round trip through the **dev** OAuth app lands back on the original page signed in.
   - Sign-out clears the session.
-  - Account deletion removes the `user`, `account` and `session` rows.
-- [ ] **CPU:** `wrangler tail` during get-session, the OAuth callback and sign-out. Record each `cpuTime`. They must stay under the 10 ms free limit with headroom. The OAuth exchange is mostly network wait, which doesn't count.
+  - Account deletion removes the `user`, `account` and `session` rows and writes a tombstone.
+  - **Stale-session deletion** (review finding): Better Auth requires a *fresh* session to delete an OAuth-only account (default freshness: 1 day). Simulate an old session, either by setting `freshAge` to a few seconds in local config only, or by backdating the session row. Confirm the delete is rejected, and that the AccountMenu re-auth flow (G2) then succeeds.
+  - The `account` row holds no OAuth tokens (or encrypted ones, per the decision above).
+- [ ] **CPU:** measured in Workers Logs right after merge (see Global Constraints): fresh sign-in, returning sign-in, session refresh, sign-out, deletion. The OAuth exchange is mostly network wait, which doesn't count toward the limit.
 - [ ] **Commit** — `Add Better Auth with GitHub sign-in on D1`
 
 ### G2: AccountMenu island
@@ -215,6 +261,7 @@ The site keeps `output: 'static'`. Every challenge page, the redirect stubs and 
   - **Loading:** a placeholder of the same size, so the header doesn't shift.
   - **Signed out:** "Sign in with GitHub". It starts the social sign-in with `callbackURL` set to the current path, so the player returns to the same challenge.
   - **Signed in:** the avatar, which opens a menu with *Sign out* and *Delete account*. Delete account asks for confirmation and states what gets deleted.
+  - **Stale session on delete:** if Better Auth rejects the delete because the session isn't fresh, explain why and offer "Confirm with GitHub". That runs the social sign-in again with `callbackURL` = the current path plus `?confirm-delete=1`. On return, the island sees the flag, asks for confirmation **again**, then deletes. Never auto-delete on return.
 - [ ] **Placement:** `client:idle` in `Header.astro`. The header's static HTML renders exactly as it does today.
 - [ ] **Accessibility:** the menu button has `aria-expanded`, Escape closes the menu, and focus returns to the button.
 - [ ] **Tests:** rendering each state with a mocked session, and that the callback URL equals the current path.
@@ -222,11 +269,12 @@ The site keeps `output: 'static'`. Every challenge page, the redirect stubs and 
 
 ### G3: Privacy
 
-- [ ] **About page, "Accounts & data":**
-  - Signing in is optional. Stored from GitHub: your GitHub ID, display name, avatar URL and email (Better Auth requires an email).
+- [ ] **About page, "Accounts & data":** accurate to what G1 actually stores.
+  - Signing in is optional. Stored from GitHub: your GitHub ID, display name, avatar URL and email (Better Auth requires an email). Also stored: session records (token, timestamps, plus IP/user agent only if they couldn't be turned off). OAuth tokens are not kept, or are encrypted, per G1.
   - Sign-in lets you keep results across devices (coming next).
-  - Deleting your account removes all of this.
-  - The anonymous play counter stores only per-challenge, per-day counts.
+  - Deleting your account removes it from the live database **immediately**. Weekly backups keep copies for up to **12 weeks**, and a restore re-applies every deletion.
+  - The anonymous play counter stores approximate per-challenge, per-day submission counts, and nothing about you.
+- [ ] **Fix existing about-page copy:** `about.astro` still says generation commits to the repo (around line 69) and that there's no backend or database (around line 86). Correct both.
 - [ ] **Commit** — `Document accounts and data`
 
 **→ PR G** = G1–G3.
@@ -240,7 +288,7 @@ The site keeps `output: 'static'`. Every challenge page, the redirect stubs and 
 
 ## Done when
 
-- The generator runs at 06:00 UTC from the Cloudflare cron. GitHub's cron is only a fallback, so the 60-day inactivity rule no longer matters.
+- The generator runs at 06:00 UTC from the Cloudflare cron, and its target workflows have no `schedule:`, so GitHub's 60-day inactivity rule can't disable them. Only the separate fallback workflow can be disabled, and losing it is harmless.
 - Every page is still prerendered. Static requests don't start the Worker, and the smoke check, including the 404-in-place checks, passes in production.
 - Plays are counted anonymously.
 - Players can sign in with GitHub, sign out and delete their account. Every on-demand route stays under the free plan's CPU limit.
