@@ -5,10 +5,14 @@
  */
 export const REPO = 'TekGadgt/cssdaily.dev';
 
-/** Cron expression (UTC, as in wrangler.jsonc `triggers.crons`) → workflow file. */
+/**
+ * Cron expression → workflow file. Keys must match wrangler.jsonc
+ * `triggers.crons` exactly: `controller.cron` is that string. UTC. Use day
+ * names: Cloudflare numbers days 1–7 from Sunday and rejects 0.
+ */
 export const CRON_WORKFLOWS: Record<string, string> = {
   '0 6 * * *': 'generate-challenge.yml',
-  '0 3 * * 0': 'backup.yml',
+  '0 3 * * SUN': 'backup.yml',
 };
 
 export async function dispatchWorkflow(file: string, token: string, fetchFn: typeof fetch = fetch): Promise<void> {
