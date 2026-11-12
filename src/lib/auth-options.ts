@@ -11,7 +11,8 @@ export interface AuthConfig {
 }
 
 // GitHub's OAuth tokens are never used after sign-in (no API calls on the
-// player's behalf), so they're not kept at all.
+// player's behalf), so they're not kept at all. (Not encryptOAuthTokens: it
+// runs pure-JS crypto on every sign-in for tokens that are discarded anyway.)
 const TOKEN_FIELDS = ['accessToken', 'refreshToken', 'idToken', 'accessTokenExpiresAt', 'refreshTokenExpiresAt'] as const;
 const withoutTokens = <T extends Record<string, unknown>>(account: T) =>
   ({ data: { ...account, ...Object.fromEntries(TOKEN_FIELDS.map((f) => [f, null])) } });
@@ -47,10 +48,6 @@ export function authOptions(config: AuthConfig): Omit<BetterAuthOptions, 'databa
           await config.onUserDeleted?.(user.id);
         },
       },
-    },
-    account: {
-      // Belt and braces: tokens are nulled below; encrypt anything that slips through
-      encryptOAuthTokens: true,
     },
     advanced: {
       // The real client IP on Cloudflare; used in memory for Better Auth's
