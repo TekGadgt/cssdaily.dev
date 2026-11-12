@@ -1,6 +1,7 @@
 import type { Env } from './lib/env';
 import { dispatchForCron } from './lib/dispatch';
 import { handlePlay } from './worker/plays';
+import { hasSessionCookie } from './worker/session-cookie';
 
 /**
  * The site is fully static (Workers Static Assets). With asset-first
@@ -20,6 +21,13 @@ export default {
 
     // Better Auth: sign-in, OAuth callback, session, sign-out, deletion.
     // Built per request (D1 is only bound inside a request).
+    // The account menu asks on every page view, and nearly every visitor is
+    // signed out. Without a session cookie the answer is always null, so give
+    // it without loading Better Auth (cold loads cost ~100 ms CPU).
+    if (pathname === '/api/auth/get-session' && request.method === 'GET' && !hasSessionCookie(request.headers.get('cookie'))) {
+      return Response.json(null, { headers: { 'Cache-Control': 'no-store' } });
+    }
+
     if (pathname.startsWith('/api/auth/')) {
       try {
         // Loaded on first use: Better Auth is ~1.8 MB of the bundle, and no
