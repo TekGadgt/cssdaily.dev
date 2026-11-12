@@ -200,6 +200,12 @@ The site keeps `output: 'static'`. Every challenge page, the redirect stubs and 
 > - **For PR G's local OAuth round trip,** account for the same rewriting. Try `wrangler dev --local-upstream localhost:8787` or `astro dev`; if neither works, run the dev OAuth app against the rewritten host.
 > - **The adapter does not write `.assetsignore`.** It's committed as `public/.assetsignore`.
 
+> **Change after PR F shipped (2026-11-12): the Astro adapter is gone.** In production, Workers Logs showed `POST /api/plays` using **7–13 ms of CPU**, against the free plan's 10 ms limit. Every API request ran Astro's app, router and render pipeline over a 1.3 MB bundle. What replaces it:
+> - The site is a plain static `astro build` again.
+> - `src/worker.ts` is a small Worker script that Wrangler bundles itself (4.6 KB). It routes `/api/plays`, hands everything else to `env.ASSETS`, and runs the cron handler.
+> - With no `_worker.js` in `dist/`, `.assetsignore` and its CI check are no longer needed.
+> - For **PR G**: Better Auth is mounted as `/api/auth/*` in `src/worker.ts`, calling `createAuth(env).handler(request)` directly. Read every G-section mention of `src/pages/api/auth/[...all].ts` and `locals.runtime.env` as that.
+
 # PR G — GitHub sign-in (Better Auth)
 
 ### G0 (owner): Credentials

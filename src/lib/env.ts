@@ -1,3 +1,4 @@
+/// <reference types="@cloudflare/workers-types" />
 /** Bindings and vars available to the Worker (wrangler.jsonc + Worker secrets). */
 export interface Env {
   ASSETS: Fetcher;

@@ -55,8 +55,6 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
-      # include-hidden-files: dist/.assetsignore keeps the Worker's own code
-      # (_worker.js/) from being published as public assets
       - name: Upload dist for Cloudflare
         uses: actions/upload-artifact@v4
         with:
