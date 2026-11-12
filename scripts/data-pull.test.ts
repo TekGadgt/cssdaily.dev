@@ -4,8 +4,9 @@ import * as os from 'os';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { isLegacyFileName, toRow, MODES, type ChallengeJson, type ChallengeRow } from './challenge-rows';
+import { md5Hex } from './cloudflare/r2';
 import {
-  assetBase, parseArgs, pullFromD1, pullFromSnapshot, readSnapshot, selectSource, validate,
+  assetBase, downloadImages, parseArgs, pullFromD1, pullFromSnapshot, readSnapshot, selectSource, validate,
   writeDataLayout, writeRepoLayout, type PulledChallenge,
 } from './data-pull';
 import { buildSnapshot, publishSnapshot } from './publish-snapshot';
@@ -137,5 +138,27 @@ describe('snapshot', () => {
     expect(fetchFn).toHaveBeenCalledWith('https://assets.example/data/challenges.json');
     const missing = vi.fn(async () => new Response('nope', { status: 404 }));
     await expect(pullFromSnapshot('https://assets.example', missing)).rejects.toThrow(/HTTP 404/);
+  });
+});
+
+describe('downloadImages (rollback)', () => {
+  const bytesFor = (key: string) => new TextEncoder().encode(`img:${key}`);
+  const fakeR2 = (corrupt?: string) => ({
+    head: vi.fn(async (key: string) => ({ size: 0, etag: md5Hex(bytesFor(key)) })),
+    get: vi.fn(async (key: string) => (key === corrupt ? new TextEncoder().encode('tampered') : bytesFor(key))),
+  });
+
+  it('writes every image into the repo layout, checksum-verified', async () => {
+    await downloadImages(pulled(), tmp, fakeR2());
+    for (const f of fixtures) {
+      const dir = f.mode === 'css' ? 'public/targets' : 'public/targets/tailwind';
+      const file = path.join(tmp, dir, f.json.targetImage);
+      expect(fs.readFileSync(file, 'utf8')).toBe(`img:targets/${f.mode}/${f.json.targetImage}`);
+    }
+  });
+
+  it('fails loudly on a checksum mismatch', async () => {
+    const victim = `targets/css/${fixtures[0].json.targetImage}`;
+    await expect(downloadImages(pulled(), tmp, fakeR2(victim))).rejects.toThrow(/Checksum mismatch/);
   });
 });

@@ -19,7 +19,7 @@ import { fileURLToPath, pathToFileURL } from 'url';
 import { d1Query } from './cloudflare/d1';
 import { describeError } from './cloudflare/errors';
 import { readEnv } from './cloudflare/env';
-import { md5Hex, r2Client } from './cloudflare/r2';
+import { md5Hex, r2Client, type R2Client } from './cloudflare/r2';
 import {
   MODES, fromRow, repoFileName, serializeChallenge, toRow,
   type ChallengeJson, type ChallengeRow, type Mode,
@@ -145,19 +145,32 @@ export function writeRepoLayout(challenges: PulledChallenge[], rootDir: string):
   }
 }
 
-/** Rollback: download every referenced target, verified against R2's ETag (MD5). */
-async function downloadImages(challenges: PulledChallenge[], rootDir: string): Promise<void> {
-  const r2 = r2Client('cssdaily-assets');
-  for (const { mode, json } of challenges) {
-    const key = `targets/${mode}/${json.targetImage}`;
-    const meta = await r2.head(key);
-    if (!meta) throw new Error(`Missing image in R2: ${key}`);
-    const bytes = await r2.get(key);
-    if (md5Hex(bytes) !== meta.etag) throw new Error(`Checksum mismatch downloading ${key}`);
-    const dir = path.join(rootDir, REPO_DIRS[mode].images);
-    fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(path.join(dir, json.targetImage), bytes);
-  }
+const DOWNLOAD_CONCURRENCY = 8;
+
+/**
+ * Rollback: download every referenced target, verified against R2's ETag
+ * (MD5). Parallel — one at a time, ~1,100 images took about ten minutes.
+ */
+export async function downloadImages(
+  challenges: PulledChallenge[],
+  rootDir: string,
+  r2: Pick<R2Client, 'head' | 'get'> = r2Client('cssdaily-assets')
+): Promise<void> {
+  for (const mode of MODES) fs.mkdirSync(path.join(rootDir, REPO_DIRS[mode].images), { recursive: true });
+  let next = 0;
+  let done = 0;
+  await Promise.all(Array.from({ length: Math.min(DOWNLOAD_CONCURRENCY, challenges.length) }, async () => {
+    while (next < challenges.length) {
+      const { mode, json } = challenges[next++];
+      const key = `targets/${mode}/${json.targetImage}`;
+      const meta = await r2.head(key);
+      if (!meta) throw new Error(`Missing image in R2: ${key}`);
+      const bytes = await r2.get(key);
+      if (md5Hex(bytes) !== meta.etag) throw new Error(`Checksum mismatch downloading ${key}`);
+      fs.writeFileSync(path.join(rootDir, REPO_DIRS[mode].images, json.targetImage), bytes);
+      if (++done % 200 === 0) console.log(`  images: ${done}/${challenges.length}`);
+    }
+  }));
 }
 
 interface Args { requireD1: boolean; layout: 'data' | 'repo'; withImages: boolean; out: string }
