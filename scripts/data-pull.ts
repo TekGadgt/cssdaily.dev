@@ -208,7 +208,12 @@ async function main() {
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((err) => {
-    console.error(describeError(err));
+    const message = describeError(err);
+    console.error(message);
+    // A stale or revoked token in .env makes data:pull pick D1 and fail
+    if (/D1 query failed \(HTTP (401|403)\)/.test(message)) {
+      console.error('Hint: the D1 token in .env was rejected. Remove D1_READ_TOKEN/D1_WRITE_TOKEN from .env to use the public snapshot (no credentials needed).');
+    }
     process.exitCode = 1;
   });
 }
