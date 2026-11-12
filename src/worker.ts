@@ -1,11 +1,12 @@
 import type { Env } from './lib/env';
 import { dispatchForCron } from './lib/dispatch';
 import { handlePlay } from './worker/plays';
+import { createAuth } from './lib/auth';
 
 /**
  * The site is fully static (Workers Static Assets). With asset-first
  * routing this script only ever sees requests no static file matched, so
- * it stays tiny: a couple of API routes, the cron dispatch, and a hand-back
+ * it stays small: the plays counter, Better Auth, the cron dispatch, and a hand-back
  * to the assets layer for everything else.
  */
 export default {
@@ -16,6 +17,17 @@ export default {
       return request.method === 'POST'
         ? handlePlay(request, env)
         : new Response(null, { status: 405, headers: { Allow: 'POST' } });
+    }
+
+    // Better Auth: sign-in, OAuth callback, session, sign-out, deletion.
+    // Built per request (D1 is only bound inside a request).
+    if (pathname.startsWith('/api/auth/')) {
+      try {
+        return await createAuth(env).handler(request);
+      } catch (err) {
+        console.error('auth:', err instanceof Error ? err.message : err);
+        return new Response(null, { status: 500 });
+      }
     }
 
     // Unmatched: the assets layer's not_found_handling serves 404.html AT
