@@ -1,4 +1,6 @@
 ---
+import AccountMenu from './AccountMenu';
+
 interface Props {
   currentPath?: string;
 }
@@ -34,6 +36,7 @@ const DISCORD_INVITE_URL = 'https://discord.gg/ct2fnax8yS';
       </nav>
     </div>
     <div class="flex items-center gap-4">
+      <AccountMenu client:idle />
       {/* RM letterform from ryanmcgovern.dev's favicon, recolored to match the icon row */}
       <a href="https://ryanmcgovern.dev" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-white transition" title="Ryan McGovern" aria-label="Ryan McGovern's personal site">
         <svg aria-hidden="true" focusable="false" class="w-5 h-5" fill="currentColor" viewBox="1 5.2 14 7">
