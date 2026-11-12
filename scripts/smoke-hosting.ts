@@ -12,44 +12,69 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
+import { assetBase } from './data-pull';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const CHALLENGES_DIR = path.join(__dirname, '..', 'src', 'data', 'challenges');
-const TARGETS_DIR = path.join(__dirname, '..', 'public', 'targets');
+// Written by `npm run data:pull`; the challenge data no longer lives in the repo
+const DATA_DIR = path.join(__dirname, '..', '.data', 'challenges');
 
-const CHALLENGE_FILE_RE = /^(\d{4}-\d{2}-\d{2})(?:-(?:easy|medium|hard))?\.json$/;
+const LEGACY_IMAGE_RE = /^\d{4}-\d{2}-\d{2}\.webp$/;
 const REDIRECT_MARKER = 'id="redirect-data"';
 const BEACON_SRC = 'static.cloudflareinsights.com/beacon.min.js';
 const WORKER_MARKER = 'cssdaily-worker';
 const PRODUCTION_WWW = 'https://www.cssdaily.dev';
 const PRODUCTION_APEX = 'https://cssdaily.dev';
 
+export interface SmokeChallenge {
+  date: string;
+  targetImage: string;
+}
+
+export interface SmokeImage {
+  mode: 'css' | 'tailwind';
+  image: string;
+}
+
+const latestOnOrBefore = (list: SmokeChallenge[], today: string) =>
+  list
+    .filter((c) => c.date <= today)
+    .sort((a, b) => b.date.localeCompare(a.date) || a.targetImage.localeCompare(b.targetImage))[0];
+
 /**
- * Latest CSS challenge dated on or before `today` that has a matching target
- * image. Dates are YYYY-MM-DD and compared as strings. Pure, for testing.
+ * The CSS challenge date to load (latest on or before `today`, so not a
+ * pre-generated future day) plus target images to fetch: that day's CSS
+ * image, the latest Tailwind image, and the oldest legacy-named CSS image.
+ * Dates are YYYY-MM-DD, compared as strings. Pure, for testing.
  */
 export function pickSmokeTargets(
-  cssFiles: string[],
-  targetFiles: string[],
+  css: SmokeChallenge[],
+  tailwind: SmokeChallenge[],
   today: string
-): { date: string; image: string } {
-  const images = new Set(targetFiles);
-  const candidates: { date: string; image: string }[] = [];
-  for (const file of cssFiles) {
-    const match = CHALLENGE_FILE_RE.exec(file);
-    if (!match || match[1] > today) continue;
-    const image = file.replace(/\.json$/, '.webp');
-    if (images.has(image)) candidates.push({ date: match[1], image });
-  }
-  if (candidates.length === 0) {
-    throw new Error(`No challenge with a target image on or before ${today}`);
-  }
-  candidates.sort((a, b) => b.date.localeCompare(a.date) || a.image.localeCompare(b.image));
-  return candidates[0];
+): { date: string; images: SmokeImage[] } {
+  const cssPick = latestOnOrBefore(css, today);
+  const twPick = latestOnOrBefore(tailwind, today);
+  if (!cssPick || !twPick) throw new Error(`No CSS and Tailwind challenges on or before ${today}`);
+  const images: SmokeImage[] = [
+    { mode: 'css', image: cssPick.targetImage },
+    { mode: 'tailwind', image: twPick.targetImage },
+  ];
+  const legacy = css.filter((c) => LEGACY_IMAGE_RE.test(c.targetImage)).sort((a, b) => a.date.localeCompare(b.date))[0];
+  if (legacy) images.push({ mode: 'css', image: legacy.targetImage });
+  return { date: cssPick.date, images };
+}
+
+function readPulled(mode: 'css' | 'tailwind'): SmokeChallenge[] {
+  const dir = path.join(DATA_DIR, mode);
+  if (!fs.existsSync(dir)) throw new Error('No challenge data in .data/ — run "npm run data:pull" first');
+  return fs.readdirSync(dir)
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')) as SmokeChallenge);
 }
 
 interface Options {
   baseUrl: string;
+  /** Origin target images are served from (PUBLIC_ASSET_BASE rule, as the site uses) */
+  assetBase: string;
   expectOrigin: 'github' | 'worker' | null;
   checkWww: boolean;
   browser: boolean;
@@ -70,6 +95,7 @@ function parseArgs(argv: string[]): Options {
   }
   return {
     baseUrl: base.origin,
+    assetBase: assetBase(),
     expectOrigin,
     checkWww: argv.includes('--check-www'),
     browser: !argv.includes('--no-browser'),
@@ -87,7 +113,7 @@ function assert(condition: unknown, detail: string): asserts condition {
   if (!condition) throw new Error(detail);
 }
 
-function httpChecks(opts: Options, date: string, image: string): Check[] {
+function httpChecks(opts: Options, date: string, images: SmokeImage[]): Check[] {
   const { baseUrl } = opts;
   const get = (p: string) => fetch(new URL(p, baseUrl), { redirect: 'manual' });
   const expectBody = async (p: string, status: number, needle?: string) => {
@@ -118,15 +144,19 @@ function httpChecks(opts: Options, date: string, image: string): Check[] {
     },
     { name: '6 future date serves 404 page in place', run: async () => { await expectBody('/challenge/2099-01-01/', 404, REDIRECT_MARKER); } },
     { name: '7 unknown path serves 404 page in place', run: async () => { await expectBody('/definitely-not-a-page', 404, REDIRECT_MARKER); } },
-    {
-      name: `8 target image ${image}`,
+    ...images.map(({ mode, image }): Check => ({
+      name: `8 target image ${mode}/${image}`,
       run: async () => {
-        const res = await get(`/targets/${image}`);
-        assert(res.status === 200, `expected 200, got ${res.status}`);
+        const url = `${opts.assetBase}/targets/${mode}/${image}`;
+        const res = await fetch(url, { redirect: 'manual' });
+        assert(res.status === 200, `${url}: expected 200, got ${res.status}`);
         const type = res.headers.get('content-type') ?? '';
         assert(type.startsWith('image/webp'), `content-type ${type}`);
+        // Targets are content-addressed or never change: cached forever
+        const cache = res.headers.get('cache-control') ?? '';
+        assert(cache.includes('immutable'), `cache-control "${cache}" lacks immutable`);
       },
-    },
+    })),
     {
       name: '11 analytics beacon: one on /about/, none on the bare stub',
       run: async () => {
@@ -176,7 +206,10 @@ async function browserChecks(opts: Options, date: string): Promise<{ checks: Che
   const finalUrlRe = new RegExp(`^${escaped}/(challenge|tailwind)/(\\d{4}-\\d{2}-\\d{2})/$`);
   const latestAllowed = utcDate(1); // the redirect uses the browser's local date
 
-  const visit = (start: string, mode: 'challenge' | 'tailwind', exactDate?: string): Check => ({
+  const assetOrigin = new URL(opts.assetBase).origin;
+  const watched = new Set([origin, assetOrigin]);
+
+  const visit = (start: string, mode: 'challenge' | 'tailwind', opts2: { exactDate?: string; image?: boolean } = {}): Check => ({
     name: `B ${start} → rendered ${mode}`,
     run: async () => {
       // Fresh context per visit: stored results would change what renders
@@ -187,8 +220,14 @@ async function browserChecks(opts: Options, date: string): Promise<{ checks: Che
       page.on('response', (res) => {
         // The first document of a 404-start visit is expected to be a 404
         if (res.request().resourceType() === 'document') return;
-        if (new URL(res.url()).origin === origin && res.status() >= 400) {
+        if (watched.has(new URL(res.url()).origin) && res.status() >= 400) {
           failures.push(`${res.status()} ${res.url()}`);
+        }
+      });
+      // DNS, TLS, and connection failures produce no response at all
+      page.on('requestfailed', (req) => {
+        if (watched.has(new URL(req.url()).origin)) {
+          failures.push(`request failed (${req.failure()?.errorText ?? 'unknown'}) ${req.url()}`);
         }
       });
       try {
@@ -197,10 +236,21 @@ async function browserChecks(opts: Options, date: string): Promise<{ checks: Che
         const [, finalMode, finalDate] = finalUrlRe.exec(page.url())!;
         assert(finalMode === mode, `landed on ${page.url()}, expected mode ${mode}`);
         assert(finalDate <= latestAllowed, `landed on future date ${finalDate}`);
-        if (exactDate) assert(finalDate === exactDate, `landed on ${finalDate}, expected ${exactDate}`);
+        if (opts2.exactDate) assert(finalDate === opts2.exactDate, `landed on ${finalDate}, expected ${opts2.exactDate}`);
         // Day pages render every difficulty's player and hide all but one
         await page.locator('.cm-editor').filter({ visible: true }).first().waitFor({ state: 'visible', timeout: 15_000 });
-        // Let late subresources (target image) settle before judging failures
+        if (opts2.image) {
+          // The visible target screenshot actually loaded and decoded
+          const prefix = `${opts.assetBase}/targets/`;
+          await page.waitForFunction(
+            (p) => [...document.querySelectorAll('img')].some(
+              (img) => img.src.startsWith(p) && img.offsetParent !== null && img.complete && img.naturalWidth > 0
+            ),
+            prefix,
+            { timeout: 15_000 }
+          ).catch(() => { failures.push(`no visible decoded target image from ${prefix}`); });
+        }
+        // Let late subresources settle before judging failures
         await page.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {});
         assert(failures.length === 0, failures.join('; '));
       } finally {
@@ -211,12 +261,12 @@ async function browserChecks(opts: Options, date: string): Promise<{ checks: Che
 
   return {
     checks: [
-      visit('/', 'challenge'),
-      visit('/tailwind/', 'tailwind'),
+      visit('/', 'challenge', { image: true }),
+      visit('/tailwind/', 'tailwind', { image: true }),
       visit('/challenge/2099-01-01/', 'challenge'),
       visit('/tailwind/2099-01-01/', 'tailwind'),
       visit('/definitely-not-a-page', 'challenge'),
-      visit(`/challenge/${date}/`, 'challenge', date),
+      visit(`/challenge/${date}/`, 'challenge', { exactDate: date, image: true }),
     ],
     close: () => browser.close(),
   };
@@ -224,14 +274,10 @@ async function browserChecks(opts: Options, date: string): Promise<{ checks: Che
 
 async function main() {
   const opts = parseArgs(process.argv.slice(2));
-  const { date, image } = pickSmokeTargets(
-    fs.readdirSync(CHALLENGES_DIR),
-    fs.readdirSync(TARGETS_DIR),
-    utcDate()
-  );
-  console.log(`Smoke-checking ${opts.baseUrl} (challenge ${date}, image ${image})`);
+  const { date, images } = pickSmokeTargets(readPulled('css'), readPulled('tailwind'), utcDate());
+  console.log(`Smoke-checking ${opts.baseUrl} (challenge ${date}; images from ${opts.assetBase})`);
 
-  const checks = httpChecks(opts, date, image);
+  const checks = httpChecks(opts, date, images);
   const browser = opts.browser ? await browserChecks(opts, date) : null;
   if (browser) checks.push(...browser.checks);
 

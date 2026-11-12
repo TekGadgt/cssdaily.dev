@@ -18,7 +18,7 @@ import { isDeepStrictEqual } from 'util';
 import { fileURLToPath, pathToFileURL } from 'url';
 import { d1Query } from './cloudflare/d1';
 import { md5Hex, r2Client } from './cloudflare/r2';
-import { MODES, ROW_COLUMNS, isLegacyFileName, toRow, type ChallengeJson, type ChallengeRow, type Mode } from './challenge-rows';
+import { MODES, ROW_COLUMNS, insertStatement, isLegacyFileName, toRow, type ChallengeJson, type ChallengeRow, type Mode } from './challenge-rows';
 import { REPO_DIRS, challengeKey, pullFromD1, writeDataLayout } from './data-pull';
 import { buildSnapshot, publishSnapshot } from './publish-snapshot';
 
@@ -85,13 +85,6 @@ export function insertBatches(rows: ChallengeRow[]): ChallengeRow[][] {
   return batches;
 }
 
-export function insertStatement(batch: ChallengeRow[]): { sql: string; params: unknown[] } {
-  const placeholders = `(${ROW_COLUMNS.map(() => '?').join(', ')})`;
-  return {
-    sql: `INSERT INTO challenges (${ROW_COLUMNS.join(', ')}) VALUES ${batch.map(() => placeholders).join(', ')} ON CONFLICT DO NOTHING`,
-    params: batch.flatMap((row) => ROW_COLUMNS.map((c) => row[c])),
-  };
-}
 
 async function main() {
   const dryRun = process.argv.includes('--dry-run');

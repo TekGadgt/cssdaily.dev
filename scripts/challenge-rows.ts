@@ -101,3 +101,16 @@ export function hashedImageName(date: string, difficulty: Difficulty, webp: Uint
   const hash = createHash('sha256').update(webp).digest('hex').slice(0, 12);
   return `${date}-${difficulty}-${hash}.webp`;
 }
+
+/**
+ * Multi-row INSERT that never overwrites: a conflicting (mode, date,
+ * difficulty) is skipped. With `returning`, the inserted keys come back, so
+ * a caller can tell "inserted" from "already there".
+ */
+export function insertStatement(batch: ChallengeRow[], opts: { returning?: boolean } = {}): { sql: string; params: unknown[] } {
+  const placeholders = `(${ROW_COLUMNS.map(() => '?').join(', ')})`;
+  return {
+    sql: `INSERT INTO challenges (${ROW_COLUMNS.join(', ')}) VALUES ${batch.map(() => placeholders).join(', ')} ON CONFLICT DO NOTHING${opts.returning ? ' RETURNING mode, date, difficulty' : ''}`,
+    params: batch.flatMap((row) => ROW_COLUMNS.map((c) => row[c])),
+  };
+}

@@ -1,47 +1,44 @@
 import { describe, expect, it } from 'vitest';
 import { pickSmokeTargets } from './smoke-hosting';
 
+const c = (date: string, targetImage: string) => ({ date, targetImage });
+
 describe('pickSmokeTargets', () => {
-  it('picks the latest date on or before today', () => {
-    expect(pickSmokeTargets(
-      ['2026-11-08-easy.json', '2026-11-09-easy.json', '2026-11-10-hard.json'],
-      ['2026-11-08-easy.webp', '2026-11-09-easy.webp', '2026-11-10-hard.webp'],
-      '2026-11-10',
-    )).toEqual({ date: '2026-11-10', image: '2026-11-10-hard.webp' });
+  const css = [
+    c('2026-03-05', '2026-03-05.webp'),
+    c('2026-03-06', '2026-03-06.webp'),
+    c('2026-11-10', '2026-11-10-easy.webp'),
+    c('2026-11-11', '2026-11-11-hard.webp'),
+    c('2026-11-11', '2026-11-11-easy.webp'),
+    c('2026-11-12', '2026-11-12-easy-0123456789ab.webp'),
+  ];
+  const tailwind = [c('2026-11-11', '2026-11-11-medium.webp'), c('2026-11-12', '2026-11-12-easy.webp')];
+
+  it("picks the latest CSS day on or before today, never tomorrow's pre-generated one", () => {
+    const { date, images } = pickSmokeTargets(css, tailwind, '2026-11-11');
+    expect(date).toBe('2026-11-11');
+    expect(images[0]).toEqual({ mode: 'css', image: '2026-11-11-easy.webp' });
   });
 
-  it("ignores tomorrow's pre-generated challenge", () => {
-    expect(pickSmokeTargets(
-      ['2026-11-10-easy.json', '2026-11-11-easy.json'],
-      ['2026-11-10-easy.webp', '2026-11-11-easy.webp'],
-      '2026-11-10',
-    )).toEqual({ date: '2026-11-10', image: '2026-11-10-easy.webp' });
+  it('includes the latest Tailwind image and the oldest legacy-named CSS image', () => {
+    const { images } = pickSmokeTargets(css, tailwind, '2026-11-11');
+    expect(images).toEqual([
+      { mode: 'css', image: '2026-11-11-easy.webp' },
+      { mode: 'tailwind', image: '2026-11-11-medium.webp' },
+      { mode: 'css', image: '2026-03-05.webp' },
+    ]);
   });
 
-  it('accepts a legacy unsuffixed pair', () => {
-    expect(pickSmokeTargets(['2026-03-05.json'], ['2026-03-05.webp'], '2026-11-10'))
-      .toEqual({ date: '2026-03-05', image: '2026-03-05.webp' });
+  it('handles hashed image names', () => {
+    expect(pickSmokeTargets(css, tailwind, '2026-11-12').images[0]).toEqual({ mode: 'css', image: '2026-11-12-easy-0123456789ab.webp' });
   });
 
-  it('skips a date whose target image is missing', () => {
-    expect(pickSmokeTargets(
-      ['2026-11-09-medium.json', '2026-11-10-medium.json'],
-      ['2026-11-09-medium.webp'],
-      '2026-11-10',
-    )).toEqual({ date: '2026-11-09', image: '2026-11-09-medium.webp' });
+  it('omits the legacy check when there are no legacy names', () => {
+    expect(pickSmokeTargets([c('2026-11-11', '2026-11-11-easy.webp')], tailwind, '2026-11-11').images).toHaveLength(2);
   });
 
-  it('ignores files that are not challenge JSON', () => {
-    expect(pickSmokeTargets(
-      ['.gitkeep', 'notes.json', '2026-11-09-easy.json'],
-      ['2026-11-09-easy.webp'],
-      '2026-11-10',
-    )).toEqual({ date: '2026-11-09', image: '2026-11-09-easy.webp' });
-  });
-
-  it('throws when nothing qualifies', () => {
-    expect(() => pickSmokeTargets(['2026-11-11-easy.json'], ['2026-11-11-easy.webp'], '2026-11-10'))
-      .toThrow(/no challenge/i);
-    expect(() => pickSmokeTargets([], [], '2026-11-10')).toThrow(/no challenge/i);
+  it('throws when either mode has nothing on or before today', () => {
+    expect(() => pickSmokeTargets(css, [c('2026-11-12', 'x.webp')], '2026-11-11')).toThrow(/No CSS and Tailwind/);
+    expect(() => pickSmokeTargets([], tailwind, '2026-11-11')).toThrow(/No CSS and Tailwind/);
   });
 });

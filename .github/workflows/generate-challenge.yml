@@ -12,15 +12,15 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-24.04
-    outputs:
-      sha: ${{ steps.build.outputs.sha }}
     env:
       AI_PROVIDER: ${{ vars.AI_PROVIDER || 'openai' }}
       AI_MODEL: ${{ vars.AI_MODEL || 'gpt-5.6-terra' }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
     permissions:
-      contents: write
+      contents: read
+      # Dispatches deploy.yml once new challenges are published
+      actions: write
     steps:
       - uses: actions/checkout@v4
 
@@ -60,6 +60,11 @@ jobs:
         continue-on-error: true
         env:
           CHALLENGE_DATE: ${{ steps.date.outputs.value }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_DATABASE_ID: ${{ vars.D1_DATABASE_ID }}
+          D1_WRITE_TOKEN: ${{ secrets.D1_WRITE_TOKEN }}
+          R2_ASSETS_ACCESS_KEY_ID: ${{ secrets.R2_ASSETS_ACCESS_KEY_ID }}
+          R2_ASSETS_SECRET_ACCESS_KEY: ${{ secrets.R2_ASSETS_SECRET_ACCESS_KEY }}
         run: npx tsx scripts/generate-challenge.ts "$CHALLENGE_DATE"
 
       - name: Generate Tailwind challenge
@@ -67,6 +72,11 @@ jobs:
         continue-on-error: true
         env:
           CHALLENGE_DATE: ${{ steps.date.outputs.value }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_DATABASE_ID: ${{ vars.D1_DATABASE_ID }}
+          D1_WRITE_TOKEN: ${{ secrets.D1_WRITE_TOKEN }}
+          R2_ASSETS_ACCESS_KEY_ID: ${{ secrets.R2_ASSETS_ACCESS_KEY_ID }}
+          R2_ASSETS_SECRET_ACCESS_KEY: ${{ secrets.R2_ASSETS_SECRET_ACCESS_KEY }}
         run: npx tsx scripts/generate-tailwind-challenge.ts "$CHALLENGE_DATE"
 
       - name: Report generation results
@@ -98,38 +108,10 @@ jobs:
             echo "::warning::Tailwind challenge generation failed for $CHALLENGE_DATE"
           fi
 
-      - name: Commit and push
+      # Challenges are published straight to D1/R2 (nothing is committed).
+      # Deploy is the only builder: it pulls the fresh data and ships it.
+      - name: Deploy the new challenges
+        if: steps.css.outcome == 'success' || steps.tailwind.outcome == 'success'
         env:
-          CHALLENGE_DATE: ${{ steps.date.outputs.value }}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/challenges/ public/targets/ src/data/tailwind-challenges/ public/targets/tailwind/
-          git diff --cached --quiet || (git commit -m "Add daily challenges for $CHALLENGE_DATE" && git push)
-
-      - name: Build Astro site
-        id: build
-        run: |
-          git pull
-          # After the pull: this is the commit dist/ is built from
-          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-          npm run build
-
-      - name: Upload dist for Cloudflare
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist
-          path: dist
-          retention-days: 1
-
-  deploy:
-    needs: generate
-    permissions:
-      contents: read
-    uses: ./.github/workflows/deploy-cloudflare.yml
-    with:
-      sha: ${{ needs.generate.outputs.sha }}
-    # Only the Cloudflare credentials, not every repo secret (e.g. the model API keys)
-    secrets:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main

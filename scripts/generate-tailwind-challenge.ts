@@ -1,20 +1,15 @@
 import { chromium } from 'playwright';
 import 'dotenv/config'
-import * as fs from 'fs';
-import * as path from 'path';
-import { fileURLToPath } from 'url';
 import { buildTailwindScreenshotHtml } from '../src/utils/code';
 import { encodeWebpLossless } from './webp';
 import { measureComponent, isOversize, MAX_COMPONENT_WIDTH, MAX_COMPONENT_HEIGHT } from './measure';
 import type { Difficulty } from '../src/utils/types';
 import { runDifficulties } from './generate-common';
+import { existingChallenges, publishChallenge, recentTitles } from './publish-challenge';
 import { normalizeTailwindFields, parseTailwindChallengeXml, tailwindChallengeFieldsSchema, type TailwindChallengeFields } from './challenge-schemas';
 import { createGenerationProvider, type GenerationMessage, type GenerationProvider } from './generation-provider';
 import { buildTailwindChallenge } from './challenge-artifacts';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const CHALLENGES_DIR = path.join(__dirname, '..', 'src', 'data', 'tailwind-challenges');
-const TARGETS_DIR = path.join(__dirname, '..', 'public', 'targets', 'tailwind');
 
 const SYSTEM_PROMPT_BASE = `You are a Tailwind CSS challenge generator for a "Wordle for CSS" game. Generate a self-contained Tailwind challenge where users add utility classes to HTML elements to match a target design. The user prompt names the target difficulty — calibrate the challenge to it.
 
@@ -59,21 +54,6 @@ const MAX_ATTEMPTS = 4; // 1 initial generation + 3 size-fix retries
 function systemPrompt(provider: GenerationProvider): string {
   const outputPrompt = provider.provider === 'anthropic' ? ANTHROPIC_OUTPUT_PROMPT : OPENAI_OUTPUT_PROMPT;
   return `${SYSTEM_PROMPT_BASE}\n\n${outputPrompt}`;
-}
-
-function collectRecentTitles(): string[] {
-  const titles: string[] = [];
-  if (fs.existsSync(CHALLENGES_DIR)) {
-    // 90 files ≈ 30 days now that each day produces three challenges
-    const files = fs.readdirSync(CHALLENGES_DIR).filter((f) => f.endsWith('.json')).sort().reverse().slice(0, 90);
-    for (const file of files) {
-      try {
-        const data = JSON.parse(fs.readFileSync(path.join(CHALLENGES_DIR, file), 'utf-8'));
-        if (data.title) titles.push(data.title);
-      } catch {}
-    }
-  }
-  return titles;
 }
 
 /** Generate one Tailwind challenge at the given difficulty. Returns its title (fed into later calls' avoid-list). */
@@ -160,19 +140,16 @@ async function generateOne(
   const challenge = buildTailwindChallenge(fields, date, difficulty);
 
   // Screenshot the last rendered attempt (accepted, or shipped-anyway
-  // oversize) BEFORE writing the JSON: a screenshot failure must not leave
-  // an orphan JSON whose target image 404s on the site. An orphan WebP is
-  // harmless (nothing references it).
-  fs.mkdirSync(TARGETS_DIR, { recursive: true });
+  // oversize). publishChallenge stores it in R2 under a content-hashed name
+  // BEFORE inserting the D1 row, so a failed upload can never leave a
+  // published challenge whose target image 404s. An orphan image is harmless.
   const png = await page.screenshot({ type: 'png' });
-  const webpPath = path.join(TARGETS_DIR, `${date}-${difficulty}.webp`);
-  fs.writeFileSync(webpPath, await encodeWebpLossless(png));
-  console.log(`Saved Tailwind target WebP: ${webpPath}`);
-
-  fs.mkdirSync(CHALLENGES_DIR, { recursive: true });
-  const jsonPath = path.join(CHALLENGES_DIR, `${date}-${difficulty}.json`);
-  fs.writeFileSync(jsonPath, JSON.stringify(challenge, null, 2));
-  console.log(`Saved Tailwind challenge JSON: ${jsonPath}`);
+  const webp = await encodeWebpLossless(png);
+  const { targetImage } = await publishChallenge('tailwind', challenge, webp, {
+    provider: provider.provider,
+    model: provider.model,
+  });
+  console.log(`Published Tailwind ${date}-${difficulty} (target ${targetImage})`);
 
   return fields.title;
 }
@@ -180,6 +157,11 @@ async function generateOne(
 async function generateChallenge(date: string) {
   const provider = createGenerationProvider();
   console.log(`Generating Tailwind challenges with ${provider.provider}/${provider.model}`);
+
+  // Look up D1 before launching anything: a fully published date costs
+  // nothing, and a D1 outage fails here rather than after paid model calls.
+  const existing = await existingChallenges('tailwind', date);
+  const titles = await recentTitles('tailwind');
 
   const chromiumPath = process.env.CHROMIUM_PATH;
   const browser = await chromium.launch({
@@ -193,9 +175,8 @@ async function generateChallenge(date: string) {
     await runDifficulties({
       date,
       mode: 'Tailwind',
-      challengesDir: CHALLENGES_DIR,
-      targetsDir: TARGETS_DIR,
-      recentTitles: collectRecentTitles(),
+      existing,
+      recentTitles: titles,
       generateOne: (difficulty, avoidTitles) =>
         generateOne(provider, page, date, difficulty, avoidTitles),
     });

@@ -1,5 +1,8 @@
 name: Deploy
 
+# The only workflow that builds and deploys the site. Pushes to main trigger
+# it, and the daily generator dispatches it after publishing new challenges
+# to D1/R2 (a GITHUB_TOKEN workflow_dispatch is allowed to trigger runs).
 on:
   push:
     branches: [main]
@@ -8,13 +11,27 @@ on:
 permissions:
   contents: read
 
+# One production pipeline (pull → build → deploy) at a time, so a later run
+# always pulls fresher D1 data than an earlier one. A queued production run
+# is only ever replaced by a newer one, which builds main's current tip with
+# even fresher data. Non-main runs get their own group: they can never
+# replace a queued production run.
+concurrency:
+  group: ${{ github.ref == 'refs/heads/main' && 'deploy-production' || format('deploy-{0}', github.run_id) }}
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
       sha: ${{ steps.sha.outputs.value }}
     steps:
+      # Production builds main's CURRENT tip (resolved here, inside the lock),
+      # not the commit that triggered the run — so even a re-run of an old
+      # run deploys current main.
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref == 'refs/heads/main' && 'main' || github.sha }}
 
       - id: sha
         run: echo "value=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
@@ -27,6 +44,14 @@ jobs:
 
       - run: npm test
 
+      # CI builds only from D1, never the public snapshot
+      - name: Pull challenge data from D1
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_DATABASE_ID: ${{ vars.D1_DATABASE_ID }}
+          D1_READ_TOKEN: ${{ secrets.D1_READ_TOKEN }}
+        run: npm run data:pull -- --require-d1
+
       - name: Build Astro site
         run: npm run build
 
@@ -35,6 +60,16 @@ jobs:
         with:
           name: dist
           path: dist
+          retention-days: 1
+
+      # The exact data this build used; the deploy job publishes it as the
+      # public snapshot so the snapshot always matches the live site
+      - name: Upload challenge data
+        uses: actions/upload-artifact@v4
+        with:
+          name: challenge-data
+          path: .data/challenges
+          include-hidden-files: true
           retention-days: 1
 
   deploy:
@@ -48,3 +83,5 @@ jobs:
     secrets:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      R2_ASSETS_ACCESS_KEY_ID: ${{ secrets.R2_ASSETS_ACCESS_KEY_ID }}
+      R2_ASSETS_SECRET_ACCESS_KEY: ${{ secrets.R2_ASSETS_SECRET_ACCESS_KEY }}

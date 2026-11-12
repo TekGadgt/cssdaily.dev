@@ -13,6 +13,7 @@ import HistoryView from './HistoryView';
 import LayoutToggle from './LayoutToggle';
 import DifficultySwitcher from './DifficultySwitcher';
 import { SET_VISIBILITY } from '../utils/difficulty';
+import { targetImageUrl } from '../utils/assets';
 
 type Phase = 'idle' | 'playing' | 'finished';
 type TargetTab = 'target' | 'overlay' | 'diff';
@@ -189,7 +190,7 @@ export default function ChallengePlayer({ challenge, allDates, availableDifficul
     [challenge.date, challenge.difficulty, submittedScore, submittedTime, showResults]
   );
 
-  const targetSrc = `/targets/${challenge.targetImage ?? `${challenge.date}.webp`}`;
+  const targetSrc = targetImageUrl('css', challenge);
 
   // In a multi-difficulty set the root's display utility comes solely from
   // SET_VISIBILITY (hidden + data-attribute variant) so visibility never
