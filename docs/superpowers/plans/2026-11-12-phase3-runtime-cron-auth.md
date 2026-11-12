@@ -194,6 +194,12 @@ The site keeps `output: 'static'`. Every challenge page, the redirect stubs and 
 
 ---
 
+> **Implementation notes (PR F, 2026-11-12):**
+> - **The site's base URL is the `SITE_URL` var** in `wrangler.jsonc`, not `BETTER_AUTH_URL`. PR G passes `baseURL: env.SITE_URL`.
+> - **Local `wrangler dev` rewrites incoming `Host` and `Origin` to the route's zone** (`http://cssdaily.dev`). The plays origin check therefore compares `Origin` with the request's own URL, not with `SITE_URL`. Astro's built-in `checkOrigin` already returns 403 for cross-site form-type POSTs, so this check is defense in depth.
+> - **For PR G's local OAuth round trip,** account for the same rewriting. Try `wrangler dev --local-upstream localhost:8787` or `astro dev`; if neither works, run the dev OAuth app against the rewritten host.
+> - **The adapter does not write `.assetsignore`.** It's committed as `public/.assetsignore`.
+
 # PR G — GitHub sign-in (Better Auth)
 
 ### G0 (owner): Credentials
