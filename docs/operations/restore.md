@@ -32,7 +32,12 @@ Each backup run has already loaded its export into a throwaway local database an
    npx wrangler d1 execute cssdaily --remote --file <file>
    ```
    The export recreates the table and its rows. If it also contains `d1_migrations`, drop that table first too.
-5. Redeploy: `gh workflow run deploy.yml --ref main`.
+5. **Re-apply account deletions.** Restoring an export can bring back accounts deleted since it was taken. `account_deletions` records every deletion and is restored along with everything else, so delete those users again before redeploying. Their sessions and accounts go too, via `ON DELETE CASCADE`:
+   ```bash
+   npx wrangler d1 execute cssdaily --remote --command "DELETE FROM \"user\" WHERE id IN (SELECT user_id FROM account_deletions)"
+   ```
+   If the export is older than the most recent deletions, take the newest `account_deletions` contents from a later export or from Time Travel before running this.
+6. Redeploy: `gh workflow run deploy.yml --ref main`.
 
 ## 3. A target image is missing or wrong in `cssdaily-assets`
 

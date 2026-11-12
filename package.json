@@ -9,7 +9,7 @@
     "test": "vitest run",
     "astro": "astro",
     "generate": "tsx scripts/generate-challenge.ts",
-    "worker:dev": "wrangler dev --port 8787",
+    "worker:dev": "wrangler dev --port 8787 --host localhost:8787",
     "smoke": "tsx scripts/smoke-hosting.ts",
     "data:pull": "tsx scripts/data-pull.ts"
   },
@@ -26,6 +26,7 @@
     "@zumer/snapdom": "^2.0.2",
     "astro": "^5.17.1",
     "aws4fetch": "^1.0.20",
+    "better-auth": "1.7.22",
     "codemirror": "^6.0.1",
     "openai": "^7.4.0",
     "react": "^19.0.0",

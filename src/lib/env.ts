@@ -8,4 +8,9 @@ export interface Env {
   SITE_URL: string;
   /** Fine-grained PAT: this repo only, Actions read/write. Worker secret. */
   GITHUB_DISPATCH_TOKEN: string;
+  /** Better Auth signing secret (openssl rand -base64 32). Worker secret. */
+  BETTER_AUTH_SECRET: string;
+  /** GitHub OAuth App (production: cssdaily.dev callback). Worker secrets. */
+  GITHUB_CLIENT_ID: string;
+  GITHUB_CLIENT_SECRET: string;
 }

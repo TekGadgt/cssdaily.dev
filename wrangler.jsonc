@@ -2,9 +2,9 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "cssdaily",
   "compatibility_date": "2026-11-10",
-  // The site is a static Astro build; this small script (bundled by
-  // wrangler) only receives requests no static asset matched — asset-first
-  // routing, run_worker_first unset — plus the cron triggers.
+  // The site is a static Astro build; this script (bundled by wrangler)
+  // receives /api/* (run_worker_first below) and requests no static asset
+  // matched, plus the cron triggers.
   "main": "./src/worker.ts",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
@@ -17,7 +17,13 @@
     "not_found_handling": "404-page",
     // /challenge/<date> → /challenge/<date>/ (the build emits
     // <route>/index.html)
-    "html_handling": "auto-trailing-slash"
+    "html_handling": "auto-trailing-slash",
+    // API paths reach the Worker first. Without this, a top-level
+    // *navigation* to an unmatched path (e.g. GitHub redirecting back to
+    // /api/auth/callback/github) is answered by not_found_handling with
+    // 404.html and never invokes the Worker. Everything else stays
+    // asset-first and never runs Worker code.
+    "run_worker_first": ["/api/*"]
   },
   // Production: a route on the proxied cssdaily.dev zone, not a custom
   // domain. www needs no route: a zone Redirect Rule 301s it to the apex at
