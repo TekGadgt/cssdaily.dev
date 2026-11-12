@@ -47,3 +47,15 @@ describe('createAuth', () => {
     expect(() => createAuth(env)).toThrow(/missing BETTER_AUTH_SECRET, GITHUB_CLIENT_SECRET/);
   });
 });
+
+describe('createAuth caching', () => {
+  const env = (secret: string) => ({ DB: { prepare() {}, batch() {}, exec() {} }, SITE_URL: 'https://cssdaily.dev', BETTER_AUTH_SECRET: secret, GITHUB_CLIENT_ID: 'id', GITHUB_CLIENT_SECRET: 'cs' }) as unknown as Env;
+
+  it('reuses one instance per isolate, even across different env objects', () => {
+    expect(createAuth(env('a'.repeat(40)))).toBe(createAuth(env('a'.repeat(40))));
+  });
+
+  it('rebuilds when the configuration changes', () => {
+    expect(createAuth(env('b'.repeat(40)))).not.toBe(createAuth(env('c'.repeat(40))));
+  });
+});

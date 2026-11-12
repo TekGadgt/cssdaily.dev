@@ -1,7 +1,6 @@
 import type { Env } from './lib/env';
 import { dispatchForCron } from './lib/dispatch';
 import { handlePlay } from './worker/plays';
-import { createAuth } from './lib/auth';
 
 /**
  * The site is fully static (Workers Static Assets). With asset-first
@@ -23,6 +22,9 @@ export default {
     // Built per request (D1 is only bound inside a request).
     if (pathname.startsWith('/api/auth/')) {
       try {
+        // Loaded on first use: Better Auth is ~1.8 MB of the bundle, and no
+        // other route should pay to evaluate it.
+        const { createAuth } = await import('./lib/auth');
         return await createAuth(env).handler(request);
       } catch (err) {
         console.error('auth:', err instanceof Error ? err.message : err);
