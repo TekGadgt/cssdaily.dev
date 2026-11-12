@@ -1,30 +1,30 @@
-import type { SSRManifest } from 'astro';
-import { App } from 'astro/app';
-import { handle } from '@astrojs/cloudflare/handler';
 import type { Env } from './lib/env';
 import { dispatchForCron } from './lib/dispatch';
+import { handlePlay } from './worker/plays';
 
 /**
- * Worker entry (adapter `workerEntryPoint`). Static assets never reach this
- * code — they're served first by Workers Static Assets.
+ * The site is fully static (Workers Static Assets). With asset-first
+ * routing this script only ever sees requests no static file matched, so
+ * it stays tiny: a couple of API routes, the cron dispatch, and a hand-back
+ * to the assets layer for everything else.
  */
-export function createExports(manifest: SSRManifest) {
-  const app = new App(manifest);
+export default {
+  async fetch(request, env): Promise<Response> {
+    const { pathname } = new URL(request.url);
 
-  return {
-    default: {
-      async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-        // Unmatched paths go straight to the assets layer, whose
-        // not_found_handling serves 404.html AT THE REQUESTED URL with status
-        // 404 — the contract ChallengeRedirect.astro relies on. (The adapter's
-        // default handler would discard that 404 and render its own.)
-        if (!app.match(request)) return env.ASSETS.fetch(request);
-        return handle(manifest, app, request as never, env as never, ctx as never) as unknown as Response;
-      },
+    if (pathname === '/api/plays') {
+      return request.method === 'POST'
+        ? handlePlay(request, env)
+        : new Response(null, { status: 405, headers: { Allow: 'POST' } });
+    }
 
-      async scheduled(controller: ScheduledController, env: Env, ctx: ExecutionContext): Promise<void> {
-        ctx.waitUntil(dispatchForCron(controller.cron, env.GITHUB_DISPATCH_TOKEN));
-      },
-    } satisfies ExportedHandler<Env>,
-  };
-}
+    // Unmatched: the assets layer's not_found_handling serves 404.html AT
+    // THE REQUESTED URL with status 404 — the contract ChallengeRedirect.astro
+    // relies on.
+    return env.ASSETS.fetch(request);
+  },
+
+  async scheduled(controller, env, ctx): Promise<void> {
+    ctx.waitUntil(dispatchForCron(controller.cron, env.GITHUB_DISPATCH_TOKEN));
+  },
+} satisfies ExportedHandler<Env>;

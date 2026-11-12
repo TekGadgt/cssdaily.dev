@@ -1,18 +1,16 @@
-import type { APIRoute } from 'astro';
-import { MAX_PLAY_BYTES, UPSERT_PLAY_SQL, isSameOrigin, parsePlay, readLimited, utcDay } from '../../lib/plays';
-
-export const prerender = false;
+import type { Env } from '../lib/env';
+import { MAX_PLAY_BYTES, UPSERT_PLAY_SQL, isSameOrigin, parsePlay, readLimited, utcDay } from '../lib/plays';
 
 // Always 204: the client never waits on or reacts to this, and an attacker
 // probing it learns nothing. Checks run cheapest-first, before any D1 write.
 const done = () => new Response(null, { status: 204 });
 
-export const POST: APIRoute = async ({ request, locals }) => {
-  const env = locals.runtime.env;
+/** POST /api/plays — approximate, anonymous submission counts. */
+export async function handlePlay(request: Request, env: Env): Promise<Response> {
   try {
-    // Defense in depth alongside Astro's checkOrigin (which already 403s
-    // cross-site form-type POSTs): compare against the request's own origin,
-    // which is right in production and under wrangler dev's host rewriting.
+    // A beacon's text/plain body is CORS-safelisted, so foreign pages could
+    // otherwise post. Compared against the request's own origin, which is
+    // right in production and under wrangler dev's host rewriting.
     if (!isSameOrigin(request.headers.get('origin'), request.url)) return done();
 
     const text = await readLimited(request.body, MAX_PLAY_BYTES);
@@ -32,4 +30,4 @@ export const POST: APIRoute = async ({ request, locals }) => {
     console.error('plays: dropped', err instanceof Error ? err.message : err);
   }
   return done();
-};
+}

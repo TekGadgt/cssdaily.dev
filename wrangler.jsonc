@@ -2,10 +2,10 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "cssdaily",
   "compatibility_date": "2026-11-10",
-  // Phase 3: the Worker has code (Astro adapter + src/worker.ts), but every
-  // page is still prerendered. Static assets are served first and never
-  // invoke this script (asset-first routing: run_worker_first is unset).
-  "main": "./dist/_worker.js/index.js",
+  // The site is a static Astro build; this small script (bundled by
+  // wrangler) only receives requests no static asset matched — asset-first
+  // routing, run_worker_first unset — plus the cron triggers.
+  "main": "./src/worker.ts",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": "./dist",

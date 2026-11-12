@@ -5,3 +5,4 @@ dist/
 .wrangler/
 .data/
 .dev.vars
+starter-css-backup.json

@@ -69,17 +69,6 @@ jobs:
           name: challenge-data
           path: .data/challenges
 
-      # Without it, the Worker's own code under dist/_worker.js/ would be
-      # uploaded as public static files. Hidden files are dropped from
-      # artifacts by default, so check what actually arrived.
-      - name: Check Worker code is excluded from assets
-        if: steps.tip.outputs.deploy == 'true'
-        run: |
-          if ! grep -qx '_worker.js' dist/.assetsignore 2>/dev/null; then
-            echo "::error::dist/.assetsignore is missing or doesn't exclude _worker.js — refusing to publish Worker code as assets"
-            exit 1
-          fi
-
       # Schema first: migrations are additive-only, so the currently deployed
       # Worker keeps working against the new schema if the deploy then fails.
       - name: Apply D1 migrations
