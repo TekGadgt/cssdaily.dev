@@ -2,31 +2,51 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "cssdaily",
   "compatibility_date": "2026-11-10",
-  // Assets-only Worker: no "main" script. Requests are served straight
-  // from dist/ and never invoke Worker code (static requests are free).
+  // Phase 3: the Worker has code (Astro adapter + src/worker.ts), but every
+  // page is still prerendered. Static assets are served first and never
+  // invoke this script (asset-first routing: run_worker_first is unset).
+  "main": "./dist/_worker.js/index.js",
+  "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     // Serves the nearest 404.html AT THE REQUESTED URL with status 404,
     // the same contract GitHub Pages had. ChallengeRedirect.astro reads
     // location.pathname on the 404 page to clamp and redirect dates.
+    // src/worker.ts hands unmatched paths back here to keep that.
     "not_found_handling": "404-page",
     // /challenge/<date> → /challenge/<date>/ (the build emits
     // <route>/index.html)
     "html_handling": "auto-trailing-slash"
   },
   // Production: a route on the proxied cssdaily.dev zone, not a custom
-  // domain. While GitHub Pages is still published, deleting this route
-  // falls straight back to GitHub; see the 1b plan for the rollback.
-  // www needs no route: a zone Redirect Rule 301s it to the apex at the
-  // edge, before routes apply.
+  // domain. www needs no route: a zone Redirect Rule 301s it to the apex at
+  // the edge, before routes apply.
   "routes": [
     { "pattern": "cssdaily.dev/*", "zone_name": "cssdaily.dev" }
   ],
   "workers_dev": false,
   "preview_urls": false,
-  // Challenge data (Phase 2). Not read by the Worker yet: the site is
-  // prerendered from a build-time pull. Listed so `wrangler d1` commands
-  // (migrations, export) resolve the database.
+  // Workers Logs: per-invocation CPU time and cron failures
+  "observability": { "enabled": true },
+  "vars": {
+    "SITE_URL": "https://cssdaily.dev"
+  },
+  // Cloudflare crons dispatch the GitHub workflows (src/lib/dispatch.ts):
+  // daily generation, weekly backup. UTC.
+  "triggers": {
+    "crons": ["0 6 * * *", "0 3 * * 0"]
+  },
+  // Approximate, per-location limiter for POST /api/plays
+  "ratelimits": [
+    {
+      "name": "PLAYS_LIMITER",
+      "namespace_id": "1001",
+      "simple": { "limit": 10, "period": 60 }
+    }
+  ],
+  // Challenge data (Phase 2) and anonymous plays (Phase 3). The site is
+  // still built from a build-time pull; the Worker uses DB for /api/*.
   "d1_databases": [
     {
       "binding": "DB",

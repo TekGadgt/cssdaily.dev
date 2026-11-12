@@ -196,10 +196,11 @@ There's currently no way to know how many people actually *play*. `POST /api/pla
 - **Token.** A **fine-grained personal access token** limited to **only this repository**, with permission **Actions: Read and write** and nothing else. It's stored as a Worker secret (`npx wrangler secret put GITHUB_DISPATCH_TOKEN`), never in the repo or in GitHub Actions.
   - Fine-grained tokens expire. Pick the longest expiry offered, and set a calendar reminder a week before it.
   - An expired token makes every dispatch fail with 401, and that shows up in the Worker logs. A GitHub App installation token would avoid expiry, but it's more setup than one dispatch call justifies.
-- **GitHub's own cron stays, as a fallback**, moved later to `0 9 * * *` (three hours after Cloudflare's).
-  - If the Cloudflare dispatch worked, the fallback run finds every difficulty already in D1. It skips them with no model spend, just as a rerun does today, and harmlessly triggers one more Deploy.
-  - If the dispatch failed, the fallback generates the day. GitHub may still disable the fallback after 60 days, which is fine: Cloudflare is the primary.
-  - `generate-challenge.yml` gets workflow-level `concurrency: { group: generate, cancel-in-progress: false }`. A fallback run that overlaps a slow primary run waits, then skips, instead of generating the same difficulty twice.
+- **The dispatch targets have no `schedule:`; the GitHub fallback lives in its own workflow** (revised 2026-11-12 after review). GitHub disables an entire *workflow* for inactivity, and a disabled workflow can't be dispatched either. So `generate-challenge.yml` and `backup.yml` become `workflow_dispatch`-only, which makes them immune. A separate `fallback-schedule.yml` (09:00 UTC daily, plus Sunday 05:00 for backups) dispatches them again.
+  - If the Cloudflare run already succeeded, the fallback's generate run finds every difficulty in D1 and skips with no model spend.
+  - If the dispatch failed, the fallback generates the day.
+  - Only `fallback-schedule.yml` can ever be disabled for inactivity, and losing it is harmless: Cloudflare remains the primary.
+  - `generate-challenge.yml` gets workflow-level `concurrency: { group: generate, cancel-in-progress: false }`, so overlapping runs wait, then skip, instead of generating the same difficulty twice.
 - **Testing.** Unit tests cover mapping the cron expression to a workflow, the request shape, and that non-204 responses throw. Locally, `npx wrangler dev --test-scheduled` plus `curl "http://localhost:8787/__scheduled?cron=0+6+*+*+*"` fires the handler. Point it at a no-op `workflow_dispatch` test workflow, or use a dry-run flag, so testing never triggers real generation.
 - **Acceptance.**
   - One scheduled day where the generator run's event is `workflow_dispatch` with the token's owner as the actor, and Cloudflare's Worker logs show the 204.

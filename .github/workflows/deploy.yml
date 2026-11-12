@@ -55,11 +55,14 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
+      # include-hidden-files: dist/.assetsignore keeps the Worker's own code
+      # (_worker.js/) from being published as public assets
       - name: Upload dist for Cloudflare
         uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist
+          include-hidden-files: true
           retention-days: 1
 
       # The exact data this build used; the deploy job publishes it as the
@@ -85,3 +88,4 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       R2_ASSETS_ACCESS_KEY_ID: ${{ secrets.R2_ASSETS_ACCESS_KEY_ID }}
       R2_ASSETS_SECRET_ACCESS_KEY: ${{ secrets.R2_ASSETS_SECRET_ACCESS_KEY }}
+      D1_WRITE_TOKEN: ${{ secrets.D1_WRITE_TOKEN }}

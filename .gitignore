@@ -4,3 +4,4 @@ dist/
 .env
 .wrangler/
 .data/
+.dev.vars

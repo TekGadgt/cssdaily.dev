@@ -14,6 +14,7 @@ import LayoutToggle from './LayoutToggle';
 import DifficultySwitcher from './DifficultySwitcher';
 import { SET_VISIBILITY } from '../utils/difficulty';
 import { targetImageUrl } from '../utils/assets';
+import { recordPlay } from '../utils/plays';
 
 type Phase = 'idle' | 'playing' | 'finished';
 type TargetTab = 'target' | 'overlay' | 'diff';
@@ -126,6 +127,7 @@ export default function ChallengePlayer({ challenge, allDates, availableDifficul
       timeSpent: timeSpentRef.current,
       submittedCss: userCssRef.current,
     });
+    recordPlay('css', challenge.date, challenge.difficulty);
     setShowResults(true);
   }, [challenge.date, challenge.difficulty]);
 

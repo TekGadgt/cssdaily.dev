@@ -1,13 +1,21 @@
 name: Generate Daily Challenge
+# Dispatch-only, by design: GitHub disables *scheduled* workflows after 60
+# days without repo activity, and a disabled workflow can't be dispatched
+# either. The Cloudflare Worker's cron dispatches this daily at 06:00 UTC
+# (src/lib/dispatch.ts); fallback-schedule.yml re-dispatches at 09:00.
 on:
-  schedule:
-    - cron: '0 6 * * *' # 6am UTC daily
-  workflow_dispatch: # Manual trigger, also used to backfill a missed day
+  workflow_dispatch: # Cron dispatch, fallback, manual runs, and backfills
     inputs:
       date:
         description: 'Challenge date (YYYY-MM-DD). Leave blank for tomorrow.'
         required: false
         type: string
+
+# Overlapping runs (a fallback dispatch during a slow primary run) wait, then
+# skip every already-published difficulty instead of generating it twice.
+concurrency:
+  group: generate
+  cancel-in-progress: false
 
 jobs:
   generate:

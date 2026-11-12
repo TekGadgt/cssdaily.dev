@@ -1,11 +1,11 @@
 name: Backup
 
 # Weekly D1 export + target images → the private cssdaily-backups bucket,
-# with a restore rehearsal each run (scripts/backup.ts). Sunday 03:00 UTC,
-# well clear of generation; the export briefly locks the database.
+# with a restore rehearsal each run (scripts/backup.ts). Dispatch-only (see
+# generate-challenge.yml): the Worker's cron dispatches it Sunday 03:00 UTC,
+# well clear of generation; fallback-schedule.yml re-dispatches at 05:00.
+# The export briefly locks the database.
 on:
-  schedule:
-    - cron: '0 3 * * 0'
   workflow_dispatch:
 
 permissions:
