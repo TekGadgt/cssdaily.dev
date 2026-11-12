@@ -17,6 +17,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
 import { d1Query } from './cloudflare/d1';
+import { describeError } from './cloudflare/errors';
 import { readEnv } from './cloudflare/env';
 import { md5Hex, r2Client } from './cloudflare/r2';
 import {
@@ -194,7 +195,7 @@ async function main() {
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((err) => {
-    console.error(err instanceof Error ? err.message : err);
+    console.error(describeError(err));
     process.exitCode = 1;
   });
 }

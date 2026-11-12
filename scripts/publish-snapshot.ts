@@ -11,6 +11,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { pathToFileURL } from 'url';
 import { r2Client, type R2Client } from './cloudflare/r2';
+import { describeError } from './cloudflare/errors';
 import { MODES, type ChallengeJson } from './challenge-rows';
 import { DEFAULT_DATA_DIR, type Snapshot } from './data-pull';
 
@@ -47,7 +48,7 @@ async function main() {
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((err) => {
-    console.error(err instanceof Error ? err.message : err);
+    console.error(describeError(err));
     process.exitCode = 1;
   });
 }

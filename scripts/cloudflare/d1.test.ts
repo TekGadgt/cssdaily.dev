@@ -58,8 +58,17 @@ describe('d1Query', () => {
     expect(fetch).toHaveBeenCalledTimes(3);
   });
 
-  it('propagates network failures', async () => {
+  it('retries dropped connections, then succeeds', async () => {
+    const fetch = vi.fn()
+      .mockRejectedValueOnce(new TypeError('fetch failed', { cause: new Error('other side closed') }))
+      .mockResolvedValueOnce(ok([{ n: 3 }]));
+    await expect(d1Query('SELECT 3', [], { env: ENV, fetch, retryDelayMs: 0 })).resolves.toEqual([{ n: 3 }]);
+    expect(fetch).toHaveBeenCalledTimes(2);
+  });
+
+  it('propagates network failures once retries are exhausted', async () => {
     const fetch = vi.fn(async () => { throw new TypeError('fetch failed'); });
-    await expect(d1Query('SELECT 1', [], { env: ENV, fetch })).rejects.toThrow(/fetch failed/);
+    await expect(d1Query('SELECT 1', [], { env: ENV, fetch, retries: 2, retryDelayMs: 0 })).rejects.toThrow(/fetch failed/);
+    expect(fetch).toHaveBeenCalledTimes(3);
   });
 });

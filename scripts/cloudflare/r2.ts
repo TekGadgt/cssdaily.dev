@@ -1,6 +1,7 @@
 import { createHash } from 'crypto';
 import { AwsClient } from 'aws4fetch';
 import { requireEnv } from './env';
+import { withNetworkRetry } from './errors';
 
 export type Bucket = 'cssdaily-assets' | 'cssdaily-backups';
 
@@ -52,6 +53,11 @@ export function r2Client(
     initRetryMs: opts.retryDelayMs ?? 200,
   });
   const base = `https://${accountId}.r2.cloudflarestorage.com/${bucket}`;
+  // aws4fetch retries HTTP 429/5xx but not transport failures (e.g. a reused
+  // keep-alive socket the server already closed). Every operation here is
+  // safe to resend: putIfAbsent never overwrites, put targets mutable keys.
+  const send = (u: string, init: RequestInit) =>
+    withNetworkRetry(() => aws.fetch(u, init), opts.retries ?? 3, opts.retryDelayMs ?? 200);
 
   const url = (key: string) => {
     if (!KEY_RE.test(key) || key.split('/').some((seg) => seg === '.' || seg === '..')) {
@@ -65,7 +71,7 @@ export function r2Client(
   const head: R2Client['head'] = async (key) => {
     // Explicit method everywhere: aws4fetch defaults to POST when a body is
     // present and GET otherwise.
-    const res = await aws.fetch(url(key), { method: 'HEAD' });
+    const res = await send(url(key), { method: 'HEAD' });
     if (res.status === 404) return null;
     if (!res.ok) throw fail('HEAD', key, res);
     return {
@@ -76,7 +82,7 @@ export function r2Client(
 
   return {
     async putIfAbsent(key, body, { contentType, cacheControl }) {
-      const res = await aws.fetch(url(key), {
+      const res = await send(url(key), {
         method: 'PUT',
         headers: { 'Content-Type': contentType, 'Cache-Control': cacheControl, 'If-None-Match': '*' },
         // TS 5.7+ types Uint8Array<ArrayBufferLike> as not BodyInit; it is at runtime
@@ -93,7 +99,7 @@ export function r2Client(
     },
 
     async put(key, body, { contentType, cacheControl }) {
-      const res = await aws.fetch(url(key), {
+      const res = await send(url(key), {
         method: 'PUT',
         headers: { 'Content-Type': contentType, 'Cache-Control': cacheControl },
         // TS 5.7+ types Uint8Array<ArrayBufferLike> as not BodyInit; it is at runtime
@@ -105,7 +111,7 @@ export function r2Client(
     head,
 
     async get(key) {
-      const res = await aws.fetch(url(key), { method: 'GET' });
+      const res = await send(url(key), { method: 'GET' });
       if (!res.ok) throw fail('GET', key, res);
       return new Uint8Array(await res.arrayBuffer());
     },

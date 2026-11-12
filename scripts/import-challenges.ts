@@ -17,6 +17,7 @@ import * as path from 'path';
 import { isDeepStrictEqual } from 'util';
 import { fileURLToPath, pathToFileURL } from 'url';
 import { d1Query } from './cloudflare/d1';
+import { describeError } from './cloudflare/errors';
 import { md5Hex, r2Client } from './cloudflare/r2';
 import { MODES, ROW_COLUMNS, insertStatement, isLegacyFileName, toRow, type ChallengeJson, type ChallengeRow, type Mode } from './challenge-rows';
 import { REPO_DIRS, challengeKey, pullFromD1, writeDataLayout } from './data-pull';
@@ -183,7 +184,7 @@ async function main() {
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((err) => {
-    console.error(err instanceof Error ? err.message : err);
+    console.error(describeError(err));
     process.exitCode = 1;
   });
 }

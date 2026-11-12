@@ -66,6 +66,18 @@ describe('r2Client', () => {
     await expect(client().putIfAbsent('targets/css/a.webp', BYTES, IMMUTABLE)).rejects.toThrow(/PUT .* failed: HTTP/);
   });
 
+  it('retries a dropped connection and still never overwrites', async () => {
+    // The PUT may have landed before the connection dropped: the retry then
+    // sees 412, compares checksums, and reports 'identical'.
+    stubFetch(
+      new TypeError('fetch failed', { cause: new Error('other side closed') }),
+      new Response(null, { status: 412 }),
+      new Response(null, { status: 200, headers: { etag: `"${md5Hex(BYTES)}"`, 'content-length': String(BYTES.length) } })
+    );
+    const retrying = r2Client('cssdaily-assets', { env: ENV, retries: 2, retryDelayMs: 0 });
+    await expect(retrying.putIfAbsent('targets/css/a.webp', BYTES, IMMUTABLE)).resolves.toBe('identical');
+  });
+
   it('putIfAbsent propagates network failures', async () => {
     stubFetch(new TypeError('fetch failed'));
     await expect(client().putIfAbsent('targets/css/a.webp', BYTES, IMMUTABLE)).rejects.toThrow(/fetch failed/);
