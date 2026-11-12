@@ -54,16 +54,19 @@ For Tailwind challenges, the diff engine uses iframes with `allow-scripts` sandb
 
 1. A GitHub Actions cron job runs daily at 6am UTC
 2. The configured AI provider generates a new CSS challenge and a new Tailwind challenge (independently, with `continue-on-error`)
-3. Playwright renders the target to a screenshot PNG for each challenge
-4. The challenge JSONs and target images are committed to the repo
-5. The site automatically rebuilds and deploys to Cloudflare Workers
+3. Playwright renders each challenge's target code and screenshots it (encoded as lossless WebP)
+4. Each target image is uploaded to Cloudflare R2 (served from `assets.cssdaily.dev`), then its challenge is inserted into Cloudflare D1
+5. The generator triggers the Deploy workflow, which pulls the challenges from D1, rebuilds the site, and deploys it to Cloudflare Workers
 
 ## Local Development
 
 ```bash
 npm install
+npm run data:pull   # downloads the challenge data; no credentials needed
 npm run dev
 ```
+
+Challenge data lives in Cloudflare D1, not the repo. `npm run data:pull` writes it to the gitignored `.data/` directory. It reads D1 directly if a D1 token is set in `.env`, and otherwise downloads the public snapshot from `assets.cssdaily.dev`. Run it again whenever you want newer challenges.
 
 Challenge generation defaults to OpenAI with `gpt-5.6-terra`. Configure it in `.env`:
 
