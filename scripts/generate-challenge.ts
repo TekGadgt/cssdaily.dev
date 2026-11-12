@@ -9,6 +9,7 @@ import { existingChallenges, publishChallenge, recentTitles } from './publish-ch
 import { cssChallengeFieldsSchema, parseCssChallengeXml, type ChallengeFields } from './challenge-schemas';
 import { createGenerationProvider, type GenerationMessage, type GenerationProvider } from './generation-provider';
 import { buildCssChallenge } from './challenge-artifacts';
+import { normalizeStarterCssDetailed } from './starter-css';
 
 
 const SYSTEM_PROMPT_BASE = `You are a CSS challenge generator for a "Wordle for CSS" game. Generate a self-contained CSS challenge that users will try to replicate. The user prompt names the target difficulty — calibrate the challenge to it.
@@ -103,7 +104,26 @@ async function generateOne(
       });
       continue;
     }
-    const parsed = result.data;
+    // Canonical starter layout (`selector {` blank line `}`), whatever the
+    // model's formatting. Unbalanced braces get a regeneration, not a guess;
+    // a lone stray `}` (which browsers ignore) is dropped and reported.
+    let starter: ReturnType<typeof normalizeStarterCssDetailed>;
+    try {
+      starter = normalizeStarterCssDetailed(result.data.starterCss, { dropStrayBraces: true });
+    } catch (err) {
+      console.warn(`[${difficulty}] Attempt ${attempt}: starter CSS doesn't parse — ${(err as Error).message}`);
+      if (attempt === MAX_ATTEMPTS) throw err;
+      messages.push({ role: 'assistant', content: result.assistantContent });
+      messages.push({
+        role: 'user',
+        content: 'Your starter CSS has unbalanced braces. Return the complete challenge again; the starter CSS must be the same :root block plus one empty `selector {}` stub per selector in the target CSS, with balanced braces.',
+      });
+      continue;
+    }
+    if (starter.strayBraces) {
+      console.log(`::warning::CSS ${difficulty} starter for ${date} had ${starter.strayBraces} stray "}" — removed`);
+    }
+    const parsed = { ...result.data, starterCss: starter.css };
 
     // Render the target and measure the component (this render is also
     // reused for the screenshot once the size is accepted)
